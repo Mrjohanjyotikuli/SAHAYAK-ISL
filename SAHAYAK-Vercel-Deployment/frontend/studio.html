@@ -98,10 +98,10 @@ select, input, textarea { max-width: 100%; font-size: 16px; }
 
 <section class="panel" style="margin-top:20px" id="continuousSection">
 <h2>Continuous Sign Recognition</h2>
-<p class="status">Continuous mode collects 132 temporal features per valid frame (126 pose values plus six wrist-position values). Training accepts any non-empty variable-length sequence; live recognition uses a rolling 60-frame window.</p>
+<p class="status">Continuous mode collects 132 temporal features per valid frame (126 pose values plus six wrist-position values). Training accepts any non-empty variable-length sequence; live recognition predicts segmented windows of 15–90 valid frames; a short pause helps separate signs.</p>
 <div class="controls"><button id="continuousStart">Start continuous</button><button id="continuousStop" class="secondary" disabled>Stop continuous</button><button id="continuousClear" class="secondary">Clear window</button></div>
 <div class="status" id="continuousStatus">Ready. Start the camera first; then start continuous capture.</div>
-<div class="confidence" id="frameProgress">Frames: 0 / 60</div>
+<div class="confidence" id="frameProgress">Live segment: 0/90 · Training sample: 0 valid frames</div>
 <div class="controls"><label>Training label <input id="sequenceLabel" maxlength="60" placeholder="e.g. HELLO" style="padding:10px;border-radius:10px;background:#08111f;color:var(--text);border:1px solid #38516f"></label><button id="saveSequence" class="secondary" disabled>Save captured sample</button><button id="exportSequences" class="secondary">Export samples JSON</button></div>
 <div class="status" id="sampleStatus">Each saved sample is stored in continuous_gesture_db.db on the Python backend. Only landmark features are stored, not camera images.</div>
 <div class="divider"></div><h2>Translation & translated speech</h2>
@@ -133,8 +133,8 @@ const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || (navig
 const frameIntervalMs = isMobile ? 100 : 70;
 const SIGN_TEXT={HELLO:'Hello',YES:'Yes',NO:'No',I_LOVE_YOU:'I love you',THANK_YOU:'Thank you'};
 function readableSign(label){return SIGN_TEXT[label]||String(label||'').replace(/_/g,' ').toLowerCase().replace(/\b\w/g,c=>c.toUpperCase());}
-const API_BASE=(window.SAHAYAK_API_BASE||'').replace(/\/$/,'');
-async function checkStatus(){try{const r=await fetch(API_BASE+'/api/status',{cache:'no-store'});if(!r.ok)throw Error('API status');const d=await r.json();statusEl.textContent=d.ready?('Single-sign model ready. '+(d.sequence_model_ready?'Continuous model ready.':'Continuous model not trained yet; collect samples and train it.')):'Backend is online, but the single-sign model is not ready.';statusEl.classList.toggle('warning',!d.ready);}catch(e){statusEl.textContent='Recognition service offline. Offline phrase pad can still be used.';statusEl.classList.add('warning');}}
+const API_BASE=(window.SAHAYAK_API_BASE||'https://sahayak-backend-krh1.onrender.com').replace(/\/$/,'');
+async function checkStatus(){try{const results=await Promise.all([fetch(API_BASE+'/api/health',{cache:'no-store'}),fetch(API_BASE+'/api/status',{cache:'no-store'})]);const healthResponse=results[0],statusResponse=results[1];if(!healthResponse.ok||!statusResponse.ok)throw Error('Backend health/status check failed');const health=await healthResponse.json();const d=await statusResponse.json();const details=[health.ok?'API reachable':'API health check failed',d.ready?'Single-sign model ready':('Single-sign model unavailable'+(d.model_error?': '+d.model_error:'')),d.sequence_model_ready?'Continuous-sign model ready':('Continuous-sign model unavailable'+(d.sequence_error?': '+d.sequence_error:'')),'Saved sequence samples: '+(d.sequence_database&&d.sequence_database.total_samples!=null?d.sequence_database.total_samples:0)];statusEl.textContent=details.join(' · ');statusEl.classList.toggle('warning',!health.ok||!d.ready||!d.sequence_model_ready);}catch(e){statusEl.textContent='Recognition API unavailable. Camera recognition and online translation need a working backend; the saved phrase pad and installed-device speech can still be used.';statusEl.classList.add('warning');}}
 function clearAnnotations(){actx.clearRect(0,0,annotation.width,annotation.height);}
 
 function drawAnnotations(items) {
@@ -242,6 +242,7 @@ async function predictFrame(){
     if(generation!==cameraGeneration || stopped)return;
     const d=await r.json();
     if(!r.ok){stateEl.textContent='Model not ready';outputEl.textContent=d.error||'Recognition unavailable.';clearAnnotations();return;}
+    statusEl.classList.remove('warning');
     drawAnnotations(d.landmarks||[]);
     if(Array.isArray(d.sequence_features)&&d.sequence_features.length===132&&d.valid_features===true)handleSequenceFrame(d.sequence_features);
     else if(seqState.active&&d.valid_features===false)setSeqStatus('No hand detected in this camera frame; move your hand into view. Only valid landmark frames are counted.');
@@ -252,7 +253,7 @@ async function predictFrame(){
         if(d.sign!==lastSign||now-lastAcceptedAt>2500){addHistory('single-sign',readable,d.confidence);lastAcceptedAt=now;}
         if(d.sign!==lastSign)tryAutoSpeak(readable);
         lastSign=d.sign;
-      }else{lastAutoSpokenSign='';stateEl.textContent=d.hands?'Sign uncertain':'Searching for hands';if(d.message)outputEl.textContent=d.message;}
+      }else{lastAutoSpokenSign='';signEl.textContent='—';confidenceEl.textContent=d.hands?'Confidence: below recognition threshold':'Confidence: —';stateEl.textContent=d.hands?'Sign uncertain':'Searching for hands';if(d.message)outputEl.textContent=d.message;}
     }else stateEl.textContent='Continuous mode';
   }catch(e){
     if(generation!==cameraGeneration||stopped)return;
@@ -264,10 +265,33 @@ async function predictFrame(){
     if(!stopped&&stream&&generation===cameraGeneration)loopHandle=setTimeout(predictFrame,frameIntervalMs);
   }
 }
-async function loadCameras(){if(!navigator.mediaDevices?.getUserMedia){cameraSelect.innerHTML='<option value="">No supported camera API</option>';return;}const previous=cameraSelect.value;try{const temp=await navigator.mediaDevices.getUserMedia({video:true,audio:false});temp.getTracks().forEach(t=>t.stop());const devices=await navigator.mediaDevices.enumerateDevices();const cameras=devices.filter(d=>d.kind==='videoinput');cameraSelect.innerHTML='<option value="">Auto ('+(facingMode==='user'?'front':'rear')+')</option>';cameras.forEach((device,i)=>{const option=document.createElement('option');option.value=device.deviceId;option.textContent=device.label||`Camera ${i+1}`;cameraSelect.appendChild(option);});if(previous && [...cameraSelect.options].some(o=>o.value===previous))cameraSelect.value=previous;else cameraSelect.value='';if(!cameras.length)cameraSelect.innerHTML='<option value="">No camera found</option>';}catch(e){cameraSelect.innerHTML='<option value="">Allow camera permission first</option>';}}
+async function loadCameras(){
+  if(!navigator.mediaDevices?.enumerateDevices){
+    cameraSelect.innerHTML='<option value="">Camera selection unavailable</option>';
+    return;
+  }
+  const previous=cameraSelect.value;
+  try{
+    // Enumerate only. Do not prompt for camera permission until the user presses Start camera.
+    const devices=await navigator.mediaDevices.enumerateDevices();
+    const cameras=devices.filter(d=>d.kind==='videoinput');
+    cameraSelect.innerHTML='<option value="">Auto ('+(facingMode==='user'?'front':'rear')+')</option>';
+    cameras.forEach((device,i)=>{
+      const option=document.createElement('option');
+      option.value=device.deviceId;
+      option.textContent=device.label||('Camera '+(i+1));
+      cameraSelect.appendChild(option);
+    });
+    if(previous&&[...cameraSelect.options].some(o=>o.value===previous))cameraSelect.value=previous;
+    else cameraSelect.value='';
+    if(!cameras.length)cameraSelect.innerHTML='<option value="">Camera list will appear after permission</option>';
+  }catch(e){
+    cameraSelect.innerHTML='<option value="">Camera selection unavailable</option>';
+  }
+}
 async function startCamera(){
   try{
-    if(!window.isSecureContext&&location.hostname!=='localhost'&&location.hostname!=='127.0.0.1')throw Error('Camera requires HTTPS. Open the Netlify HTTPS URL.');
+    if(!window.isSecureContext&&location.hostname!=='localhost'&&location.hostname!=='127.0.0.1')throw Error('Camera requires HTTPS. Open the HTTPS SAHAYAK website.');
     if(!navigator.mediaDevices?.getUserMedia)throw Error('This browser does not support camera access.');
     startBtn.disabled=true;statusEl.classList.remove('warning');
     const selectedId=cameraSelect.value;
@@ -307,15 +331,15 @@ document.getElementById('switchCamera').addEventListener('click',async()=>{
   else{video.style.transform=facingMode==='user'?'scaleX(-1)':'none';annotation.style.transform=facingMode==='user'?'scaleX(-1)':'none';statusEl.textContent=`${facingMode==='user'?'Front':'Rear'} camera selected. Tap Start camera.`;}
 });
 function stopCamera(){stopped=true;cameraGeneration++;if(activeController)activeController.abort();if(loopHandle)clearTimeout(loopHandle);loopHandle=null;if(stream)stream.getTracks().forEach(t=>t.stop());stream=null;video.srcObject=null;placeholder.hidden=false;startBtn.disabled=false;stopBtn.disabled=true;busy=false;stateEl.textContent='Camera stopped';clearAnnotations();}
-stopBtn.addEventListener('click',stopCamera);document.getElementById('clear').addEventListener('click',()=>{signEl.textContent='—';confidenceEl.textContent='Confidence: —';outputEl.textContent='Output cleared.';stateEl.textContent='Waiting for sign';lastSign='';clearAnnotations();});
-document.getElementById('appendSign').addEventListener('click',()=>{if(!lastSign){speechStatus.textContent='No recognized sign to add yet.';return;}phrase.value+=(phrase.value.trim()?' ':'')+lastSign;phrase.dispatchEvent(new Event('input'));document.getElementById('manualText').value=phrase.value;});
+stopBtn.addEventListener('click',stopCamera);document.getElementById('clear').addEventListener('click',()=>{signEl.textContent='—';confidenceEl.textContent='Confidence: —';outputEl.textContent='Output cleared.';stateEl.textContent='Waiting for sign';lastSign='';lastRecognizedText='';$('manualText').value='';clearAnnotations();});
+document.getElementById('appendSign').addEventListener('click',()=>{if(!lastRecognizedText){speechStatus.textContent='No recognized sign yet. Show a trained sign to the camera first.';return;}phrase.value+=(phrase.value.trim()?' ':'')+lastRecognizedText;phrase.dispatchEvent(new Event('input'));document.getElementById('manualText').value=phrase.value;});
 phrase.addEventListener('input',()=>{try{localStorage.setItem('sahayak_phrase',phrase.value);}catch(e){}});try{phrase.value=localStorage.getItem('sahayak_phrase')||'';}catch(e){}
 try{$('sourceLanguage').value=localStorage.getItem('sahayak_source_language')||'en';}catch(e){}$('sourceLanguage').addEventListener('change',()=>{try{localStorage.setItem('sahayak_source_language',$('sourceLanguage').value);}catch(e){}});
 document.getElementById('speak').addEventListener('click',()=>{const text=phrase.value.trim();if(!text){speechStatus.textContent='Type a phrase first.';return;}if(!('speechSynthesis'in window)){speechStatus.textContent='This browser does not provide speech synthesis.';return;}window.speechSynthesis.cancel();const utterance=new SpeechSynthesisUtterance(text);utterance.lang=$('sourceLanguage').value;const matchingVoice=speechSynthesis.getVoices().find(v=>v.lang.toLowerCase().startsWith(utterance.lang.toLowerCase()));if(matchingVoice)utterance.voice=matchingVoice;utterance.onstart=()=>speechStatus.textContent='Speaking…';utterance.onend=()=>speechStatus.textContent='Finished speaking.';utterance.onerror=()=>speechStatus.textContent='Speech failed. Check whether your phone has a compatible voice installed.';window.speechSynthesis.speak(utterance);});
 document.getElementById('stopSpeech').addEventListener('click',()=>{if('speechSynthesis'in window)window.speechSynthesis.cancel();speechStatus.textContent='Speech stopped.';});document.getElementById('clearPhrase').addEventListener('click',()=>{phrase.value='';try{localStorage.removeItem('sahayak_phrase')}catch(e){}speechStatus.textContent='Phrase cleared on this device.';});
 
 // Translation, local history, and variable-length sequence workflow.
-const seqState={active:false,collecting:false,recognitionMode:'single',frames:[],segmentFrames:[],lastFeature:null,stillFrames:0,sampleFrames:[],samples:[],lastPredAt:0,predictionBusy:false,lastSequenceSign:'',autoSpeak:true};
+const seqState={active:false,collecting:false,recognitionMode:'single',frames:[],segmentFrames:[],lastFeature:null,stillFrames:0,sampleFrames:[],samples:[],lastPredAt:0,predictionBusy:false,lastSequenceSign:'',lastSequenceAt:0,autoSpeak:true};
 const MAX_SEQUENCE_CAPTURE_FRAMES=600;
 // Live segmentation: send a complete movement/hold segment on a short pause,
 // with a hard cap so continuous motion cannot grow the buffer indefinitely.
@@ -362,18 +386,22 @@ async function predictSequenceWindow(frames){
       signEl.textContent=readable;confidenceEl.textContent='Sequence confidence: '+(d.confidence==null?'not provided':d.confidence+'%')+' · '+d.frames+' frames';
       stateEl.textContent='Continuous sign recognized';outputEl.textContent=readable;lastRecognizedText=readable;$('manualText').value=readable;
     }
-    if(d.sign!==seqState.lastSequenceSign){
+    const recognizedAt=Date.now();
+    const shouldEmit=d.sign!==seqState.lastSequenceSign||recognizedAt-seqState.lastSequenceAt>=1200;
+    if(shouldEmit){
       seqState.lastSequenceSign=d.sign;
+      seqState.lastSequenceAt=recognizedAt;
       if(seqState.recognitionMode==='continuous'){
-        phrase.value+=(phrase.value.trim()?' ':'')+readable;phrase.dispatchEvent(new Event('input'));$('manualText').value=phrase.value;addHistory('continuous',readable,d.confidence);tryAutoSpeak(readable);
+        lastSign=d.sign;lastRecognizedText=readable;
+        phrase.value+=(phrase.value.trim()?' ':'')+readable;phrase.dispatchEvent(new Event('input'));$('manualText').value=readable;addHistory('continuous',readable,d.confidence);tryAutoSpeak(readable);
       }
     }
   }catch(e){setSeqStatus(e.name==='AbortError'?'Sequence prediction timed out. Check your connection or backend load.':'Sequence endpoint unavailable. Check the backend connection.');}
   finally{clearTimeout(timeout);seqState.predictionBusy=false;}
 }
-$('continuousStart').addEventListener('click',()=>{if(!stream){setSeqStatus('Start the webcam first using Start camera.');return;}seqState.active=true;seqState.collecting=true;seqState.frames=[];seqState.sampleFrames=[];$('continuousStart').disabled=true;$('continuousStop').disabled=false;$('saveSequence').disabled=true;setSeqStatus('Recording a complete training sample. Keep both hands visible and perform the full sign. Press Stop when finished; any non-empty number of valid frames is accepted, and longer samples are retained.');});
-$('continuousStop').addEventListener('click',()=>{seqState.active=false;seqState.collecting=false;$('continuousStart').disabled=false;$('continuousStop').disabled=true;$('saveSequence').disabled=seqState.sampleFrames.length<1||!$('sequenceLabel').value.trim();setSeqStatus(`Capture stopped. Full training sample: ${seqState.sampleFrames.length} valid frames. The rolling recognition window remains limited to 60 frames for speed; the saved training sample retains its full variable length.`);});
-$('continuousClear').addEventListener('click',()=>{seqState.frames=[];seqState.sampleFrames=[];$('frameProgress').textContent='Prediction window: 0/60 · Training sample: 0 valid frames (minimum 1)';$('saveSequence').disabled=true;setSeqStatus('Training sample and prediction window cleared.');});
+$('continuousStart').addEventListener('click',()=>{if(!stream){setSeqStatus('Start the webcam first using Start camera.');return;}seqState.active=true;seqState.collecting=true;seqState.frames=[];seqState.segmentFrames=[];seqState.lastFeature=null;seqState.stillFrames=0;seqState.sampleFrames=[];$('continuousStart').disabled=true;$('continuousStop').disabled=false;$('saveSequence').disabled=true;setSeqStatus('Recording a complete training sample. Keep both hands visible and perform the full sign. Press Stop when finished; any non-empty number of valid frames is accepted, and longer samples are retained.');});
+$('continuousStop').addEventListener('click',()=>{seqState.active=false;seqState.collecting=false;$('continuousStart').disabled=false;$('continuousStop').disabled=true;$('saveSequence').disabled=seqState.sampleFrames.length<1||!$('sequenceLabel').value.trim();setSeqStatus(`Capture stopped. Full training sample: ${seqState.sampleFrames.length} valid frames. Live recognition uses short segments of 15–90 valid frames; the saved training sample retains its full variable length.`);});
+$('continuousClear').addEventListener('click',()=>{seqState.frames=[];seqState.sampleFrames=[];$('frameProgress').textContent='Live segment: 0/90 · Training sample: 0 valid frames';$('saveSequence').disabled=true;setSeqStatus('Training sample and prediction window cleared.');});
 $('sequenceLabel').addEventListener('input',()=>{$('saveSequence').disabled=seqState.sampleFrames.length<1||!$('sequenceLabel').value.trim();});
 $('saveSequence').addEventListener('click',async()=>{const label=$('sequenceLabel').value.trim().toUpperCase().replace(/\s+/g,'_');const frames=seqState.sampleFrames.slice();if(!label||frames.length<1){$('sampleStatus').textContent=`Enter a label and capture at least one valid hand frame first; current sample has ${frames.length}.`;return;}if(frames.length>MAX_SEQUENCE_CAPTURE_FRAMES){$('sampleStatus').textContent=`Sample exceeds the ${MAX_SEQUENCE_CAPTURE_FRAMES}-frame safety limit. Please split it into separate labelled samples.`;return;}$('saveSequence').disabled=true;$('sampleStatus').textContent=`Saving complete ${frames.length}-frame sample to the continuous-sign database…`;try{const r=await fetch(API_BASE+'/api/sequence/samples',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({label,frames}),cache:'no-store'});const d=await r.json();if(!r.ok)throw Error(d.error||'Database save failed.');seqState.samples.push({label,frames,created_at:new Date().toISOString()});$('sampleStatus').textContent=`Saved database sample #${d.id}: ${label}; ${d.frames} valid frames. Database total: ${d.summary.total_samples}. Collect varied samples for every label.`;refreshSequenceDb();}catch(e){$('sampleStatus').textContent=`Could not save to backend database: ${e.message}. You can still export a local JSON backup.`;seqState.samples.push({label,frames,created_at:new Date().toISOString()});}finally{$('saveSequence').disabled=seqState.sampleFrames.length<1||!$('sequenceLabel').value.trim();}});
 $('exportSequences').addEventListener('click',async()=>{try{const r=await fetch(API_BASE+'/api/sequence/export',{cache:'no-store'});if(r.ok){const samples=await r.json();if(samples.length){downloadSequenceJson(samples);$('sampleStatus').textContent=`Exported ${samples.length} samples from the continuous database to sahayak-sequences.json.`;return;}}}catch(e){}if(!seqState.samples.length){$('sampleStatus').textContent='No samples available. Save a sample to the backend database first.';return;}downloadSequenceJson(seqState.samples);$('sampleStatus').textContent=`Exported ${seqState.samples.length} browser-session samples as JSON backup.`;});
@@ -407,7 +435,7 @@ $('loadOfflinePhrase').addEventListener('click',()=>{offlineSelected=offlinePhra
 $('translateOfflinePhrase').addEventListener('click',()=>{offlineSelected=offlinePhrases[$('offlinePhrase').value];if(!offlineSelected)return;const source=$('sourceLanguage').value,target=$('targetLanguage').value;const original=offlineSelected[source]||offlineSelected.en;const translated=offlineSelected[target];if(!translated){$('offlinePhraseStatus').textContent='This saved phrase has no offline translation for '+(langNames[target]||target)+'. Choose a supported phrasebook language or use online translation.';return;} $('translatedText').value=translated;$('translationStatus').textContent='Offline phrasebook translation (no internet used). Original text is preserved.';$('offlinePhraseStatus').textContent='Offline translation ready: '+translated;addHistory('offline-phrase',original,null,translated,target);});
 $('speakOfflinePhrase').addEventListener('click',()=>{offlineSelected=offlinePhrases[$('offlinePhrase').value];if(offlineSelected){const source=$('sourceLanguage').value;const text=offlineSelected[source]||offlineSelected.en;phrase.value=text;phrase.dispatchEvent(new Event('input'));speakText(text,source);}});
 $('speakOfflineTranslation').addEventListener('click',()=>{offlineSelected=offlinePhrases[$('offlinePhrase').value];if(!offlineSelected)return;const target=$('targetLanguage').value;const translated=offlineSelected[target];if(!translated){$('offlinePhraseStatus').textContent='No saved offline translation for that language. Use English, Hindi, Assamese or Bengali, or translate online.';return;}$('translatedText').value=translated;speakText(translated,target);});
-function tryAutoSpeak(text){if(!autoSpeakControl.checked||!text)return;const now=Date.now();if(text===lastAutoSpokenSign&&now-lastAutoSpokenAt<5000)return;lastAutoSpokenSign=text;lastAutoSpokenAt=now;speakText(text,$('sourceLanguage').value);}
+function tryAutoSpeak(text){if(!autoSpeakControl.checked||!text)return;const now=Date.now();if(text===lastAutoSpokenSign&&now-lastAutoSpokenAt<1500)return;lastAutoSpokenSign=text;lastAutoSpokenAt=now;speakText(text,$('sourceLanguage').value);}
 function addHistory(mode,text,confidence=null,translated='',target=''){let arr=[];try{arr=JSON.parse(localStorage.getItem('sahayak_history')||'[]')}catch(e){}arr.unshift({id:Date.now()+'-'+Math.random().toString(36).slice(2),time:new Date().toISOString(),mode,text,confidence,translated,target});arr=arr.slice(0,200);try{localStorage.setItem('sahayak_history',JSON.stringify(arr))}catch(e){}renderHistory();}
 function renderHistory(){let arr=[];try{arr=JSON.parse(localStorage.getItem('sahayak_history')||'[]')}catch(e){}const host=$('historyList');if(!arr.length){host.textContent='No history yet.';return;}host.innerHTML='';for(const item of arr){const row=document.createElement('div');row.style.cssText='display:flex;gap:10px;align-items:start;justify-content:space-between;border-bottom:1px solid #243750;padding:9px 0';const body=document.createElement('div');body.textContent=`${new Date(item.time).toLocaleString()} · ${item.mode} · ${item.text}${item.confidence==null?'':` · ${item.confidence}%`}${item.translated?` → ${item.translated} (${item.target})`:''}`;const del=document.createElement('button');del.className='secondary';del.textContent='Remove';del.addEventListener('click',()=>{let all=JSON.parse(localStorage.getItem('sahayak_history')||'[]').filter(x=>x.id!==item.id);localStorage.setItem('sahayak_history',JSON.stringify(all));renderHistory();});row.append(body,del);host.append(row);}}
 $('refreshHistory').addEventListener('click',renderHistory);$('clearHistory').addEventListener('click',()=>{localStorage.removeItem('sahayak_history');renderHistory();});renderHistory();
