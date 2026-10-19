@@ -855,7 +855,7 @@ img,canvas,video,svg{max-width:100%}section,article,.rounded-3xl,.rounded-2xl{mi
         function clearCustomPhrase(){const input=document.getElementById('custom-phrase-input'),output=document.getElementById('custom-phrase-translation');if(input)input.value='';if(output)output.value='';setPhraseStatus('Phrase cleared. Your saved My Phrases are unchanged.');}
 
 
-        function readableDatasetLabel(label){return String(label||'').replace(/_/g,' ').toLowerCase().replace(/\\b\\w/g,c=>c.toUpperCase());}
+        function readableDatasetLabel(label){return String(label||'').replace(/_/g,' ').toLowerCase().replace(/\b\w/g,c=>c.toUpperCase());}
         function setDatasetValue(id,value){const el=document.getElementById(id);if(el)el.textContent=String(value);}
         async function loadLiveDatasetStats(){
           setDatasetValue('dataset-live-status','Checking the deployed model and saved-sample database…');
