@@ -115,34 +115,81 @@
     </style>
 
 <style id="sahayak-live-studio-styles">
-#mod-studio .panel{background:linear-gradient(145deg,rgba(15,23,42,.97),rgba(11,19,43,.97));border:1px solid #293548;border-radius:1.25rem;padding:1.1rem;box-shadow:0 16px 40px rgba(0,0,0,.22)}
-#mod-studio .recognition-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);gap:1.25rem}
-#mod-studio h2{font-size:1rem;font-weight:750;margin:0 0 .9rem;color:#f8fafc}
-#mod-studio h3{font-size:.95rem;font-weight:700;margin:.6rem 0;color:#f8fafc}
-#mod-studio .video-wrap{position:relative;background:#020617;border:1px solid #263244;border-radius:1rem;overflow:hidden;aspect-ratio:4/3;width:100%;max-height:70svh;display:grid;place-items:center;contain:layout paint}
+#mod-studio{display:flex;flex-direction:column;gap:1.15rem;width:100%;max-width:84rem;margin-inline:auto;padding-bottom:1.5rem}
+#mod-studio>*{margin-top:0!important;margin-bottom:0!important}
+#mod-studio [hidden]{display:none!important}
+#mod-studio .studio-page-heading{margin:0!important;padding:1.15rem 1.35rem;gap:1rem}
+#mod-studio .studio-page-heading h2{font-size:1.2rem;line-height:1.3;margin:0;color:#f8fafc}
+#mod-studio .studio-page-heading p{margin:.4rem 0 0;color:#adbbce;line-height:1.45}
+#mod-studio .studio-top-status{display:inline-flex;align-items:center;justify-content:center;background:#1c293b;border:1px solid #38485f;color:#cbd5e1;border-radius:999px;padding:.55rem .85rem;font-size:.74rem;font-weight:700;white-space:normal;text-align:center}
+#mod-studio .panel{background:linear-gradient(145deg,rgba(15,23,42,.98),rgba(11,19,43,.97));border:1px solid #293548;border-radius:1.25rem;padding:clamp(1rem,2vw,1.4rem);box-shadow:0 16px 40px rgba(0,0,0,.18);min-width:0;display:flex;flex-direction:column;gap:.9rem;margin:0!important}
+#mod-studio h2,#mod-studio h3{margin:0;color:#f8fafc;line-height:1.3}
+#mod-studio h2{font-size:1.05rem;font-weight:800}#mod-studio h3{font-size:.93rem;font-weight:750}#mod-studio p{margin:0;line-height:1.55}
+#mod-studio .section-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:.8rem;min-width:0}
+#mod-studio .section-heading h2,#mod-studio .section-heading h3{margin-top:.15rem}
+#mod-studio .section-heading p{color:#9fb0c7;font-size:.8rem;margin-top:.35rem;max-width:54rem}
+#mod-studio .section-heading-row{align-items:center;flex-wrap:wrap}
+#mod-studio .section-kicker{display:block;color:#f0a35b;font-size:.66rem;font-weight:850;letter-spacing:.14em;margin-bottom:.35rem}
+#mod-studio .info-chip,#mod-studio .camera-live-badge{display:inline-flex;align-items:center;gap:.45rem;max-width:100%;background:#17283a;border:1px solid #30465f;border-radius:999px;padding:.5rem .75rem;color:#c0d0e4;font-size:.72rem;font-weight:700}
+#mod-studio .offline-chip{color:#8ee1b0;background:#102b25;border-color:#225b49}
+#mod-studio .mode-panel{gap:.9rem}#mod-studio .mode-choice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}
+#mod-studio .mode-choice{display:flex;align-items:center;justify-content:flex-start;text-align:left;gap:.8rem;min-width:0;background:#8e2331!important;border:1px solid #a84852!important}
+#mod-studio .mode-choice.secondary{background:#1c293b!important;border-color:#344359!important}
+#mod-studio .mode-choice>i{font-size:1.15rem;flex:none}#mod-studio .mode-choice span{display:flex;flex-direction:column;gap:.2rem}
+#mod-studio .mode-choice strong{font-size:.9rem}#mod-studio .mode-choice small{font-size:.72rem;font-weight:500;color:#e2e8f0;line-height:1.35}
+#mod-studio .recognition-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(18rem,.85fr);gap:1.15rem;align-items:stretch}
+#mod-studio .video-wrap{position:relative;background:#020617;border:1px solid #263244;border-radius:1rem;overflow:hidden;aspect-ratio:4/3;width:100%;max-height:68svh;display:grid;place-items:center;contain:layout paint;isolation:isolate}
 #mod-studio .video-wrap video,#mod-studio .video-wrap canvas.annotation{position:absolute;inset:0;width:100%;height:100%;object-fit:fill}
 #mod-studio .video-wrap video{transform:scaleX(-1);backface-visibility:hidden;will-change:transform}
 #mod-studio .video-wrap canvas.annotation{transform:scaleX(-1);pointer-events:none;z-index:2}
 #mod-studio .video-placeholder{position:absolute;color:#a9b8cc;text-align:center;padding:20px;font-size:.9rem;max-width:90%;z-index:3}
-#mod-studio .controls{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center;margin-top:.85rem}
-#mod-studio .controls label{display:flex;align-items:center;gap:.5rem;color:#cbd5e1;font-size:.8rem;max-width:100%}
-#mod-studio button{border:1px solid rgba(255,153,51,.5);border-radius:.75rem;padding:.65rem .9rem;font-weight:700;min-height:44px;cursor:pointer;background:linear-gradient(135deg,#c8102e,#a50e29);color:#fff;transition:filter .15s ease,transform .15s ease}
-#mod-studio button:hover{filter:brightness(1.12)}
-#mod-studio button:active{transform:translateY(1px)}
-#mod-studio button.secondary{background:#1e293b;color:#e2e8f0;border-color:#334155}
+#mod-studio .camera-controls{display:flex;flex-direction:column;gap:.7rem}#mod-studio .camera-select-label{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;color:#cbd5e1;font-size:.8rem;font-weight:650}
+#mod-studio .controls,#mod-studio .continuous-controls{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center;margin:0}
+#mod-studio button{border:1px solid rgba(255,153,51,.42);border-radius:.75rem;padding:.7rem .9rem;font-weight:750;font-size:.78rem;line-height:1.25;min-height:42px;cursor:pointer;background:linear-gradient(135deg,#c8102e,#a50e29);color:#fff;transition:filter .15s ease,transform .15s ease;display:inline-flex;align-items:center;justify-content:center;gap:.45rem;max-width:100%;white-space:normal;text-align:center}
+#mod-studio button:hover{filter:brightness(1.1)}#mod-studio button:active{transform:translateY(1px)}
+#mod-studio button.secondary{background:#1e293b!important;color:#e2e8f0;border-color:#334155}
 #mod-studio button:disabled{opacity:.45;cursor:not-allowed;transform:none}
 #mod-studio select,#mod-studio input,#mod-studio textarea{font:inherit;max-width:100%;border-radius:.65rem}
-#mod-studio select,#mod-studio input{min-height:42px}
-#mod-studio .status{color:#a8b7cc;font-size:.8rem;line-height:1.55;margin-top:.75rem}
-#mod-studio .status.warning{color:#ffd18b}
-#mod-studio .result{display:flex;flex-direction:column;min-height:100%}
-#mod-studio .eyebrow{color:#ff9933;font-size:.72rem;font-weight:800;letter-spacing:.12em}
-#mod-studio .prediction{font-size:clamp(2.5rem,6vw,4rem);font-weight:800;line-height:1.1;overflow-wrap:anywhere;margin:1rem 0 .6rem}
-#mod-studio .confidence{color:#a8b7cc;font-size:.85rem}
-#mod-studio .divider{height:1px;background:#293548;margin:1.3rem 0}
-#mod-studio .pill{display:inline-flex;align-self:flex-start;background:#122c2a;border:1px solid #276253;color:#7ee7b0;border-radius:999px;padding:.45rem .7rem;font-size:.75rem;margin-top:1rem}
-#mod-studio .status-dot{display:inline-block;width:8px;height:8px;background:#e7b65d;border-radius:50%;margin-right:7px}
-@media(max-width:780px){#mod-studio .recognition-grid{grid-template-columns:minmax(0,1fr)}#mod-studio .panel{padding:.9rem;border-radius:1rem}#mod-studio .controls{gap:.5rem}#mod-studio .controls button{flex:1 1 135px;padding:.65rem .6rem}#mod-studio .controls label{flex:1 1 100%;min-width:0}#mod-studio .controls select{width:100%;max-width:100%}}
+#mod-studio .studio-select,#mod-studio .studio-input{width:100%;min-width:0;min-height:44px;padding:.7rem .8rem;background:#08111f;color:#e2e8f0;border:1px solid #38516f}
+#mod-studio .field-label{display:block;color:#cbd5e1;font-size:.78rem;font-weight:700;margin:0}
+#mod-studio .studio-textarea{display:block;width:100%;min-width:0;resize:vertical;border-radius:.85rem;padding:.85rem .95rem;background:#08111f;border:1px solid #38516f;color:#f1f5f9;font:inherit;line-height:1.55}
+#mod-studio .studio-textarea:focus,#mod-studio .studio-select:focus,#mod-studio .studio-input:focus{outline:2px solid rgba(251,146,60,.35);outline-offset:1px;border-color:#fb923c}
+#mod-studio .phrase-pad-panel{gap:1.15rem}#mod-studio .phrase-language-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.85rem}
+#mod-studio .phrase-language-grid label,#mod-studio .offline-phrase-actions>label,#mod-studio .training-sample-grid>label{display:flex;flex-direction:column;align-items:stretch;gap:.4rem;min-width:0;color:#cbd5e1;font-size:.76rem;font-weight:700}
+#mod-studio .phrase-input{min-height:6.5rem}
+#mod-studio .action-group{display:flex;flex-direction:column;gap:.65rem;border-top:1px solid #293548;padding-top:1rem}
+#mod-studio .action-group h3{display:flex;align-items:center;gap:.5rem;color:#d5e0ed}#mod-studio .action-group h3 i{color:#f4a261}
+#mod-studio .phrase-actions-primary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.65rem}
+#mod-studio .phrase-actions-primary button{width:100%;min-height:48px}
+#mod-studio .phrase-actions-utility{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap}
+#mod-studio .checkbox-control{display:inline-flex;align-items:center;gap:.55rem;min-height:42px;padding:.55rem .75rem;border:1px solid #334155;border-radius:.75rem;background:#111c2b;color:#cbd5e1;font-size:.77rem;cursor:pointer}
+#mod-studio .checkbox-control input{width:18px;height:18px;accent-color:#e05260}
+#mod-studio .translation-output-card{display:flex;flex-direction:column;gap:.55rem;border:1px solid #293b50;background:rgba(5,13,25,.62);border-radius:1rem;padding:1rem;min-width:0}
+#mod-studio .translated-output{min-height:4.2rem;background:#0b1726;color:#a7f3d0}
+#mod-studio .status{color:#a8b7cc;font-size:.79rem;line-height:1.55;margin:0;overflow-wrap:anywhere}
+#mod-studio .status.warning{color:#ffd18b}#mod-studio .status-card{background:rgba(3,10,22,.45);border:1px solid #26384d;border-radius:.8rem;padding:.75rem .85rem}
+#mod-studio .status-dot{display:inline-block;width:8px;height:8px;background:#e7b65d;border-radius:50%;margin-right:7px;flex:none}
+#mod-studio .result{display:flex;flex-direction:column;gap:.9rem;min-height:100%}
+#mod-studio .result-summary{background:linear-gradient(145deg,rgba(27,42,65,.65),rgba(8,17,31,.8));border:1px solid #2c405a;border-radius:1rem;padding:1.2rem}
+#mod-studio .eyebrow{color:#ff9933;font-size:.7rem;font-weight:850;letter-spacing:.13em}
+#mod-studio .prediction{font-size:clamp(2.3rem,5vw,3.9rem);font-weight:850;line-height:1.08;overflow-wrap:anywhere;margin:.8rem 0 .45rem}
+#mod-studio .confidence{color:#a8b7cc;font-size:.82rem;line-height:1.5}
+#mod-studio .pill{display:inline-flex;align-self:flex-start;background:#122c2a;border:1px solid #276253;color:#7ee7b0;border-radius:999px;padding:.45rem .7rem;font-size:.73rem;margin-top:.7rem}
+#mod-studio .recognized-output{color:#d6e0ef;line-height:1.65;background:#08111f;border-radius:.75rem;padding:.85rem;border:1px solid #26384d;overflow-wrap:anywhere}
+#mod-studio .result-hint{margin-top:auto!important;padding-top:1rem;color:#98abc2;font-size:.78rem;display:flex;align-items:flex-start;gap:.5rem}
+#mod-studio .divider{height:1px;background:#293548;margin:.3rem 0}
+#mod-studio .offline-phrasebook-card{display:flex;flex-direction:column;gap:.85rem;border-top:1px solid #293548;padding-top:1.1rem}
+#mod-studio .offline-phrase-actions{display:grid;grid-template-columns:minmax(12rem,1.4fr) repeat(4,minmax(8.5rem,1fr));gap:.65rem;align-items:end}
+#mod-studio .continuous-panel{gap:1rem}#mod-studio .continuous-controls{padding:.2rem 0}
+#mod-studio .continuous-status-grid{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.8rem;align-items:stretch}
+#mod-studio .frame-progress-card{display:flex;flex-direction:column;justify-content:center;gap:.35rem;padding:.75rem .9rem;border-radius:.8rem;border:1px solid #293b50;background:#0b1726;min-width:9rem}
+#mod-studio .frame-progress-card strong{font-size:.9rem;color:#f1f5f9}
+#mod-studio .training-sample-card{display:flex;flex-direction:column;gap:.8rem;border-top:1px solid #293548;padding-top:1rem}
+#mod-studio .training-sample-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(18rem,1fr);gap:1rem;align-items:end}
+#mod-studio .training-sample-actions{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center}
+#mod-studio .training-sample-actions button{flex:1 1 12rem}
+@media(max-width:1000px){#mod-studio .recognition-grid{grid-template-columns:minmax(0,1fr)}#mod-studio .offline-phrase-actions{grid-template-columns:repeat(2,minmax(0,1fr))}#mod-studio .offline-phrase-actions>label{grid-column:1/-1}#mod-studio .phrase-actions-primary{grid-template-columns:repeat(2,minmax(0,1fr))}#mod-studio .training-sample-grid{grid-template-columns:minmax(0,1fr)}#mod-studio .training-sample-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){#mod-studio{gap:.85rem}#mod-studio .studio-page-heading{padding:1rem;align-items:flex-start}#mod-studio .studio-top-status{align-self:flex-start;border-radius:.75rem}#mod-studio .mode-choice-grid,#mod-studio .phrase-language-grid,#mod-studio .phrase-actions-primary,#mod-studio .continuous-status-grid{grid-template-columns:minmax(0,1fr)}#mod-studio .mode-choice{width:100%}#mod-studio .camera-action-buttons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}#mod-studio .camera-action-buttons button{width:100%;min-width:0}#mod-studio .offline-phrase-actions{grid-template-columns:minmax(0,1fr)}#mod-studio .offline-phrase-actions>label{grid-column:auto}#mod-studio .training-sample-actions{grid-template-columns:minmax(0,1fr)}#mod-studio .checkbox-control{width:100%}#mod-studio .panel{padding:.9rem;border-radius:1rem}}
 @media(prefers-reduced-motion:reduce){#mod-studio *{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -429,66 +476,116 @@
 
         <!-- MODULE 2: LIVE STUDIO -->
         <section id="mod-studio" class="tab-content hidden space-y-6">
-  <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/90 p-5 rounded-2xl border border-slate-800">
-    <div>
-      <h2 class="text-xl font-bold text-white flex items-center gap-2"><i class="fa-solid fa-video text-emerald-400"></i> Real-Time Gesture Recognition Studio</h2>
-      <p class="text-xs text-slate-400 mt-1">Live camera input and backend model predictions. No simulated gestures.</p>
-    </div>
-    <span class="px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-xs font-semibold">Render API connected</span>
+  <div class="studio-page-heading flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/90 p-5 rounded-2xl border border-slate-800">
+    <div><h2 class="text-xl font-bold text-white flex items-center gap-2"><i class="fa-solid fa-video text-emerald-400"></i> Real-Time Gesture Recognition Studio</h2>
+      <p class="text-xs text-slate-400 mt-1">Camera recognition, phrase building, translation, and speech in clearly separated work areas.</p></div>
+    <span class="studio-top-status">Backend configured · prediction testing in progress</span>
   </div>
-  <section class="panel" style="margin-bottom:20px" aria-label="Recognition mode">
-<h2>Choose recognition mode</h2>
-<div class="controls"><button id="modeSingle" type="button">1 · Single Sign</button><button id="modeContinuous" class="secondary" type="button">2 · Continuous Sign</button></div>
-<div class="status" id="modeStatus">Single Sign mode is selected. The original single-sign model is used.</div>
-</section>
-<div class="recognition-grid">
-<section class="panel">
-<h2>Camera input</h2>
-<div class="video-wrap"><video id="video" autoplay muted playsinline></video><canvas id="annotation" class="annotation" width="320" height="240"></canvas><div class="video-placeholder" id="placeholder">Start your camera to begin recognition.</div></div>
-<div class="controls"><label for="cameraSelect" style="display:flex;align-items:center;gap:8px;color:var(--muted);font-size:13px">Camera <select id="cameraSelect" style="max-width:240px;padding:10px;border-radius:10px;background:#243750;color:var(--text);border:1px solid #38516f"><option value="">Default camera</option></select></label><button id="start">Start camera</button><button id="switchCamera" class="secondary" type="button" aria-label="Switch between front and back camera">Switch front/back</button><button id="stop" class="secondary" disabled>Stop camera</button><button id="clear" class="secondary">Clear output</button></div>
-<div class="status" id="status"><span class="status-dot"></span>Checking model readiness…</div>
-<canvas id="canvas" width="640" height="480" hidden></canvas>
-</section>
-<section class="panel result">
-<div class="eyebrow">RECOGNIZED SIGN</div><div class="prediction" id="sign">—</div><div class="confidence" id="confidence">Confidence: —</div><div class="pill" id="state">Waiting for camera</div>
-<div class="divider"></div><h2>Recognized output</h2><p id="output" style="color:var(--muted);line-height:1.7;margin:0">Your recognized sign will appear here after you collect training samples and train the model.</p>
-<div style="margin-top:auto;padding-top:24px;color:var(--muted);font-size:13px">Show one or both hands clearly. The classifier must be trained on each sign you want it to recognize.</div>
-</section>
-</div>
-<section class="panel" style="margin-top:20px">
-<h2>Offline phrase pad</h2>
-<p class="status">Type in the language you know. Your text is saved on this device and remains available offline. Select the language you typed in and the language you want; translating arbitrary typed text needs internet, while saved phrasebook translations work offline.</p>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-<div class="controls"><label>Input language <select id="sourceLanguage" style="padding:10px;border-radius:10px;background:#243750;color:var(--text);border:1px solid #38516f"><option value="en">English</option><option value="hi">Hindi</option><option value="as">Assamese</option><option value="bn">Bengali</option><option value="ne">Nepali</option><option value="ta">Tamil</option><option value="te">Telugu</option><option value="mr">Marathi</option><option value="gu">Gujarati</option><option value="pa">Punjabi</option><option value="ur">Urdu</option><option value="fr">French</option><option value="es">Spanish</option><option value="de">German</option><option value="it">Italian</option><option value="pt">Portuguese</option><option value="ar">Arabic</option><option value="zh">Chinese</option><option value="ja">Japanese</option><option value="ko">Korean</option><option value="ru">Russian</option></select></label></div>
-<div class="controls"><label>Translate to <select id="phraseTargetLanguage" style="padding:10px;border-radius:10px;background:#243750;color:var(--text);border:1px solid #38516f"><option value="hi">Hindi</option><option value="as">Assamese</option><option value="bn">Bengali</option><option value="ne">Nepali</option><option value="en">English</option><option value="ta">Tamil</option><option value="te">Telugu</option><option value="mr">Marathi</option><option value="gu">Gujarati</option><option value="pa">Punjabi</option><option value="ur">Urdu</option><option value="fr">French</option><option value="es">Spanish</option><option value="de">German</option><option value="it">Italian</option><option value="pt">Portuguese</option><option value="ar">Arabic</option><option value="zh">Chinese</option><option value="ja">Japanese</option><option value="ko">Korean</option><option value="ru">Russian</option></select></label></div>
-</div>
-<textarea id="phrase" rows="3" maxlength="1000" placeholder="Type a message in your language…" style="width:100%;resize:vertical;border-radius:12px;padding:12px;background:#08111f;border:1px solid #38516f;color:var(--text);font:inherit"></textarea>
-<div class="controls"><button id="appendSign" class="secondary">Add recognized sign</button><button id="speakRecognized" type="button">Speak recognized sign</button><label style="display:flex;align-items:center;gap:8px;padding:10px 12px;border:1px solid #38516f;border-radius:12px;color:var(--text)"><input id="autoSpeakRecognized" type="checkbox" style="width:18px;height:18px"> Auto-speak recognized signs</label><button id="speak">Speak original phrase</button><button id="translateTypedPhrase">Translate phrase</button><button id="translateAndSpeakPhrase">Translate + speak</button><button id="speakPhraseTranslation" class="secondary">Speak translation</button><button id="stopSpeech" class="secondary">Stop speech</button><button id="clearPhrase" class="secondary">Clear phrase</button></div>
-<label for="phraseTranslatedOutput" class="status">Translated phrase</label>
-<textarea id="phraseTranslatedOutput" rows="2" readonly placeholder="Your translation will appear here" style="width:100%;resize:vertical;border-radius:12px;padding:12px;background:#08111f;border:1px solid #38516f;color:var(--text);font:inherit"></textarea>
-<div class="status" id="speechStatus">Speech uses your phone's installed voices. For offline speech, install/download an offline voice in your phone's text-to-speech settings first.</div>
-<div class="divider"></div><h3>Offline phrasebook</h3>
-<p class="status">These built-in phrases and their saved translations work without internet. This is a small curated phrasebook, not a general offline translator. Your typed phrase remains saved locally.</p>
-<div class="controls"><label>Choose phrase <select id="offlinePhrase" style="padding:10px;border-radius:10px;background:#243750;color:var(--text);border:1px solid #38516f"><option value="hello">Hello</option><option value="help">Please help me</option><option value="water">I need water</option><option value="food">I need food</option><option value="thankyou">Thank you</option><option value="yes">Yes</option><option value="no">No</option><option value="emergency">This is an emergency</option><option value="bathroom">Where is the bathroom?</option></select></label><button id="loadOfflinePhrase" class="secondary">Use phrase</button><button id="translateOfflinePhrase">Offline translation</button><button id="speakOfflinePhrase">Speak phrase</button><button id="speakOfflineTranslation">Speak translation</button></div>
-<div class="status" id="offlinePhraseStatus">Choose a phrase. Offline translations are available in English, Hindi, Assamese and Bengali.</div>
-</section>
 
-<section class="panel" style="margin-top:20px" id="continuousSection">
-<h2>Continuous Sign Recognition</h2>
-<p class="status">Continuous mode collects 132 temporal features per valid frame (126 pose values plus six wrist-position values). Training accepts any non-empty variable-length sequence; live recognition uses a rolling 60-frame window.</p>
-<div class="controls"><button id="continuousStart">Start continuous</button><button id="continuousStop" class="secondary" disabled>Stop continuous</button><button id="continuousClear" class="secondary">Clear window</button></div>
-<div class="status" id="continuousStatus">Ready. Start the camera first; then start continuous capture.</div>
-<div class="confidence" id="frameProgress">Frames: 0 / 60</div>
-<div class="controls"><label>Training label <input id="sequenceLabel" maxlength="60" placeholder="e.g. HELLO" style="padding:10px;border-radius:10px;background:#08111f;color:var(--text);border:1px solid #38516f"></label><button id="saveSequence" class="secondary" disabled>Save captured sample</button><button id="exportSequences" class="secondary">Export samples JSON</button></div>
-<div class="status" id="sampleStatus">Each saved sample is stored in continuous_gesture_db.db on the Python backend. Only landmark features are stored, not camera images.</div>
-<div class="divider"></div><h2>Translation & translated speech</h2>
-<p class="status">Choose the input language above and a target language below. Online translation sends text only to MyMemory, never images or landmarks. Saved phrasebook entries can be translated offline; arbitrary text needs internet.</p>
-<div class="controls"><label>Target language <select id="targetLanguage" style="padding:10px;border-radius:10px;background:#243750;color:var(--text);border:1px solid #38516f"><option value="hi">Hindi</option><option value="as">Assamese</option><option value="bn">Bengali</option><option value="ne">Nepali</option><option value="en">English</option><option value="ta">Tamil</option><option value="te">Telugu</option><option value="mr">Marathi</option><option value="gu">Gujarati</option><option value="pa">Punjabi</option><option value="ur">Urdu</option><option value="fr">French</option><option value="es">Spanish</option><option value="de">German</option><option value="ja">Japanese</option><option value="zh">Chinese</option><option value="it">Italian</option><option value="pt">Portuguese</option><option value="ar">Arabic</option><option value="ko">Korean</option><option value="ru">Russian</option></select></label><button id="translateRecognized">Translate recognized text</button><button id="translateAndSpeak">Translate + speak</button></div>
-<label for="manualText" class="status">Text to translate</label><textarea id="manualText" rows="2" maxlength="5000" placeholder="Recognized text is copied here, or enter text manually" style="width:100%;resize:vertical;border-radius:12px;padding:12px;background:#08111f;border:1px solid #38516f;color:var(--text);font:inherit"></textarea>
-<div class="status" id="translationStatus">Translation not yet requested.</div><h3 style="margin-bottom:8px">Translated text</h3><textarea id="translatedText" rows="2" readonly placeholder="Translation appears here" style="width:100%;resize:vertical;border-radius:12px;padding:12px;background:#08111f;border:1px solid #38516f;color:var(--text);font:inherit"></textarea>
-<div class="controls"><button id="speakOriginal" class="secondary">Speak original text</button><button id="speakTranslated">Speak translated text</button><button id="stopAllSpeech" class="secondary">Stop speech</button></div>
-<div class="divider"></div><h2>Recognition history</h2><div class="controls"><button id="refreshHistory" class="secondary">Refresh history</button><button id="clearHistory" class="secondary">Clear history</button></div><div id="historyList" class="status">No history yet.</div>
-</section>
+  <section class="panel mode-panel" aria-label="Recognition mode">
+    <div class="section-heading"><div><span class="section-kicker">STEP 1</span><h2>Choose recognition mode</h2><p>Select single signs for individual words or continuous mode for a complete moving sign.</p></div></div>
+    <div class="mode-choice-grid">
+      <button id="modeSingle" type="button" class="mode-choice"><i class="fa-solid fa-hand"></i><span><strong>Single Sign</strong><small>Recognize one held sign</small></span></button>
+      <button id="modeContinuous" class="secondary mode-choice" type="button"><i class="fa-solid fa-person-walking"></i><span><strong>Continuous Sign</strong><small>Recognize a sign movement</small></span></button>
+    </div>
+    <div class="status status-card" id="modeStatus">Single Sign mode is selected. The original single-sign model is used.</div>
+  </section>
+
+  <div class="recognition-grid">
+    <section class="panel camera-panel">
+      <div class="section-heading"><div><span class="section-kicker">STEP 2</span><h2>Camera input</h2><p>Place your hands clearly inside the camera frame.</p></div><span class="camera-live-badge"><span class="status-dot"></span>Live preview</span></div>
+      <div class="video-wrap"><video id="video" autoplay muted playsinline></video><canvas id="annotation" class="annotation" width="320" height="240"></canvas><div class="video-placeholder" id="placeholder">Start your camera to begin recognition.</div></div>
+      <div class="camera-controls">
+        <label for="cameraSelect" class="camera-select-label">Camera<select id="cameraSelect" class="studio-select"><option value="">Default camera</option></select></label>
+        <div class="controls camera-action-buttons">
+          <button id="start" type="button"><i class="fa-solid fa-play"></i> Start camera</button>
+          <button id="switchCamera" class="secondary" type="button" aria-label="Switch between front and back camera"><i class="fa-solid fa-camera-rotate"></i> Switch camera</button>
+          <button id="stop" class="secondary" type="button" disabled><i class="fa-solid fa-stop"></i> Stop camera</button>
+          <button id="clear" class="secondary" type="button"><i class="fa-solid fa-eraser"></i> Clear output</button>
+        </div>
+      </div>
+      <div class="status status-card" id="status"><span class="status-dot"></span>Checking model readiness…</div>
+      <canvas id="canvas" width="640" height="480" hidden></canvas>
+    </section>
+
+    <section class="panel result">
+      <div class="section-heading"><div><span class="section-kicker">STEP 3</span><h2>Recognition result</h2><p>Your latest prediction appears here.</p></div></div>
+      <div class="result-summary"><div class="eyebrow">RECOGNIZED SIGN</div><div class="prediction" id="sign">—</div><div class="confidence" id="confidence">Confidence: —</div><div class="pill" id="state">Waiting for camera</div></div>
+      <div class="divider"></div>
+      <div><h3>Recognized output</h3><p id="output" class="recognized-output">Your recognized sign will appear here when the backend returns a prediction.</p></div>
+      <p class="result-hint"><i class="fa-regular fa-lightbulb"></i> Keep your hands fully visible and use signs included in the trained model.</p>
+    </section>
+  </div>
+
+  <section class="panel phrase-pad-panel" aria-label="Phrase Pad">
+    <div class="section-heading section-heading-row"><div><span class="section-kicker">COMMUNICATION</span><h2>Phrase Pad</h2><p>Build a message from typed text or recognized signs, then translate or speak it.</p></div><span class="info-chip"><i class="fa-solid fa-cloud-arrow-up"></i> Online translation needs internet</span></div>
+    <div class="phrase-language-grid">
+      <label>Input language<select id="sourceLanguage" aria-label="Input language" class="studio-select"><option value="en">English</option><option value="hi">Hindi</option><option value="as">Assamese</option><option value="bn">Bengali</option><option value="ne">Nepali</option><option value="ta">Tamil</option><option value="te">Telugu</option><option value="mr">Marathi</option><option value="gu">Gujarati</option><option value="pa">Punjabi</option><option value="ur">Urdu</option><option value="fr">French</option><option value="es">Spanish</option><option value="de">German</option><option value="it">Italian</option><option value="pt">Portuguese</option><option value="ar">Arabic</option><option value="zh">Chinese</option><option value="ja">Japanese</option><option value="ko">Korean</option><option value="ru">Russian</option></select></label>
+      <label>Translate to<select id="phraseTargetLanguage" aria-label="Translate to language" class="studio-select"><option value="hi">Hindi</option><option value="as">Assamese</option><option value="bn">Bengali</option><option value="ne">Nepali</option><option value="en">English</option><option value="ta">Tamil</option><option value="te">Telugu</option><option value="mr">Marathi</option><option value="gu">Gujarati</option><option value="pa">Punjabi</option><option value="ur">Urdu</option><option value="fr">French</option><option value="es">Spanish</option><option value="de">German</option><option value="it">Italian</option><option value="pt">Portuguese</option><option value="ar">Arabic</option><option value="zh">Chinese</option><option value="ja">Japanese</option><option value="ko">Korean</option><option value="ru">Russian</option></select></label>
+    </div>
+    <label class="field-label" for="phrase">Your message</label>
+    <textarea id="phrase" class="studio-textarea phrase-input" rows="4" maxlength="1000" placeholder="Type a message, or add a recognized sign…"></textarea>
+
+    <div class="action-group"><h3><i class="fa-solid fa-language"></i> Translate and speak</h3>
+      <div class="controls phrase-actions-primary">
+        <button id="speak" type="button" class="secondary"><i class="fa-solid fa-volume-high"></i> Speak original phrase</button>
+        <button id="translateTypedPhrase" type="button" class="secondary"><i class="fa-solid fa-language"></i> Translate phrase</button>
+        <button id="translateAndSpeakPhrase" type="button"><i class="fa-solid fa-wand-magic-sparkles"></i> Translate + speak</button>
+        <button id="speakPhraseTranslation" type="button" class="secondary"><i class="fa-solid fa-volume-up"></i> Speak translation</button>
+      </div>
+    </div>
+
+    <div class="translation-output-card">
+      <label class="field-label" for="phraseTranslatedOutput">Translated text</label>
+      <textarea id="phraseTranslatedOutput" class="studio-textarea translated-output" rows="2" readonly placeholder="Your translation will appear here"></textarea>
+      <div class="status" id="speechStatus" aria-live="polite">Choose a target language and translate your phrase. Speech uses available device voices.</div>
+    </div>
+
+    <div class="action-group"><h3><i class="fa-solid fa-hand"></i> Recognized-sign shortcuts</h3>
+      <div class="controls phrase-actions-utility">
+        <button id="appendSign" class="secondary" type="button"><i class="fa-solid fa-plus"></i> Add recognized sign</button>
+        <button id="speakRecognized" class="secondary" type="button"><i class="fa-solid fa-volume-high"></i> Speak recognized sign</button>
+        <label class="checkbox-control"><input id="autoSpeakRecognized" type="checkbox"><span>Auto-speak recognized signs</span></label>
+        <button id="stopSpeech" class="secondary" type="button"><i class="fa-solid fa-stop"></i> Stop speech</button>
+        <button id="clearPhrase" class="secondary" type="button"><i class="fa-solid fa-trash-can"></i> Clear phrase</button>
+      </div>
+    </div>
+
+    <div class="offline-phrasebook-card">
+      <div class="section-heading section-heading-row"><div><h3><i class="fa-solid fa-book-open"></i> Quick offline phrases</h3><p>Saved translations are available for these phrases in English, Hindi, Assamese, and Bengali.</p></div><span class="info-chip offline-chip"><i class="fa-solid fa-wifi-slash"></i> Offline</span></div>
+      <div class="offline-phrase-actions">
+        <label>Choose phrase<select id="offlinePhrase" aria-label="Choose offline phrase" class="studio-select"><option value="hello">Hello</option><option value="help">Please help me</option><option value="water">I need water</option><option value="food">I need food</option><option value="thankyou">Thank you</option><option value="yes">Yes</option><option value="no">No</option><option value="emergency">This is an emergency</option><option value="bathroom">Where is the bathroom?</option></select></label>
+        <button id="loadOfflinePhrase" class="secondary" type="button">Use phrase</button>
+        <button id="translateOfflinePhrase" class="secondary" type="button">Offline translation</button>
+        <button id="speakOfflinePhrase" class="secondary" type="button">Speak phrase</button>
+        <button id="speakOfflineTranslation" class="secondary" type="button">Speak translation</button>
+      </div>
+      <div class="status" id="offlinePhraseStatus" aria-live="polite">Choose a phrase to load, translate, or speak it without internet.</div>
+    </div>
+  </section>
+
+  <section class="panel continuous-panel" id="continuousSection">
+    <div class="section-heading section-heading-row"><div><span class="section-kicker">ADVANCED MODE</span><h2>Continuous sign recognition</h2><p>Capture movement sequences and save labelled samples to the model database.</p></div><span class="info-chip"><i class="fa-solid fa-database"></i> Sequence tools</span></div>
+    <div class="continuous-controls">
+      <button id="continuousStart" type="button"><i class="fa-solid fa-circle-dot"></i> Start continuous</button>
+      <button id="continuousStop" class="secondary" type="button" disabled><i class="fa-solid fa-stop"></i> Stop continuous</button>
+      <button id="continuousClear" class="secondary" type="button"><i class="fa-solid fa-rotate-left"></i> Clear window</button>
+    </div>
+    <div class="continuous-status-grid"><div class="status status-card" id="continuousStatus">Ready. Start the camera first, then start continuous capture.</div><div class="frame-progress-card"><span class="field-label">Capture progress</span><strong id="frameProgress">Frames: 0 / 60</strong></div></div>
+    <div class="training-sample-card">
+      <div class="section-heading"><div><h3>Save a training sample</h3><p>Enter the sign label and capture a complete example. Only landmark data is stored, not camera images.</p></div></div>
+      <div class="training-sample-grid"><label>Training label<input id="sequenceLabel" maxlength="60" class="studio-input" placeholder="e.g. HELLO"></label><div class="training-sample-actions"><button id="saveSequence" class="secondary" type="button" disabled><i class="fa-solid fa-floppy-disk"></i> Save captured sample</button><button id="exportSequences" class="secondary" type="button"><i class="fa-solid fa-file-arrow-down"></i> Export samples JSON</button></div></div>
+      <div class="status status-card" id="sampleStatus">Loading continuous-sign database information…</div>
+    </div>
+  </section>
+
+  <div id="legacy-compatibility-controls" hidden aria-hidden="true">
+    <select id="targetLanguage" aria-label="Legacy target language" class="studio-select"><option value="hi">Hindi</option><option value="as">Assamese</option><option value="bn">Bengali</option><option value="ne">Nepali</option><option value="en">English</option><option value="ta">Tamil</option><option value="te">Telugu</option><option value="mr">Marathi</option><option value="gu">Gujarati</option><option value="pa">Punjabi</option><option value="ur">Urdu</option><option value="fr">French</option><option value="es">Spanish</option><option value="de">German</option><option value="ja">Japanese</option><option value="zh">Chinese</option><option value="it">Italian</option><option value="pt">Portuguese</option><option value="ar">Arabic</option><option value="ko">Korean</option><option value="ru">Russian</option></select>
+    <button id="translateRecognized" type="button">Legacy translate recognized text</button><button id="translateAndSpeak" type="button">Legacy translate and speak</button>
+    <textarea id="manualText"></textarea><div id="translationStatus"></div><textarea id="translatedText"></textarea>
+    <button id="speakOriginal" type="button"></button><button id="speakTranslated" type="button"></button><button id="stopAllSpeech" type="button"></button>
+    <button id="refreshHistory" type="button"></button><button id="clearHistory" type="button"></button><div id="historyList"></div>
+  </div>
 </section>
 
 <!-- MODULE 3: HISTORY -->
@@ -1495,7 +1592,7 @@ $('translateAndSpeak').addEventListener('click',async()=>{try{const text=$('manu
 $('translateTypedPhrase').addEventListener('click',async()=>{try{const text=phrase.value.trim();$('manualText').value=text;await translateText(text,$('sourceLanguage').value,$('phraseTargetLanguage').value,true);}catch(e){$('translationStatus').textContent=e.message;$('speechStatus').textContent=e.message;}});
 $('translateAndSpeakPhrase').addEventListener('click',async()=>{try{const text=phrase.value.trim();$('manualText').value=text;const translated=await translateText(text,$('sourceLanguage').value,$('phraseTargetLanguage').value,true);speakText(translated,$('phraseTargetLanguage').value);}catch(e){$('translationStatus').textContent=e.message;$('speechStatus').textContent=e.message;}});
 $('speakPhraseTranslation').addEventListener('click',()=>{const text=$('phraseTranslatedOutput').value.trim();if(!text){$('speechStatus').textContent='Translate a phrase first, then speak the translation.';return;}speakText(text,$('phraseTargetLanguage').value);});
-$('phraseTargetLanguage').addEventListener('change',()=>{const output=$('phraseTranslatedOutput');if(output)output.value='';});
+$('phraseTargetLanguage').addEventListener('change',()=>{const output=$('phraseTranslatedOutput');if(output)output.value='';const status=$('speechStatus');if(status)status.textContent='Target language changed. Translate the phrase again to update the result.';});
 function speakText(text,lang){if(!text.trim()){$('speechStatus').textContent='No text available to speak.';return;}if(!('speechSynthesis'in window)){$('speechStatus').textContent='This browser does not support speech synthesis.';return;}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);if(lang)u.lang=lang;const voices=speechSynthesis.getVoices();if(lang){const v=voices.find(x=>x.lang.toLowerCase().startsWith(lang.toLowerCase()));if(v)u.voice=v;}u.onstart=()=>$('speechStatus').textContent='Speaking…';u.onend=()=>$('speechStatus').textContent='Speech finished.';u.onerror=()=>$('speechStatus').textContent='Speech failed; a compatible device voice may be unavailable.';speechSynthesis.speak(u);}
 $('speakRecognized').addEventListener('click',()=>{const text=lastRecognizedText;if(!text){speechStatus.textContent='No recognized sign yet. Show a trained sign to the camera first.';return;}speakText(text,$('sourceLanguage').value);});
 $('speakOriginal').addEventListener('click',()=>speakText($('manualText').value||lastSign,$('sourceLanguage').value));
@@ -1513,9 +1610,9 @@ const offlinePhrases={
  bathroom:{en:'Where is the bathroom?',hi:'शौचालय कहाँ है?',as:'শৌচাগাৰ ক’ত?',bn:'শৌচাগার কোথায়?'}
 };let offlineSelected=null;
 $('loadOfflinePhrase').addEventListener('click',()=>{offlineSelected=offlinePhrases[$('offlinePhrase').value];if(!offlineSelected)return;const source=$('sourceLanguage').value;const text=offlineSelected[source]||offlineSelected.en;phrase.value=text;phrase.dispatchEvent(new Event('input'));$('manualText').value=text;$('offlinePhraseStatus').textContent='Loaded offline phrase in '+(langNames[source]||source)+': '+text;});
-$('translateOfflinePhrase').addEventListener('click',()=>{offlineSelected=offlinePhrases[$('offlinePhrase').value];if(!offlineSelected)return;const source=$('sourceLanguage').value,target=$('targetLanguage').value;const original=offlineSelected[source]||offlineSelected.en;const translated=offlineSelected[target];if(!translated){$('offlinePhraseStatus').textContent='This saved phrase has no offline translation for '+(langNames[target]||target)+'. Choose a supported phrasebook language or use online translation.';return;} $('translatedText').value=translated;$('translationStatus').textContent='Offline phrasebook translation (no internet used). Original text is preserved.';$('offlinePhraseStatus').textContent='Offline translation ready: '+translated;addHistory('offline-phrase',original,null,translated,target);});
+$('translateOfflinePhrase').addEventListener('click',()=>{offlineSelected=offlinePhrases[$('offlinePhrase').value];if(!offlineSelected)return;const source=$('sourceLanguage').value,target=$('phraseTargetLanguage').value;const original=offlineSelected[source]||offlineSelected.en;const translated=offlineSelected[target];if(!translated){$('offlinePhraseStatus').textContent='This saved phrase has no offline translation for '+(langNames[target]||target)+'. Choose a supported phrasebook language or use online translation.';return;} $('translatedText').value=translated;$('phraseTranslatedOutput').value=translated;$('translationStatus').textContent='Offline phrasebook translation (no internet used). Original text is preserved.';$('speechStatus').textContent='Offline translation ready. Tap Speak translation to hear it.';$('offlinePhraseStatus').textContent='Offline translation ready: '+translated;addHistory('offline-phrase',original,null,translated,target);});
 $('speakOfflinePhrase').addEventListener('click',()=>{offlineSelected=offlinePhrases[$('offlinePhrase').value];if(offlineSelected){const source=$('sourceLanguage').value;const text=offlineSelected[source]||offlineSelected.en;phrase.value=text;phrase.dispatchEvent(new Event('input'));speakText(text,source);}});
-$('speakOfflineTranslation').addEventListener('click',()=>{offlineSelected=offlinePhrases[$('offlinePhrase').value];if(!offlineSelected)return;const target=$('targetLanguage').value;const translated=offlineSelected[target];if(!translated){$('offlinePhraseStatus').textContent='No saved offline translation for that language. Use English, Hindi, Assamese or Bengali, or translate online.';return;}$('translatedText').value=translated;speakText(translated,target);});
+$('speakOfflineTranslation').addEventListener('click',()=>{offlineSelected=offlinePhrases[$('offlinePhrase').value];if(!offlineSelected)return;const target=$('phraseTargetLanguage').value;const translated=offlineSelected[target];if(!translated){$('offlinePhraseStatus').textContent='No saved offline translation for that language. Use English, Hindi, Assamese or Bengali, or translate online.';return;}$('translatedText').value=translated;$('phraseTranslatedOutput').value=translated;speakText(translated,target);});
 function tryAutoSpeak(text){if(!autoSpeakControl.checked||!text)return;const now=Date.now();if(text===lastAutoSpokenSign&&now-lastAutoSpokenAt<5000)return;lastAutoSpokenSign=text;lastAutoSpokenAt=now;speakText(text,$('sourceLanguage').value);}
 function addHistory(mode,text,confidence=null,translated='',target=''){let arr=[];try{arr=JSON.parse(localStorage.getItem('sahayak_history')||'[]')}catch(e){}arr.unshift({id:Date.now()+'-'+Math.random().toString(36).slice(2),time:new Date().toISOString(),mode,text,confidence,translated,target});arr=arr.slice(0,200);try{localStorage.setItem('sahayak_history',JSON.stringify(arr))}catch(e){}renderHistory();if(typeof window.renderHistoryTable==='function')window.renderHistoryTable();}
 function renderHistory(){let arr=[];try{arr=JSON.parse(localStorage.getItem('sahayak_history')||'[]')}catch(e){}const host=$('historyList');if(!arr.length){host.textContent='No history yet.';return;}host.innerHTML='';for(const item of arr){const row=document.createElement('div');row.style.cssText='display:flex;gap:10px;align-items:start;justify-content:space-between;border-bottom:1px solid #243750;padding:9px 0';const body=document.createElement('div');body.textContent=`${new Date(item.time).toLocaleString()} · ${item.mode} · ${item.text}${item.confidence==null?'':` · ${item.confidence}%`}${item.translated?` → ${item.translated} (${item.target})`:''}`;const del=document.createElement('button');del.className='secondary';del.textContent='Remove';del.addEventListener('click',()=>{let all=JSON.parse(localStorage.getItem('sahayak_history')||'[]').filter(x=>x.id!==item.id);localStorage.setItem('sahayak_history',JSON.stringify(all));renderHistory();});row.append(body,del);host.append(row);}}
