@@ -591,30 +591,126 @@ async function refreshSequenceDb(){try{const r=await fetch(API_BASE+'/api/sequen
 
 $('modeStatus').textContent='Smart Communication is always on: stable static signs and movement-based signs are recognized into one shared message. Pause briefly between moving signs; lower your hand briefly to repeat the same static sign.';
 const langNames={en:'English',hi:'Hindi',as:'Assamese',bn:'Bengali',ne:'Nepali',ta:'Tamil',te:'Telugu',mr:'Marathi',gu:'Gujarati',pa:'Punjabi',ur:'Urdu',fr:'French',es:'Spanish',de:'German',it:'Italian',pt:'Portuguese',ar:'Arabic',zh:'Chinese',ja:'Japanese',ko:'Korean',ru:'Russian'};
+function normalizeForPhraseMatch(value){
+  return String(value||'').toLocaleLowerCase().normalize('NFKC')
+    .replace(/[^\\p{L}\\p{N}]+/gu,' ').trim().replace(/\\s+/g,' ');
+}
+function translateFromOfflinePhrases(original,source,target){
+  if(source===target)return original;
+  const inputWords=normalizeForPhraseMatch(original).split(' ').filter(Boolean);
+  if(!inputWords.length)return null;
+  const entries=Object.values(offlinePhrases)
+    .filter(entry=>entry[source]&&entry[target])
+    .map(entry=>({sourceWords:normalizeForPhraseMatch(entry[source]).split(' ').filter(Boolean),translated:entry[target]}))
+    .filter(entry=>entry.sourceWords.length)
+    .sort((a,b)=>b.sourceWords.length-a.sourceWords.length);
+  const translated=[];
+  let index=0;
+  while(index<inputWords.length){
+    let match=null;
+    for(const entry of entries){
+      if(entry.sourceWords.every((word,offset)=>inputWords[index+offset]===word)){
+        match=entry;break;
+      }
+    }
+    if(!match)return null;
+    translated.push(match.translated);
+    index+=match.sourceWords.length;
+  }
+  return translated.join(' ');
+}
+async function fetchJsonWithTimeout(url,options={},timeoutMs=8000){
+  const controller=new AbortController();
+  const timeout=setTimeout(()=>controller.abort(),timeoutMs);
+  try{
+    const response=await fetch(url,{...options,cache:'no-store',signal:controller.signal});
+    let data={};
+    try{data=await response.json();}catch(e){}
+    return {response,data};
+  }finally{clearTimeout(timeout);}
+}
 async function translateText(text, source=$('sourceLanguage').value){
   const original=String(text||'').trim();
-  if(!original)throw Error('Enter or recognize text first.');
+  if(!original)throw Error('Enter text to translate first.');
   const target=$('targetLanguage').value;
-  const normalize=value=>String(value||'').trim().replace(/\s+/g,' ').toLocaleLowerCase();
-  // The one Translate button uses the offline phrase dictionary when there is an exact match.
-  for(const saved of Object.values(offlinePhrases)){
-    const offlineSource=saved[source];
-    const offlineTarget=saved[target];
-    if(offlineSource&&offlineTarget&&normalize(offlineSource)===normalize(original)){
-      $('translatedText').value=offlineTarget;
-      $('translationStatus').textContent='Translated offline using the saved phrasebook. Original message is preserved.';
-      addHistory('offline-translation',original,null,offlineTarget,target);
-      return offlineTarget;
-    }
+  if(source===target){
+    $('translatedText').value=original;
+    $('translationStatus').textContent='Message language and target language are the same; original text is shown unchanged.';
+    return original;
   }
-  $('translationStatus').textContent='Translating message online…';
-  const r=await fetch(API_BASE+'/api/translate',{method:'POST',headers:{'Content-Type':'text/plain;charset=UTF-8'},body:JSON.stringify({text:original,source,target})});
-  const d=await r.json();
-  if(!r.ok)throw Error(d.error||'Translation failed.');
-  $('translatedText').value=d.translated;
-  $('translationStatus').textContent=`Translated ${langNames[d.source]||d.source} → ${langNames[d.target]||d.target} using ${d.provider}. Original message is preserved.`;
-  addHistory('translation',original,null,d.translated,d.target);
-  return d.translated;
+  // Prefer local phrase matches first. This also translates a combined message made up
+  // entirely of saved phrases without requiring network access.
+  const offlineTranslation=translateFromOfflinePhrases(original,source,target);
+  if(offlineTranslation){
+    $('translatedText').value=offlineTranslation;
+    $('translationStatus').textContent='Translated offline using saved phrasebook phrases. Original message is preserved.';
+    addHistory('offline-translation',original,null,offlineTranslation,target);
+    return offlineTranslation;
+  }
+
+  const failures=[];
+  $('translationStatus').textContent='Trying online translation…';
+  // Primary: existing Render endpoint (server-side providers).
+  try{
+    const result=await fetchJsonWithTimeout(API_BASE+'/api/translate',{
+      method:'POST',
+      headers:{'Content-Type':'text/plain;charset=UTF-8'},
+      body:JSON.stringify({text:original,source,target})
+    },12000);
+    if(result.response.ok&&typeof result.data.translated==='string'&&result.data.translated.trim()){
+      $('translatedText').value=result.data.translated;
+      $('translationStatus').textContent=`Translated ${langNames[result.data.source]||result.data.source} → ${langNames[result.data.target]||result.data.target} using ${result.data.provider}. Original message is preserved.`;
+      addHistory('translation',original,null,result.data.translated,result.data.target);
+      return result.data.translated;
+    }
+    failures.push(result.data.error||('Render translator returned HTTP '+result.response.status));
+  }catch(error){
+    failures.push(error.name==='AbortError'?'Render translation timed out':('Render translator: '+error.message));
+  }
+
+  // Browser-side MyMemory fallback: bypasses Render egress problems and is CORS-enabled.
+  try{
+    $('translationStatus').textContent='Server translator unavailable; trying browser-side translation…';
+    const params=new URLSearchParams({q:original,langpair:source+'|'+target});
+    const result=await fetchJsonWithTimeout('https://api.mymemory.translated.net/get?'+params.toString(),{
+      headers:{'Accept':'application/json'}
+    },9000);
+    const data=result.data;
+    const translated=data&&data.responseData&&data.responseData.translatedText;
+    if(result.response.ok&&data.responseStatus===200&&typeof translated==='string'&&translated.trim()){
+      $('translatedText').value=translated;
+      $('translationStatus').textContent='Translated online using MyMemory browser fallback. Original message is preserved.';
+      addHistory('translation',original,null,translated,target);
+      return translated;
+    }
+    failures.push((data&&data.responseDetails)||('MyMemory returned HTTP '+result.response.status));
+  }catch(error){
+    failures.push(error.name==='AbortError'?'Browser-side MyMemory timed out':('Browser-side MyMemory: '+error.message));
+  }
+
+  // Last-resort Google Translate endpoint. This can be rate-limited or disallowed by a browser.
+  try{
+    $('translationStatus').textContent='Trying the final online translation fallback…';
+    const params=new URLSearchParams({client:'gtx',sl:source,tl:target,dt:'t',q:original});
+    const result=await fetchJsonWithTimeout('https://translate.googleapis.com/translate_a/single?'+params.toString(),{
+      headers:{'Accept':'application/json'}
+    },8000);
+    const payload=result.data;
+    const segments=Array.isArray(payload)&&Array.isArray(payload[0])?payload[0]:[];
+    const translated=segments.filter(segment=>Array.isArray(segment)&&typeof segment[0]==='string').map(segment=>segment[0]).join('');
+    if(result.response.ok&&translated.trim()){
+      $('translatedText').value=translated;
+      $('translationStatus').textContent='Translated online using the final browser fallback. Original message is preserved.';
+      addHistory('translation',original,null,translated,target);
+      return translated;
+    }
+    failures.push('Final online fallback returned no translation');
+  }catch(error){
+    failures.push(error.name==='AbortError'?'Final online translation fallback timed out':('Final online fallback: '+error.message));
+  }
+
+  $('translationStatus').textContent='Online translation services are unavailable right now. Your original message is preserved; try again later or use a saved phrase.';
+  throw Error(failures.length?'Online translation failed across all configured providers. '+failures.slice(-2).join(' · '):'Online translation failed.');
 }
 $('translateTypedPhrase').addEventListener('click',async()=>{try{$('manualText').value=phrase.value;await translateText(phrase.value, $('sourceLanguage').value);}catch(e){$('translationStatus').textContent=e.message;}});
 function speakText(text,lang){if(!text.trim()){$('speechStatus').textContent='No text available to speak.';return;}if(!('speechSynthesis'in window)){$('speechStatus').textContent='This browser does not support speech synthesis.';return;}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);if(lang)u.lang=lang;const voices=speechSynthesis.getVoices();if(lang){const v=voices.find(x=>x.lang.toLowerCase().startsWith(lang.toLowerCase()));if(v)u.voice=v;}u.onstart=()=>$('speechStatus').textContent='Speaking…';u.onend=()=>$('speechStatus').textContent='Speech finished.';u.onerror=()=>$('speechStatus').textContent='Speech failed; a compatible device voice may be unavailable.';speechSynthesis.speak(u);}
@@ -624,6 +720,9 @@ const offlinePhrases={
  water:{en:'I need water',hi:'मुझे पानी चाहिए',as:'মোক পানী লাগে',bn:'আমার পানি দরকার'},
  food:{en:'I need food',hi:'मुझे खाना चाहिए',as:'মোক খাদ্য লাগে',bn:'আমার খাবার দরকার'},
  thankyou:{en:'Thank you',hi:'धन्यवाद',as:'ধন্যবাদ',bn:'ধন্যবাদ'},
+ howareyou:{en:'How are you?',hi:'आप कैसे हैं?',as:'আপুনি কেনে আছে?',bn:'আপনি কেমন আছেন?'},
+ goodmorning:{en:'Good morning',hi:'सुप्रभात',as:'সুপ্ৰভাত',bn:'সুপ্রভাত'},
+ goodnight:{en:'Good night',hi:'शुभ रात्रि',as:'শুভৰাত্ৰি',bn:'শুভরাত্রি'},
  yes:{en:'Yes',hi:'हाँ',as:'হয়',bn:'হ্যাঁ'},
  no:{en:'No',hi:'नहीं',as:'নহয়',bn:'না'},
  emergency:{en:'This is an emergency',hi:'यह एक आपात स्थिति है',as:'এয়া জৰুৰী অৱস্থা',bn:'এটি জরুরি অবস্থা'},
