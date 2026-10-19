@@ -107,6 +107,7 @@ select, input, textarea { max-width: 100%; font-size: 16px; }
 <div class="status" id="translationStatus">Translation not yet requested.</div>
 <label for="translatedText" class="status">Translated message</label>
 <textarea id="translatedText" rows="2" maxlength="5000" readonly placeholder="Translated text appears here…" style="width:100%;resize:vertical;border-radius:12px;padding:12px;background:#08111f;border:1px solid #38516f;color:var(--text);font:inherit"></textarea>
+<div class="controls"><button id="speakTranslation" type="button">Speak translation</button></div>
 <div class="status" id="speechStatus">Speech uses your device's installed voices. For offline speech, install/download an offline voice in your device's text-to-speech settings first.</div>
 </section>
 
@@ -714,6 +715,15 @@ async function translateText(text, source=$('sourceLanguage').value){
 }
 $('translateTypedPhrase').addEventListener('click',async()=>{try{$('manualText').value=phrase.value;await translateText(phrase.value, $('sourceLanguage').value);}catch(e){$('translationStatus').textContent=e.message;}});
 function speakText(text,lang){if(!text.trim()){$('speechStatus').textContent='No text available to speak.';return;}if(!('speechSynthesis'in window)){$('speechStatus').textContent='This browser does not support speech synthesis.';return;}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);if(lang)u.lang=lang;const voices=speechSynthesis.getVoices();if(lang){const v=voices.find(x=>x.lang.toLowerCase().startsWith(lang.toLowerCase()));if(v)u.voice=v;}u.onstart=()=>$('speechStatus').textContent='Speaking…';u.onend=()=>$('speechStatus').textContent='Speech finished.';u.onerror=()=>$('speechStatus').textContent='Speech failed; a compatible device voice may be unavailable.';speechSynthesis.speak(u);}
+document.getElementById('speakTranslation').addEventListener('click',()=>{
+  const translated=$('translatedText').value.trim();
+  if(!translated){
+    $('speechStatus').textContent='Translate the message first; the translated phrase will appear above.';
+    $('translationStatus').textContent='No translated message to speak yet.';
+    return;
+  }
+  speakText(translated,$('targetLanguage').value);
+});
 const offlinePhrases={
  hello:{en:'Hello',hi:'नमस्ते',as:'নমস্কাৰ',bn:'নমস্কার'},
  help:{en:'Please help me',hi:'कृपया मेरी मदद करें',as:'অনুগ্ৰহ কৰি মোক সহায় কৰক',bn:'দয়া করে আমাকে সাহায্য করুন'},
