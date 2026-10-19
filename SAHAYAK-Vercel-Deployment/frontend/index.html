@@ -130,6 +130,11 @@ img,canvas,video,svg{max-width:100%}section,article,.rounded-3xl,.rounded-2xl{mi
 @media(max-width:640px){header>div{padding-left:.75rem!important;padding-right:.75rem!important}header svg{flex-shrink:0}header span{overflow-wrap:anywhere}main{padding-left:.75rem!important;padding-right:.75rem!important}main h1{font-size:clamp(1.8rem,8vw,2.6rem);line-height:1.13}main h2{overflow-wrap:anywhere}main .p-8{padding:1.1rem}main .lg\\:p-12{padding:1.25rem}main .gap-8{gap:1.1rem}main .text-4xl{font-size:clamp(1.8rem,8vw,2.35rem)}main .text-5xl{font-size:clamp(2rem,9vw,2.7rem)}main .text-6xl{font-size:clamp(2.15rem,10vw,3rem)}footer>div{padding-left:.75rem;padding-right:.75rem}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 </style>
+<style>
+html.scroll-motion-ready .scroll-reveal{opacity:0;transform:translate3d(0,18px,0);filter:blur(1px);transition:opacity .58s ease,transform .58s cubic-bezier(.2,.7,.2,1),filter .58s ease;transition-delay:var(--reveal-delay,0ms)}
+html.scroll-motion-ready .scroll-reveal.is-visible{opacity:1;transform:translate3d(0,0,0);filter:none}
+@media(prefers-reduced-motion:reduce){.scroll-reveal{opacity:1!important;transform:none!important;filter:none!important;transition:none!important}}
+</style>
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans h-full flex flex-col overflow-x-hidden antialiased grid-pattern">
 
@@ -188,7 +193,7 @@ img,canvas,video,svg{max-width:100%}section,article,.rounded-3xl,.rounded-2xl{mi
                         Bridging Silence with <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-rose-500 to-red-500">Real-Time Precision</span>
                     </h1>
                     <p class="text-slate-300 text-base sm:text-lg leading-relaxed font-normal">
-                        SAHAYAK translates Indian Sign Language (ISL) spatial hand gestures into intelligible textual and spoken outputs in real-time. Built to empower over 63 million Deaf and Hard of Hearing individuals across India through high-accuracy landmark sequence classification.
+                        SAHAYAK is a sign-language recognition prototype. MediaPipe detects hand landmarks in the browser; trained classifiers recognize only the labels included in the installed models. Recognized labels can be added to text and spoken aloud. Results depend on the signs used for training, camera conditions and visibility; this is not a complete ISL sentence translator.
                     </p>
                     <div class="flex flex-wrap gap-4 pt-2">
                         <button onclick="switchTab('studio')" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-rose-600 to-red-600 hover:from-rose-500 hover:to-red-500 text-white font-bold text-sm shadow-lg shadow-rose-900/40 transition-all flex items-center gap-2">
@@ -201,55 +206,36 @@ img,canvas,video,svg{max-width:100%}section,article,.rounded-3xl,.rounded-2xl{mi
                 </div>
             </div>
 
-            <!-- Demographics & Statistics Counter Section -->
-            <div class="space-y-6">
+            <!-- Verified implementation snapshot: values come from this app's code and live backend -->
+            <section class="space-y-6" aria-labelledby="system-snapshot-title">
                 <div class="text-center max-w-2xl mx-auto">
-                    <h2 class="text-2xl font-bold text-white tracking-tight">Demographic Landscape & Communication Gap</h2>
-                    <p class="text-slate-400 text-xs sm:text-sm mt-1">Understanding the critical necessity of accessible ISL real-time translation systems in India.</p>
+                    <h2 id="system-snapshot-title" class="text-2xl font-bold text-white tracking-tight">Current SAHAYAK System Snapshot</h2>
+                    <p class="text-slate-400 text-xs sm:text-sm mt-1">Live model labels and sample counts are fetched from the backend. These describe this project, not the full Indian Sign Language vocabulary or national demographics.</p>
                 </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                    <div class="bg-slate-900/80 border border-slate-800/80 rounded-2xl p-5 text-center flex flex-col justify-between hover:border-rose-500/40 transition">
-                        <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Deaf & HH Population</div>
-                        <div class="text-3xl font-extrabold text-amber-400 my-2 font-mono">
-                            <span class="counter" data-target="63000000">0</span>+
-                        </div>
-                        <div class="text-[11px] text-slate-400">Individuals nationwide according to WHO/NSSO evaluations.</div>
-                    </div>
-
-                    <div class="bg-slate-900/80 border border-slate-800/80 rounded-2xl p-5 text-center flex flex-col justify-between hover:border-rose-500/40 transition">
-                        <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Active ISL Signers</div>
-                        <div class="text-3xl font-extrabold text-emerald-400 my-2 font-mono">
-                            <span class="counter" data-target="5900000">0</span>
-                        </div>
-                        <div class="text-[11px] text-slate-400">Native signers relying on ISL as primary communication mode.</div>
-                    </div>
-
-                    <div class="bg-slate-900/80 border border-slate-800/80 rounded-2xl p-5 text-center flex flex-col justify-between hover:border-rose-500/40 transition">
-                        <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Certified Interpreters</div>
-                        <div class="text-3xl font-extrabold text-rose-500 my-2 font-mono">
-                            &lt;<span class="counter" data-target="300">0</span>
-                        </div>
-                        <div class="text-[11px] text-slate-400">Licensed interpreters available across all states.</div>
-                    </div>
-
-                    <div class="bg-slate-900/80 border border-slate-800/80 rounded-2xl p-5 text-center flex flex-col justify-between hover:border-rose-500/40 transition">
-                        <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Interpreter Gap Ratio</div>
-                        <div class="text-3xl font-extrabold text-sky-400 my-2 font-mono">
-                            1:<span class="counter" data-target="20000">0</span>+
-                        </div>
-                        <div class="text-[11px] text-slate-400">Ratio of Deaf individuals to qualified human interpreters.</div>
-                    </div>
-
-                    <div class="bg-slate-900/80 border border-slate-800/80 rounded-2xl p-5 text-center flex flex-col justify-between hover:border-rose-500/40 transition">
-                        <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Benchmarked Models</div>
-                        <div class="text-3xl font-extrabold text-purple-400 my-2 font-mono">
-                            <span class="counter" data-target="100">0</span>+
-                        </div>
-                        <div class="text-[11px] text-slate-400">Evaluated ISL recognition projects and prototypes.</div>
-                    </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+                    <article class="bg-slate-900/80 border border-slate-800/80 rounded-2xl p-5 hover:border-rose-500/40 transition">
+                        <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Single-sign model</div>
+                        <div id="home-static-count" class="text-2xl font-extrabold text-amber-400 my-2 font-mono">Loading…</div>
+                        <p id="home-static-labels" class="text-[11px] text-slate-400 leading-relaxed break-words">Reading deployed model labels…</p>
+                    </article>
+                    <article class="bg-slate-900/80 border border-slate-800/80 rounded-2xl p-5 hover:border-rose-500/40 transition">
+                        <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Continuous-sign model</div>
+                        <div id="home-sequence-count" class="text-2xl font-extrabold text-emerald-400 my-2 font-mono">Loading…</div>
+                        <p id="home-sequence-labels" class="text-[11px] text-slate-400 leading-relaxed break-words">Reading deployed model labels…</p>
+                    </article>
+                    <article class="bg-slate-900/80 border border-slate-800/80 rounded-2xl p-5 hover:border-rose-500/40 transition">
+                        <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Saved sequence samples</div>
+                        <div id="home-sample-total" class="text-2xl font-extrabold text-sky-400 my-2 font-mono">Loading…</div>
+                        <p class="text-[11px] text-slate-400 leading-relaxed">Count of records currently present in the backend sequence database.</p>
+                    </article>
+                    <article class="bg-slate-900/80 border border-slate-800/80 rounded-2xl p-5 hover:border-rose-500/40 transition">
+                        <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Model input dimensions</div>
+                        <div class="text-2xl font-extrabold text-purple-400 my-2 font-mono">126 / 132 / 1,320</div>
+                        <p class="text-[11px] text-slate-400 leading-relaxed">Static feature vector / features per sequence frame / resampled sequence vector, as defined in the code.</p>
+                    </article>
                 </div>
-            </div>
+                <p class="text-[11px] text-slate-500 text-center">Sample totals reflect the current backend database. The current hosting setup does not guarantee that file-based sample writes survive instance replacement.</p>
+            </section>
 
             <!-- System Highlights -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -257,27 +243,27 @@ img,canvas,video,svg{max-width:100%}section,article,.rounded-3xl,.rounded-2xl{mi
                     <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center text-lg mb-4">
                         <i class="fa-solid fa-hand"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-white mb-2">21-Point Skeleton Tracking</h3>
+                    <h3 class="text-lg font-bold text-white mb-2">21 Hand Landmarks per Detected Hand</h3>
                     <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
-                        Extracts normalized 3D hand keypoints dynamically without requiring specialized hardware, depth cameras, or sensor gloves.
+                        MediaPipe Hands returns 21 landmarks per detected hand. The application normalizes two hand slots into a 126-value static feature vector.
                     </p>
                 </div>
                 <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 hover:bg-slate-900/90 transition">
                     <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg mb-4">
                         <i class="fa-solid fa-bolt"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Sub-100ms Latency</h3>
+                    <h3 class="text-lg font-bold text-white mb-2">Static and Motion-Sign Models</h3>
                     <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
-                        Optimized neural classifier pipeline delivers continuous sign prediction, allowing smooth real-time conversational flow.
+                        Static recognition uses 126 features. Motion recognition uses 132 features per captured frame and a 1,320-value sequence vector after temporal resampling. Only signs represented in the trained model can be recognized.
                     </p>
                 </div>
                 <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 hover:bg-slate-900/90 transition">
                     <div class="w-10 h-10 rounded-xl bg-sky-500/10 border border-sky-500/20 text-sky-400 flex items-center justify-center text-lg mb-4">
                         <i class="fa-solid fa-volume-high"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Bi-Directional Voice Synthesis</h3>
+                    <h3 class="text-lg font-bold text-white mb-2">Text and Speech Output</h3>
                     <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
-                        Instantly synthesizes recognized gesture phrases into clear audio streams using native browser text-to-speech capabilities.
+                        Recognized labels can be added to the message and spoken with device voices. Online translation and server-generated speech need an internet connection.
                     </p>
                 </div>
             </div>
@@ -332,9 +318,9 @@ img,canvas,video,svg{max-width:100%}section,article,.rounded-3xl,.rounded-2xl{mi
             <div class="bg-slate-900/90 p-5 rounded-2xl border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
                     <h2 class="text-xl font-bold text-white flex items-center gap-2">
-                        <i class="fa-solid fa-book-open-reader text-sky-400"></i> ISL Gesture Phrasebook & Dictionary
+                        <i class="fa-solid fa-book-open-reader text-sky-400"></i> Saved Phrases & Communication Phrasebook
                     </h2>
-                    <p class="text-xs text-slate-400">Standardized ISL alphabets, numbers, and high-frequency emergency phrases</p>
+                    <p class="text-xs text-slate-400">These are text phrases for speaking and translation, not a verified guide to exact ISL signs.</p>
                 </div>
                 <input type="text" id="phrase-search" oninput="filterPhrasebook()" placeholder="Search phrase or sign..." class="bg-slate-950 border border-slate-800 rounded-xl px-4 py-2 text-xs text-slate-200 focus:outline-none focus:border-rose-500 w-full sm:w-64">
             </div>
@@ -360,7 +346,7 @@ img,canvas,video,svg{max-width:100%}section,article,.rounded-3xl,.rounded-2xl{mi
         <section id="mod-mechanism" class="tab-content hidden space-y-8">
             <div class="text-center max-w-3xl mx-auto space-y-2">
                 <h2 class="text-3xl font-black text-white">How SAHAYAK Operates</h2>
-                <p class="text-slate-400 text-sm">Four-stage computational pipeline converting raw web camera frames to contextual text and voice output.</p>
+                <p class="text-slate-400 text-sm">Current flow: browser camera and MediaPipe hand tracking, feature extraction, the Render classifier API, then text/translation/speech output.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -369,7 +355,7 @@ img,canvas,video,svg{max-width:100%}section,article,.rounded-3xl,.rounded-2xl{mi
                     <div>
                         <h3 class="text-base font-bold text-white mb-2">Frame Ingestion</h3>
                         <p class="text-xs text-slate-400 leading-relaxed">
-                            Captures video stream at 30 FPS. Standardizes frames to consistent aspect ratios and applies CLAHE color normalization to adapt to fluctuating lighting conditions.
+                            The user grants browser camera access. Frames are processed for hand landmarks in the browser; the app does not enforce a fixed capture frame rate.
                         </p>
                     </div>
                 </div>
@@ -379,7 +365,7 @@ img,canvas,video,svg{max-width:100%}section,article,.rounded-3xl,.rounded-2xl{mi
                     <div>
                         <h3 class="text-base font-bold text-white mb-2">Landmark Extraction</h3>
                         <p class="text-xs text-slate-400 leading-relaxed">
-                            Detects 21 3D spatial joint coordinates per hand. Extracts bounding box vectors and normalizes coordinates relative to wrist origin point.
+                            MediaPipe Hands returns 21 landmarks per detected hand. The feature encoder normalizes each hand relative to its wrist; it does not create a bounding-box feature vector.
                         </p>
                     </div>
                 </div>
@@ -389,7 +375,7 @@ img,canvas,video,svg{max-width:100%}section,article,.rounded-3xl,.rounded-2xl{mi
                     <div>
                         <h3 class="text-base font-bold text-white mb-2">Sequence Classification</h3>
                         <p class="text-xs text-slate-400 leading-relaxed">
-                            Feeds temporal feature arrays into lightweight temporal neural networks (LSTM/1D-CNN) to evaluate frame sequence transitions.
+                            The browser sends 126-value static features or a sequence of 132-value frames to the Flask API on Render. The installed classifier returns a label and confidence when available.
                         </p>
                     </div>
                 </div>
@@ -399,7 +385,7 @@ img,canvas,video,svg{max-width:100%}section,article,.rounded-3xl,.rounded-2xl{mi
                     <div>
                         <h3 class="text-base font-bold text-white mb-2">Synthesis & Output</h3>
                         <p class="text-xs text-slate-400 leading-relaxed">
-                            Filters transient noise using temporal thresholding, constructs natural language sentences, and dispatches audio synthesis.
+                            Recognized labels are appended to the shared message. Translation and speech are separate steps; the output is limited by model labels and available translation/voice services.
                         </p>
                     </div>
                 </div>
@@ -422,7 +408,7 @@ img,canvas,video,svg{max-width:100%}section,article,.rounded-3xl,.rounded-2xl{mi
                         <span class="px-2.5 py-1 rounded-lg bg-rose-500/10 text-rose-400 font-mono text-xs font-bold">LAYER 1</span>
                         <h3 class="text-base font-bold text-white">Input & Sensing Layer</h3>
                     </div>
-                    <p class="text-xs text-slate-400">Webcam Feed / HTML5 Video Stream API / Real-time Image Frame Buffer</p>
+                    <p class="text-xs text-slate-400">Browser camera stream and HTML video element; camera access requires permission.</p>
                 </div>
                 <!-- Layer 2 -->
                 <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 hover:border-amber-500/40 transition">
@@ -430,7 +416,7 @@ img,canvas,video,svg{max-width:100%}section,article,.rounded-3xl,.rounded-2xl{mi
                         <span class="px-2.5 py-1 rounded-lg bg-amber-500/10 text-amber-400 font-mono text-xs font-bold">LAYER 2</span>
                         <h3 class="text-base font-bold text-white">Landmark Processing & Feature Extraction Layer</h3>
                     </div>
-                    <p class="text-xs text-slate-400">21 3D Hand Coordinate Generation / Wrist-Relative Spatial Normalization / Euclidean Joint Distance Matrix Calculation</p>
+                    <p class="text-xs text-slate-400">MediaPipe Hands JavaScript tracking, 21 landmarks per detected hand, wrist-relative normalized coordinates.</p>
                 </div>
                 <!-- Layer 3 -->
                 <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 hover:border-emerald-500/40 transition">
@@ -438,7 +424,7 @@ img,canvas,video,svg{max-width:100%}section,article,.rounded-3xl,.rounded-2xl{mi
                         <span class="px-2.5 py-1 rounded-lg bg-emerald-500/10 text-emerald-400 font-mono text-xs font-bold">LAYER 3</span>
                         <h3 class="text-base font-bold text-white">Neural Inference Engine</h3>
                     </div>
-                    <p class="text-xs text-slate-400">Custom Sequence Model / Softmax Probability Distribution / Confidence Filtering Module</p>
+                    <p class="text-xs text-slate-400">Trained scikit-learn/joblib classifiers; 126 static features or 1,320 resampled sequence features. Confidence is returned when the classifier supports probabilities.</p>
                 </div>
                 <!-- Layer 4 -->
                 <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 hover:border-sky-500/40 transition">
@@ -446,7 +432,7 @@ img,canvas,video,svg{max-width:100%}section,article,.rounded-3xl,.rounded-2xl{mi
                         <span class="px-2.5 py-1 rounded-lg bg-sky-500/10 text-sky-400 font-mono text-xs font-bold">LAYER 4</span>
                         <h3 class="text-base font-bold text-white">User Interface & Voice Synthesis</h3>
                     </div>
-                    <p class="text-xs text-slate-400">Web Speech API Audio Output / Responsive HTML5 Dashboard / Local Storage Session History</p>
+                    <p class="text-xs text-slate-400">Responsive HTML/CSS interface, local browser history, device speech; online translation and server-generated speech use backend routes.</p>
                 </div>
             </div>
         </section>
@@ -485,7 +471,7 @@ img,canvas,video,svg{max-width:100%}section,article,.rounded-3xl,.rounded-2xl{mi
                     </div>
                     <div class="text-center text-slate-500"><i class="fa-solid fa-arrow-down"></i></div>
                     <div class="p-3 bg-slate-950 border border-slate-800 rounded-xl text-center text-purple-400">
-                        Is Confidence &gt; 85% Threshold?
+                        Is prediction confidence at least 60%? (when a confidence score is available)
                     </div>
                     <div class="text-center text-slate-500"><i class="fa-solid fa-arrow-down"></i></div>
                     <div class="p-3 bg-emerald-950/40 border border-emerald-500/30 rounded-xl text-center font-bold text-emerald-400">
@@ -508,12 +494,12 @@ img,canvas,video,svg{max-width:100%}section,article,.rounded-3xl,.rounded-2xl{mi
                 <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
                     <div class="text-rose-500 text-2xl mb-2"><i class="fa-solid fa-camera"></i></div>
                     <h3 class="text-base font-bold text-white">MediaPipe Hand Pipeline</h3>
-                    <p class="text-xs text-slate-400 mt-1">High-fidelity 3D hand skeleton tracking framework operating directly in web environments.</p>
+                    <p class="text-xs text-slate-400 mt-1">MediaPipe Hands is loaded in the browser from a CDN and produces hand landmarks for feature extraction.</p>
                 </div>
                 <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
                     <div class="text-amber-400 text-2xl mb-2"><i class="fa-solid fa-brain"></i></div>
-                    <h3 class="text-base font-bold text-white">Python & TensorFlow</h3>
-                    <p class="text-xs text-slate-400 mt-1">Model training, landmark sequence processing, and weight optimization engine.</p>
+                    <h3 class="text-base font-bold text-white">Python, scikit-learn & Joblib</h3>
+                    <p class="text-xs text-slate-400 mt-1">Backend classifiers are loaded with Joblib and exposed through Flask API endpoints. Current requirements include scikit-learn; TensorFlow is not listed as a dependency.</p>
                 </div>
                 <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
                     <div class="text-emerald-400 text-2xl mb-2"><i class="fa-brands fa-js"></i></div>
@@ -533,7 +519,7 @@ img,canvas,video,svg{max-width:100%}section,article,.rounded-3xl,.rounded-2xl{mi
                 <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
                     <div class="text-purple-400 text-2xl mb-2"><i class="fa-solid fa-bolt"></i></div>
                     <h3 class="text-base font-bold text-white">OpenCV Python</h3>
-                    <p class="text-xs text-slate-400 mt-1">Video frame manipulation, CLAHE brightness balancing, and image transformations.</p>
+                    <p class="text-xs text-slate-400 mt-1">OpenCV is installed in the Python backend for image-frame processing endpoints; the current Live Studio sends browser-computed features for prediction.</p>
                 </div>
             </div>
         </section>
@@ -566,11 +552,12 @@ img,canvas,video,svg{max-width:100%}section,article,.rounded-3xl,.rounded-2xl{mi
                         <li class="flex items-start justify-between gap-4"><span class="text-slate-400">Single-sign feature vector:</span><span class="font-bold text-white font-mono text-right">126 values</span></li>
                         <li class="flex items-start justify-between gap-4"><span class="text-slate-400">Continuous sequence features per frame:</span><span class="font-bold text-white font-mono text-right">132 values</span></li>
                         <li class="flex items-start justify-between gap-4"><span class="text-slate-400">Sequence model input after resampling:</span><span class="font-bold text-white font-mono text-right">1,320 values</span></li>
-                        <li class="flex items-start justify-between gap-4"><span class="text-slate-400">Single-sign training-row total:</span><span class="font-bold text-amber-300 font-mono text-right">Not stored in model bundle</span></li>
-                        <li class="flex items-start justify-between gap-4"><span class="text-slate-400">Training / validation accuracy:</span><span class="font-bold text-slate-200 font-mono text-right">Not verified</span></li>
-                        <li class="flex items-start justify-between gap-4"><span class="text-slate-400">Average inference latency:</span><span class="font-bold text-slate-200 font-mono text-right">Not benchmarked here</span></li>
+                        <li class="flex items-start justify-between gap-4"><span class="text-slate-400">Single-sign training-row total:</span><span class="font-bold text-amber-300 font-mono text-right">Not tracked by deployed model</span></li>
+                        <li class="flex items-start justify-between gap-4"><span class="text-slate-400">Training / validation accuracy:</span><span class="font-bold text-slate-200 font-mono text-right">No saved evaluation report</span></li>
+                        <li class="flex items-start justify-between gap-4"><span class="text-slate-400">Observed static prediction API average:</span><span id="dataset-static-average" class="font-bold text-slate-200 font-mono text-right">Waiting for predictions</span></li>
+                        <li class="flex items-start justify-between gap-4"><span class="text-slate-400">Observed sequence prediction API average:</span><span id="dataset-sequence-average" class="font-bold text-slate-200 font-mono text-right">Waiting for predictions</span></li>
                     </ul>
-                    <p class="text-[11px] leading-relaxed text-slate-500">The deployed model files expose their supported labels, but do not contain a reliable original single-sign sample total or evaluation report. Those numbers are intentionally not guessed.</p>
+                    <p class="text-[11px] leading-relaxed text-slate-500">Average response times are measured inside the backend for successful prediction API requests (rolling window, up to 200 responses since process start). They exclude browser-side hand detection and network transit. Model training-row totals and accuracy cannot be recovered from the model files without the original dataset and a held-out evaluation report.</p>
                 </div>
             </div>
         </section>
@@ -598,14 +585,10 @@ img,canvas,video,svg{max-width:100%}section,article,.rounded-3xl,.rounded-2xl{mi
                             Lead Developer & Project Head
                         </span>
                         <h3 class="text-2xl font-black text-white mt-2">Mr. Johan Jyoti Kuli</h3>
-                        <p class="text-xs text-slate-400 mt-1">System Architecture, ML Model Optimization, Real-Time Pipeline Lead</p>
+                        <p class="text-xs text-slate-400 mt-1">SAHAYAK project developer</p>
                     </div>
 
-                    <div class="pt-2 flex justify-center gap-3 text-slate-400 text-base">
-                        <a href="#" class="hover:text-amber-400 transition"><i class="fa-brands fa-github"></i></a>
-                        <a href="#" class="hover:text-amber-400 transition"><i class="fa-brands fa-linkedin"></i></a>
-                        <a href="#" class="hover:text-amber-400 transition"><i class="fa-solid fa-envelope"></i></a>
-                    </div>
+                    <p class="text-xs text-slate-500">External profile links have not been configured.</p>                    </div>
                 </div>
             </div>
 
@@ -620,7 +603,7 @@ img,canvas,video,svg{max-width:100%}section,article,.rounded-3xl,.rounded-2xl{mi
                         </svg>
                     </div>
                     <h4 class="text-lg font-bold text-white">Shyamantika Pegu</h4>
-                    <p class="text-xs text-slate-400">Dataset Curation & User Testing</p>
+                    <p class="text-xs text-slate-400">Project team member</p>
                 </div>
 
                 <!-- Team Member 2 -->
@@ -632,7 +615,7 @@ img,canvas,video,svg{max-width:100%}section,article,.rounded-3xl,.rounded-2xl{mi
                         </svg>
                     </div>
                     <h4 class="text-lg font-bold text-white">Barakha Doley</h4>
-                    <p class="text-xs text-slate-400">UI/UX & Frontend Integration</p>
+                    <p class="text-xs text-slate-400">Project team member</p>
                 </div>
 
                 <!-- Team Member 3 -->
@@ -643,8 +626,8 @@ img,canvas,video,svg{max-width:100%}section,article,.rounded-3xl,.rounded-2xl{mi
                             <text x="50" y="58" font-size="28" font-weight="bold" fill="#C8102E" text-anchor="middle" font-family="sans-serif">HG</text>
                         </svg>
                     </div>
-                    <h4 class="text-lg font-bold text-white">Himanshu Ghirme</h4>
-                    <p class="text-xs text-slate-400">Model Evaluation & Benchmark Analysis</p>
+                    <h4 class="text-lg font-bold text-white">Himanghsu Ghirme</h4>
+                    <p class="text-xs text-slate-400">Project team member</p>
                 </div>
             </div>
         </section>
@@ -659,34 +642,22 @@ img,canvas,video,svg{max-width:100%}section,article,.rounded-3xl,.rounded-2xl{mi
             </div>
 
             <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-6">
-                <!-- Sensitivity Slider -->
-                <div>
-                    <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
-                        Detection Confidence Threshold: <span id="thresh-val" class="text-emerald-400 font-mono">85%</span>
-                    </label>
-                    <input type="range" min="50" max="98" value="85" oninput="document.getElementById('thresh-val').innerText = this.value + '%'" class="w-full accent-rose-500 bg-slate-950 rounded-lg">
-                </div>
-
-                <!-- Speech Output Toggle -->
-                <div class="flex items-center justify-between border-t border-slate-800 pt-4">
+                <div class="flex items-start justify-between gap-4">
                     <div>
-                        <div class="text-sm font-bold text-white">Auto Text-To-Speech</div>
-                        <div class="text-xs text-slate-400">Automatically speak detected sign phrases when confidence exceeds threshold.</div>
+                        <div class="text-sm font-bold text-white">Static-sign confidence cutoff</div>
+                        <div class="text-xs text-slate-400 mt-1">The backend currently accepts static predictions at the threshold set in its inference code.</div>
                     </div>
-                    <input type="checkbox" checked class="w-5 h-5 accent-rose-600 rounded">
+                    <span id="settings-static-threshold" class="font-mono font-bold text-emerald-400 text-right">Loading…</span>
                 </div>
-
-                <!-- Clear Data -->
-                <div class="border-t border-slate-800 pt-4 flex justify-between items-center">
+                <p class="text-xs leading-relaxed text-slate-400 border-t border-slate-800 pt-4">The previous sensitivity slider only changed its displayed percentage; it did not modify recognition. It has been removed to avoid showing a control that does not work. Auto-speak for recognized signs is controlled in Live Studio.</p>
+                <div class="border-t border-slate-800 pt-4 flex justify-between items-center gap-4">
                     <div>
-                        <div class="text-sm font-bold text-white">Reset Local Application Storage</div>
-                        <div class="text-xs text-slate-400">Purge local history logs and cached settings.</div>
+                        <div class="text-sm font-bold text-white">Reset local history</div>
+                        <div class="text-xs text-slate-400">Remove recognition history saved in this browser on this device.</div>
                     </div>
-                    <button onclick="clearHistoryLog()" class="px-4 py-2 rounded-xl bg-rose-600/20 text-rose-400 hover:bg-rose-600/30 border border-rose-500/30 text-xs font-bold transition">
-                        Reset Storage
-                    </button>
+                    <button onclick="clearHistoryLog()" class="px-4 py-2 rounded-xl bg-rose-600/20 text-rose-400 hover:bg-rose-600/30 border border-rose-500/30 text-xs font-bold transition">Clear History</button>
                 </div>
-            </div>
+            </div>            </div>
         </section>
 
     </main>
@@ -713,7 +684,7 @@ img,canvas,video,svg{max-width:100%}section,article,.rounded-3xl,.rounded-2xl{mi
             control.classList.toggle('bg-slate-800',active);control.classList.toggle('text-white',active);
             if(active)control.setAttribute('aria-current','page');else control.removeAttribute('aria-current');
           });
-          closeMainMenu();document.documentElement.classList.remove('route-pending');
+          closeMainMenu();document.documentElement.classList.remove('route-pending');replaySectionReveal(activeSection);
           if(options.updateUrl!==false){const nextUrl=tabId==='home'?window.location.pathname+window.location.search:'#'+tabId;const currentUrl=window.location.pathname+window.location.search+window.location.hash;if(nextUrl!==currentUrl)window.history[options.replace?'replaceState':'pushState']({tabId},'',nextUrl);}
           if(options.scroll!==false)window.scrollTo({top:0,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
         }
@@ -725,42 +696,7 @@ img,canvas,video,svg{max-width:100%}section,article,.rounded-3xl,.rounded-2xl{mi
           document.addEventListener('keydown',event=>{if(event.key==='Escape')closeMainMenu();});
           document.addEventListener('click',event=>{const menu=document.getElementById('main-menu-dropdown'),toggle=document.getElementById('main-menu-toggle');if(menu&&toggle&&!menu.contains(event.target)&&!toggle.contains(event.target))closeMainMenu();});
         }
-        window.addEventListener('DOMContentLoaded',()=>{populatePhrasebook();renderHistoryTable();initializeSiteNavigation();loadLiveDatasetStats();});
-
-                // Animated Statistics Counters
-        function animateCounters() {
-            const counters = document.querySelectorAll('.counter');
-            counters.forEach(counter => {
-                const target = parseInt(counter.getAttribute('data-target'));
-                const duration = 2000;
-                const step = target / (duration / 16);
-                let current = 0;
-
-                const update = () => {
-                    current += step;
-                    if (current < target) {
-                        counter.innerText = Math.floor(current).toLocaleString();
-                        requestAnimationFrame(update);
-                    } else {
-                        counter.innerText = target.toLocaleString();
-                    }
-                };
-                update();
-            });
-        }
-
-        // IntersectionObserver for Counters
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateCounters();
-                    observer.disconnect();
-                }
-            });
-        }, { threshold: 0.2 });
-
-        const statsSection = document.getElementById('mod-home');
-        if (statsSection) observer.observe(statsSection);
+        window.addEventListener('DOMContentLoaded',()=>{populatePhrasebook();renderHistoryTable();initializeScrollReveal();initializeSiteNavigation();loadLiveDatasetStats();});
 
         // Live camera recognition is provided by studio.html and the Render model API.
 
@@ -797,14 +733,14 @@ img,canvas,video,svg{max-width:100%}section,article,.rounded-3xl,.rounded-2xl{mi
 
         // PHRASEBOOK DICTIONARY DATA & RENDERING
         const phrasesData=[
-          {title:'Namaste / Greetings',category:'General',desc:'Standard respectful greeting in ISL with joined palms near chest.',language:'en'},
-          {title:'Thank You',category:'General',desc:'Hand moves outward from chin level forward.',language:'en'},
-          {title:'Help Needed',category:'Emergency',desc:'Closed fist supported by open palm moving upwards.',language:'en'},
-          {title:'Medical Emergency',category:'Emergency',desc:'Crossed wrists forming a healthcare emblem motion.',language:'en'},
-          {title:'Where is Hospital?',category:'Phrases',desc:'Sequential sign combining location query and hospital symbol.',language:'en'},
-          {title:'Water Please',category:'Basic Needs',desc:'Tap index finger on chin twice.',language:'en'},
-          {title:'Yes / Agree',category:'General',desc:'Fist nodding vertically imitating head nod.',language:'en'},
-          {title:'No / Disagree',category:'General',desc:'Index and middle finger snap closed onto thumb.',language:'en'}
+          {title:'Namaste / Greetings',category:'General',desc:'Text phrase for communication; exact signing should be checked with a fluent ISL user.',language:'en'},
+          {title:'Thank You',category:'General',desc:'Text phrase for communication; this card does not verify a specific hand movement.',language:'en'},
+          {title:'Help Needed',category:'Emergency',desc:'Emergency-related text phrase; this card does not verify a specific hand movement.',language:'en'},
+          {title:'Medical Emergency',category:'Emergency',desc:'Emergency-related text phrase; use a verified ISL resource for exact signing.',language:'en'},
+          {title:'Where is Hospital?',category:'Phrases',desc:'Text question for communication; exact signing can depend on context.',language:'en'},
+          {title:'Water Please',category:'Basic Needs',desc:'Text phrase for communication; this card does not verify a specific hand movement.',language:'en'},
+          {title:'Yes / Agree',category:'General',desc:'Text phrase for communication; this card does not verify a specific hand movement.',language:'en'},
+          {title:'No / Disagree',category:'General',desc:'Text phrase for communication; this card does not verify a specific hand movement.',language:'en'}
         ];
         const CUSTOM_PHRASES_KEY='sahayak_custom_phrases';
         const PHRASEBOOK_API_BASE=(window.SAHAYAK_API_BASE||'https://sahayak-backend-krh1.onrender.com').replace(/\/$/,'');
@@ -857,6 +793,34 @@ img,canvas,video,svg{max-width:100%}section,article,.rounded-3xl,.rounded-2xl{mi
 
         function readableDatasetLabel(label){return String(label||'').replace(/_/g,' ').toLowerCase().replace(/\b\w/g,c=>c.toUpperCase());}
         function setDatasetValue(id,value){const el=document.getElementById(id);if(el)el.textContent=String(value);}
+        let homepageRevealObserver=null;
+        function initializeScrollReveal(root=document){
+          const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          const candidates=[];
+          if(root.matches&&root.matches('.tab-content'))candidates.push(...Array.from(root.children));
+          candidates.push(...root.querySelectorAll('main .tab-content > *, main .tab-content .grid > div, main .tab-content article, footer'));
+          const targets=[...new Set(candidates)];
+          if(reduced||!('IntersectionObserver'in window)){
+            targets.forEach(el=>el.classList.add('scroll-reveal','is-visible'));
+            return;
+          }
+          document.documentElement.classList.add('scroll-motion-ready');
+          if(!homepageRevealObserver){
+            homepageRevealObserver=new IntersectionObserver(entries=>{
+              entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');homepageRevealObserver.unobserve(entry.target);}});
+            },{threshold:0.12,rootMargin:'0px 0px -36px 0px'});
+          }
+          targets.forEach((el,index)=>{
+            el.classList.add('scroll-reveal');
+            el.style.setProperty('--reveal-delay',((index%4)*55)+'ms');
+            if(!el.classList.contains('is-visible'))homepageRevealObserver.observe(el);
+          });
+        }
+        function replaySectionReveal(section){
+          if(!section)return;
+          if(!homepageRevealObserver){initializeScrollReveal(section);return;}
+          section.querySelectorAll('.scroll-reveal').forEach(el=>{el.classList.remove('is-visible');homepageRevealObserver.unobserve(el);homepageRevealObserver.observe(el);});
+        }
         async function loadLiveDatasetStats(){
           setDatasetValue('dataset-live-status','Checking the deployed model and saved-sample database…');
           setDatasetValue('dataset-phrasebook-count',phrasesData.length);
@@ -867,24 +831,32 @@ img,canvas,video,svg{max-width:100%}section,article,.rounded-3xl,.rounded-2xl{mi
             const data=await response.json();
             const staticLabels=Array.isArray(data.single_sign_labels)?data.single_sign_labels:[];
             const sequenceLabels=Array.isArray(data.sequence_sign_labels)?data.sequence_sign_labels:[];
-            setDatasetValue('dataset-static-count',data.ready?staticLabels.length+' classes':'Model unavailable');
-            setDatasetValue('dataset-static-labels',staticLabels.length?staticLabels.map(readableDatasetLabel).join(', '):(data.model_error||'No trained single-sign model available.'));
-            setDatasetValue('dataset-sequence-count',data.sequence_model_ready?sequenceLabels.length+' classes':'Model unavailable');
-            setDatasetValue('dataset-sequence-labels',sequenceLabels.length?sequenceLabels.map(readableDatasetLabel).join(', '):(data.sequence_error||'No trained continuous-sign model available.'));
+            const staticCount=data.ready?staticLabels.length+' classes':'Model unavailable';
+            const seqCount=data.sequence_model_ready?sequenceLabels.length+' classes':'Model unavailable';
+            const staticLabelText=staticLabels.length?staticLabels.map(readableDatasetLabel).join(', '):(data.model_error||'No trained single-sign model available.');
+            const seqLabelText=sequenceLabels.length?sequenceLabels.map(readableDatasetLabel).join(', '):(data.sequence_error||'No trained continuous-sign model available.');
+            setDatasetValue('dataset-static-count',staticCount);setDatasetValue('dataset-static-labels',staticLabelText);
+            setDatasetValue('dataset-sequence-count',seqCount);setDatasetValue('dataset-sequence-labels',seqLabelText);
+            setDatasetValue('home-static-count',staticCount);setDatasetValue('home-static-labels',staticLabelText);
+            setDatasetValue('home-sequence-count',seqCount);setDatasetValue('home-sequence-labels',seqLabelText);
             const db=data.sequence_database&&typeof data.sequence_database==='object'?data.sequence_database:{};
             const total=Number(db.total_samples);
-            setDatasetValue('dataset-sample-total',Number.isFinite(total)?total.toLocaleString()+' samples':'Count unavailable');
+            const sampleText=Number.isFinite(total)?total.toLocaleString()+' samples':'Count unavailable';
+            setDatasetValue('dataset-sample-total',sampleText);setDatasetValue('home-sample-total',sampleText);
             const perLabel=db.labels&&typeof db.labels==='object'?Object.entries(db.labels).sort((a,b)=>a[0].localeCompare(b[0])):[];
             setDatasetValue('dataset-sample-breakdown',perLabel.length?perLabel.map(([label,count])=>readableDatasetLabel(label)+': '+Number(count).toLocaleString()).join(' · '):'No saved samples currently recorded.');
+            const avgText=(avg,count)=>Number.isFinite(avg)&&Number(count)>0?Number(avg).toFixed(1)+' ms · '+Number(count).toLocaleString()+' responses':'Waiting for live predictions';
+            setDatasetValue('dataset-static-average',avgText(data.single_prediction_api_avg_ms,data.single_prediction_api_sample_count));
+            setDatasetValue('dataset-sequence-average',avgText(data.sequence_prediction_api_avg_ms,data.sequence_prediction_api_sample_count));
+            const cutoff=Number(data.single_sign_acceptance_threshold);
+            setDatasetValue('settings-static-threshold',Number.isFinite(cutoff)?Math.round(cutoff*100)+'%':'Unavailable');
             setDatasetValue('dataset-live-status','Live backend data loaded · checked '+new Date().toLocaleTimeString());
           }catch(error){
             setDatasetValue('dataset-live-status','Live backend stats unavailable. Reopen this section when the backend is online.');
-            setDatasetValue('dataset-static-count','Unavailable');
-            setDatasetValue('dataset-static-labels','Could not load current model labels.');
-            setDatasetValue('dataset-sequence-count','Unavailable');
-            setDatasetValue('dataset-sequence-labels','Could not load current model labels.');
-            setDatasetValue('dataset-sample-total','Unavailable');
+            ['dataset-static-count','dataset-sequence-count','dataset-sample-total','dataset-static-average','dataset-sequence-average','home-static-count','home-sequence-count','home-sample-total'].forEach(id=>setDatasetValue(id,'Unavailable'));
+            ['dataset-static-labels','dataset-sequence-labels','home-static-labels','home-sequence-labels'].forEach(id=>setDatasetValue(id,'Could not load current model data.'));
             setDatasetValue('dataset-sample-breakdown','Could not read the backend sample database.');
+            setDatasetValue('settings-static-threshold','Unavailable');
           }
         }
 

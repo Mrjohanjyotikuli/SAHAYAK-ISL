@@ -7,6 +7,7 @@ os.environ.setdefault("OPENBLAS_NUM_THREADS", "1")
 os.environ.setdefault("MKL_NUM_THREADS", "1")
 os.environ.setdefault("NUMEXPR_NUM_THREADS", "1")
 import base64, json, urllib.parse, urllib.request, urllib.error, threading, time, logging
+from collections import deque
 from io import BytesIO
 from gtts import gTTS
 import cv2, numpy as np, joblib, mediapipe as mp
@@ -27,6 +28,11 @@ app.config["MAX_CONTENT_LENGTH"] = 2 * 1024 * 1024
 CORS(app, resources={r"/api/*": {"origins": os.environ.get("SAHAYAK_FRONTEND_ORIGIN", "*")}})
 model = None
 sequence_model = None
+# Successful prediction API timings; process-local rolling samples, not a hardware-independent benchmark.
+_LATENCY_WINDOW = 200
+_LATENCY_LOCK = threading.Lock()
+_SINGLE_PREDICTION_LATENCIES_MS = deque(maxlen=_LATENCY_WINDOW)
+_SEQUENCE_PREDICTION_LATENCIES_MS = deque(maxlen=_LATENCY_WINDOW)
 init_sequence_db()
 hands = mp.solutions.hands.Hands(static_image_mode=True, max_num_hands=2, model_complexity=0, min_detection_confidence=.50)
 hands_lock = threading.Lock()
@@ -52,6 +58,12 @@ def trace_api_request_finish(response):
     if request.path.startswith("/api/") and started is not None:
         elapsed_ms = (time.monotonic() - started) * 1000
         app.logger.info("[SAHAYAK] request_done method=%s path=%s status=%s elapsed_ms=%.0f", request.method, request.path, response.status_code, elapsed_ms)
+        if response.status_code < 400:
+            with _LATENCY_LOCK:
+                if request.path == "/api/predict-features":
+                    _SINGLE_PREDICTION_LATENCIES_MS.append(elapsed_ms)
+                elif request.path == "/api/sequence/predict":
+                    _SEQUENCE_PREDICTION_LATENCIES_MS.append(elapsed_ms)
     return response
 def get_sequence_model():
     global sequence_model
@@ -101,6 +113,9 @@ def status():
     single_sign_labels = sorted(str(label) for label in get_model().classes_) if ready else []
     sequence_sign_labels = sorted(str(label) for label in get_sequence_model().classes_) if sequence_ready else []
     database_summary = sequence_db_summary()
+    with _LATENCY_LOCK:
+        single_times = list(_SINGLE_PREDICTION_LATENCIES_MS)
+        sequence_times = list(_SEQUENCE_PREDICTION_LATENCIES_MS)
     return jsonify({
         "project": "SAHAYAK",
         "developer": "Mr. Johan Jyoti Kuli",
@@ -112,6 +127,13 @@ def status():
         "sequence_model_ready": sequence_ready,
         "sequence_sign_labels": sequence_sign_labels,
         "sequence_sign_label_count": len(sequence_sign_labels),
+        "single_sign_acceptance_threshold": 0.60,
+        "sequence_sign_acceptance_threshold_when_probabilities_available": 0.60,
+        "single_prediction_api_avg_ms": round(sum(single_times) / len(single_times), 1) if single_times else None,
+        "single_prediction_api_sample_count": len(single_times),
+        "sequence_prediction_api_avg_ms": round(sum(sequence_times) / len(sequence_times), 1) if sequence_times else None,
+        "sequence_prediction_api_sample_count": len(sequence_times),
+        "prediction_latency_window_size": _LATENCY_WINDOW,
         "sequence_input_frames": MIN_SEQUENCE_FRAMES,
         "sequence_features": SEQUENCE_FEATURES,
         "model_error": model_error,
