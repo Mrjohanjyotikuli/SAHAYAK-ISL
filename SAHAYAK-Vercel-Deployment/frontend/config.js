@@ -1,2 +1,2 @@
-// Set this to the deployed HTTPS Render API URL before deploying the frontend.
-window.SAHAYAK_API_BASE = "";
+// Render API backend for the SAHAYAK frontend.
+window.SAHAYAK_API_BASE = "https://sahayak-backend-krh1.onrender.com";
