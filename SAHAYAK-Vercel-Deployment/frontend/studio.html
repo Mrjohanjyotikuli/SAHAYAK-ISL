@@ -714,7 +714,82 @@ async function translateText(text, source=$('sourceLanguage').value){
   throw Error(failures.length?'Online translation failed across all configured providers. '+failures.slice(-2).join(' · '):'Online translation failed.');
 }
 $('translateTypedPhrase').addEventListener('click',async()=>{try{$('manualText').value=phrase.value;await translateText(phrase.value, $('sourceLanguage').value);}catch(e){$('translationStatus').textContent=e.message;}});
-function speakText(text,lang){if(!text.trim()){$('speechStatus').textContent='No text available to speak.';return;}if(!('speechSynthesis'in window)){$('speechStatus').textContent='This browser does not support speech synthesis.';return;}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);if(lang)u.lang=lang;const voices=speechSynthesis.getVoices();if(lang){const v=voices.find(x=>x.lang.toLowerCase().startsWith(lang.toLowerCase()));if(v)u.voice=v;}u.onstart=()=>$('speechStatus').textContent='Speaking…';u.onend=()=>$('speechStatus').textContent='Speech finished.';u.onerror=()=>$('speechStatus').textContent='Speech failed; a compatible device voice may be unavailable.';speechSynthesis.speak(u);}
+const speechLocaleMap={
+ en:'en-US',hi:'hi-IN',as:'as-IN',bn:'bn-IN',ne:'ne-NP',ta:'ta-IN',te:'te-IN',
+ mr:'mr-IN',gu:'gu-IN',pa:'pa-IN',ur:'ur-PK',fr:'fr-FR',es:'es-ES',de:'de-DE',
+ it:'it-IT',pt:'pt-PT',ar:'ar-SA',zh:'zh-CN',ja:'ja-JP',ko:'ko-KR',ru:'ru-RU'
+};
+function speechLocale(language){
+ const raw=String(language||'en').trim().replace(/_/g,'-');
+ return speechLocaleMap[raw.toLowerCase()]||raw;
+}
+function chooseSpeechVoice(voices,language){
+ const locale=speechLocale(language).toLowerCase();
+ const base=String(language||locale.split('-')[0]).toLowerCase();
+ const matches=voices.map(voice=>{
+   const voiceLocale=String(voice.lang||'').toLowerCase().replace(/_/g,'-');
+   let score=0;
+   if(voiceLocale===locale)score=100;
+   else if(voiceLocale.startsWith(locale+'-'))score=95;
+   else if(voiceLocale===base)score=85;
+   else if(voiceLocale.startsWith(base+'-'))score=75;
+   if(voice.default&&score)score+=1;
+   return {voice,score};
+ }).filter(item=>item.score>0).sort((a,b)=>b.score-a.score);
+ return matches.length?matches[0].voice:null;
+}
+async function getSpeechVoices(){
+ let voices=window.speechSynthesis.getVoices();
+ if(voices.length)return voices;
+ await new Promise(resolve=>{
+   let timer;
+   let finished=false;
+   const finish=()=>{
+     if(finished)return;
+     finished=true;
+     if(timer)clearTimeout(timer);
+     window.speechSynthesis.removeEventListener?.('voiceschanged',finish);
+     resolve();
+   };
+   window.speechSynthesis.addEventListener?.('voiceschanged',finish,{once:true});
+   timer=setTimeout(finish,1800);
+ });
+ return window.speechSynthesis.getVoices();
+}
+async function speakText(text,lang){
+ const spokenText=String(text||'').trim();
+ if(!spokenText){$('speechStatus').textContent='No text available to speak.';return;}
+ if(!('speechSynthesis'in window)||typeof SpeechSynthesisUtterance==='undefined'){
+   $('speechStatus').textContent='This browser does not support speech synthesis.';
+   return;
+ }
+ const locale=speechLocale(lang||'en');
+ $('speechStatus').textContent='Loading a voice for '+(langNames[lang]||lang||'the selected language')+'…';
+ try{
+   const voices=await getSpeechVoices();
+   window.speechSynthesis.cancel();
+   const utterance=new SpeechSynthesisUtterance(spokenText);
+   utterance.lang=locale;
+   const voice=chooseSpeechVoice(voices,lang||'en');
+   if(voice){
+     utterance.voice=voice;
+     $('speechStatus').textContent='Speaking in '+(langNames[lang]||lang||locale)+' ('+voice.lang+').';
+   }else{
+     $('speechStatus').textContent='No installed voice specifically advertises '+(langNames[lang]||lang||locale)+'. Trying your device speech engine with '+locale+'. Install this language’s speech voice in your device settings for reliable pronunciation.';
+   }
+   utterance.onstart=()=>{
+     if(voice)$('speechStatus').textContent='Speaking in '+(langNames[lang]||lang||locale)+' ('+voice.lang+').';
+     else $('speechStatus').textContent='Trying device speech in '+(langNames[lang]||lang||locale)+'…';
+   };
+   utterance.onend=()=>$('speechStatus').textContent='Speech finished.';
+   utterance.onerror=(event)=>{
+     $('speechStatus').textContent='Could not speak '+(langNames[lang]||lang||locale)+'. '+(event.error||'No compatible device voice is available')+'. Install a voice for '+locale+' in your device text-to-speech settings.';
+   };
+   window.speechSynthesis.speak(utterance);
+ }catch(error){
+   $('speechStatus').textContent='Speech setup failed for '+locale+': '+error.message;
+ }
+}
 document.getElementById('speakTranslation').addEventListener('click',()=>{
   const translated=$('translatedText').value.trim();
   if(!translated){
