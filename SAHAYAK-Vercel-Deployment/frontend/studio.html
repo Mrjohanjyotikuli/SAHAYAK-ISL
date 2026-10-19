@@ -593,7 +593,7 @@ $('modeStatus').textContent='Smart Communication is always on: stable static sig
 const langNames={en:'English',hi:'Hindi',as:'Assamese',bn:'Bengali',ne:'Nepali',ta:'Tamil',te:'Telugu',mr:'Marathi',gu:'Gujarati',pa:'Punjabi',ur:'Urdu',fr:'French',es:'Spanish',de:'German',it:'Italian',pt:'Portuguese',ar:'Arabic',zh:'Chinese',ja:'Japanese',ko:'Korean',ru:'Russian'};
 function normalizeForPhraseMatch(value){
   return String(value||'').toLocaleLowerCase().normalize('NFKC')
-    .replace(/[^\\p{L}\\p{N}]+/gu,' ').trim().replace(/\\s+/g,' ');
+    .replace(/[^\w\u00C0-\u024F\u0900-\u097F\u0980-\u09FF]+/g,' ').trim().replace(/\s+/g,' ');
 }
 function translateFromOfflinePhrases(original,source,target){
   if(source===target)return original;
