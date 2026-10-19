@@ -106,7 +106,7 @@ def predict():
         app.logger.exception("[SAHAYAK] predict_stage=model_load_failed")
         return jsonify({"error":str(e)}), 500
     if clf is None: return jsonify({"error":"Two-hand model not trained yet. Collect data and run python train_model.py; use --promote only when ready to replace the live model."}), 503
-    body = request.get_json(silent=True) or {}
+    body = request.get_json(force=True, silent=True) or {}
     data_url = body.get("image", "")
     if not isinstance(data_url, str) or "," not in data_url: return jsonify({"error":"No camera frame received."}), 400
     try:
@@ -162,7 +162,7 @@ def sequence_samples_status():
 @app.post("/api/sequence/samples")
 def save_sequence_sample():
     """Validate and persist one labelled variable-length sample (one or more valid frames) to its own SQLite DB."""
-    body = request.get_json(silent=True) or {}
+    body = request.get_json(force=True, silent=True) or {}
     try:
         label = body.get("label", "")
         frames = body.get("frames", [])
@@ -187,7 +187,7 @@ def export_sequence_samples():
 @app.post("/api/sequence/predict")
 def predict_sequence():
     try:
-        body = request.get_json(silent=True) or {}
+        body = request.get_json(force=True, silent=True) or {}
         frames = body.get("frames")
         summary = sequence_summary(frames)
         clf = get_sequence_model()
@@ -207,7 +207,7 @@ def predict_sequence():
 
 @app.post("/api/translate")
 def translate_text():
-    body = request.get_json(silent=True) or {}
+    body = request.get_json(force=True, silent=True) or {}
     source_text = body.get("text", "")
     source_lang = body.get("source", "en")
     target_lang = body.get("target", "hi")
