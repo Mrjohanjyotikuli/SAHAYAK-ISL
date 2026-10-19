@@ -26,7 +26,7 @@ CORS(app, resources={r"/api/*": {"origins": os.environ.get("SAHAYAK_FRONTEND_ORI
 model = None
 sequence_model = None
 init_sequence_db()
-hands = mp.solutions.hands.Hands(static_image_mode=False, max_num_hands=2, model_complexity=0, min_detection_confidence=.55)
+hands = mp.solutions.hands.Hands(static_image_mode=True, max_num_hands=2, model_complexity=0, min_detection_confidence=.50)
 hands_lock = threading.Lock()
 
 # Warm MediaPipe inside the Render worker before the first real camera frame.
@@ -123,9 +123,13 @@ def predict():
     # Convert returned landmarks back to raw camera coordinates for both cameras. The
     # frontend mirrors the preview AND overlay together for the front camera only.
     frame = cv2.flip(frame, 1)
-    app.logger.info("[SAHAYAK] predict_stage=mediapipe_start width=%s height=%s", frame.shape[1], frame.shape[0])
+    app.logger.info("[SAHAYAK] predict_stage=mediapipe_start width=%s height=%s dtype=%s", frame.shape[1], frame.shape[0], frame.dtype)
+    # Each HTTP request supplies an independent still frame, not a persistent video stream.
+    # Use a contiguous RGB buffer and static-image detection so MediaPipe does not depend on
+    # state/tracking history from a prior request or a different camera session.
+    rgb_frame = np.ascontiguousarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
     with hands_lock:
-        result = hands.process(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
+        result = hands.process(rgb_frame)
     app.logger.info("[SAHAYAK] predict_stage=mediapipe_done hands=%s elapsed_ms=%.0f", len(result.multi_hand_landmarks or []), (time.monotonic() - predict_started) * 1000)
     features, visible = two_hand_features(result)
     temporal_features = two_hand_sequence_features(result)
