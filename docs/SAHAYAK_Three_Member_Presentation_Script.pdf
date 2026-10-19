@@ -1,0 +1,926 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R 5 0 R 7 0 R 9 0 R 11 0 R 13 0 R 15 0 R 17 0 R 19 0 R 21 0 R 23 0 R 25 0 R] /Count 12 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> >> >> /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 1110 >>
+stream
+BT
+48 754 Td
+14 TL
+/F1 18 Tf
+(SAHAYAK | PRESENTATION PLAYBOOK) Tj
+T*
+T*
+/F1 12 Tf
+(A role-by-role speaking script for the science exhibition) Tj
+T*
+T*
+/F1 9 Tf
+(Three presenters: Shyamantika Pegu, Barakha Doley, Himanghsu Ghirme) Tj
+T*
+/F1 9 Tf
+(Project: SAHAYAK - A Real-Time Indian Sign Language Recognition System) Tj
+T*
+/F1 9 Tf
+(Prepared for the SAHAYAK project team | October 2026) Tj
+T*
+/F1 9 Tf
+() Tj
+T*
+/F1 12 Tf
+(HOW TO USE THIS PDF) Tj
+T*
+/F1 9 Tf
+(This is a presentation script, not just a project summary. Each member has a clear role,) Tj
+T*
+(exact speaking lines, what to point at, and a hand-off to the next speaker.) Tj
+T*
+/F1 9 Tf
+(Suggested order: Shyamantika opens and explains the problem; Barakha explains the system) Tj
+T*
+(and its technology; Himanghsu demonstrates the website, explains limits, and closes.) Tj
+T*
+(Adjust if your actual work division differs.) Tj
+T*
+/F1 9 Tf
+(Practice the meaning, not every word. Use the live website only after checking that the) Tj
+T*
+(camera, backend, and model work. Never claim an accuracy score unless measured and) Tj
+T*
+(documented.) Tj
+T*
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> >> >> /Contents 6 0 R >>
+endobj
+6 0 obj
+<< /Length 1318 >>
+stream
+BT
+48 754 Td
+14 TL
+/F1 18 Tf
+(THE STORY IN ONE MINUTE) Tj
+T*
+T*
+/F1 12 Tf
+(SAHAYAK aims to make a small set of recognized signs visible as text, with speech support,) Tj
+T*
+(through a web interface.) Tj
+T*
+T*
+/F1 9 Tf
+(The problem: communication between a sign-language user and someone unfamiliar with signs) Tj
+T*
+(can be difficult. A digital tool may help in some everyday situations, but it is not a) Tj
+T*
+(replacement for interpreters or full language access.) Tj
+T*
+/F1 9 Tf
+(Current flow: camera -> MediaPipe Hands detects hand landmarks in the browser -> the) Tj
+T*
+(website converts landmarks into numeric features -> the backend model predicts a supported) Tj
+T*
+(label -> the page shows text. Speech and translation are separate features that may) Tj
+T*
+(require internet.) Tj
+T*
+/F1 9 Tf
+(Static two-hand path: 126 values. Continuous-sequence path: 132 values per frame across 10) Tj
+T*
+(time bins, for 1320 values.) Tj
+T*
+/F1 9 Tf
+(The current label set should be checked on /api/status before presenting. Project labels) Tj
+T*
+(have included HELLO, I_LOVE_YOU, NO, THANK_YOU, and YES; do not promise every sign in ISL.) Tj
+T*
+/F1 9 Tf
+(Core honesty rule: say 'prototype' and 'supported signs', not 'complete ISL translator'.) Tj
+T*
+(No verified model-accuracy figure is supplied in this guide.) Tj
+T*
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> >> >> /Contents 8 0 R >>
+endobj
+8 0 obj
+<< /Length 1691 >>
+stream
+BT
+48 754 Td
+14 TL
+/F1 18 Tf
+(SPEAKER 1 | SHYAMANTIKA PEGU) Tj
+T*
+T*
+/F1 12 Tf
+(ROLE: OPENING, PROBLEM, PURPOSE AND PROJECT SCOPE) Tj
+T*
+T*
+/F1 9 Tf
+(Target time: 1 minute 30 seconds) Tj
+T*
+/F1 9 Tf
+(SAY:) Tj
+T*
+/F1 9 Tf
+(Good morning respected judges, teachers, and everyone present here. We are presenting our) Tj
+T*
+(project SAHAYAK, a real-time Indian Sign Language recognition system.) Tj
+T*
+/F1 9 Tf
+(The word 'Sahayak' means helper. Our idea is to explore how computer vision and machine) Tj
+T*
+(learning can support communication between a person using signs and a person who may not) Tj
+T*
+(understand those signs.) Tj
+T*
+/F1 9 Tf
+(Communication barriers can affect classrooms, public services, and everyday conversations.) Tj
+T*
+(Sign languages are real languages, but many people around a sign-language user may not) Tj
+T*
+(know them. Our project explores one small technological aid for this situation.) Tj
+T*
+/F1 9 Tf
+(Our goal is not to replace sign-language interpreters, teach a complete language, or claim) Tj
+T*
+(that a computer can understand every sign. We are building a prototype that recognizes a) Tj
+T*
+(limited set of signs and displays the predicted label as text. The website also includes) Tj
+T*
+(speech and translation features.) Tj
+T*
+/F1 9 Tf
+(We will explain how it works, show the current prototype, and discuss its limitations and) Tj
+T*
+(future improvements.) Tj
+T*
+/F1 9 Tf
+(DO / SHOW: Display the homepage and point to the project title. Keep this opening slow and) Tj
+T*
+(confident.) Tj
+T*
+/F1 9 Tf
+(HAND-OFF: Now that we have explained why we chose this problem, Barakha will explain the) Tj
+T*
+(system and how the recognition pipeline works.) Tj
+T*
+ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> >> >> /Contents 10 0 R >>
+endobj
+10 0 obj
+<< /Length 1485 >>
+stream
+BT
+48 754 Td
+14 TL
+/F1 18 Tf
+(SPEAKER 1 | BACKUP NOTES) Tj
+T*
+T*
+/F1 12 Tf
+(KEY TERMS) Tj
+T*
+T*
+/F1 9 Tf
+(Computer vision: software that analyses images or video frames.) Tj
+T*
+/F1 9 Tf
+(Landmark: a key point on a hand, such as a fingertip or joint.) Tj
+T*
+/F1 9 Tf
+(Feature: a number that represents useful information from the detected hand.) Tj
+T*
+/F1 9 Tf
+(Classifier: a trained model that chooses among the labels it has learned.) Tj
+T*
+/F1 9 Tf
+(Real-time: the system processes new camera frames while the session is running. Actual) Tj
+T*
+(speed depends on device, network, and server.) Tj
+T*
+/F1 9 Tf
+(WHY THIS PROJECT MATTERS) Tj
+T*
+/F1 9 Tf
+(It can be used as a learning prototype, a demonstration of accessible technology, and a) Tj
+T*
+(starting point for a better-tested sign-recognition tool.) Tj
+T*
+/F1 9 Tf
+(DO NOT SAY) Tj
+T*
+/F1 9 Tf
+(- It recognizes every Indian Sign Language sentence.) Tj
+T*
+/F1 9 Tf
+(- It is 98% or 99% accurate unless a valid evaluation proves that.) Tj
+T*
+/F1 9 Tf
+(- It works fully offline. Model inference, translation, or speech may depend on backend or) Tj
+T*
+(internet.) Tj
+T*
+/F1 9 Tf
+(- It replaces interpreters or guarantees correct communication.) Tj
+T*
+/F1 9 Tf
+(IF ASKED 'WHY SAHAYAK?') Tj
+T*
+/F1 9 Tf
+(We chose the name because the project is intended to act as a helper. Technology should) Tj
+T*
+(support accessibility while respecting that sign languages and Deaf communities are much) Tj
+T*
+(more than a list of gestures.) Tj
+T*
+ET
+endstream
+endobj
+11 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> >> >> /Contents 12 0 R >>
+endobj
+12 0 obj
+<< /Length 1974 >>
+stream
+BT
+48 754 Td
+14 TL
+/F1 18 Tf
+(SPEAKER 2 | BARAKHA DOLEY) Tj
+T*
+T*
+/F1 12 Tf
+(ROLE: ARCHITECTURE, AI AND WEBSITE FEATURES) Tj
+T*
+T*
+/F1 9 Tf
+(Target time: 2 minutes) Tj
+T*
+/F1 9 Tf
+(SAY:) Tj
+T*
+/F1 9 Tf
+(Thank you, Shyamantika. I will explain how SAHAYAK works.) Tj
+T*
+/F1 9 Tf
+(First, the user opens the website and allows camera access. The browser uses MediaPipe) Tj
+T*
+(Hands to detect hand landmarks. Instead of sending the whole camera image to the) Tj
+T*
+(classifier, the current interface extracts numeric hand coordinates and turns them into) Tj
+T*
+(features.) Tj
+T*
+/F1 9 Tf
+(For the static two-hand model, the feature vector contains 126 values: 21 landmarks for) Tj
+T*
+(each of two hands, with three coordinates per landmark. These numbers are sent to our) Tj
+T*
+(Flask backend, where a scikit-learn model saved with Joblib predicts one of its supported) Tj
+T*
+(labels.) Tj
+T*
+/F1 9 Tf
+(The project also has a continuous-sign pathway. It collects a sequence of frames,) Tj
+T*
+(represents each frame with 132 values, and resamples the sequence into 10 time bins. That) Tj
+T*
+(creates a 1320-value input for the sequence model. This is intended for signs where) Tj
+T*
+(movement over time matters, although results depend on the trained model and quality of) Tj
+T*
+(the sequence.) Tj
+T*
+/F1 9 Tf
+(The website displays the predicted sign as text. Translation and speech are additional) Tj
+T*
+(functions; they are not the same thing as recognizing the hand movement. Some of these) Tj
+T*
+(services need an internet connection.) Tj
+T*
+/F1 9 Tf
+(In short, the system combines browser-based hand tracking, numeric feature extraction, a) Tj
+T*
+(backend machine-learning model, and a website interface.) Tj
+T*
+/F1 9 Tf
+(DO / SHOW: Use a simple diagram or point through the homepage and Live Studio. Do not) Tj
+T*
+(start the demo yet.) Tj
+T*
+/F1 9 Tf
+(HAND-OFF: Himanghsu will now demonstrate the live website and explain what the audience) Tj
+T*
+(should look for.) Tj
+T*
+ET
+endstream
+endobj
+13 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> >> >> /Contents 14 0 R >>
+endobj
+14 0 obj
+<< /Length 1672 >>
+stream
+BT
+48 754 Td
+14 TL
+/F1 18 Tf
+(SPEAKER 2 | TECHNICAL CHEAT SHEET) Tj
+T*
+T*
+/F1 12 Tf
+(PIPELINE) Tj
+T*
+T*
+/F1 9 Tf
+(1. Camera: captures the user's hand movement after permission is granted.) Tj
+T*
+/F1 9 Tf
+(2. MediaPipe Hands: estimates hand landmarks in the browser.) Tj
+T*
+/F1 9 Tf
+(3. Feature extraction: converts landmarks into numeric input.) Tj
+T*
+/F1 9 Tf
+(4. Backend API: receives features and runs the model.) Tj
+T*
+/F1 9 Tf
+(5. Classifier: selects a label from the classes it knows.) Tj
+T*
+/F1 9 Tf
+(6. Interface: displays the prediction; speech or translation can be requested separately.) Tj
+T*
+/F1 9 Tf
+(IMPORTANT DIMENSIONS) Tj
+T*
+/F1 9 Tf
+(Static path: 126 features = 2 hands x 21 landmarks x 3 coordinates.) Tj
+T*
+/F1 9 Tf
+(Sequence path: 132 values per frame x 10 time bins = 1320 values.) Tj
+T*
+/F1 9 Tf
+(TECH STACK) Tj
+T*
+/F1 9 Tf
+(Frontend: HTML, CSS, JavaScript and browser-side MediaPipe Hands.) Tj
+T*
+/F1 9 Tf
+(Backend: Python Flask API.) Tj
+T*
+/F1 9 Tf
+(Machine learning: scikit-learn model artifacts saved with Joblib.) Tj
+T*
+/F1 9 Tf
+(Hosting: frontend on Vercel; backend on Render.) Tj
+T*
+/F1 9 Tf
+(WHAT THE MODEL DOES NOT DO) Tj
+T*
+/F1 9 Tf
+(The model does not automatically learn a new sign because a label is typed into a JSON) Tj
+T*
+(file. New signs require labeled data, training, evaluation, and deployment of a new model) Tj
+T*
+(artifact.) Tj
+T*
+/F1 9 Tf
+(IF ASKED 'WHY NOT JUST USE IMAGES?') Tj
+T*
+/F1 9 Tf
+(This version uses hand landmarks as a compact numeric representation. It may reduce) Tj
+T*
+(dependence on raw image appearance, but can miss facial expression, body posture, and) Tj
+T*
+(context important in sign language.) Tj
+T*
+ET
+endstream
+endobj
+15 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> >> >> /Contents 16 0 R >>
+endobj
+16 0 obj
+<< /Length 1882 >>
+stream
+BT
+48 754 Td
+14 TL
+/F1 18 Tf
+(SPEAKER 3 | HIMANGHSU GHIRME) Tj
+T*
+T*
+/F1 12 Tf
+(ROLE: LIVE DEMO, LIMITATIONS, FUTURE WORK AND CLOSING) Tj
+T*
+T*
+/F1 9 Tf
+(Target time: 2 minutes plus demo) Tj
+T*
+/F1 9 Tf
+(SAY:) Tj
+T*
+/F1 9 Tf
+(Thank you. I will show the current SAHAYAK prototype.) Tj
+T*
+/F1 9 Tf
+(I am opening Live Studio. The browser requests camera permission. When the hand detector) Tj
+T*
+(sees a hand, the page can draw landmark annotations. The current model then attempts to) Tj
+T*
+(classify the extracted features. Please remember that this is a prototype and only its) Tj
+T*
+(trained labels are supported.) Tj
+T*
+/F1 9 Tf
+(I will make one sign that is listed as supported and hold it clearly in the camera view.) Tj
+T*
+(We should look at three things: whether the hand is detected, whether the prediction) Tj
+T*
+(appears, and whether the output matches the sign I made. A single successful example is a) Tj
+T*
+(demonstration, not proof of overall accuracy.) Tj
+T*
+/F1 9 Tf
+(Our current limitations include a limited label set, possible confusion between similar) Tj
+T*
+(signs, sensitivity to lighting and camera position, and the need for broader testing with) Tj
+T*
+(different signers. Full sign language includes movement, facial expression, body posture,) Tj
+T*
+(grammar, and context; our prototype does not capture all of that.) Tj
+T*
+/F1 9 Tf
+(Future work includes collecting a larger and more diverse dataset with consent, measuring) Tj
+T*
+(per-class performance, improving sequence recognition, testing with Deaf and) Tj
+T*
+(hard-of-hearing users, and adding accessibility and privacy safeguards.) Tj
+T*
+/F1 9 Tf
+(Thank you for listening. We welcome your questions and feedback.) Tj
+T*
+/F1 9 Tf
+(DO / SHOW: Open Studio, check camera permission, make a known supported sign, point out) Tj
+T*
+(the label and annotation. If it fails, use the backup demo plan.) Tj
+T*
+ET
+endstream
+endobj
+17 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> >> >> /Contents 18 0 R >>
+endobj
+18 0 obj
+<< /Length 1556 >>
+stream
+BT
+48 754 Td
+14 TL
+/F1 18 Tf
+(DEMO CHECKLIST | BEFORE JUDGES ARRIVE) Tj
+T*
+T*
+/F1 12 Tf
+(10 MINUTES BEFORE) Tj
+T*
+T*
+/F1 9 Tf
+(- Open the homepage and Studio on the actual demo device.) Tj
+T*
+/F1 9 Tf
+(- Confirm internet connection and camera permission.) Tj
+T*
+/F1 9 Tf
+(- Check that the Render backend has woken up and /api/health responds.) Tj
+T*
+/F1 9 Tf
+(- Check /api/status and confirm the model is loaded; note the actual label list.) Tj
+T*
+/F1 9 Tf
+(- Test one or two signs the current model is trained to recognize.) Tj
+T*
+/F1 9 Tf
+(- Check that camera framing shows the hands clearly, with steady lighting and a plain) Tj
+T*
+(background.) Tj
+T*
+/F1 9 Tf
+(DURING THE DEMO) Tj
+T*
+/F1 9 Tf
+(1. Tell the audience what sign you are about to show.) Tj
+T*
+/F1 9 Tf
+(2. Keep the hand visible and hold the sign naturally; do not move outside the frame.) Tj
+T*
+/F1 9 Tf
+(3. Wait for the prediction. Do not hide a wrong result or pretend a failed result) Tj
+T*
+(succeeded.) Tj
+T*
+/F1 9 Tf
+(4. If available, show the text output and explain that speech/translation are separate) Tj
+T*
+(features.) Tj
+T*
+/F1 9 Tf
+(BACKUP PLAN IF THE DEMO FAILS) Tj
+T*
+/F1 9 Tf
+(Say: 'The live result depends on camera detection and the hosted backend. We have a) Tj
+T*
+(prototype, and this is also a useful example of why reliability testing matters. I can) Tj
+T*
+(explain the pipeline and show the project interface while we check the connection.') Tj
+T*
+/F1 9 Tf
+(Then show the homepage or architecture diagram. Do not claim the model worked if it did) Tj
+T*
+(not.) Tj
+T*
+ET
+endstream
+endobj
+19 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> >> >> /Contents 20 0 R >>
+endobj
+20 0 obj
+<< /Length 1537 >>
+stream
+BT
+48 754 Td
+14 TL
+/F1 18 Tf
+(JUDGE Q&A | PART 1) Tj
+T*
+T*
+/F1 12 Tf
+(Q1. What is SAHAYAK?) Tj
+T*
+T*
+/F1 9 Tf
+(A: A web-based prototype using hand landmarks and machine learning to recognize a limited) Tj
+T*
+(set of signs and display predicted labels.) Tj
+T*
+/F1 9 Tf
+(Q2. What problem does it address?) Tj
+T*
+/F1 9 Tf
+(A: It explores a technological aid where someone may not understand a sign-language user's) Tj
+T*
+(signs. It is not a replacement for interpreters.) Tj
+T*
+/F1 9 Tf
+(Q3. What is MediaPipe?) Tj
+T*
+/F1 9 Tf
+(A: A framework that can detect hand landmarks from camera frames. Here, landmark detection) Tj
+T*
+(runs in the browser.) Tj
+T*
+/F1 9 Tf
+(Q4. What is a landmark?) Tj
+T*
+/F1 9 Tf
+(A: A key point on a hand, such as a joint or fingertip, represented by coordinates.) Tj
+T*
+/F1 9 Tf
+(Q5. Why use machine learning?) Tj
+T*
+/F1 9 Tf
+(A: The classifier learns patterns in labeled examples and predicts which supported class) Tj
+T*
+(is most similar to a new feature vector.) Tj
+T*
+/F1 9 Tf
+(Q6. Which language and framework are used on the backend?) Tj
+T*
+/F1 9 Tf
+(A: Python with Flask for the API; the classifier uses scikit-learn and Joblib model files.) Tj
+T*
+/F1 9 Tf
+(Q7. Does it understand all ISL?) Tj
+T*
+/F1 9 Tf
+(A: No. It recognizes only a limited set of trained labels. It is not a complete ISL) Tj
+T*
+(translator.) Tj
+T*
+/F1 9 Tf
+(Q8. What does real-time mean here?) Tj
+T*
+/F1 9 Tf
+(A: It processes camera frames during a live session. Response time varies with device,) Tj
+T*
+(network, and backend.) Tj
+T*
+ET
+endstream
+endobj
+21 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> >> >> /Contents 22 0 R >>
+endobj
+22 0 obj
+<< /Length 1790 >>
+stream
+BT
+48 754 Td
+14 TL
+/F1 18 Tf
+(JUDGE Q&A | PART 2) Tj
+T*
+T*
+/F1 12 Tf
+(Q9. Why are there 126 features?) Tj
+T*
+T*
+/F1 9 Tf
+(A: Two hands x 21 landmarks per hand x 3 coordinates per landmark equals 126 values.) Tj
+T*
+/F1 9 Tf
+(Q10. Why is there a sequence model?) Tj
+T*
+/F1 9 Tf
+(A: Some signs depend on movement over time, so a sequence can represent more than a single) Tj
+T*
+(hand pose. Success still depends on data and training.) Tj
+T*
+/F1 9 Tf
+(Q11. Does the project work offline?) Tj
+T*
+/F1 9 Tf
+(A: Not fully. Some browser-side functions can run after loading, but backend prediction,) Tj
+T*
+(translation, or speech may require connectivity.) Tj
+T*
+/F1 9 Tf
+(Q12. How do you know its accuracy?) Tj
+T*
+/F1 9 Tf
+(A: Report accuracy only after a documented test on held-out examples, ideally separated by) Tj
+T*
+(signer or recording session. We do not claim an unverified percentage.) Tj
+T*
+/F1 9 Tf
+(Q13. How will you add a new sign?) Tj
+T*
+/F1 9 Tf
+(A: Define the label, collect diverse labeled samples, train a candidate model, evaluate it) Tj
+T*
+(against old and new signs, update label metadata and model artifact, then deploy and test.) Tj
+T*
+/F1 9 Tf
+(Q14. Is typing a new label enough?) Tj
+T*
+/F1 9 Tf
+(A: No. The model must be trained on examples of that sign. A label file alone does not) Tj
+T*
+(teach the model.) Tj
+T*
+/F1 9 Tf
+(Q15. What are the main limitations?) Tj
+T*
+/F1 9 Tf
+(A: Limited signs, possible errors, sensitivity to recording conditions, network dependence) Tj
+T*
+(for some features, and missing context such as facial expression and grammar.) Tj
+T*
+/F1 9 Tf
+(Q16. How do you protect users?) Tj
+T*
+/F1 9 Tf
+(A: Ask for camera permission, explain data processing, avoid retaining video) Tj
+T*
+(unnecessarily, and get informed consent for training data.) Tj
+T*
+ET
+endstream
+endobj
+23 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> >> >> /Contents 24 0 R >>
+endobj
+24 0 obj
+<< /Length 1958 >>
+stream
+BT
+48 754 Td
+14 TL
+/F1 18 Tf
+(JUDGE Q&A | PART 3) Tj
+T*
+T*
+/F1 12 Tf
+(Q17. Why not translate whole sentences?) Tj
+T*
+T*
+/F1 9 Tf
+(A: This prototype predicts limited labels. Sentence-level sign-language translation needs) Tj
+T*
+(richer data and models for grammar, context, movement and other visual cues.) Tj
+T*
+/F1 9 Tf
+(Q18. Can it replace a human interpreter?) Tj
+T*
+/F1 9 Tf
+(A: No. It is a limited assistive prototype and should not be relied on for high-stakes) Tj
+T*
+(conversations.) Tj
+T*
+/F1 9 Tf
+(Q19. Difference between recognition and translation?) Tj
+T*
+/F1 9 Tf
+(A: Recognition predicts a sign label. Translation converts text or a recognized label into) Tj
+T*
+(another language; that does not mean the system understood a full signed sentence.) Tj
+T*
+/F1 9 Tf
+(Q20. What will you improve next?) Tj
+T*
+/F1 9 Tf
+(A: Expand and balance the dataset, test across signers and lighting, publish honest) Tj
+T*
+(metrics, improve sequence recognition, and conduct usability testing with the intended) Tj
+T*
+(community.) Tj
+T*
+/F1 9 Tf
+(Q21. What if the prediction is wrong?) Tj
+T*
+/F1 9 Tf
+(A: The user should be able to repeat or correct the message. Predictions should not be) Tj
+T*
+(treated as certain, especially in important conversations.) Tj
+T*
+/F1 9 Tf
+(Q22. What makes this scientific?) Tj
+T*
+/F1 9 Tf
+(A: It has a defined problem, technical method, testable outputs, limitations, and a plan) Tj
+T*
+(to evaluate performance rather than relying on a visual demo alone.) Tj
+T*
+/F1 9 Tf
+(Q23. Why is diverse data important?) Tj
+T*
+/F1 9 Tf
+(A: Hands, signing styles, speed, camera angles, and backgrounds vary. A model trained on a) Tj
+T*
+(few people may fail for others.) Tj
+T*
+/F1 9 Tf
+(Q24. Main conclusion?) Tj
+T*
+/F1 9 Tf
+(A: Computer vision can support a limited sign-recognition prototype, but meaningful) Tj
+T*
+(accessibility requires accuracy testing, user involvement, privacy, and respect for) Tj
+T*
+(sign-language complexity.) Tj
+T*
+ET
+endstream
+endobj
+25 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> >> >> /Contents 26 0 R >>
+endobj
+26 0 obj
+<< /Length 1744 >>
+stream
+BT
+48 754 Td
+14 TL
+/F1 18 Tf
+(FINAL REHEARSAL PLAN) Tj
+T*
+T*
+/F1 12 Tf
+(RUN-THROUGH 1: SCRIPT) Tj
+T*
+T*
+/F1 9 Tf
+(Each member reads their part aloud. Keep transitions smooth and avoid repeating the same) Tj
+T*
+(explanation.) Tj
+T*
+/F1 9 Tf
+(RUN-THROUGH 2: WITHOUT READING) Tj
+T*
+/F1 9 Tf
+(Use only the role headings and technical cheat sheet. Explain ideas in your own words.) Tj
+T*
+/F1 9 Tf
+(RUN-THROUGH 3: DEMO) Tj
+T*
+/F1 9 Tf
+(Practice camera permission, one supported sign, waiting for output, and the backup plan if) Tj
+T*
+(the server is slow.) Tj
+T*
+/F1 9 Tf
+(TEAM RULES) Tj
+T*
+/F1 9 Tf
+(- Do not interrupt another member; use the hand-off line.) Tj
+T*
+/F1 9 Tf
+(- If a judge asks a question, the member who knows can respond, but keep the answer short) Tj
+T*
+(and accurate.) Tj
+T*
+/F1 9 Tf
+(- If you do not know, say: 'We have not tested that yet, so we do not want to guess. It is) Tj
+T*
+(part of our future work.') Tj
+T*
+/F1 9 Tf
+(- Be clear about each member's real contribution. This role split is a suggested) Tj
+T*
+(presentation division, not a claim about who coded each feature.) Tj
+T*
+/F1 9 Tf
+(FINAL LINE FOR ALL THREE) Tj
+T*
+/F1 9 Tf
+(Together: 'SAHAYAK is a work in progress, and our aim is to keep improving it through) Tj
+T*
+(careful testing and feedback. Thank you.') Tj
+T*
+/F1 9 Tf
+() Tj
+T*
+/F1 9 Tf
+(PROJECT LINKS) Tj
+T*
+/F1 9 Tf
+(Live website: https://sahayak-eight-lac.vercel.app) Tj
+T*
+/F1 9 Tf
+(Live Studio: https://sahayak-eight-lac.vercel.app/studio.html) Tj
+T*
+/F1 9 Tf
+(Source code: https://github.com/Mrjohanjyotikuli/SAHAYAK-ISL) Tj
+T*
+/F1 9 Tf
+(Backend health: https://sahayak-backend-krh1.onrender.com/api/health) Tj
+T*
+/F1 9 Tf
+(Backend status: https://sahayak-backend-krh1.onrender.com/api/status) Tj
+T*
+ET
+endstream
+endobj
+xref
+0 27
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000190 00000 n 
+0000000365 00000 n 
+0000001527 00000 n 
+0000001702 00000 n 
+0000003072 00000 n 
+0000003247 00000 n 
+0000004990 00000 n 
+0000005166 00000 n 
+0000006704 00000 n 
+0000006881 00000 n 
+0000008908 00000 n 
+0000009085 00000 n 
+0000010810 00000 n 
+0000010987 00000 n 
+0000012922 00000 n 
+0000013099 00000 n 
+0000014708 00000 n 
+0000014885 00000 n 
+0000016475 00000 n 
+0000016652 00000 n 
+0000018495 00000 n 
+0000018672 00000 n 
+0000020683 00000 n 
+0000020860 00000 n 
+trailer
+<< /Size 27 /Root 1 0 R >>
+startxref
+22657
+%%EOF
