@@ -64,10 +64,9 @@ select, input, textarea { max-width: 100%; font-size: 16px; }
 <main>
 <a class="site-return" href="./index.html"><span aria-hidden="true">←</span> SAHAYAK Home</a>
 <header class="top"><img class="brand-logo" src="assets/sahayak-logo.png" alt="SAHAYAK — A Real-Time Sign Language Recognition System"><div class="tag">LIVE CAMERA DEMO</div></header>
-<section class="panel" style="margin-bottom:20px" aria-label="Recognition mode">
-<h2>Choose recognition mode</h2>
-<div class="controls"><button id="modeSingle" type="button">1 · Single Sign</button><button id="modeContinuous" class="secondary" type="button">2 · Continuous Sign</button></div>
-<div class="status" id="modeStatus">Single Sign mode is selected. The original single-sign model is used.</div>
+<section class="panel" style="margin-bottom:20px" aria-label="Smart Communication mode">
+<h2>Smart Communication</h2>
+<div class="status" id="modeStatus">Single and motion-based signs are combined automatically. Hold a static sign briefly, or perform a moving sign naturally; recognized words are added to the same message.</div>
 </section>
 <div class="grid">
 <section class="panel">
@@ -317,31 +316,32 @@ async function recognizeBrowserFeatures(payload,generation){
     apiFailureCount=0;retryDelayMs=0;
     statusEl.classList.remove('warning');
     statusEl.textContent='Browser hand tracking active · classifier connected';
-    if(seqState.recognitionMode==='single'){
-      if(data.recognized){
-        const readable=readableSign(data.sign);
-        signEl.textContent=readable;
-        confidenceEl.textContent='Confidence: '+data.confidence+'% · Hands: '+data.hands;
-        stateEl.textContent='Recognized';
-        outputEl.textContent=readable;
-        const now=Date.now();
-        lastRecognizedText=readable;
-        $('manualText').value=readable;
-        if(data.sign!==lastSign||now-lastAcceptedAt>2500){
-          addHistory('single-sign',readable,data.confidence);
-          lastAcceptedAt=now;
-        }
-        if(data.sign!==lastSign) tryAutoSpeak(readable);
-        lastSign=data.sign;
+    if(data.recognized){
+      const now=Date.now();
+      if(data.sign===seqState.staticCandidate)seqState.staticCandidateCount=Math.min(seqState.staticCandidateCount+1,8);
+      else{seqState.staticCandidate=data.sign;seqState.staticCandidateCount=1;}
+      const readable=readableSign(data.sign);
+      signEl.textContent=readable;
+      confidenceEl.textContent='Candidate confidence: '+data.confidence+'% · Hands: '+data.hands;
+      const recentMotion=now-seqState.lastMotionAt<1400;
+      if(seqState.staticCandidateCount>=3&&!recentMotion&&seqState.staticEmittedForHold!==data.sign){
+        seqState.staticEmittedForHold=data.sign;
+        emitSmartToken(data.sign,readable,data.confidence,'static');
+      }else if(recentMotion){
+        stateEl.textContent='Tracking movement…';
+      }else if(seqState.staticEmittedForHold===data.sign){
+        stateEl.textContent='Sign held · already added';
       }else{
-        lastAutoSpokenSign='';
-        signEl.textContent='—';
-        confidenceEl.textContent=data.hands?'Confidence: below recognition threshold':'Confidence: —';
-        stateEl.textContent=data.hands?'Sign uncertain':'Searching for hands';
-        if(data.message) outputEl.textContent=data.message;
+        stateEl.textContent='Stabilizing static sign…';
       }
     }else{
-      stateEl.textContent='Continuous mode';
+      seqState.staticCandidateCount=Math.max(0,seqState.staticCandidateCount-1);
+      if(seqState.staticCandidateCount===0)seqState.staticCandidate='';
+      if(data.hands===0){
+        seqState.staticEmittedForHold='';
+        stateEl.textContent='Searching for hands';
+      }
+      if(data.message&&seqState.staticCandidateCount===0)outputEl.textContent=data.message;
     }
   }catch(error){
     if(generation!==cameraGeneration||stopped||document.hidden) return;
@@ -362,16 +362,17 @@ function handleBrowserHandResults(results){
   drawAnnotations(payload.hands);
   if(payload.valid){
     statusEl.classList.remove('warning');
-    if(seqState.active||seqState.recognitionMode==='continuous'){
-      handleSequenceFrame(payload.sequenceFeatures);
-    }
+    handleSequenceFrame(payload.sequenceFeatures);
     if(!classifierBusy) recognizeBrowserFeatures(payload,cameraGeneration);
   }else{
-    if(seqState.active){
-      seqState.lastFeature=null;
-      seqState.stillFrames=0;
-      setSeqStatus('No hand detected in this frame. Move your hand into view; only valid landmark frames are counted.');
-    }
+    seqState.lastFeature=null;
+    seqState.stillFrames=0;
+    seqState.segmentFrames=[];
+    seqState.segmentMotionFrames=0;
+    seqState.staticCandidate='';
+    seqState.staticCandidateCount=0;
+    seqState.staticEmittedForHold='';
+    if(seqState.active||seqState.collecting)setSeqStatus('No hand detected in this frame. Move your hand into view; only valid landmark frames are counted.');
     lastAutoSpokenSign='';
     signEl.textContent='—';
     confidenceEl.textContent='Confidence: —';
@@ -482,14 +483,37 @@ document.getElementById('speak').addEventListener('click',()=>{const text=phrase
 document.getElementById('stopSpeech').addEventListener('click',()=>{if('speechSynthesis'in window)window.speechSynthesis.cancel();speechStatus.textContent='Speech stopped.';});document.getElementById('clearPhrase').addEventListener('click',()=>{phrase.value='';try{localStorage.removeItem('sahayak_phrase')}catch(e){}speechStatus.textContent='Phrase cleared on this device.';});
 
 // Translation, local history, and variable-length sequence workflow.
-const seqState={active:false,collecting:false,recognitionMode:'single',frames:[],segmentFrames:[],lastFeature:null,stillFrames:0,sampleFrames:[],samples:[],lastPredAt:0,predictionBusy:false,lastSequenceSign:'',lastSequenceAt:0,autoSpeak:true};
+const seqState={active:false,collecting:false,recognitionMode:'smart',frames:[],segmentFrames:[],segmentMotionFrames:0,lastFeature:null,stillFrames:0,sampleFrames:[],samples:[],lastPredAt:0,predictionBusy:false,lastSequenceSign:'',lastSequenceAt:0,lastMotionAt:0,staticCandidate:'',staticCandidateCount:0,staticEmittedForHold:'',lastEmittedLabel:'',lastEmittedSource:'',lastEmittedAt:0,autoSpeak:true};
 const MAX_SEQUENCE_CAPTURE_FRAMES=600;
 // Live segmentation: send a complete movement/hold segment on a short pause,
 // with a hard cap so continuous motion cannot grow the buffer indefinitely.
 const SEGMENT_MIN_FRAMES=15, SEGMENT_MAX_FRAMES=90, SEGMENT_STILL_FRAMES=3, SEGMENT_MOTION_THRESHOLD=0.012;
 function setSeqStatus(t){$('continuousStatus').textContent=t;}
+function emitSmartToken(label,text,confidence,source){
+  const normalized=String(label||text||'').trim().toUpperCase().replace(/\s+/g,'_');
+  const readable=String(text||readableSign(normalized)).trim();
+  if(!normalized||!readable)return false;
+  const now=Date.now();
+  // Static and temporal classifiers can both report the same sign near a movement boundary.
+  // Suppress only cross-path duplicates; two deliberate sequence signs may repeat.
+  if(normalized===seqState.lastEmittedLabel&&source!==seqState.lastEmittedSource&&now-seqState.lastEmittedAt<2200)return false;
+  seqState.lastEmittedLabel=normalized;
+  seqState.lastEmittedSource=source;
+  seqState.lastEmittedAt=now;
+  lastSign=normalized;
+  lastRecognizedText=readable;
+  signEl.textContent=readable;
+  confidenceEl.textContent=(source==='sequence'?'Motion-sign confidence: ':'Confidence: ')+(confidence==null?'not provided':confidence+'%');
+  stateEl.textContent=source==='sequence'?'Motion sign recognized':'Static sign recognized';
+  phrase.value+=(phrase.value.trim()?' ':'')+readable;
+  phrase.dispatchEvent(new Event('input'));
+  $('manualText').value=phrase.value;
+  outputEl.textContent=phrase.value;
+  addHistory(source==='sequence'?'motion-sign':'static-sign',readable,confidence);
+  tryAutoSpeak(readable);
+  return true;
+}
 function handleSequenceFrame(features){
-  if(!seqState.active && !seqState.collecting && seqState.recognitionMode!=='continuous')return;
   const cleanFrame=features.map(Number);
   seqState.frames.push(cleanFrame);
   if(seqState.frames.length>SEGMENT_MAX_FRAMES)seqState.frames.shift();
@@ -502,14 +526,25 @@ function handleSequenceFrame(features){
   if(previous){let total=0;for(let i=0;i<cleanFrame.length;i++)total+=Math.abs(cleanFrame[i]-previous[i]);motion=total/cleanFrame.length;}
   seqState.lastFeature=cleanFrame;
   seqState.segmentFrames.push(cleanFrame);
-  if(motion<SEGMENT_MOTION_THRESHOLD)seqState.stillFrames++;else seqState.stillFrames=0;
+  if(motion<SEGMENT_MOTION_THRESHOLD)seqState.stillFrames++;
+  else{
+    seqState.stillFrames=0;
+    seqState.segmentMotionFrames++;
+    seqState.lastMotionAt=Date.now();
+  }
   const enough=seqState.segmentFrames.length>=SEGMENT_MIN_FRAMES;
   const paused=enough&&seqState.stillFrames>=SEGMENT_STILL_FRAMES;
   const capped=seqState.segmentFrames.length>=SEGMENT_MAX_FRAMES;
-  if((paused||capped)&&!seqState.predictionBusy&&seqState.recognitionMode==='continuous'){
+  if((paused||capped)&&!seqState.predictionBusy){
     const segment=seqState.segmentFrames.slice();
-    seqState.segmentFrames=[];seqState.stillFrames=0;seqState.lastPredAt=Date.now();
-    predictSequenceWindow(segment);
+    const hasMeaningfulMotion=seqState.segmentMotionFrames>=3;
+    seqState.segmentFrames=[];
+    seqState.stillFrames=0;
+    seqState.segmentMotionFrames=0;
+    seqState.lastPredAt=Date.now();
+    // Static holds are handled by the stable single-sign classifier. Only submit motion
+    // segments to the temporal model, avoiding duplicate predictions for a held posture.
+    if(hasMeaningfulMotion&&!seqState.collecting)predictSequenceWindow(segment);
   }
   if(seqState.segmentFrames.length>SEGMENT_MAX_FRAMES){seqState.segmentFrames=seqState.segmentFrames.slice(-SEGMENT_MAX_FRAMES);}
 }
@@ -524,25 +559,12 @@ async function predictSequenceWindow(frames){
     if(!r.ok){setSeqStatus(d.error||'Sequence model is not ready. Collect labelled variable-length samples and train it first.');return;}
     if(!d.recognized){setSeqStatus(d.message||'Sequence uncertain. Perform the complete sign clearly and try again.');return;}
     const readable=readableSign(d.sign);
-    setSeqStatus(`Sequence prediction: ${readable}${d.confidence==null?'':' · '+d.confidence+'% confidence'} · ${d.frames} valid frames`);
-    if(seqState.recognitionMode==='continuous'){
-      signEl.textContent=readable;confidenceEl.textContent='Sequence confidence: '+(d.confidence==null?'not provided':d.confidence+'%')+' · '+d.frames+' frames';
-      stateEl.textContent='Continuous sign recognized';outputEl.textContent=readable;lastRecognizedText=readable;$('manualText').value=readable;
-    }
-    const recognizedAt=Date.now();
-    const shouldEmit=d.sign!==seqState.lastSequenceSign||recognizedAt-seqState.lastSequenceAt>=1200;
-    if(shouldEmit){
-      seqState.lastSequenceSign=d.sign;
-      seqState.lastSequenceAt=recognizedAt;
-      if(seqState.recognitionMode==='continuous'){
-        lastSign=d.sign;lastRecognizedText=readable;
-        phrase.value+=(phrase.value.trim()?' ':'')+readable;phrase.dispatchEvent(new Event('input'));$('manualText').value=readable;addHistory('continuous',readable,d.confidence);tryAutoSpeak(readable);
-      }
-    }
+    setSeqStatus(`Motion sign prediction: ${readable}${d.confidence==null?'':' · '+d.confidence+'% confidence'} · ${d.frames} valid frames`);
+    emitSmartToken(d.sign,readable,d.confidence,'sequence');
   }catch(e){setSeqStatus(e.name==='AbortError'?'Sequence prediction timed out. Check your connection or backend load.':'Sequence endpoint unavailable. Check the backend connection.');}
   finally{clearTimeout(timeout);seqState.predictionBusy=false;}
 }
-$('continuousStart').addEventListener('click',()=>{if(!stream){setSeqStatus('Start the webcam first using Start camera.');return;}seqState.active=true;seqState.collecting=true;seqState.frames=[];seqState.segmentFrames=[];seqState.lastFeature=null;seqState.stillFrames=0;seqState.sampleFrames=[];$('continuousStart').disabled=true;$('continuousStop').disabled=false;$('saveSequence').disabled=true;setSeqStatus('Recording a complete training sample. Keep both hands visible and perform the full sign. Press Stop when finished; any non-empty number of valid frames is accepted, and longer samples are retained.');});
+$('continuousStart').addEventListener('click',()=>{if(!stream){setSeqStatus('Start the webcam first using Start camera.');return;}seqState.active=true;seqState.collecting=true;seqState.frames=[];seqState.segmentFrames=[];seqState.segmentMotionFrames=0;seqState.lastFeature=null;seqState.stillFrames=0;seqState.sampleFrames=[];$('continuousStart').disabled=true;$('continuousStop').disabled=false;$('saveSequence').disabled=true;setSeqStatus('Recording a complete training sample. Keep both hands visible and perform the full sign. Press Stop when finished; any non-empty number of valid frames is accepted, and longer samples are retained.');});
 $('continuousStop').addEventListener('click',()=>{seqState.active=false;seqState.collecting=false;$('continuousStart').disabled=false;$('continuousStop').disabled=true;$('saveSequence').disabled=seqState.sampleFrames.length<1||!$('sequenceLabel').value.trim();setSeqStatus(`Capture stopped. Full training sample: ${seqState.sampleFrames.length} valid frames. Live recognition uses short segments of 15–90 valid frames; the saved training sample retains its full variable length.`);});
 $('continuousClear').addEventListener('click',()=>{seqState.frames=[];seqState.sampleFrames=[];$('frameProgress').textContent='Live segment: 0/90 · Training sample: 0 valid frames';$('saveSequence').disabled=true;setSeqStatus('Training sample and prediction window cleared.');});
 $('sequenceLabel').addEventListener('input',()=>{$('saveSequence').disabled=seqState.sampleFrames.length<1||!$('sequenceLabel').value.trim();});
@@ -551,8 +573,7 @@ $('exportSequences').addEventListener('click',async()=>{try{const r=await fetch(
 function downloadSequenceJson(samples){const blob=new Blob([JSON.stringify(samples,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='sahayak-sequences.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
 async function refreshSequenceDb(){try{const r=await fetch(API_BASE+'/api/sequence/samples',{cache:'no-store'});const d=await r.json();if(r.ok)$('sampleStatus').textContent=`Continuous database: ${d.total_samples} saved samples. Per-label counts: ${Object.entries(d.labels||{}).map(([k,v])=>k+': '+v).join(', ')||'none yet'}.`; }catch(e){}}
 
-function setRecognitionMode(mode){seqState.recognitionMode=mode;const single=mode==='single';$('modeSingle').classList.toggle('secondary',!single);$('modeContinuous').classList.toggle('secondary',single);$('modeStatus').textContent=single?'Single Sign mode: predictions use the existing sahayak_twohand.joblib model.':'Continuous Sign mode: segments are predicted after a brief pause or a 90-frame safety cap. If the sequence model is not trained, use the collector and train it first.';seqState.segmentFrames=[];seqState.lastFeature=null;seqState.stillFrames=0;if(!single){seqState.frames=[];seqState.lastSequenceSign='';setSeqStatus('Continuous mode selected. Perform one sign at a time naturally; a brief pause separates signs.');}else{setSeqStatus('Single Sign mode selected. Continuous collection can still be used from its collection controls.');}}
-$('modeSingle').addEventListener('click',()=>setRecognitionMode('single'));$('modeContinuous').addEventListener('click',()=>setRecognitionMode('continuous'));
+$('modeStatus').textContent='Smart Communication is always on: stable static signs and movement-based signs are recognized into one shared message. Pause briefly between moving signs; lower your hand briefly to repeat the same static sign.';
 const langNames={en:'English',hi:'Hindi',as:'Assamese',bn:'Bengali',ne:'Nepali',ta:'Tamil',te:'Telugu',mr:'Marathi',gu:'Gujarati',pa:'Punjabi',ur:'Urdu',fr:'French',es:'Spanish',de:'German',it:'Italian',pt:'Portuguese',ar:'Arabic',zh:'Chinese',ja:'Japanese',ko:'Korean',ru:'Russian'};
 async function translateText(text, source=$('sourceLanguage').value){if(!text.trim())throw Error('Enter or recognize text first.');$('translationStatus').textContent='Translating text online…';const r=await fetch(API_BASE+'/api/translate',{method:'POST',headers:{'Content-Type':'text/plain;charset=UTF-8'},body:JSON.stringify({text,source,target:$('targetLanguage').value})});const d=await r.json();if(!r.ok)throw Error(d.error||'Translation failed.');$('translatedText').value=d.translated; $('translationStatus').textContent=`Translated ${langNames[d.source]||d.source} → ${langNames[d.target]||d.target} using ${d.provider}. Original text is preserved.`;addHistory('translation',text,null,d.translated,d.target);return d.translated;}
 $('translateRecognized').addEventListener('click',async()=>{const text=$('manualText').value||lastSign;try{if(!text.trim())throw Error('Recognize a sign or enter text first.');$('manualText').value=text;await translateText(text);}catch(e){$('translationStatus').textContent=e.message;}});
