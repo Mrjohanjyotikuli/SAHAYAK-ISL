@@ -532,6 +532,24 @@
                 <input type="text" id="phrase-search" oninput="filterPhrasebook()" placeholder="Search phrase or sign..." class="bg-slate-950 border border-slate-800 rounded-xl px-4 py-2 text-xs text-slate-200 focus:outline-none focus:border-rose-500 w-full sm:w-64">
             </div>
 
+            <div class="bg-slate-900/90 p-5 rounded-2xl border border-slate-800 space-y-3">
+                <div>
+                    <h3 class="text-base font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-plus-circle text-emerald-400"></i> Add Your Own Phrase
+                    </h3>
+                    <p class="text-xs text-slate-400 mt-1">Save a phrase on this device, speak it aloud, or send it to the Phrase Pad. This adds spoken text; it does not train a new sign gesture.</p>
+                </div>
+                <form id="custom-phrase-form" class="flex flex-col sm:flex-row gap-3">
+                    <input id="custom-phrase-input" type="text" maxlength="160" required
+                        placeholder="Type your phrase, e.g. I need help"
+                        class="flex-1 min-w-0 bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-rose-500">
+                    <button type="submit" class="px-4 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-bold">
+                        <i class="fa-solid fa-bookmark mr-1"></i> Add Phrase
+                    </button>
+                </form>
+                <p id="custom-phrase-status" class="text-xs text-slate-400" aria-live="polite">Your custom phrases are saved locally in this browser.</p>
+            </div>
+
             <div id="phrasebook-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <!-- Cards dynamically loaded -->
             </div>
@@ -1051,32 +1069,150 @@
             { title: 'No / Disagree', category: 'General', desc: 'Index and middle finger snap closed onto thumb.' },
         ];
 
+        function getCustomPhrases() {
+            try {
+                const saved = JSON.parse(localStorage.getItem('sahayak_custom_phrases') || '[]');
+                return Array.isArray(saved)
+                    ? saved.filter(p => p && typeof p.title === 'string').slice(0, 200)
+                    : [];
+            } catch (e) { return []; }
+        }
+
+        function saveCustomPhrases(items) {
+            try { localStorage.setItem('sahayak_custom_phrases', JSON.stringify(items.slice(0, 200))); return true; }
+            catch (e) { return false; }
+        }
+
+        function appendPhraseToPad(text) {
+            const phraseText = String(text || '').trim();
+            if (!phraseText) return;
+            const pad = document.getElementById('phrase');
+            const manual = document.getElementById('manualText');
+            if (pad) {
+                pad.value = pad.value.trim() ? pad.value.trim() + ' ' + phraseText : phraseText;
+                pad.dispatchEvent(new Event('input', { bubbles: true }));
+            }
+            if (manual) manual.value = manual.value.trim() ? manual.value.trim() + ' ' + phraseText : phraseText;
+            if (typeof switchTab === 'function') switchTab('studio');
+            const speechStatus = document.getElementById('speechStatus');
+            if (speechStatus) speechStatus.textContent = 'Phrase added to the Phrase Pad. Press Speak phrase to hear it.';
+        }
+
+        function makePhraseCard(p, isCustom) {
+            const card = document.createElement('article');
+            card.className = 'bg-slate-900 border border-slate-800 rounded-2xl p-5 hover:border-rose-500/40 transition flex flex-col justify-between gap-4';
+            const top = document.createElement('div');
+            const topRow = document.createElement('div');
+            topRow.className = 'flex items-center justify-between gap-2 mb-2';
+            const category = document.createElement('span');
+            category.className = 'px-2 py-0.5 rounded bg-slate-800 text-[10px] font-bold text-slate-400 uppercase';
+            category.textContent = p.category || 'Custom';
+            topRow.appendChild(category);
+
+            const title = document.createElement('h4');
+            title.className = 'text-base font-bold text-white mb-1 break-words';
+            title.textContent = p.title;
+            const desc = document.createElement('p');
+            desc.className = 'text-xs text-slate-400 leading-relaxed';
+            desc.textContent = p.desc || (isCustom ? 'Your saved custom phrase.' : '');
+            const speak = document.createElement('button');
+            speak.type = 'button';
+            speak.className = 'text-slate-300 hover:text-rose-400 text-xs px-2 py-1 rounded-lg';
+            speak.innerHTML = '<i class="fa-solid fa-volume-high mr-1" aria-hidden="true"></i> Speak';
+            speak.addEventListener('click', () => speakText(p.title));
+            topRow.appendChild(speak);
+            top.append(topRow, title, desc);
+
+            const actions = document.createElement('div');
+            actions.className = 'flex flex-wrap gap-2 mt-auto';
+            const use = document.createElement('button');
+            use.type = 'button';
+            use.className = 'flex-1 px-3 py-2 rounded-lg bg-emerald-600/20 hover:bg-emerald-600/30 border border-emerald-500/30 text-emerald-200 text-xs font-bold';
+            use.innerHTML = '<i class="fa-solid fa-arrow-right-to-bracket mr-1" aria-hidden="true"></i> Add to Phrase Pad';
+            use.addEventListener('click', () => appendPhraseToPad(p.title));
+            actions.appendChild(use);
+
+            if (isCustom) {
+                const remove = document.createElement('button');
+                remove.type = 'button';
+                remove.className = 'px-3 py-2 rounded-lg bg-slate-800 hover:bg-rose-900/40 border border-slate-700 text-slate-300 text-xs font-bold';
+                remove.innerHTML = '<i class="fa-solid fa-trash mr-1" aria-hidden="true"></i> Remove';
+                remove.addEventListener('click', () => {
+                    const phraseId = p.id;
+                    const remaining = getCustomPhrases().filter(item => item.id !== phraseId);
+                    if (!saveCustomPhrases(remaining)) {
+                        const status = document.getElementById('custom-phrase-status');
+                        if (status) status.textContent = 'Could not update local storage. Check your browser storage settings.';
+                        return;
+                    }
+                    populatePhrasebook();
+                    const status = document.getElementById('custom-phrase-status');
+                    if (status) status.textContent = 'Custom phrase removed.';
+                });
+                actions.appendChild(remove);
+            }
+            card.append(top, actions);
+            return card;
+        }
+
         function populatePhrasebook() {
             const grid = document.getElementById('phrasebook-grid');
             if (!grid) return;
+            grid.replaceChildren();
+            phrasesData.forEach(p => grid.appendChild(makePhraseCard(p, false)));
+            getCustomPhrases().forEach(p => grid.appendChild(makePhraseCard(p, true)));
+            filterPhrasebook();
+        }
 
-            grid.innerHTML = phrasesData.map(p => `
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 hover:border-rose-500/40 transition flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="px-2 py-0.5 rounded bg-slate-800 text-[10px] font-bold text-slate-400 uppercase">${p.category}</span>
-                            <button onclick="speakText('${p.title}')" class="text-slate-400 hover:text-rose-400 text-xs"><i class="fa-solid fa-volume-high"></i></button>
-                        </div>
-                        <h4 class="text-base font-bold text-white mb-1">${p.title}</h4>
-                        <p class="text-xs text-slate-400 leading-relaxed">${p.desc}</p>
-                    </div>
-                </div>
-            `).join('');
+        function addCustomPhrase() {
+            const input = document.getElementById('custom-phrase-input');
+            const status = document.getElementById('custom-phrase-status');
+            const title = input ? input.value.trim().replace(/\\s+/g, ' ') : '';
+            if (!title) {
+                if (status) status.textContent = 'Type a phrase before adding it.';
+                if (input) input.focus();
+                return;
+            }
+            if (title.length > 160) {
+                if (status) status.textContent = 'Phrases must be 160 characters or fewer.';
+                return;
+            }
+            const items = getCustomPhrases();
+            if (items.length >= 200) {
+                if (status) status.textContent = 'You can save up to 200 custom phrases on this device.';
+                return;
+            }
+            if (items.some(item => item.title.toLocaleLowerCase() === title.toLocaleLowerCase())) {
+                if (status) status.textContent = 'That phrase is already saved.';
+                return;
+            }
+            items.unshift({ id: (Date.now() + '-' + Math.random().toString(36).slice(2)), title, category: 'Custom', desc: 'Your saved custom phrase.' });
+            if (!saveCustomPhrases(items)) {
+                if (status) status.textContent = 'Could not save the phrase. Check your browser storage settings.';
+                return;
+            }
+            populatePhrasebook();
+            input.value = '';
+            if (status) status.textContent = 'Phrase saved. Tap Speak to hear it or Add to Phrase Pad to use it in SAHAYAK.';
         }
 
         function filterPhrasebook() {
-            const query = document.getElementById('phrase-search').value.toLowerCase();
-            const cards = document.querySelectorAll('#phrasebook-grid > div');
-            cards.forEach(card => {
-                const text = card.innerText.toLowerCase();
-                card.style.display = text.includes(query) ? 'flex' : 'none';
+            const search = document.getElementById('phrase-search');
+            const query = search ? search.value.trim().toLocaleLowerCase() : '';
+            const grid = document.getElementById('phrasebook-grid');
+            if (!grid) return;
+            grid.querySelectorAll('article').forEach(card => {
+                card.style.display = card.innerText.toLocaleLowerCase().includes(query) ? 'flex' : 'none';
             });
         }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('custom-phrase-form');
+            if (form) form.addEventListener('submit', event => {
+                event.preventDefault();
+                addCustomPhrase();
+            });
+        });
     </script>
 
 <script src="/config.js"></script>
