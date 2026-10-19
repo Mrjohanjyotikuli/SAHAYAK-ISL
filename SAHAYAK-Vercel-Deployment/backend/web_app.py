@@ -176,18 +176,50 @@ def translate_text():
         return jsonify({"error":"Unsupported language selection."}), 400
     if source_lang == target_lang:
         return jsonify({"original":source_text,"translated":source_text,"source":source_lang,"target":target_lang,"provider":"same-language"})
-    # MyMemory is an online service; only text is sent, never frames or landmarks.
+    # Online translation sends text only, never camera frames or hand landmarks.
+    # Try MyMemory first; if that public endpoint is unavailable, use Google's
+    # lightweight translation endpoint as a fallback. Neither requires an app API key.
+    errors = []
     query = urllib.parse.urlencode({"q":source_text, "langpair":f"{source_lang}|{target_lang}"})
-    req = urllib.request.Request("https://api.mymemory.translated.net/get?" + query, headers={"User-Agent":"SAHAYAK/1.0"})
+    req = urllib.request.Request(
+        "https://api.mymemory.translated.net/get?" + query,
+        headers={"User-Agent":"SAHAYAK/1.0"}
+    )
     try:
-        with urllib.request.urlopen(req, timeout=8) as response:
+        with urllib.request.urlopen(req, timeout=6) as response:
             payload = json.loads(response.read().decode("utf-8"))
         translated = payload.get("responseData", {}).get("translatedText", "")
-        if payload.get("responseStatus") != 200 or not translated:
-            raise RuntimeError(payload.get("responseDetails") or "Translation provider returned no translation.")
-        return jsonify({"original":source_text,"translated":translated,"source":source_lang,"target":target_lang,"provider":"MyMemory (online)"})
-    except Exception as e:
-        return jsonify({"error":"Online translation failed. Original text is preserved.","detail":str(e)}), 502
+        if payload.get("responseStatus") == 200 and isinstance(translated, str) and translated.strip():
+            return jsonify({"original":source_text,"translated":translated,"source":source_lang,"target":target_lang,"provider":"MyMemory (online)"})
+        raise RuntimeError(payload.get("responseDetails") or "MyMemory returned no translation.")
+    except Exception as exc:
+        errors.append("MyMemory: " + str(exc))
+
+    google_query = urllib.parse.urlencode({
+        "client":"gtx", "sl":source_lang, "tl":target_lang, "dt":"t", "q":source_text
+    })
+    google_req = urllib.request.Request(
+        "https://translate.googleapis.com/translate_a/single?" + google_query,
+        headers={"User-Agent":"Mozilla/5.0 (compatible; SAHAYAK/1.0)"}
+    )
+    try:
+        with urllib.request.urlopen(google_req, timeout=8) as response:
+            google_payload = json.loads(response.read().decode("utf-8"))
+        segments = google_payload[0] if isinstance(google_payload, list) and google_payload else []
+        translated = "".join(
+            segment[0] for segment in segments
+            if isinstance(segment, list) and segment and isinstance(segment[0], str)
+        )
+        if not translated.strip():
+            raise RuntimeError("Google fallback returned no translation.")
+        return jsonify({"original":source_text,"translated":translated,"source":source_lang,"target":target_lang,"provider":"Google Translate fallback (online)"})
+    except Exception as exc:
+        errors.append("Google fallback: " + str(exc))
+
+    return jsonify({
+        "error":"Online translation is currently unavailable. Your original text is preserved.",
+        "detail":"; ".join(errors)
+    }), 502
 
 @app.errorhandler(413)
 def too_large(_): return jsonify({"error":"Request too large. Reduce camera resolution."}), 413
