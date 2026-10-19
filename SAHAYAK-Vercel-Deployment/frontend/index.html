@@ -588,7 +588,7 @@ html.scroll-motion-ready .scroll-reveal.is-visible{opacity:1;transform:translate
                         <p class="text-xs text-slate-400 mt-1">SAHAYAK project developer</p>
                     </div>
 
-                    <p class="text-xs text-slate-500">External profile links have not been configured.</p>                    </div>
+                    <p class="text-xs text-slate-500">External profile links have not been configured.</p>
                 </div>
             </div>
 
@@ -638,7 +638,7 @@ html.scroll-motion-ready .scroll-reveal.is-visible{opacity:1;transform:translate
                 <h2 class="text-xl font-bold text-white flex items-center gap-2">
                     <i class="fa-solid fa-sliders text-slate-400"></i> System Configurations
                 </h2>
-                <p class="text-xs text-slate-400">Adjust Studio detection sensitivity and voice synthesis options</p>
+                <p class="text-xs text-slate-400">Current recognition cutoff and local history controls</p>
             </div>
 
             <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-6">
@@ -657,7 +657,7 @@ html.scroll-motion-ready .scroll-reveal.is-visible{opacity:1;transform:translate
                     </div>
                     <button onclick="clearHistoryLog()" class="px-4 py-2 rounded-xl bg-rose-600/20 text-rose-400 hover:bg-rose-600/30 border border-rose-500/30 text-xs font-bold transition">Clear History</button>
                 </div>
-            </div>            </div>
+            </div>
         </section>
 
     </main>
@@ -684,7 +684,7 @@ html.scroll-motion-ready .scroll-reveal.is-visible{opacity:1;transform:translate
             control.classList.toggle('bg-slate-800',active);control.classList.toggle('text-white',active);
             if(active)control.setAttribute('aria-current','page');else control.removeAttribute('aria-current');
           });
-          closeMainMenu();document.documentElement.classList.remove('route-pending');replaySectionReveal(activeSection);
+          closeMainMenu();document.documentElement.classList.remove('route-pending');replaySectionReveal(activeSection);if(tabId==='home'||tabId==='dataset')loadLiveDatasetStats();
           if(options.updateUrl!==false){const nextUrl=tabId==='home'?window.location.pathname+window.location.search:'#'+tabId;const currentUrl=window.location.pathname+window.location.search+window.location.hash;if(nextUrl!==currentUrl)window.history[options.replace?'replaceState':'pushState']({tabId},'',nextUrl);}
           if(options.scroll!==false)window.scrollTo({top:0,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
         }
@@ -696,7 +696,7 @@ html.scroll-motion-ready .scroll-reveal.is-visible{opacity:1;transform:translate
           document.addEventListener('keydown',event=>{if(event.key==='Escape')closeMainMenu();});
           document.addEventListener('click',event=>{const menu=document.getElementById('main-menu-dropdown'),toggle=document.getElementById('main-menu-toggle');if(menu&&toggle&&!menu.contains(event.target)&&!toggle.contains(event.target))closeMainMenu();});
         }
-        window.addEventListener('DOMContentLoaded',()=>{populatePhrasebook();renderHistoryTable();initializeScrollReveal();initializeSiteNavigation();loadLiveDatasetStats();});
+        window.addEventListener('DOMContentLoaded',()=>{populatePhrasebook();renderHistoryTable();initializeScrollReveal();initializeSiteNavigation();});
 
         // Live camera recognition is provided by studio.html and the Render model API.
 
