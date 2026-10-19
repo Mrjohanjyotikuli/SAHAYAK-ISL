@@ -1,5 +1,5 @@
 
-const CACHE = 'sahayak-shell-v15';
+const CACHE = 'sahayak-shell-v16';
 const SHELL = ['/', '/index.html', '/studio.html', '/config.js'];
 
 self.addEventListener('install', event => {

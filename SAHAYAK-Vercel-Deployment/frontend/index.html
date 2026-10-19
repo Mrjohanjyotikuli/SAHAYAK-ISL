@@ -195,113 +195,31 @@ img,canvas,video,svg{max-width:100%}section,article,.rounded-3xl,.rounded-2xl{mi
                 </div>
             </div>
 
-            <!-- Desktop Header Navigation (Top Bar) -->
-            <nav class="desktop-nav hidden xl:flex items-center gap-1 bg-slate-950/60 p-1.5 rounded-xl border border-slate-800/80">
-                <button onclick="switchTab('home')" id="nav-home" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition hover:bg-slate-800 text-slate-300">
-                    <i class="fa-solid fa-house mr-1.5 text-rose-500"></i>Home
+            <!-- One aligned navigation menu for desktop and mobile -->
+            <div class="relative flex-shrink-0">
+                <button id="main-menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-menu-dropdown" onclick="toggleMainMenu()" class="w-11 h-11 inline-flex items-center justify-center rounded-xl border border-slate-700 bg-slate-800/70 text-slate-200 hover:text-white hover:border-sky-400 hover:bg-slate-800 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-400" title="Navigation menu">
+                    <i class="fa-solid fa-ellipsis-vertical text-xl" aria-hidden="true"></i>
                 </button>
-                <button onclick="switchTab('studio')" id="nav-studio" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition hover:bg-slate-800 text-slate-300">
-                    <i class="fa-solid fa-video mr-1.5 text-emerald-400"></i>Live Studio
-                </button>
-                <button onclick="switchTab('history')" id="nav-history" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition hover:bg-slate-800 text-slate-300">
-                    <i class="fa-solid fa-clock-rotate-left mr-1.5 text-amber-400"></i>History
-                </button>
-                <button onclick="switchTab('phrasebook')" id="nav-phrasebook" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition hover:bg-slate-800 text-slate-300">
-                    <i class="fa-solid fa-book-open-reader mr-1.5 text-sky-400"></i>Phrasebook
-                </button>
-                <button onclick="switchTab('mechanism')" id="nav-mechanism" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition hover:bg-slate-800 text-slate-300">
-                    <i class="fa-solid fa-gears mr-1.5 text-indigo-400"></i>Mechanism
-                </button>
-                <button onclick="switchTab('architecture')" id="nav-architecture" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition hover:bg-slate-800 text-slate-300">
-                    <i class="fa-solid fa-layer-group mr-1.5 text-purple-400"></i>Architecture
-                </button>
-                <button onclick="switchTab('team')" id="nav-team" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition hover:bg-slate-800 text-slate-300">
-                    <i class="fa-solid fa-users mr-1.5 text-yellow-400"></i>Team
-                </button>
-                <div class="relative flex-shrink-0"><button id="more-toggle" type="button" aria-expanded="false" aria-controls="more-dropdown" onclick="toggleMoreMenu()" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white hover:bg-slate-800 transition">
-                    More <i class="fa-solid fa-chevron-down ml-1 text-[10px]"></i>
-                    <!-- Dropdown for Remaining Modules -->
-                    <div id="more-dropdown" class="hidden absolute right-0 top-full mt-2 w-48 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl py-2 z-50 text-left">
-                        <button onclick="switchTab('flowcharts')" class="w-full px-4 py-2 text-xs font-medium text-slate-300 hover:bg-slate-800 hover:text-white text-left flex items-center gap-2">
-                            <i class="fa-solid fa-diagram-project text-teal-400 w-4"></i>Flowcharts
-                        </button>
-                        <button onclick="switchTab('techstack')" class="w-full px-4 py-2 text-xs font-medium text-slate-300 hover:bg-slate-800 hover:text-white text-left flex items-center gap-2">
-                            <i class="fa-solid fa-code text-cyan-400 w-4"></i>Tech Stack
-                        </button>
-                        <button onclick="switchTab('dataset')" class="w-full px-4 py-2 text-xs font-medium text-slate-300 hover:bg-slate-800 hover:text-white text-left flex items-center gap-2">
-                            <i class="fa-solid fa-database text-orange-400 w-4"></i>Dataset Specs
-                        </button>
-                        <button onclick="switchTab('settings')" class="w-full px-4 py-2 text-xs font-medium text-slate-300 hover:bg-slate-800 hover:text-white text-left flex items-center gap-2">
-                            <i class="fa-solid fa-sliders text-slate-400 w-4"></i>Settings
-                        </button>
-                    </div>
-                </div>
-            </nav>
-
-            <!-- Mobile Drawer Toggle Button -->
-            <button id="mobile-menu-toggle" type="button" aria-controls="mobile-drawer" aria-expanded="false" onclick="toggleMobileDrawer()" class="xl:hidden p-2.5 text-slate-300 hover:text-white focus:outline-none bg-slate-800/60 rounded-lg">
-                <i class="fa-solid fa-bars text-xl"></i>
-            </button>
+                <nav id="main-menu-dropdown" aria-label="Main navigation" class="hidden absolute right-0 top-full mt-2 w-64 max-w-[calc(100vw-1.5rem)] max-h-[min(75vh,36rem)] overflow-y-auto bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl p-2 z-50">
+                    <div class="px-3 py-2 text-[10px] font-bold tracking-[.18em] uppercase text-slate-500">Navigate SAHAYAK</div>
+                    <button onclick="switchTab('home')" class="nav-menu-item w-full min-h-11 px-3 py-2.5 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left"><i class="fa-solid fa-house w-5 text-center text-rose-400"></i>Home</button>
+                    <button onclick="switchTab('studio')" class="nav-menu-item w-full min-h-11 px-3 py-2.5 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left"><i class="fa-solid fa-video w-5 text-center text-emerald-400"></i>Live Studio</button>
+                    <button onclick="switchTab('history')" class="nav-menu-item w-full min-h-11 px-3 py-2.5 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left"><i class="fa-solid fa-clock-rotate-left w-5 text-center text-amber-400"></i>History</button>
+                    <button onclick="switchTab('phrasebook')" class="nav-menu-item w-full min-h-11 px-3 py-2.5 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left"><i class="fa-solid fa-book-open-reader w-5 text-center text-sky-400"></i>Phrasebook</button>
+                    <div class="my-1 border-t border-slate-800"></div>
+                    <button onclick="switchTab('mechanism')" class="nav-menu-item w-full min-h-11 px-3 py-2.5 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left"><i class="fa-solid fa-gears w-5 text-center text-indigo-400"></i>Working Mechanism</button>
+                    <button onclick="switchTab('architecture')" class="nav-menu-item w-full min-h-11 px-3 py-2.5 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left"><i class="fa-solid fa-layer-group w-5 text-center text-purple-400"></i>Architecture</button>
+                    <button onclick="switchTab('flowcharts')" class="nav-menu-item w-full min-h-11 px-3 py-2.5 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left"><i class="fa-solid fa-diagram-project w-5 text-center text-teal-400"></i>Flowcharts</button>
+                    <button onclick="switchTab('techstack')" class="nav-menu-item w-full min-h-11 px-3 py-2.5 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left"><i class="fa-solid fa-code w-5 text-center text-cyan-400"></i>Tech Stack</button>
+                    <button onclick="switchTab('dataset')" class="nav-menu-item w-full min-h-11 px-3 py-2.5 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left"><i class="fa-solid fa-database w-5 text-center text-orange-400"></i>Dataset Specs</button>
+                    <button onclick="switchTab('team')" class="nav-menu-item w-full min-h-11 px-3 py-2.5 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left"><i class="fa-solid fa-users w-5 text-center text-yellow-400"></i>Team & Developer</button>
+                    <button onclick="switchTab('settings')" class="nav-menu-item w-full min-h-11 px-3 py-2.5 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left"><i class="fa-solid fa-sliders w-5 text-center text-slate-400"></i>Settings</button>
+                </nav>
+            </div>
         </div>
     </header>
 
-    <!-- SLIDE-OUT MOBILE DRAWER -->
-    <div id="mobile-drawer-overlay" aria-hidden="true" onclick="closeMobileDrawer()" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300 xl:hidden"></div>
-    <aside id="mobile-drawer" aria-hidden="true" aria-label="Main navigation" class="fixed top-0 right-0 w-80 h-full bg-slate-900 border-l border-slate-800 z-50 transform translate-x-full transition-transform duration-300 ease-in-out p-6 overflow-y-auto xl:hidden flex flex-col justify-between">
-        <div>
-            <div class="flex items-center justify-between pb-6 border-b border-slate-800">
-                <div class="flex items-center gap-2">
-                    <i class="fa-solid fa-hands-asl-interpreting text-rose-500 text-xl"></i>
-                    <span class="font-bold text-lg text-white">SAHAYAK Nav</span>
-                </div>
-                <button onclick="toggleMobileDrawer()" class="text-slate-400 hover:text-white p-2">
-                    <i class="fa-solid fa-xmark text-xl"></i>
-                </button>
-            </div>
-            
-            <div class="py-4 space-y-1">
-                <button onclick="switchTab('home')" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left">
-                    <i class="fa-solid fa-house text-rose-500 w-5"></i>Home
-                </button>
-                <button onclick="switchTab('studio')" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left">
-                    <i class="fa-solid fa-video text-emerald-400 w-5"></i>Live Studio
-                </button>
-                <button onclick="switchTab('history')" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left">
-                    <i class="fa-solid fa-clock-rotate-left text-amber-400 w-5"></i>History
-                </button>
-                <button onclick="switchTab('phrasebook')" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left">
-                    <i class="fa-solid fa-book-open-reader text-sky-400 w-5"></i>Phrasebook
-                </button>
-                <button onclick="switchTab('mechanism')" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left">
-                    <i class="fa-solid fa-gears text-indigo-400 w-5"></i>Working Mechanism
-                </button>
-                <button onclick="switchTab('architecture')" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left">
-                    <i class="fa-solid fa-layer-group text-purple-400 w-5"></i>System Architecture
-                </button>
-                <button onclick="switchTab('flowcharts')" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left">
-                    <i class="fa-solid fa-diagram-project text-teal-400 w-5"></i>Interactive Flowcharts
-                </button>
-                <button onclick="switchTab('techstack')" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left">
-                    <i class="fa-solid fa-code text-cyan-400 w-5"></i>Tech Stack
-                </button>
-                <button onclick="switchTab('dataset')" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left">
-                    <i class="fa-solid fa-database text-orange-400 w-5"></i>Dataset Specs
-                </button>
-                <button onclick="switchTab('team')" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left">
-                    <i class="fa-solid fa-users text-yellow-400 w-5"></i>Team & Developer
-                </button>
-                <button onclick="switchTab('settings')" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left">
-                    <i class="fa-solid fa-sliders text-slate-400 w-5"></i>System Settings
-                </button>
-            </div>
-        </div>
-
-        <div class="pt-4 border-t border-slate-800 text-center text-xs text-slate-400">
-            SAHAYAK Engine v2.4 (Active)
-        </div>
-    </aside>
-
-    <!-- MAIN CONTENT VIEW CONTAINER -->
+        <!-- MAIN CONTENT VIEW CONTAINER -->
     <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
         <!-- MODULE 1: HOME DASHBOARD -->
@@ -468,6 +386,18 @@ img,canvas,video,svg{max-width:100%}section,article,.rounded-3xl,.rounded-2xl{mi
                 <input type="text" id="phrase-search" oninput="filterPhrasebook()" placeholder="Search phrase or sign..." class="bg-slate-950 border border-slate-800 rounded-xl px-4 py-2 text-xs text-slate-200 focus:outline-none focus:border-rose-500 w-full sm:w-64">
             </div>
 
+            <section class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 sm:p-6 space-y-4" aria-labelledby="custom-phrase-title">
+                <div><h3 id="custom-phrase-title" class="text-lg font-bold text-white flex items-center gap-2"><i class="fa-solid fa-language text-amber-400"></i> Custom Phrase & Phrasebook Translator</h3><p class="text-sm text-slate-400 mt-1">Write your own sentence, save it to My Phrases, speak it aloud, or translate it here without changing the Live Studio message.</p></div>
+                <label for="custom-phrase-input" class="block text-xs font-semibold text-slate-300">Your custom phrase</label>
+                <textarea id="custom-phrase-input" maxlength="5000" rows="3" placeholder="Example: Please call my family." class="w-full resize-y rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-sm text-slate-100 placeholder:text-slate-500 focus:border-sky-400 focus:outline-none"></textarea>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <label class="text-xs font-semibold text-slate-300">Phrase language<select id="custom-phrase-source" class="mt-1 w-full min-h-11 rounded-xl border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100"><option value="en">English</option><option value="hi">Hindi</option><option value="as">Assamese</option><option value="bn">Bengali</option><option value="ne">Nepali</option><option value="ta">Tamil</option><option value="te">Telugu</option><option value="mr">Marathi</option><option value="gu">Gujarati</option><option value="pa">Punjabi</option><option value="ur">Urdu</option><option value="fr">French</option><option value="es">Spanish</option><option value="de">German</option><option value="it">Italian</option><option value="pt">Portuguese</option><option value="ar">Arabic</option><option value="zh">Chinese</option><option value="ja">Japanese</option><option value="ko">Korean</option><option value="ru">Russian</option></select></label>
+                    <label class="text-xs font-semibold text-slate-300">Translate to<select id="custom-phrase-target" class="mt-1 w-full min-h-11 rounded-xl border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100"><option value="hi">Hindi</option><option value="as">Assamese</option><option value="bn">Bengali</option><option value="ne">Nepali</option><option value="en">English</option><option value="ta">Tamil</option><option value="te">Telugu</option><option value="mr">Marathi</option><option value="gu">Gujarati</option><option value="pa">Punjabi</option><option value="ur">Urdu</option><option value="fr">French</option><option value="es">Spanish</option><option value="de">German</option><option value="it">Italian</option><option value="pt">Portuguese</option><option value="ar">Arabic</option><option value="zh">Chinese</option><option value="ja">Japanese</option><option value="ko">Korean</option><option value="ru">Russian</option></select></label>
+                </div>
+                <div class="flex flex-wrap gap-2"><button type="button" onclick="addCustomPhrase()" class="min-h-11 rounded-xl bg-rose-600 px-4 py-2.5 text-sm font-bold text-white hover:bg-rose-500"><i class="fa-solid fa-bookmark mr-2" aria-hidden="true"></i>Add custom phrase</button><button type="button" onclick="speakCustomPhrase()" class="min-h-11 rounded-xl border border-slate-700 bg-slate-800 px-4 py-2.5 text-sm font-semibold text-white hover:border-emerald-400"><i class="fa-solid fa-volume-high mr-2" aria-hidden="true"></i>Speak phrase</button><button type="button" id="custom-phrase-translate-button" onclick="translateCustomPhrase()" class="min-h-11 rounded-xl border border-sky-500/50 bg-sky-500/10 px-4 py-2.5 text-sm font-semibold text-sky-200 hover:bg-sky-500/20"><i class="fa-solid fa-language mr-2" aria-hidden="true"></i>Translate phrase</button><button type="button" onclick="clearCustomPhrase()" class="min-h-11 rounded-xl border border-slate-700 px-4 py-2.5 text-sm font-semibold text-slate-300 hover:text-white">Clear</button></div>
+                <label for="custom-phrase-translation" class="block text-xs font-semibold text-slate-300">Phrasebook translation</label><textarea id="custom-phrase-translation" readonly rows="2" placeholder="Your translation will appear here…" class="w-full resize-y rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-sm text-slate-100 placeholder:text-slate-500"></textarea>
+                <div class="flex flex-wrap items-center gap-3"><button type="button" onclick="speakCustomTranslation()" class="min-h-11 rounded-xl border border-slate-700 bg-slate-800 px-4 py-2.5 text-sm font-semibold text-white hover:border-emerald-400"><i class="fa-solid fa-volume-high mr-2" aria-hidden="true"></i>Speak translation</button><p id="custom-phrase-status" role="status" aria-live="polite" class="text-xs text-slate-400 flex-1 min-w-[12rem]">Translation uses SAHAYAK online translation. Saved custom phrases stay on this device.</p></div>
+            </section>
             <div id="phrasebook-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <!-- Cards dynamically loaded -->
             </div>
@@ -827,41 +757,11 @@ img,canvas,video,svg{max-width:100%}section,article,.rounded-3xl,.rounded-2xl{mi
 
     </main>
 
-    <!-- SMARTPHONE BOTTOM QUICK-ACTION BAR (MOBILE ONLY) -->
-    <div class="xl:hidden sticky bottom-0 z-40 bg-slate-900/95 backdrop-blur-md border-t border-slate-800 px-4 py-2.5 flex justify-around items-center">
-        <button onclick="switchTab('home')" class="flex flex-col items-center gap-1 text-slate-400 hover:text-white">
-            <i class="fa-solid fa-house text-base"></i>
-            <span class="text-[10px] font-medium">Home</span>
-        </button>
-        <button onclick="switchTab('studio')" class="flex flex-col items-center gap-1 text-rose-500 hover:text-rose-400">
-            <i class="fa-solid fa-video text-base"></i>
-            <span class="text-[10px] font-bold">Studio</span>
-        </button>
-        <button onclick="switchTab('phrasebook')" class="flex flex-col items-center gap-1 text-slate-400 hover:text-white">
-            <i class="fa-solid fa-book-open-reader text-base"></i>
-            <span class="text-[10px] font-medium">Phrasebook</span>
-        </button>
-        <button onclick="switchTab('team')" class="flex flex-col items-center gap-1 text-slate-400 hover:text-white">
-            <i class="fa-solid fa-users text-base"></i>
-            <span class="text-[10px] font-medium">Team</span>
-        </button>
-    </div>
-
-    <!-- MANDATORY GLOBAL FOOTER (EVERY PAGE / TAB) -->
-    <footer class="bg-slate-950 border-t border-slate-800/80 py-6 px-4 mt-auto">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-            <div class="text-xs text-slate-400">
-                SAHAYAK — Real-Time Indian Sign Language Recognition System
-            </div>
-            
-            <!-- Strictly Required Developer Credit Formatting -->
-            <div class="text-xs text-slate-300">
-                Developed by <span class="highlight-developer">Mr. Johan Jyoti Kuli</span> 
-            </div>
-
-            <div class="text-[11px] text-slate-500">
-                © 2026 SAHAYAK
-            </div>
+    <!-- Centered global footer shared by every homepage section -->
+    <footer class="bg-slate-950 border-t border-slate-800/80 py-6 px-4 mt-auto text-center">
+        <div class="max-w-7xl mx-auto flex flex-col items-center justify-center gap-2">
+            <div class="text-xs text-slate-300">Developed by <span class="highlight-developer">Mr. Johan Jyoti Kuli</span> <span class="team-small">&amp; team</span></div>
+            <div class="text-[11px] text-slate-500">SAHAYAK — Real-Time Indian Sign Language Recognition System <span aria-hidden="true">·</span> © 2026 SAHAYAK</div>
         </div>
     </footer>
 
@@ -874,39 +774,22 @@ img,canvas,video,svg{max-width:100%}section,article,.rounded-3xl,.rounded-2xl{mi
           document.querySelectorAll('.tab-content').forEach(section => { section.classList.add('hidden'); section.setAttribute('aria-hidden','true'); });
           const activeSection=document.getElementById('mod-'+tabId);
           if(activeSection){activeSection.classList.remove('hidden');activeSection.setAttribute('aria-hidden','false');}
-          document.querySelectorAll('[onclick]').forEach(control=>{
-            const call=control.getAttribute('onclick')||'';
-            if(!call.includes('switchTab('))return;
-            const active=call.includes("switchTab('" + tabId + "')")||call.includes('switchTab("' + tabId + '")');
-            control.classList.toggle('tab-active',active);
+          document.querySelectorAll('.nav-menu-item').forEach(control=>{
+            const active=(control.getAttribute('onclick')||'').includes("switchTab('" + tabId + "')");
+            control.classList.toggle('bg-slate-800',active);control.classList.toggle('text-white',active);
             if(active)control.setAttribute('aria-current','page');else control.removeAttribute('aria-current');
           });
-          closeMobileDrawer();closeMoreMenu();document.documentElement.classList.remove('route-pending');
-          if(options.updateUrl!==false){
-            const nextUrl=tabId==='home'?window.location.pathname+window.location.search:'#'+tabId;
-            const currentUrl=window.location.pathname+window.location.search+window.location.hash;
-            if(nextUrl!==currentUrl)window.history[options.replace?'replaceState':'pushState']({tabId},'',nextUrl);
-          }
+          closeMainMenu();document.documentElement.classList.remove('route-pending');
+          if(options.updateUrl!==false){const nextUrl=tabId==='home'?window.location.pathname+window.location.search:'#'+tabId;const currentUrl=window.location.pathname+window.location.search+window.location.hash;if(nextUrl!==currentUrl)window.history[options.replace?'replaceState':'pushState']({tabId},'',nextUrl);}
           if(options.scroll!==false)window.scrollTo({top:0,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
         }
-        function closeMoreMenu(){const d=document.getElementById('more-dropdown'),t=document.getElementById('more-toggle');if(d)d.classList.add('hidden');if(t)t.setAttribute('aria-expanded','false');}
-        function toggleMoreMenu(){const d=document.getElementById('more-dropdown'),t=document.getElementById('more-toggle');if(!d||!t)return;const opening=d.classList.contains('hidden');d.classList.toggle('hidden',!opening);t.setAttribute('aria-expanded',String(opening));}
-        function closeMobileDrawer(){
-          const d=document.getElementById('mobile-drawer'),o=document.getElementById('mobile-drawer-overlay'),t=document.getElementById('mobile-menu-toggle');
-          if(d){d.classList.add('translate-x-full');d.setAttribute('aria-hidden','true');}
-          if(o){o.classList.add('opacity-0','pointer-events-none');o.setAttribute('aria-hidden','true');}
-          if(t)t.setAttribute('aria-expanded','false');document.body.classList.remove('drawer-open');
-        }
-        function toggleMobileDrawer(){
-          const d=document.getElementById('mobile-drawer'),o=document.getElementById('mobile-drawer-overlay'),t=document.getElementById('mobile-menu-toggle');if(!d||!o)return;
-          if(d.classList.contains('translate-x-full')){d.classList.remove('translate-x-full');d.setAttribute('aria-hidden','false');o.classList.remove('opacity-0','pointer-events-none');o.setAttribute('aria-hidden','false');if(t)t.setAttribute('aria-expanded','true');document.body.classList.add('drawer-open');}
-          else closeMobileDrawer();
-        }
+        function closeMainMenu(){const menu=document.getElementById('main-menu-dropdown'),toggle=document.getElementById('main-menu-toggle');if(menu)menu.classList.add('hidden');if(toggle){toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Open navigation menu');}}
+        function toggleMainMenu(){const menu=document.getElementById('main-menu-dropdown'),toggle=document.getElementById('main-menu-toggle');if(!menu||!toggle)return;const opening=menu.classList.contains('hidden');menu.classList.toggle('hidden',!opening);toggle.setAttribute('aria-expanded',String(opening));toggle.setAttribute('aria-label',opening?'Close navigation menu':'Open navigation menu');}
         function initializeSiteNavigation(){
           switchTab(window.location.hash.slice(1)||'home',{updateUrl:false,scroll:false,replace:true});
           window.addEventListener('popstate',()=>switchTab(window.location.hash.slice(1)||'home',{updateUrl:false,scroll:false,replace:true}));
-          document.addEventListener('keydown',event=>{if(event.key==='Escape'){closeMobileDrawer();closeMoreMenu();}});
-          document.addEventListener('click',event=>{const d=document.getElementById('more-dropdown'),t=document.getElementById('more-toggle');if(d&&t&&!d.contains(event.target)&&!t.contains(event.target))closeMoreMenu();});
+          document.addEventListener('keydown',event=>{if(event.key==='Escape')closeMainMenu();});
+          document.addEventListener('click',event=>{const menu=document.getElementById('main-menu-dropdown'),toggle=document.getElementById('main-menu-toggle');if(menu&&toggle&&!menu.contains(event.target)&&!toggle.contains(event.target))closeMainMenu();});
         }
         window.addEventListener('DOMContentLoaded',()=>{populatePhrasebook();renderHistoryTable();initializeSiteNavigation();});
 
@@ -968,51 +851,75 @@ img,canvas,video,svg{max-width:100%}section,article,.rounded-3xl,.rounded-2xl{mi
             renderHistoryTable();
         }
 
-        function speakText(txt) {
-            if ('speechSynthesis' in window) {
-                const utterance = new SpeechSynthesisUtterance(txt);
-                window.speechSynthesis.speak(utterance);
-            }
+        const SPEECH_LOCALES = {en:'en-US',hi:'hi-IN',as:'as-IN',bn:'bn-IN',ne:'ne-NP',ta:'ta-IN',te:'te-IN',mr:'mr-IN',gu:'gu-IN',pa:'pa-IN',ur:'ur-PK',fr:'fr-FR',es:'es-ES',de:'de-DE',it:'it-IT',pt:'pt-PT',ar:'ar-SA',zh:'zh-CN',ja:'ja-JP',ko:'ko-KR',ru:'ru-RU'};
+        function speakText(txt, lang='en') {
+            const textToSpeak=String(txt||'').trim();
+            if(!textToSpeak||!('speechSynthesis' in window))return false;
+            window.speechSynthesis.cancel();
+            const utterance=new SpeechSynthesisUtterance(textToSpeak);
+            utterance.lang=SPEECH_LOCALES[lang]||lang||'en-US';
+            window.speechSynthesis.speak(utterance);return true;
         }
 
         // PHRASEBOOK DICTIONARY DATA & RENDERING
-        const phrasesData = [
-            { title: 'Namaste / Greetings', category: 'General', desc: 'Standard respectful greeting in ISL with joined palms near chest.' },
-            { title: 'Thank You', category: 'General', desc: 'Hand moves outward from chin level forward.' },
-            { title: 'Help Needed', category: 'Emergency', desc: 'Closed fist supported by open palm moving upwards.' },
-            { title: 'Medical Emergency', category: 'Emergency', desc: 'Crossed wrists forming a healthcare emblem motion.' },
-            { title: 'Where is Hospital?', category: 'Phrases', desc: 'Sequential sign combining location query and hospital symbol.' },
-            { title: 'Water Please', category: 'Basic Needs', desc: 'Tap index finger on chin twice.' },
-            { title: 'Yes / Agree', category: 'General', desc: 'Fist nodding vertically imitating head nod.' },
-            { title: 'No / Disagree', category: 'General', desc: 'Index and middle finger snap closed onto thumb.' },
+        const phrasesData=[
+          {title:'Namaste / Greetings',category:'General',desc:'Standard respectful greeting in ISL with joined palms near chest.',language:'en'},
+          {title:'Thank You',category:'General',desc:'Hand moves outward from chin level forward.',language:'en'},
+          {title:'Help Needed',category:'Emergency',desc:'Closed fist supported by open palm moving upwards.',language:'en'},
+          {title:'Medical Emergency',category:'Emergency',desc:'Crossed wrists forming a healthcare emblem motion.',language:'en'},
+          {title:'Where is Hospital?',category:'Phrases',desc:'Sequential sign combining location query and hospital symbol.',language:'en'},
+          {title:'Water Please',category:'Basic Needs',desc:'Tap index finger on chin twice.',language:'en'},
+          {title:'Yes / Agree',category:'General',desc:'Fist nodding vertically imitating head nod.',language:'en'},
+          {title:'No / Disagree',category:'General',desc:'Index and middle finger snap closed onto thumb.',language:'en'}
         ];
-
-        function populatePhrasebook() {
-            const grid = document.getElementById('phrasebook-grid');
-            if (!grid) return;
-
-            grid.innerHTML = phrasesData.map(p => `
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 hover:border-rose-500/40 transition flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="px-2 py-0.5 rounded bg-slate-800 text-[10px] font-bold text-slate-400 uppercase">${p.category}</span>
-                            <button onclick="speakText('${p.title}')" class="text-slate-400 hover:text-rose-400 text-xs"><i class="fa-solid fa-volume-high"></i></button>
-                        </div>
-                        <h4 class="text-base font-bold text-white mb-1">${p.title}</h4>
-                        <p class="text-xs text-slate-400 leading-relaxed">${p.desc}</p>
-                    </div>
-                </div>
-            `).join('');
+        const CUSTOM_PHRASES_KEY='sahayak_custom_phrases';
+        const PHRASEBOOK_API_BASE=(window.SAHAYAK_API_BASE||'https://sahayak-backend-krh1.onrender.com').replace(/\/$/,'');
+        function getCustomPhrases(){try{const value=JSON.parse(localStorage.getItem(CUSTOM_PHRASES_KEY)||'[]');return Array.isArray(value)?value.filter(p=>p&&typeof p.title==='string'&&p.title.trim()).slice(0,100):[];}catch(error){return [];}}
+        function saveCustomPhrases(items){try{localStorage.setItem(CUSTOM_PHRASES_KEY,JSON.stringify(items.slice(0,100)));return true;}catch(error){return false;}}
+        function makePhraseCard(p){
+          const card=document.createElement('article');card.className='bg-slate-900 border border-slate-800 rounded-2xl p-5 hover:border-rose-500/40 transition flex flex-col justify-between min-w-0';
+          const body=document.createElement('div'),top=document.createElement('div');top.className='flex items-center justify-between gap-2 mb-2';
+          const category=document.createElement('span');category.className='px-2 py-0.5 rounded bg-slate-800 text-[10px] font-bold text-slate-400 uppercase';category.textContent=p.custom?'My Phrases':(p.category||'General');top.appendChild(category);
+          const actions=document.createElement('div');actions.className='flex items-center gap-1';
+          const speak=document.createElement('button');speak.type='button';speak.className='inline-flex min-h-10 min-w-10 items-center justify-center rounded-lg text-slate-400 hover:bg-slate-800 hover:text-emerald-300';speak.setAttribute('aria-label','Speak '+p.title);speak.title='Speak phrase';speak.innerHTML='<i class="fa-solid fa-volume-high" aria-hidden="true"></i>';speak.addEventListener('click',()=>{if(!speakText(p.title,p.language||'en'))setPhraseStatus('Speech is not available in this browser.',true);else setPhraseStatus('Speaking phrase. Your device needs a voice installed for the selected language.');});actions.appendChild(speak);
+          if(p.custom){const remove=document.createElement('button');remove.type='button';remove.className='inline-flex min-h-10 min-w-10 items-center justify-center rounded-lg text-slate-500 hover:bg-rose-950/60 hover:text-rose-300';remove.setAttribute('aria-label','Remove custom phrase '+p.title);remove.title='Remove custom phrase';remove.innerHTML='<i class="fa-solid fa-trash-can" aria-hidden="true"></i>';remove.addEventListener('click',()=>removeCustomPhrase(p.id));actions.appendChild(remove);}
+          top.appendChild(actions);body.appendChild(top);
+          const title=document.createElement('h4');title.className='text-base font-bold text-white mb-1 break-words';title.textContent=p.title;body.appendChild(title);
+          const desc=document.createElement('p');desc.className='text-xs text-slate-400 leading-relaxed break-words';desc.textContent=p.desc||'';body.appendChild(desc);card.appendChild(body);
+          if(p.custom){const note=document.createElement('div');note.className='mt-4 pt-3 border-t border-slate-800 text-[10px] text-sky-300';note.textContent='Saved on this device';card.appendChild(note);}
+          return card;
         }
-
-        function filterPhrasebook() {
-            const query = document.getElementById('phrase-search').value.toLowerCase();
-            const cards = document.querySelectorAll('#phrasebook-grid > div');
-            cards.forEach(card => {
-                const text = card.innerText.toLowerCase();
-                card.style.display = text.includes(query) ? 'flex' : 'none';
-            });
+        function populatePhrasebook(){const grid=document.getElementById('phrasebook-grid');if(!grid)return;grid.replaceChildren();[...phrasesData,...getCustomPhrases().map(p=>({...p,custom:true}))].forEach(p=>grid.appendChild(makePhraseCard(p)));filterPhrasebook();}
+        function filterPhrasebook(){const search=document.getElementById('phrase-search'),query=String(search?.value||'').trim().toLowerCase();document.querySelectorAll('#phrasebook-grid > article').forEach(card=>{card.style.display=card.innerText.toLowerCase().includes(query)?'flex':'none';});}
+        function setPhraseStatus(message,isError=false){const status=document.getElementById('custom-phrase-status');if(status){status.textContent=message;status.classList.toggle('text-rose-300',isError);status.classList.toggle('text-slate-400',!isError);}}
+        function addCustomPhrase(){
+          const input=document.getElementById('custom-phrase-input'),source=document.getElementById('custom-phrase-source'),title=String(input?.value||'').trim();
+          if(!title){setPhraseStatus('Type a phrase before adding it to My Phrases.',true);input?.focus();return;}
+          if(title.length>500){setPhraseStatus('Saved phrases must be 500 characters or fewer. Translation can handle up to 5,000 characters.',true);return;}
+          const phrases=getCustomPhrases();if(phrases.some(p=>p.title.trim().toLocaleLowerCase()===title.toLocaleLowerCase()&&p.language===(source?.value||'en'))){setPhraseStatus('That phrase is already in My Phrases.');return;}
+          if(phrases.length>=100){setPhraseStatus('My Phrases can store up to 100 custom phrases on this device. Remove one before adding another.',true);return;}
+          phrases.unshift({id:'custom-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,7),title,category:'My Phrases',desc:'Custom phrase saved locally for quick speech.',language:source?.value||'en',custom:true});
+          if(!saveCustomPhrases(phrases)){setPhraseStatus('Could not save on this device. Check browser storage settings.',true);return;}
+          populatePhrasebook();setPhraseStatus('Custom phrase added to My Phrases. Use its speaker icon whenever you need it.');
         }
+        function removeCustomPhrase(id){saveCustomPhrases(getCustomPhrases().filter(p=>p.id!==id));populatePhrasebook();setPhraseStatus('Custom phrase removed from this device.');}
+        function speakCustomPhrase(){const input=document.getElementById('custom-phrase-input'),source=document.getElementById('custom-phrase-source'),value=String(input?.value||'').trim();if(!value){setPhraseStatus('Type a phrase first, then choose Speak phrase.',true);input?.focus();return;}if(!speakText(value,source?.value||'en'))setPhraseStatus('Speech is not available in this browser.',true);else setPhraseStatus('Speaking your custom phrase. If no voice is heard, check your device text-to-speech voice settings.');}
+        async function translateCustomPhrase(){
+          const input=document.getElementById('custom-phrase-input'),source=document.getElementById('custom-phrase-source'),target=document.getElementById('custom-phrase-target'),output=document.getElementById('custom-phrase-translation'),button=document.getElementById('custom-phrase-translate-button'),textToTranslate=String(input?.value||'').trim();
+          if(!textToTranslate){setPhraseStatus('Type a phrase before translating it.',true);input?.focus();return;}
+          if(!source||!target||!output)return;
+          if(source.value===target.value){output.value=textToTranslate;setPhraseStatus('Source and target languages are the same, so the text is unchanged.');return;}
+          if(button)button.disabled=true;setPhraseStatus('Translating phrase…');
+          try{
+            const response=await fetch(PHRASEBOOK_API_BASE+'/api/translate',{method:'POST',headers:{'Content-Type':'text/plain;charset=UTF-8'},body:JSON.stringify({text:textToTranslate,source:source.value,target:target.value}),cache:'no-store'});
+            const data=await response.json().catch(()=>({}));if(!response.ok)throw new Error(data.error||'The translation service could not complete this request.');
+            output.value=String(data.translated||'');setPhraseStatus('Translation ready'+(data.provider?' · '+data.provider:'')+'. You can speak the translated text below.');
+          }catch(error){setPhraseStatus((error?.message||'Translation failed.')+' Your original phrase is still available above.',true);}
+          finally{if(button)button.disabled=false;}
+        }
+        function speakCustomTranslation(){const output=document.getElementById('custom-phrase-translation'),target=document.getElementById('custom-phrase-target'),translated=String(output?.value||'').trim();if(!translated){setPhraseStatus('Translate a phrase first, then choose Speak translation.',true);return;}if(!speakText(translated,target?.value||'hi'))setPhraseStatus('Speech is not available in this browser.',true);else setPhraseStatus('Speaking the translated phrase. Your device needs a voice for the target language.');}
+        function clearCustomPhrase(){const input=document.getElementById('custom-phrase-input'),output=document.getElementById('custom-phrase-translation');if(input)input.value='';if(output)output.value='';setPhraseStatus('Phrase cleared. Your saved My Phrases are unchanged.');}
+
     </script>
 </body>
 </html>
