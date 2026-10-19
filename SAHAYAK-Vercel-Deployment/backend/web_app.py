@@ -6,7 +6,7 @@ os.environ.setdefault("OMP_NUM_THREADS", "1")
 os.environ.setdefault("OPENBLAS_NUM_THREADS", "1")
 os.environ.setdefault("MKL_NUM_THREADS", "1")
 os.environ.setdefault("NUMEXPR_NUM_THREADS", "1")
-import base64, json, urllib.parse, urllib.request, urllib.error, threading, time
+import base64, json, urllib.parse, urllib.request, urllib.error, threading, time, logging
 import cv2, numpy as np, joblib, mediapipe as mp
 cv2.setNumThreads(1)
 from flask import Flask, jsonify, request, send_from_directory
@@ -19,6 +19,8 @@ WEB = ROOT / "website"
 MODEL_PATH = ROOT / "model" / "sahayak_twohand.joblib"
 SEQUENCE_MODEL_PATH = ROOT / "model" / "sahayak_sequence.joblib"
 app = Flask(__name__, static_folder=str(WEB), static_url_path="")
+# Explicit INFO level is required so inference-stage timings are visible in Render logs.
+app.logger.setLevel(logging.INFO)
 app.config["MAX_CONTENT_LENGTH"] = 2 * 1024 * 1024
 CORS(app, resources={r"/api/*": {"origins": os.environ.get("SAHAYAK_FRONTEND_ORIGIN", "*")}})
 model = None
