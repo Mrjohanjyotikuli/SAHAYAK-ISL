@@ -42,6 +42,13 @@ def get_model():
     return model
 @app.get("/")
 def home(): return send_from_directory(WEB, "index.html")
+    @app.get("/api/health")
+def health():
+    return jsonify({
+        "ok": True,
+        "service": "SAHAYAK",
+        "message": "Backend is responding"
+    })
 @app.get("/api/status")
 def status():
     model_error = None
