@@ -1,109 +1,44 @@
-"""SAHAYAK Flask API. Run locally with python web_app.py; deploy API separately from Netlify."""
-from pathlib import Path
-import base64, os, json, urllib.parse, urllib.request, urllib.error, threading
-import cv2, numpy as np, joblib, mediapipe as mp
-from flask import Flask, jsonify, request, send_from_directory
-from flask_cors import CORS
-from features import two_hand_features, two_hand_sequence_features, landmarks_for_preview, TOTAL_FEATURES
-from sequence_features import summarize_sequence, MIN_SEQUENCE_FRAMES, SEQUENCE_FEATURES
-from sequence_db import DB_PATH as SEQUENCE_DB_PATH, add_sample as add_sequence_sample, summary as sequence_db_summary, load_samples as load_sequence_samples, init_db as init_sequence_db
-ROOT = Path(__file__).resolve().parent
-WEB = ROOT / "website"
-MODEL_PATH = ROOT / "model" / "sahayak_twohand.joblib"
-SEQUENCE_MODEL_PATH = ROOT / "model" / "sahayak_sequence.joblib"
-app = Flask(__name__, static_folder=str(WEB), static_url_path="")
-app.config["MAX_CONTENT_LENGTH"] = 2 * 1024 * 1024
-CORS(app, resources={r"/api/*": {"origins": os.environ.get("SAHAYAK_FRONTEND_ORIGIN", "*")}})
-model = None
-sequence_model = None
-init_sequence_db()
-hands = mp.solutions.hands.Hands(static_image_mode=False, max_num_hands=2, model_complexity=0, min_detection_confidence=.55)
-hands_lock = threading.Lock()
-def get_sequence_model():
-    global sequence_model
-    if sequence_model is None and SEQUENCE_MODEL_PATH.exists():
-        candidate = joblib.load(SEQUENCE_MODEL_PATH)
-        if getattr(candidate, "n_features_in_", None) != SEQUENCE_FEATURES:
-            raise ValueError(f"Sequence model must accept {SEQUENCE_FEATURES} ordered temporal features.")
-        sequence_model = candidate
-    return sequence_model
-
-def sequence_summary(frames):
-    """Shared ordered temporal summary used by both training and inference."""
-    return summarize_sequence(frames).reshape(1, -1)
-
-def get_model():
-    global model
-    if model is None and MODEL_PATH.exists():
-        candidate = joblib.load(MODEL_PATH)
-        if getattr(candidate, "n_features_in_", None) != TOTAL_FEATURES:
-            raise ValueError("The saved model is not a compatible two-hand model. Train it with the updated train_model.py.")
-        model = candidate
-    return model
-@app.get("/")
-def home(): return send_from_directory(WEB, "index.html")
-@app.get("/api/health")
-def health():
-    return jsonify({
-        "ok": True,
-        "service": "SAHAYAK",
-        "message": "Backend is responding"
-    })
-@app.get("/api/status")
-def status():
-    model_error = None
-    try:
-        ready = get_model() is not None
-    except Exception as exc:
-        ready = False
-        model_error = str(exc)
-    sequence_ready = False
-    sequence_error = None
-    if SEQUENCE_MODEL_PATH.exists():
-        try:
-            sequence_ready = get_sequence_model() is not None
-        except Exception as exc:
-            sequence_error = str(exc)
-    return jsonify({"project":"SAHAYAK", "developer":"Mr. Johan Jyoti Kuli", "model_ready":ready, "ready":ready, "mode":"two-hand", "sequence_model_ready":sequence_ready, "sequence_input_frames":MIN_SEQUENCE_FRAMES, "sequence_features":SEQUENCE_FEATURES, "model_error":model_error, "sequence_error":sequence_error, "sequence_database":sequence_db_summary(), "message":"Two-hand recognition model ready." if ready else (model_error or "Single-sign model missing. Restore the original model before recognition.")})
-@app.post("/api/predict")
-def predict():
-    try: clf = get_model()
-    except Exception as e: return jsonify({"error":str(e)}), 500
-    if clf is None: return jsonify({"error":"Two-hand model not trained yet. Collect data and run python train_model.py; use --promote only when ready to replace the live model."}), 503
-    body = request.get_json(silent=True) or {}
-    data_url = body.get("image", "")
-    if not isinstance(data_url, str) or "," not in data_url: return jsonify({"error":"No camera frame received."}), 400
-    try:
-        encoded = data_url.split(",", 1)[1]
-        raw = base64.b64decode(encoded, validate=True)
-        if len(raw) > 1_500_000: return jsonify({"error":"Frame too large; lower camera resolution."}), 413
-        frame = cv2.imdecode(np.frombuffer(raw, np.uint8), cv2.IMREAD_COLOR)
-    except Exception: frame = None
-    if frame is None: return jsonify({"error":"Could not decode camera frame."}), 400
-    # Always mirror the inference frame to preserve the original model's preprocessing.
-    # Convert returned landmarks back to raw camera coordinates for both cameras. The
-    # frontend mirrors the preview AND overlay together for the front camera only.
-    frame = cv2.flip(frame, 1)
-    with hands_lock:
-        result = hands.process(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
-    features, visible = two_hand_features(result)
-    temporal_features = two_hand_sequence_features(result)
-    visible = landmarks_for_preview(visible)
-    if features is None:
-        response = {"recognized":False,"sign":"","confidence":0,"hands":0,"landmarks":[],"message":"No hand detected. Show one or both hands clearly."}
+            "confidence": 0,
+            "hands": 0,
+            "landmarks": [],
+            "message": "No hand detected. Show one or both hands clearly."
+        }
         if body.get("include_features"):
             response["features"] = [0.0] * TOTAL_FEATURES
             response["sequence_features"] = []
             response["valid_features"] = False
+        print("PREDICT: no hand detected; returning response", flush=True)
         return jsonify(response)
-    probs = clf.predict_proba(features)[0]
-    idx = int(np.argmax(probs)); confidence = float(probs[idx]); sign = str(clf.classes_[idx])
-    accepted = confidence >= .60
-    response = {"recognized":accepted,"sign":sign if accepted else "","confidence":round(confidence*100,1),"hands":len(visible),"landmarks":visible,"message":"Sign recognized." if accepted else "Uncertain sign; hold it steady and try again."}
+
+    try:
+        print("PREDICT: starting classifier", flush=True)
+        probs = clf.predict_proba(features)[0]
+        print("PREDICT: classifier finished", flush=True)
+        idx = int(np.argmax(probs))
+        confidence = float(probs[idx])
+        sign = str(clf.classes_[idx])
+        accepted = confidence >= 0.60
+    except Exception as exc:
+        app.logger.exception("PREDICT: classifier failed")
+        return jsonify({"error": "Sign classification failed", "details": str(exc)}), 500
+
+    response = {
+        "recognized": accepted,
+        "sign": sign if accepted else "",
+        "confidence": round(confidence * 100, 1),
+        "hands": len(visible),
+        "landmarks": visible,
+        "message": "Sign recognized." if accepted else "Uncertain sign; hold it steady and try again."
+    }
     if body.get("include_features"):
         response["features"] = features[0].astype(float).tolist()
-        response["sequence_features"] = temporal_features[0].astype(float).tolist() if temporal_features is not None else []
+        response["sequence_features"] = (
+            temporal_features[0].astype(float).tolist()
+            if temporal_features is not None else []
+        )
         response["valid_features"] = temporal_features is not None
+
+    print("PREDICT: returning successful response", flush=True)
     return jsonify(response)
 
 
@@ -191,7 +126,3 @@ def translate_text():
 
 @app.errorhandler(413)
 def too_large(_): return jsonify({"error":"Request too large. Reduce camera resolution."}), 413
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", "5000")); host = os.environ.get("HOST", "0.0.0.0")
-    print(f"SAHAYAK API listening on {host}:{port}")
-    app.run(host=host, port=port, debug=False, threaded=True)
