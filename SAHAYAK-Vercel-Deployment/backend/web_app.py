@@ -7,6 +7,8 @@ os.environ.setdefault("OPENBLAS_NUM_THREADS", "1")
 os.environ.setdefault("MKL_NUM_THREADS", "1")
 os.environ.setdefault("NUMEXPR_NUM_THREADS", "1")
 import base64, json, urllib.parse, urllib.request, urllib.error, threading, time, logging
+from io import BytesIO
+from gtts import gTTS
 import cv2, numpy as np, joblib, mediapipe as mp
 cv2.setNumThreads(1)
 from flask import Flask, jsonify, request, send_from_directory
@@ -346,6 +348,57 @@ def translate_text():
         "error":"Online translation is currently unavailable. Your original text is preserved.",
         "detail":"; ".join(errors)
     }), 502
+
+@app.post("/api/speech")
+def generate_speech():
+    """Generate playable MP3 speech online for languages missing from device voices."""
+    body = request.get_json(force=True, silent=True) or {}
+    spoken_text = body.get("text", "")
+    source_lang = body.get("lang", "en")
+    if not isinstance(spoken_text, str) or not spoken_text.strip():
+        return jsonify({"error": "Enter translated text to speak."}), 400
+    if len(spoken_text) > 5000:
+        return jsonify({"error": "Text is too long for speech (maximum 5000 characters)."}), 400
+
+    # gTTS language codes for all language options exposed by the SAHAYAK UI.
+    tts_languages = {
+        "en": "en", "hi": "hi", "as": "as", "bn": "bn", "ne": "ne",
+        "ta": "ta", "te": "te", "mr": "mr", "gu": "gu", "pa": "pa",
+        "ur": "ur", "fr": "fr", "es": "es", "de": "de", "it": "it",
+        "pt": "pt-PT", "ar": "ar", "zh": "zh-CN", "ja": "ja",
+        "ko": "ko", "ru": "ru"
+    }
+    if source_lang not in tts_languages:
+        return jsonify({"error": "Speech is not configured for the selected language."}), 400
+
+    # Assamese is attempted as an undocumented provider language code because
+    # some TTS voice inventories do not list it in their static language tables.
+    lang_code = tts_languages[source_lang]
+    try:
+        audio_buffer = BytesIO()
+        generator = gTTS(
+            text=spoken_text.strip(),
+            lang=lang_code,
+            slow=bool(body.get("slow", False)),
+            lang_check=(source_lang != "as"),
+            timeout=(5, 20)
+        )
+        generator.write_to_fp(audio_buffer)
+        audio_data = audio_buffer.getvalue()
+        if not audio_data:
+            raise RuntimeError("Speech provider returned an empty audio response.")
+        response = app.response_class(audio_data, mimetype="audio/mpeg")
+        response.headers["Cache-Control"] = "no-store"
+        response.headers["X-Content-Type-Options"] = "nosniff"
+        response.headers["X-SAHAYAK-TTS"] = "Google-Translate-TTS"
+        app.logger.info("[SAHAYAK] speech_generated lang=%s bytes=%s", source_lang, len(audio_data))
+        return response
+    except Exception:
+        app.logger.exception("[SAHAYAK] speech_generation_failed lang=%s", source_lang)
+        return jsonify({
+            "error": "Online speech could not be generated for this language right now. Check the internet connection and try again."
+        }), 502
+
 
 @app.errorhandler(413)
 def too_large(_): return jsonify({"error":"Request too large. Reduce camera resolution."}), 413

@@ -9,3 +9,4 @@ mediapipe==0.10.21
 
 # Production server for Render or another Python host (not used by local Windows run)
 gunicorn>=22.0,<24.0
+gTTS>=2.5,<3.0

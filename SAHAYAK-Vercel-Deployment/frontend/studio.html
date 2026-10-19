@@ -497,7 +497,7 @@ document.getElementById('speak').addEventListener('click',()=>{
   if(translated){speakText(translated,$('targetLanguage').value);return;}
   speakText(phrase.value.trim(),$('sourceLanguage').value);
 });
-document.getElementById('stopSpeech').addEventListener('click',()=>{if('speechSynthesis'in window)window.speechSynthesis.cancel();speechStatus.textContent='Speech stopped.';});document.getElementById('clearPhrase').addEventListener('click',()=>{phrase.value='';try{localStorage.removeItem('sahayak_phrase')}catch(e){}speechStatus.textContent='Phrase cleared on this device.';});
+document.getElementById('stopSpeech').addEventListener('click',()=>{if('speechSynthesis'in window)window.speechSynthesis.cancel();if(translationSpeechController)translationSpeechController.abort();clearTranslationAudio();speechStatus.textContent='Speech stopped.';});document.getElementById('clearPhrase').addEventListener('click',()=>{phrase.value='';try{localStorage.removeItem('sahayak_phrase')}catch(e){}speechStatus.textContent='Phrase cleared on this device.';});
 
 // Translation, local history, and variable-length sequence workflow.
 const seqState={active:false,collecting:false,recognitionMode:'smart',frames:[],segmentFrames:[],segmentMotionFrames:0,lastFeature:null,stillFrames:0,sampleFrames:[],samples:[],lastPredAt:0,predictionBusy:false,lastSequenceSign:'',lastSequenceAt:0,lastMotionAt:0,staticCandidate:'',staticCandidateCount:0,staticEmittedForHold:'',lastEmittedLabel:'',lastEmittedSource:'',lastEmittedAt:0,autoSpeak:true};
@@ -714,6 +714,45 @@ async function translateText(text, source=$('sourceLanguage').value){
   throw Error(failures.length?'Online translation failed across all configured providers. '+failures.slice(-2).join(' · '):'Online translation failed.');
 }
 $('translateTypedPhrase').addEventListener('click',async()=>{try{$('manualText').value=phrase.value;await translateText(phrase.value, $('sourceLanguage').value);}catch(e){$('translationStatus').textContent=e.message;}});
+let activeTranslationAudio=null, activeTranslationAudioUrl=null, translationSpeechController=null;
+function clearTranslationAudio(){
+  if(activeTranslationAudio){activeTranslationAudio.onended=null;activeTranslationAudio.onerror=null;activeTranslationAudio.pause();activeTranslationAudio.removeAttribute('src');activeTranslationAudio.load();activeTranslationAudio=null;}
+  if(activeTranslationAudioUrl){URL.revokeObjectURL(activeTranslationAudioUrl);activeTranslationAudioUrl=null;}
+}
+async function speakTranslationOnline(text,language){
+  const spoken=String(text||'').trim();
+  if(!spoken){$('speechStatus').textContent='Translate the message first; no translated text is available to speak.';return;}
+  if(translationSpeechController)translationSpeechController.abort();
+  clearTranslationAudio();
+  const controller=new AbortController();translationSpeechController=controller;
+  const timeout=setTimeout(()=>controller.abort(),30000);
+  $('speechStatus').textContent='Generating online speech for '+(langNames[language]||language)+'…';
+  try{
+    const response=await fetch(API_BASE+'/api/speech',{
+      method:'POST',headers:{'Content-Type':'text/plain;charset=UTF-8'},
+      body:JSON.stringify({text:spoken,lang:language}),signal:controller.signal,cache:'no-store'
+    });
+    if(!response.ok){let errorData={};try{errorData=await response.json();}catch(e){}throw new Error(errorData.error||('Speech service returned HTTP '+response.status));}
+    const contentType=(response.headers.get('content-type')||'').toLowerCase();
+    if(!contentType.includes('audio'))throw new Error('Speech service returned an invalid audio response.');
+    const blob=await response.blob();
+    if(!blob.size)throw new Error('Speech service returned an empty audio file.');
+    if(controller.signal.aborted)return;
+    activeTranslationAudioUrl=URL.createObjectURL(blob);
+    const audio=new Audio(activeTranslationAudioUrl);
+    activeTranslationAudio=audio;
+    audio.onplay=()=>$('speechStatus').textContent='Speaking translated message in '+(langNames[language]||language)+' using online speech…';
+    audio.onended=()=>{clearTranslationAudio();$('speechStatus').textContent='Translated speech finished.';};
+    audio.onerror=()=>{clearTranslationAudio();$('speechStatus').textContent='Could not play the generated speech audio. Try again or check your device volume.';};
+    await audio.play();
+  }catch(error){
+    if(error.name==='AbortError')$('speechStatus').textContent='Online speech request timed out. Check your connection and try again.';
+    else $('speechStatus').textContent=error.message||'Online speech generation failed. Try again.';
+  }finally{
+    clearTimeout(timeout);
+    if(translationSpeechController===controller)translationSpeechController=null;
+  }
+}
 const speechLocaleMap={
  en:'en-US',hi:'hi-IN',as:'as-IN',bn:'bn-IN',ne:'ne-NP',ta:'ta-IN',te:'te-IN',
  mr:'mr-IN',gu:'gu-IN',pa:'pa-IN',ur:'ur-PK',fr:'fr-FR',es:'es-ES',de:'de-DE',
@@ -797,7 +836,8 @@ document.getElementById('speakTranslation').addEventListener('click',()=>{
     $('translationStatus').textContent='No translated message to speak yet.';
     return;
   }
-  speakText(translated,$('targetLanguage').value);
+  // Use server-generated audio so playback does not depend on a voice installed on this device.
+  speakTranslationOnline(translated,$('targetLanguage').value);
 });
 const offlinePhrases={
  hello:{en:'Hello',hi:'नमस्ते',as:'নমস্কাৰ',bn:'নমস্কার'},
