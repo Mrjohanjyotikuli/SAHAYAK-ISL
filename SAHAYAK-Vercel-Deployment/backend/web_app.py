@@ -98,7 +98,27 @@ def status():
             sequence_ready = get_sequence_model() is not None
         except Exception as exc:
             sequence_error = str(exc)
-    return jsonify({"project":"SAHAYAK", "developer":"Mr. Johan Jyoti Kuli", "model_ready":ready, "ready":ready, "mode":"two-hand", "sequence_model_ready":sequence_ready, "sequence_input_frames":MIN_SEQUENCE_FRAMES, "sequence_features":SEQUENCE_FEATURES, "model_error":model_error, "sequence_error":sequence_error, "sequence_database":sequence_db_summary(), "message":"Two-hand recognition model ready." if ready else (model_error or "Single-sign model missing. Restore the original model before recognition.")})
+    single_sign_labels = sorted(str(label) for label in get_model().classes_) if ready else []
+    sequence_sign_labels = sorted(str(label) for label in get_sequence_model().classes_) if sequence_ready else []
+    database_summary = sequence_db_summary()
+    return jsonify({
+        "project": "SAHAYAK",
+        "developer": "Mr. Johan Jyoti Kuli",
+        "model_ready": ready,
+        "ready": ready,
+        "mode": "two-hand",
+        "single_sign_labels": single_sign_labels,
+        "single_sign_label_count": len(single_sign_labels),
+        "sequence_model_ready": sequence_ready,
+        "sequence_sign_labels": sequence_sign_labels,
+        "sequence_sign_label_count": len(sequence_sign_labels),
+        "sequence_input_frames": MIN_SEQUENCE_FRAMES,
+        "sequence_features": SEQUENCE_FEATURES,
+        "model_error": model_error,
+        "sequence_error": sequence_error,
+        "sequence_database": database_summary,
+        "message": "Two-hand recognition model ready." if ready else (model_error or "Single-sign model missing. Restore the original model before recognition.")
+    })
 @app.post("/api/predict-features")
 def predict_features():
     """Classify browser-computed hand landmarks without running MediaPipe on the server."""

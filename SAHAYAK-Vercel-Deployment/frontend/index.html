@@ -538,58 +538,39 @@ img,canvas,video,svg{max-width:100%}section,article,.rounded-3xl,.rounded-2xl{mi
             </div>
         </section>
 
-        <!-- MODULE 9: DATASET SPECIFICATIONS -->
+        <!-- MODULE 9: LIVE DATASET & MODEL SPECIFICATIONS -->
         <section id="mod-dataset" class="tab-content hidden space-y-6">
             <div class="bg-slate-900/90 p-5 rounded-2xl border border-slate-800">
-                <h2 class="text-xl font-bold text-white flex items-center gap-2">
-                    <i class="fa-solid fa-database text-orange-400"></i> Dataset Specifications
-                </h2>
-                <p class="text-xs text-slate-400">Indian Sign Language dataset composition and training metrics</p>
+                <h2 class="text-xl font-bold text-white flex items-center gap-2"><i class="fa-solid fa-database text-orange-400"></i> Dataset & Model Specifications</h2>
+                <p class="text-xs text-slate-400 mt-1">Counts are read from the deployed model and its saved-sample database, not estimated dataset claims.</p>
+                <p id="dataset-live-status" role="status" aria-live="polite" class="text-xs text-sky-300 mt-3">Loading live model and sample counts…</p>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4">
-                    <h3 class="text-base font-bold text-white border-b border-slate-800 pb-2">Dataset Composition</h3>
-                    <ul class="space-y-3 text-xs text-slate-300">
-                        <li class="flex justify-between">
-                            <span class="text-slate-400">Alphabet Classes (A-Z):</span>
-                            <span class="font-bold text-white font-mono">26 Signs</span>
-                        </li>
-                        <li class="flex justify-between">
-                            <span class="text-slate-400">Numerical Digits (0-9):</span>
-                            <span class="font-bold text-white font-mono">10 Signs</span>
-                        </li>
-                        <li class="flex justify-between">
-                            <span class="text-slate-400">Conversational Phrases:</span>
-                            <span class="font-bold text-white font-mono">50+ Key Expressions</span>
-                        </li>
-                        <li class="flex justify-between">
-                            <span class="text-slate-400">Total Sample Sequences:</span>
-                            <span class="font-bold text-emerald-400 font-mono">45,000+ Samples</span>
-                        </li>
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4 min-w-0">
+                    <h3 class="text-base font-bold text-white border-b border-slate-800 pb-2">Recognized Signs & Saved Samples</h3>
+                    <ul class="space-y-4 text-xs text-slate-300">
+                        <li class="flex items-start justify-between gap-4"><span class="text-slate-400">Single/static sign classes in live model:</span><span id="dataset-static-count" class="font-bold text-white font-mono text-right">Checking…</span></li>
+                        <li class="space-y-1"><span class="text-slate-400 block">Single/static model labels:</span><span id="dataset-static-labels" class="font-semibold text-white leading-relaxed break-words">Loading model labels…</span></li>
+                        <li class="flex items-start justify-between gap-4"><span class="text-slate-400">Continuous/moving sign classes:</span><span id="dataset-sequence-count" class="font-bold text-white font-mono text-right">Checking…</span></li>
+                        <li class="space-y-1"><span class="text-slate-400 block">Continuous model labels:</span><span id="dataset-sequence-labels" class="font-semibold text-white leading-relaxed break-words">Loading model labels…</span></li>
+                        <li class="flex items-start justify-between gap-4"><span class="text-slate-400">Recorded continuous samples in database:</span><span id="dataset-sample-total" class="font-bold text-emerald-400 font-mono text-right">Loading…</span></li>
+                        <li class="space-y-1 border-t border-slate-800 pt-3"><span class="text-slate-400 block">Saved samples by label:</span><span id="dataset-sample-breakdown" class="font-mono text-slate-200 leading-relaxed break-words">Reading database…</span></li>
+                        <li class="flex items-start justify-between gap-4 border-t border-slate-800 pt-3"><span class="text-slate-400">Built-in Phrasebook entries:</span><span id="dataset-phrasebook-count" class="font-bold text-white font-mono text-right">8</span></li>
+                        <li class="flex items-start justify-between gap-4"><span class="text-slate-400">Custom phrases saved on this device:</span><span id="dataset-custom-phrase-count" class="font-bold text-white font-mono text-right">0</span></li>
                     </ul>
+                    <p class="text-[11px] leading-relaxed text-slate-500">Phrasebook entries are reference cards; they are not automatically signs the camera model can recognize. New signs must be collected and used to retrain the appropriate model.</p>
                 </div>
-
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4">
-                    <h3 class="text-base font-bold text-white border-b border-slate-800 pb-2">Training Performance</h3>
-                    <ul class="space-y-3 text-xs text-slate-300">
-                        <li class="flex justify-between">
-                            <span class="text-slate-400">Training Accuracy:</span>
-                            <span class="font-bold text-emerald-400 font-mono">98.4%</span>
-                        </li>
-                        <li class="flex justify-between">
-                            <span class="text-slate-400">Validation Accuracy:</span>
-                            <span class="font-bold text-sky-400 font-mono">96.2%</span>
-                        </li>
-                        <li class="flex justify-between">
-                            <span class="text-slate-400">Average Inference Latency:</span>
-                            <span class="font-bold text-amber-400 font-mono">~42 ms</span>
-                        </li>
-                        <li class="flex justify-between">
-                            <span class="text-slate-400">Lighting Resilience:</span>
-                            <span class="font-bold text-white font-mono">CLAHE Enhanced</span>
-                        </li>
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4 min-w-0">
+                    <h3 class="text-base font-bold text-white border-b border-slate-800 pb-2">Verified Model Details</h3>
+                    <ul class="space-y-4 text-xs text-slate-300">
+                        <li class="flex items-start justify-between gap-4"><span class="text-slate-400">Single-sign feature vector:</span><span class="font-bold text-white font-mono text-right">126 values</span></li>
+                        <li class="flex items-start justify-between gap-4"><span class="text-slate-400">Continuous sequence features per frame:</span><span class="font-bold text-white font-mono text-right">132 values</span></li>
+                        <li class="flex items-start justify-between gap-4"><span class="text-slate-400">Sequence model input after resampling:</span><span class="font-bold text-white font-mono text-right">1,320 values</span></li>
+                        <li class="flex items-start justify-between gap-4"><span class="text-slate-400">Single-sign training-row total:</span><span class="font-bold text-amber-300 font-mono text-right">Not stored in model bundle</span></li>
+                        <li class="flex items-start justify-between gap-4"><span class="text-slate-400">Training / validation accuracy:</span><span class="font-bold text-slate-200 font-mono text-right">Not verified</span></li>
+                        <li class="flex items-start justify-between gap-4"><span class="text-slate-400">Average inference latency:</span><span class="font-bold text-slate-200 font-mono text-right">Not benchmarked here</span></li>
                     </ul>
+                    <p class="text-[11px] leading-relaxed text-slate-500">The deployed model files expose their supported labels, but do not contain a reliable original single-sign sample total or evaluation report. Those numbers are intentionally not guessed.</p>
                 </div>
             </div>
         </section>
@@ -744,7 +725,7 @@ img,canvas,video,svg{max-width:100%}section,article,.rounded-3xl,.rounded-2xl{mi
           document.addEventListener('keydown',event=>{if(event.key==='Escape')closeMainMenu();});
           document.addEventListener('click',event=>{const menu=document.getElementById('main-menu-dropdown'),toggle=document.getElementById('main-menu-toggle');if(menu&&toggle&&!menu.contains(event.target)&&!toggle.contains(event.target))closeMainMenu();});
         }
-        window.addEventListener('DOMContentLoaded',()=>{populatePhrasebook();renderHistoryTable();initializeSiteNavigation();});
+        window.addEventListener('DOMContentLoaded',()=>{populatePhrasebook();renderHistoryTable();initializeSiteNavigation();loadLiveDatasetStats();});
 
                 // Animated Statistics Counters
         function animateCounters() {
@@ -872,6 +853,40 @@ img,canvas,video,svg{max-width:100%}section,article,.rounded-3xl,.rounded-2xl{mi
         }
         function speakCustomTranslation(){const output=document.getElementById('custom-phrase-translation'),target=document.getElementById('custom-phrase-target'),translated=String(output?.value||'').trim();if(!translated){setPhraseStatus('Translate a phrase first, then choose Speak translation.',true);return;}if(!speakText(translated,target?.value||'hi'))setPhraseStatus('Speech is not available in this browser.',true);else setPhraseStatus('Speaking the translated phrase. Your device needs a voice for the target language.');}
         function clearCustomPhrase(){const input=document.getElementById('custom-phrase-input'),output=document.getElementById('custom-phrase-translation');if(input)input.value='';if(output)output.value='';setPhraseStatus('Phrase cleared. Your saved My Phrases are unchanged.');}
+
+
+        function readableDatasetLabel(label){return String(label||'').replace(/_/g,' ').toLowerCase().replace(/\\b\\w/g,c=>c.toUpperCase());}
+        function setDatasetValue(id,value){const el=document.getElementById(id);if(el)el.textContent=String(value);}
+        async function loadLiveDatasetStats(){
+          setDatasetValue('dataset-live-status','Checking the deployed model and saved-sample database…');
+          setDatasetValue('dataset-phrasebook-count',phrasesData.length);
+          setDatasetValue('dataset-custom-phrase-count',getCustomPhrases().length);
+          try{
+            const response=await fetch(PHRASEBOOK_API_BASE+'/api/status',{cache:'no-store'});
+            if(!response.ok)throw new Error('Backend status request failed ('+response.status+').');
+            const data=await response.json();
+            const staticLabels=Array.isArray(data.single_sign_labels)?data.single_sign_labels:[];
+            const sequenceLabels=Array.isArray(data.sequence_sign_labels)?data.sequence_sign_labels:[];
+            setDatasetValue('dataset-static-count',data.ready?staticLabels.length+' classes':'Model unavailable');
+            setDatasetValue('dataset-static-labels',staticLabels.length?staticLabels.map(readableDatasetLabel).join(', '):(data.model_error||'No trained single-sign model available.'));
+            setDatasetValue('dataset-sequence-count',data.sequence_model_ready?sequenceLabels.length+' classes':'Model unavailable');
+            setDatasetValue('dataset-sequence-labels',sequenceLabels.length?sequenceLabels.map(readableDatasetLabel).join(', '):(data.sequence_error||'No trained continuous-sign model available.'));
+            const db=data.sequence_database&&typeof data.sequence_database==='object'?data.sequence_database:{};
+            const total=Number(db.total_samples);
+            setDatasetValue('dataset-sample-total',Number.isFinite(total)?total.toLocaleString()+' samples':'Count unavailable');
+            const perLabel=db.labels&&typeof db.labels==='object'?Object.entries(db.labels).sort((a,b)=>a[0].localeCompare(b[0])):[];
+            setDatasetValue('dataset-sample-breakdown',perLabel.length?perLabel.map(([label,count])=>readableDatasetLabel(label)+': '+Number(count).toLocaleString()).join(' · '):'No saved samples currently recorded.');
+            setDatasetValue('dataset-live-status','Live backend data loaded · checked '+new Date().toLocaleTimeString());
+          }catch(error){
+            setDatasetValue('dataset-live-status','Live backend stats unavailable. Reopen this section when the backend is online.');
+            setDatasetValue('dataset-static-count','Unavailable');
+            setDatasetValue('dataset-static-labels','Could not load current model labels.');
+            setDatasetValue('dataset-sequence-count','Unavailable');
+            setDatasetValue('dataset-sequence-labels','Could not load current model labels.');
+            setDatasetValue('dataset-sample-total','Unavailable');
+            setDatasetValue('dataset-sample-breakdown','Could not read the backend sample database.');
+          }
+        }
 
     </script>
 </body>
