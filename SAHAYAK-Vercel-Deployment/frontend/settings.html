@@ -1,0 +1,1676 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAHAYAK — Real-Time Indian Sign Language Recognition System — Settings</title>
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            crimson: '#C8102E',
+                            saffron: '#FF9933',
+                            gold: '#D4AF37',
+                            emerald: '#27865B',
+                            navy: '#0B132B',
+                            slate: '#1C2541',
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'scan': 'scan 2.5s linear infinite',
+                    },
+                    keyframes: {
+                        glow: {
+                            '0%': { boxShadow: '0 0 10px rgba(200, 16, 46, 0.4), 0 0 20px rgba(212, 175, 55, 0.2)' },
+                            '100%': { boxShadow: '0 0 22px rgba(200, 16, 46, 0.8), 0 0 35px rgba(212, 175, 55, 0.6)' },
+                        },
+                        scan: {
+                            '0%': { top: '0%' },
+                            '100%': { top: '100%' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Customizations & Scrollbars */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(15, 23, 42, 0.6);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+
+        /* Gradient Borders */
+        .lead-border {
+            border: 3px solid transparent;
+            background-image: linear-gradient(#0f172a, #0f172a), linear-gradient(135deg, #C8102E 0%, #27865B 50%, #171717 100%);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            box-shadow: 0 0 25px rgba(200, 16, 46, 0.35);
+        }
+
+        .team-accent-crimson {
+            border: 2px solid #C8102E;
+            box-shadow: 0 0 15px rgba(200, 16, 46, 0.2);
+        }
+
+        .team-accent-gold {
+            border: 2px solid #D4AF37;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+        }
+
+        .highlight-developer {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #C8102E 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+            text-shadow: 0 0 12px rgba(255, 215, 0, 0.3);
+        }
+
+        .team-small {
+            font-size: 0.82em;
+            opacity: 0.8;
+            font-weight: 400;
+            color: #94a3b8;
+        }
+
+        .tab-active {
+            background: rgba(200, 16, 46, 0.15);
+            color: #ff8080;
+            border-left: 3px solid #C8102E;
+        }
+
+        .grid-pattern {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+    
+.page-nav-link[aria-current="page"]{background:#1e293b;color:#fff;box-shadow:inset 0 0 0 1px rgba(148,163,184,.15)}
+.team-lead-card{display:grid;grid-template-columns:11rem minmax(0,1fr);align-items:center;gap:1.4rem;max-width:55rem;margin:0 auto;padding:1.5rem;border:1px solid rgba(212,175,55,.45);border-radius:1.5rem;background:linear-gradient(135deg,#111c2d,#101827);box-shadow:0 20px 48px rgba(0,0,0,.18)}
+.team-lead-copy h3{font-size:1.45rem;font-weight:900;color:#fff;margin:.65rem 0 .3rem}
+.team-lead-copy p{font-size:.88rem;color:#aab9cd;line-height:1.6}
+.team-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.team-member-card{display:flex;flex-direction:column;align-items:center;gap:.7rem;min-width:0;padding:1.25rem;border:1px solid #293548;border-radius:1.35rem;background:linear-gradient(150deg,#111d2e,#0c1422);text-align:center;box-shadow:0 12px 32px rgba(0,0,0,.16)}
+.team-member-card h3{font-size:1.15rem;font-weight:850;color:#f8fafc;line-height:1.3}
+.team-member-card p{font-size:.82rem;color:#aab9cd;line-height:1.55}
+.team-member-top{display:flex;align-items:flex-start;justify-content:center;gap:.6rem;position:relative;width:100%;margin-bottom:.2rem}
+.team-photo-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.25rem;width:min(100%,13rem);aspect-ratio:1/1;border:1px dashed #4b6078;border-radius:1.1rem;background:radial-gradient(circle at 50% 30%,#24384c,#0d1726 70%);overflow:hidden;color:#90a5bd;font-size:.68rem;font-weight:700}
+.team-photo-placeholder svg{width:100%;height:calc(100% - 1.4rem);max-height:12rem;display:block}
+.team-photo-placeholder span{padding:0 .25rem .45rem;text-align:center}
+.lead-photo{width:10rem;max-width:100%;border-radius:50%;aspect-ratio:1/1}
+.lead-photo svg{height:100%}
+.team-logo{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.2rem;flex:none;width:4rem;color:#90a5bd;font-size:.58rem;font-weight:700;text-align:center}
+.team-logo svg{display:block;width:3.6rem;height:3.6rem}
+.lead-logo{display:flex;flex-direction:row;align-items:center;gap:.5rem;width:auto;margin-top:.8rem;color:#e2c46f}
+.lead-logo svg{width:2.7rem;height:2.7rem}
+.team-role-badge{display:inline-flex;align-items:center;justify-content:center;padding:.4rem .7rem;border-radius:999px;background:rgba(200,16,46,.14);border:1px solid rgba(200,16,46,.28);color:#fda4af;font-size:.68rem;font-weight:850;text-transform:uppercase;letter-spacing:.08em}
+.member-badge{font-size:.62rem;letter-spacing:.05em}
+.team-logo-caption{font-size:.67rem;color:#8497b1}
+.team-photo-note{max-width:56rem;margin:0 auto;color:#94a3b8;font-size:.78rem;line-height:1.6;text-align:center;border-top:1px solid #263548;padding-top:1rem}
+@media(max-width:1100px){.page-nav-link{padding-left:.4rem!important;padding-right:.4rem!important;font-size:10px!important}}
+@media(max-width:900px){.team-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.team-member-top{gap:.4rem}.team-logo{width:3.2rem}.team-logo svg{width:2.9rem;height:2.9rem}}
+@media(max-width:620px){.team-grid{grid-template-columns:minmax(0,1fr)}.team-lead-card{grid-template-columns:minmax(0,1fr);justify-items:center;text-align:center;padding:1.1rem}.team-lead-copy{display:flex;flex-direction:column;align-items:center}.team-member-card{padding:1rem}.team-photo-placeholder{width:min(100%,14rem)}.lead-photo{width:9rem}}
+
+        /* Page visibility fix: keep inactive menu pages hidden */
+        .tab-content.hidden { display: none !important; }
+        #mod-studio.hidden { display: none !important; }
+        </style>
+
+<style id="sahayak-live-studio-styles">
+#mod-studio{display:flex;flex-direction:column;gap:1.15rem;width:100%;max-width:84rem;margin-inline:auto;padding-bottom:1.5rem}
+#mod-studio>*{margin-top:0!important;margin-bottom:0!important}
+#mod-studio [hidden]{display:none!important}
+#mod-studio .studio-page-heading{margin:0!important;padding:1.15rem 1.35rem;gap:1rem}
+#mod-studio .studio-page-heading h2{font-size:1.2rem;line-height:1.3;margin:0;color:#f8fafc}
+#mod-studio .studio-page-heading p{margin:.4rem 0 0;color:#adbbce;line-height:1.45}
+#mod-studio .studio-top-status{display:inline-flex;align-items:center;justify-content:center;background:#1c293b;border:1px solid #38485f;color:#cbd5e1;border-radius:999px;padding:.55rem .85rem;font-size:.74rem;font-weight:700;white-space:normal;text-align:center}
+#mod-studio .panel{background:linear-gradient(145deg,rgba(15,23,42,.98),rgba(11,19,43,.97));border:1px solid #293548;border-radius:1.25rem;padding:clamp(1rem,2vw,1.4rem);box-shadow:0 16px 40px rgba(0,0,0,.18);min-width:0;display:flex;flex-direction:column;gap:.9rem;margin:0!important}
+#mod-studio h2,#mod-studio h3{margin:0;color:#f8fafc;line-height:1.3}
+#mod-studio h2{font-size:1.05rem;font-weight:800}#mod-studio h3{font-size:.93rem;font-weight:750}#mod-studio p{margin:0;line-height:1.55}
+#mod-studio .section-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:.8rem;min-width:0}
+#mod-studio .section-heading h2,#mod-studio .section-heading h3{margin-top:.15rem}
+#mod-studio .section-heading p{color:#9fb0c7;font-size:.8rem;margin-top:.35rem;max-width:54rem}
+#mod-studio .section-heading-row{align-items:center;flex-wrap:wrap}
+#mod-studio .section-kicker{display:block;color:#f0a35b;font-size:.66rem;font-weight:850;letter-spacing:.14em;margin-bottom:.35rem}
+#mod-studio .info-chip,#mod-studio .camera-live-badge{display:inline-flex;align-items:center;gap:.45rem;max-width:100%;background:#17283a;border:1px solid #30465f;border-radius:999px;padding:.5rem .75rem;color:#c0d0e4;font-size:.72rem;font-weight:700}
+#mod-studio .offline-chip{color:#8ee1b0;background:#102b25;border-color:#225b49}
+#mod-studio .mode-panel{gap:.9rem}#mod-studio .mode-choice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}
+#mod-studio .mode-choice{display:flex;align-items:center;justify-content:flex-start;text-align:left;gap:.8rem;min-width:0;background:#8e2331!important;border:1px solid #a84852!important}
+#mod-studio .mode-choice.secondary{background:#1c293b!important;border-color:#344359!important}
+#mod-studio .mode-choice>i{font-size:1.15rem;flex:none}#mod-studio .mode-choice span{display:flex;flex-direction:column;gap:.2rem}
+#mod-studio .mode-choice strong{font-size:.9rem}#mod-studio .mode-choice small{font-size:.72rem;font-weight:500;color:#e2e8f0;line-height:1.35}
+#mod-studio .recognition-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(18rem,.85fr);gap:1.15rem;align-items:stretch}
+#mod-studio .video-wrap{position:relative;background:#020617;border:1px solid #263244;border-radius:1rem;overflow:hidden;aspect-ratio:4/3;width:100%;max-height:68svh;display:grid;place-items:center;contain:layout paint;isolation:isolate}
+#mod-studio .video-wrap video,#mod-studio .video-wrap canvas.annotation{position:absolute;inset:0;width:100%;height:100%;object-fit:fill}
+#mod-studio .video-wrap video{transform:scaleX(-1);backface-visibility:hidden;will-change:transform}
+#mod-studio .video-wrap canvas.annotation{transform:scaleX(-1);pointer-events:none;z-index:2}
+#mod-studio .video-placeholder{position:absolute;color:#a9b8cc;text-align:center;padding:20px;font-size:.9rem;max-width:90%;z-index:3}
+#mod-studio .camera-controls{display:flex;flex-direction:column;gap:.7rem}#mod-studio .camera-select-label{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;color:#cbd5e1;font-size:.8rem;font-weight:650}
+#mod-studio .controls,#mod-studio .continuous-controls{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center;margin:0}
+#mod-studio button{border:1px solid rgba(255,153,51,.42);border-radius:.75rem;padding:.7rem .9rem;font-weight:750;font-size:.78rem;line-height:1.25;min-height:42px;cursor:pointer;background:linear-gradient(135deg,#c8102e,#a50e29);color:#fff;transition:filter .15s ease,transform .15s ease;display:inline-flex;align-items:center;justify-content:center;gap:.45rem;max-width:100%;white-space:normal;text-align:center}
+#mod-studio button:hover{filter:brightness(1.1)}#mod-studio button:active{transform:translateY(1px)}
+#mod-studio button.secondary{background:#1e293b!important;color:#e2e8f0;border-color:#334155}
+#mod-studio button:disabled{opacity:.45;cursor:not-allowed;transform:none}
+#mod-studio select,#mod-studio input,#mod-studio textarea{font:inherit;max-width:100%;border-radius:.65rem}
+#mod-studio .studio-select,#mod-studio .studio-input{width:100%;min-width:0;min-height:44px;padding:.7rem .8rem;background:#08111f;color:#e2e8f0;border:1px solid #38516f}
+#mod-studio .field-label{display:block;color:#cbd5e1;font-size:.78rem;font-weight:700;margin:0}
+#mod-studio .studio-textarea{display:block;width:100%;min-width:0;resize:vertical;border-radius:.85rem;padding:.85rem .95rem;background:#08111f;border:1px solid #38516f;color:#f1f5f9;font:inherit;line-height:1.55}
+#mod-studio .studio-textarea:focus,#mod-studio .studio-select:focus,#mod-studio .studio-input:focus{outline:2px solid rgba(251,146,60,.35);outline-offset:1px;border-color:#fb923c}
+#mod-studio .phrase-pad-panel{gap:1.15rem}#mod-studio .phrase-language-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.85rem}
+#mod-studio .phrase-language-grid label,#mod-studio .offline-phrase-actions>label,#mod-studio .training-sample-grid>label{display:flex;flex-direction:column;align-items:stretch;gap:.4rem;min-width:0;color:#cbd5e1;font-size:.76rem;font-weight:700}
+#mod-studio .phrase-input{min-height:6.5rem}
+#mod-studio .action-group{display:flex;flex-direction:column;gap:.65rem;border-top:1px solid #293548;padding-top:1rem}
+#mod-studio .action-group h3{display:flex;align-items:center;gap:.5rem;color:#d5e0ed}#mod-studio .action-group h3 i{color:#f4a261}
+#mod-studio .phrase-actions-primary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.65rem}
+#mod-studio .phrase-actions-primary button{width:100%;min-height:48px}
+#mod-studio .phrase-actions-utility{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap}
+#mod-studio .checkbox-control{display:inline-flex;align-items:center;gap:.55rem;min-height:42px;padding:.55rem .75rem;border:1px solid #334155;border-radius:.75rem;background:#111c2b;color:#cbd5e1;font-size:.77rem;cursor:pointer}
+#mod-studio .checkbox-control input{width:18px;height:18px;accent-color:#e05260}
+#mod-studio .translation-output-card{display:flex;flex-direction:column;gap:.55rem;border:1px solid #293b50;background:rgba(5,13,25,.62);border-radius:1rem;padding:1rem;min-width:0}
+#mod-studio .translated-output{min-height:4.2rem;background:#0b1726;color:#a7f3d0}
+#mod-studio .status{color:#a8b7cc;font-size:.79rem;line-height:1.55;margin:0;overflow-wrap:anywhere}
+#mod-studio .status.warning{color:#ffd18b}#mod-studio .status-card{background:rgba(3,10,22,.45);border:1px solid #26384d;border-radius:.8rem;padding:.75rem .85rem}
+#mod-studio .status-dot{display:inline-block;width:8px;height:8px;background:#e7b65d;border-radius:50%;margin-right:7px;flex:none}
+#mod-studio .result{display:flex;flex-direction:column;gap:.9rem;min-height:100%}
+#mod-studio .result-summary{background:linear-gradient(145deg,rgba(27,42,65,.65),rgba(8,17,31,.8));border:1px solid #2c405a;border-radius:1rem;padding:1.2rem}
+#mod-studio .eyebrow{color:#ff9933;font-size:.7rem;font-weight:850;letter-spacing:.13em}
+#mod-studio .prediction{font-size:clamp(2.3rem,5vw,3.9rem);font-weight:850;line-height:1.08;overflow-wrap:anywhere;margin:.8rem 0 .45rem}
+#mod-studio .confidence{color:#a8b7cc;font-size:.82rem;line-height:1.5}
+#mod-studio .pill{display:inline-flex;align-self:flex-start;background:#122c2a;border:1px solid #276253;color:#7ee7b0;border-radius:999px;padding:.45rem .7rem;font-size:.73rem;margin-top:.7rem}
+#mod-studio .recognized-translation-card{display:flex;flex-direction:column;gap:.7rem;border:1px solid #293b50;background:rgba(5,13,25,.62);border-radius:1rem;padding:1rem;min-width:0}
+#mod-studio .recognized-translation-card .section-heading h3{color:#f1f5f9}
+#mod-studio .recognized-translation-card .section-heading p{color:#9fb0c7;font-size:.78rem;margin-top:.3rem}
+#mod-studio .recognized-translation-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem}
+#mod-studio .recognized-translation-actions button{width:100%;min-height:46px}
+@media(max-width:620px){#mod-studio .recognized-translation-actions{grid-template-columns:minmax(0,1fr)}}
+#mod-studio .recognized-output{color:#d6e0ef;line-height:1.65;background:#08111f;border-radius:.75rem;padding:.85rem;border:1px solid #26384d;overflow-wrap:anywhere}
+#mod-studio .result-hint{margin-top:auto!important;padding-top:1rem;color:#98abc2;font-size:.78rem;display:flex;align-items:flex-start;gap:.5rem}
+#mod-studio .divider{height:1px;background:#293548;margin:.3rem 0}
+#mod-studio .offline-phrasebook-card{display:flex;flex-direction:column;gap:.85rem;border-top:1px solid #293548;padding-top:1.1rem}
+#mod-studio .offline-phrase-actions{display:grid;grid-template-columns:minmax(12rem,1.4fr) repeat(4,minmax(8.5rem,1fr));gap:.65rem;align-items:end}
+#mod-studio .continuous-panel{gap:1rem}#mod-studio .continuous-controls{padding:.2rem 0}
+#mod-studio .continuous-status-grid{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.8rem;align-items:stretch}
+#mod-studio .frame-progress-card{display:flex;flex-direction:column;justify-content:center;gap:.35rem;padding:.75rem .9rem;border-radius:.8rem;border:1px solid #293b50;background:#0b1726;min-width:9rem}
+#mod-studio .frame-progress-card strong{font-size:.9rem;color:#f1f5f9}
+#mod-studio .training-sample-card{display:flex;flex-direction:column;gap:.8rem;border-top:1px solid #293548;padding-top:1rem}
+#mod-studio .training-sample-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(18rem,1fr);gap:1rem;align-items:end}
+#mod-studio .training-sample-actions{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center}
+#mod-studio .training-sample-actions button{flex:1 1 12rem}
+@media(max-width:1000px){#mod-studio .recognition-grid{grid-template-columns:minmax(0,1fr)}#mod-studio .offline-phrase-actions{grid-template-columns:repeat(2,minmax(0,1fr))}#mod-studio .offline-phrase-actions>label{grid-column:1/-1}#mod-studio .phrase-actions-primary{grid-template-columns:repeat(2,minmax(0,1fr))}#mod-studio .training-sample-grid{grid-template-columns:minmax(0,1fr)}#mod-studio .training-sample-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){#mod-studio{gap:.85rem}#mod-studio .studio-page-heading{padding:1rem;align-items:flex-start}#mod-studio .studio-top-status{align-self:flex-start;border-radius:.75rem}#mod-studio .mode-choice-grid,#mod-studio .phrase-language-grid,#mod-studio .phrase-actions-primary,#mod-studio .continuous-status-grid{grid-template-columns:minmax(0,1fr)}#mod-studio .mode-choice{width:100%}#mod-studio .camera-action-buttons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}#mod-studio .camera-action-buttons button{width:100%;min-width:0}#mod-studio .offline-phrase-actions{grid-template-columns:minmax(0,1fr)}#mod-studio .offline-phrase-actions>label{grid-column:auto}#mod-studio .training-sample-actions{grid-template-columns:minmax(0,1fr)}#mod-studio .checkbox-control{width:100%}#mod-studio .panel{padding:.9rem;border-radius:1rem}}
+@media(prefers-reduced-motion:reduce){#mod-studio *{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+</style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans h-full flex flex-col overflow-x-hidden antialiased grid-pattern">
+
+    <!-- TOP HEADER -->
+    <header class="sticky top-0 z-40 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-20 py-3 flex flex-wrap items-center justify-between gap-3">
+            
+            <!-- Logo Section -->
+            <div class="flex items-center gap-3 cursor-pointer" onclick="switchTab('home')">
+                <div class="relative w-12 h-12 flex-shrink-0">
+                    <!-- SAHAYAK Emblem SVG Recreation -->
+                    <svg viewBox="0 0 200 200" class="w-full h-full filter drop-shadow-[0_0_8px_rgba(200,16,46,0.5)]">
+                        <defs>
+                            <linearGradient id="sunburstGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#FF9933" />
+                                <stop offset="50%" stop-color="#C8102E" />
+                                <stop offset="100%" stop-color="#D4AF37" />
+                            </linearGradient>
+                            <linearGradient id="circuitGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#00F2FE" />
+                                <stop offset="100%" stop-color="#4FACFE" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Circuit Traces Background -->
+                        <path d="M20,100 Q50,20 100,20 T180,100" fill="none" stroke="url(#circuitGrad)" stroke-width="2" stroke-dasharray="4,4" opacity="0.6"/>
+                        <circle cx="50" cy="50" r="3" fill="#00F2FE"/>
+                        <circle cx="150" cy="50" r="3" fill="#00F2FE"/>
+                        
+                        <!-- Crimson/Gold Sunburst Halo -->
+                        <circle cx="100" cy="100" r="85" fill="none" stroke="url(#sunburstGrad)" stroke-width="3" stroke-dasharray="8, 4"/>
+                        <circle cx="100" cy="100" r="75" fill="#0F172A" stroke="#D4AF37" stroke-width="1.5"/>
+
+                        <!-- Traditional Embroidered Sleeve Accent Pattern (Assam/North-East motif geometric border) -->
+                        <path d="M40,100 L48,92 L56,100 L48,108 Z M144,100 L152,92 L160,100 L152,108 Z" fill="#C8102E"/>
+                        <path d="M100,28 L108,36 L100,44 L92,36 Z" fill="#D4AF37"/>
+
+                        <!-- Open Book Motif (Knowledge Foundation) -->
+                        <path d="M60,145 Q100,135 100,155 Q100,135 140,145 L135,160 Q100,150 100,165 Q100,150 65,160 Z" fill="#27865B"/>
+
+                        <!-- Yellow Fringed Stole Detail -->
+                        <path d="M50,130 C70,140 130,140 150,130 L155,138 C130,150 70,150 45,138 Z" fill="#FFC107" opacity="0.9"/>
+
+                        <!-- Namaste Hand Gesture Silhouette inside SVG -->
+                        <g fill="#F8FAFC" transform="translate(100, 95) scale(0.65) translate(-100, -100)">
+                            <!-- Left Hand Palm & Fingers -->
+                            <path d="M85,115 C80,100 78,80 82,65 C84,58 90,58 92,65 C95,78 95,95 95,105 L95,115 Z"/>
+                            <path d="M72,120 C68,108 65,92 70,80 C72,74 77,74 79,80 C83,92 83,108 83,120 Z"/>
+                            <!-- Right Hand Palm & Fingers -->
+                            <path d="M115,115 C120,100 122,80 118,65 C116,58 110,58 108,65 C105,78 105,95 105,105 L105,115 Z"/>
+                            <path d="M128,120 C132,108 135,92 130,80 C128,74 123,74 121,80 C117,92 117,108 117,120 Z"/>
+                            <!-- Joined Palms Center -->
+                            <path d="M90,110 L100,90 L110,110 L100,135 Z" fill="#FF9933"/>
+                        </g>
+                    </svg>
+                </div>
+                <div>
+                    <span class="text-2xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-rose-500 to-red-600 block leading-none">
+                        SAHAYAK
+                    </span>
+                    <span class="text-[10px] font-semibold text-slate-400 tracking-widest uppercase block mt-1">
+                        Real-Time Indian Sign Language System
+                    </span>
+                </div>
+            </div>
+
+            <!-- Desktop Header Navigation (Top Bar) -->
+            <nav aria-label="Main navigation" class="hidden lg:flex items-center gap-0.5 bg-slate-950/60 p-1.5 rounded-xl border border-slate-800/80 max-w-[78%] flex-wrap justify-end">
+  <a href="./index.html" id="nav-home" data-page-link="home" class="nav-btn page-nav-link px-2 py-1.5 rounded-lg text-[11px] font-semibold transition hover:bg-slate-800 text-slate-300 whitespace-nowrap"><i class="fa-solid fa-house mr-1 text-rose-500"></i>Home</a>
+  <a href="./studio.html" id="nav-studio" data-page-link="studio" class="nav-btn page-nav-link px-2 py-1.5 rounded-lg text-[11px] font-semibold transition hover:bg-slate-800 text-slate-300 whitespace-nowrap"><i class="fa-solid fa-video mr-1 text-emerald-400"></i>Live Studio</a>
+  <a href="./history.html" id="nav-history" data-page-link="history" class="nav-btn page-nav-link px-2 py-1.5 rounded-lg text-[11px] font-semibold transition hover:bg-slate-800 text-slate-300 whitespace-nowrap"><i class="fa-solid fa-clock-rotate-left mr-1 text-amber-400"></i>History</a>
+  <a href="./phrasebook.html" id="nav-phrasebook" data-page-link="phrasebook" class="nav-btn page-nav-link px-2 py-1.5 rounded-lg text-[11px] font-semibold transition hover:bg-slate-800 text-slate-300 whitespace-nowrap"><i class="fa-solid fa-book-open-reader mr-1 text-sky-400"></i>Phrasebook</a>
+  <a href="./mechanism.html" id="nav-mechanism" data-page-link="mechanism" class="nav-btn page-nav-link px-2 py-1.5 rounded-lg text-[11px] font-semibold transition hover:bg-slate-800 text-slate-300 whitespace-nowrap"><i class="fa-solid fa-gears mr-1 text-indigo-400"></i>Mechanism</a>
+  <a href="./architecture.html" id="nav-architecture" data-page-link="architecture" class="nav-btn page-nav-link px-2 py-1.5 rounded-lg text-[11px] font-semibold transition hover:bg-slate-800 text-slate-300 whitespace-nowrap"><i class="fa-solid fa-layer-group mr-1 text-purple-400"></i>Architecture</a>
+  <a href="./team.html" id="nav-team" data-page-link="team" class="nav-btn page-nav-link px-2 py-1.5 rounded-lg text-[11px] font-semibold transition hover:bg-slate-800 text-slate-300 whitespace-nowrap"><i class="fa-solid fa-users mr-1 text-yellow-400"></i>Team</a>
+  <a href="./flowcharts.html" id="nav-flowcharts" data-page-link="flowcharts" class="nav-btn page-nav-link px-2 py-1.5 rounded-lg text-[11px] font-semibold transition hover:bg-slate-800 text-slate-300 whitespace-nowrap"><i class="fa-solid fa-diagram-project mr-1 text-teal-400"></i>Flowcharts</a>
+  <a href="./tech-stack.html" id="nav-techstack" data-page-link="techstack" class="nav-btn page-nav-link px-2 py-1.5 rounded-lg text-[11px] font-semibold transition hover:bg-slate-800 text-slate-300 whitespace-nowrap"><i class="fa-solid fa-code mr-1 text-cyan-400"></i>Tech Stack</a>
+  <a href="./dataset-specs.html" id="nav-dataset" data-page-link="dataset" class="nav-btn page-nav-link px-2 py-1.5 rounded-lg text-[11px] font-semibold transition hover:bg-slate-800 text-slate-300 whitespace-nowrap"><i class="fa-solid fa-database mr-1 text-orange-400"></i>Dataset Specs</a>
+  <a href="./settings.html" id="nav-settings" data-page-link="settings" class="nav-btn page-nav-link px-2 py-1.5 rounded-lg text-[11px] font-semibold transition hover:bg-slate-800 text-slate-300 whitespace-nowrap"><i class="fa-solid fa-sliders mr-1 text-slate-400"></i>Settings</a>
+</nav>
+
+            <!-- Mobile Drawer Toggle Button -->
+            <button onclick="toggleMobileDrawer()" class="lg:hidden p-2.5 text-slate-300 hover:text-white focus:outline-none bg-slate-800/60 rounded-lg">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- SLIDE-OUT MOBILE DRAWER -->
+    <div id="mobile-drawer-overlay" onclick="toggleMobileDrawer()" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden"></div>
+    <aside id="mobile-drawer" class="fixed top-0 right-0 w-80 h-full bg-slate-900 border-l border-slate-800 z-50 transform translate-x-full transition-transform duration-300 ease-in-out p-6 overflow-y-auto lg:hidden flex flex-col justify-between">
+        <div>
+            <div class="flex items-center justify-between pb-6 border-b border-slate-800">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-hands-asl-interpreting text-rose-500 text-xl"></i>
+                    <span class="font-bold text-lg text-white">SAHAYAK Nav</span>
+                </div>
+                <button onclick="toggleMobileDrawer()" class="text-slate-400 hover:text-white p-2">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+            
+            <div class="py-4 space-y-1">
+  <a href="./index.html" data-page-link="home" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left"><i class="fa-solid fa-house text-rose-500 w-5"></i>Home</a>
+  <a href="./studio.html" data-page-link="studio" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left"><i class="fa-solid fa-video text-emerald-400 w-5"></i>Live Studio</a>
+  <a href="./history.html" data-page-link="history" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left"><i class="fa-solid fa-clock-rotate-left text-amber-400 w-5"></i>History</a>
+  <a href="./phrasebook.html" data-page-link="phrasebook" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left"><i class="fa-solid fa-book-open-reader text-sky-400 w-5"></i>Phrasebook</a>
+  <a href="./mechanism.html" data-page-link="mechanism" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left"><i class="fa-solid fa-gears text-indigo-400 w-5"></i>Mechanism</a>
+  <a href="./architecture.html" data-page-link="architecture" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left"><i class="fa-solid fa-layer-group text-purple-400 w-5"></i>Architecture</a>
+  <a href="./team.html" data-page-link="team" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left"><i class="fa-solid fa-users text-yellow-400 w-5"></i>Team</a>
+  <a href="./flowcharts.html" data-page-link="flowcharts" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left"><i class="fa-solid fa-diagram-project text-teal-400 w-5"></i>Flowcharts</a>
+  <a href="./tech-stack.html" data-page-link="techstack" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left"><i class="fa-solid fa-code text-cyan-400 w-5"></i>Tech Stack</a>
+  <a href="./dataset-specs.html" data-page-link="dataset" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left"><i class="fa-solid fa-database text-orange-400 w-5"></i>Dataset Specs</a>
+  <a href="./settings.html" data-page-link="settings" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left"><i class="fa-solid fa-sliders text-slate-400 w-5"></i>Settings</a>
+</div>
+        <div class="pt-4 border-t border-slate-800 text-center text-xs text-slate-400">
+            SAHAYAK Engine v2.4 (Active)
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT VIEW CONTAINER -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <!-- MODULE 1: HOME DASHBOARD -->
+        <section id="mod-home" class="tab-content hidden space-y-12">
+            <!-- Hero Banner -->
+            <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-900/90 to-brand-navy border border-slate-800 p-8 lg:p-12">
+                <div class="absolute -right-20 -bottom-20 w-96 h-96 bg-rose-600/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="relative z-10 max-w-3xl space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-400 text-xs font-semibold tracking-wide">
+                        <span class="w-2 h-2 rounded-full bg-rose-500 animate-ping"></span> Real-Time Indian Sign Language Framework
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
+                        Bridging Silence with <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-rose-500 to-red-500">Real-Time Precision</span>
+                    </h1>
+                    <p class="text-slate-300 text-base sm:text-lg leading-relaxed font-normal">
+                        SAHAYAK translates Indian Sign Language (ISL) spatial hand gestures into intelligible textual and spoken outputs in real-time. Built to empower over 63 million Deaf and Hard of Hearing individuals across India through high-accuracy landmark sequence classification.
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <button onclick="switchTab('studio')" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-rose-600 to-red-600 hover:from-rose-500 hover:to-red-500 text-white font-bold text-sm shadow-lg shadow-rose-900/40 transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-circle-play text-base"></i> Launch Live Studio
+                        </button>
+                        <button onclick="switchTab('mechanism')" class="px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm border border-slate-700 transition">
+                            Explore Technical Workflow
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Demographics & Statistics Counter Section -->
+            <div class="space-y-6">
+                <div class="text-center max-w-2xl mx-auto">
+                    <h2 class="text-2xl font-bold text-white tracking-tight">Demographic Landscape & Communication Gap</h2>
+                    <p class="text-slate-400 text-xs sm:text-sm mt-1">Understanding the critical necessity of accessible ISL real-time translation systems in India.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                    <div class="bg-slate-900/80 border border-slate-800/80 rounded-2xl p-5 text-center flex flex-col justify-between hover:border-rose-500/40 transition">
+                        <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Deaf & HH Population</div>
+                        <div class="text-3xl font-extrabold text-amber-400 my-2 font-mono">
+                            <span class="counter" data-target="63000000">0</span>+
+                        </div>
+                        <div class="text-[11px] text-slate-400">Individuals nationwide according to WHO/NSSO evaluations.</div>
+                    </div>
+
+                    <div class="bg-slate-900/80 border border-slate-800/80 rounded-2xl p-5 text-center flex flex-col justify-between hover:border-rose-500/40 transition">
+                        <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Active ISL Signers</div>
+                        <div class="text-3xl font-extrabold text-emerald-400 my-2 font-mono">
+                            <span class="counter" data-target="5900000">0</span>
+                        </div>
+                        <div class="text-[11px] text-slate-400">Native signers relying on ISL as primary communication mode.</div>
+                    </div>
+
+                    <div class="bg-slate-900/80 border border-slate-800/80 rounded-2xl p-5 text-center flex flex-col justify-between hover:border-rose-500/40 transition">
+                        <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Certified Interpreters</div>
+                        <div class="text-3xl font-extrabold text-rose-500 my-2 font-mono">
+                            &lt;<span class="counter" data-target="300">0</span>
+                        </div>
+                        <div class="text-[11px] text-slate-400">Licensed interpreters available across all states.</div>
+                    </div>
+
+                    <div class="bg-slate-900/80 border border-slate-800/80 rounded-2xl p-5 text-center flex flex-col justify-between hover:border-rose-500/40 transition">
+                        <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Interpreter Gap Ratio</div>
+                        <div class="text-3xl font-extrabold text-sky-400 my-2 font-mono">
+                            1:<span class="counter" data-target="20000">0</span>+
+                        </div>
+                        <div class="text-[11px] text-slate-400">Ratio of Deaf individuals to qualified human interpreters.</div>
+                    </div>
+
+                    <div class="bg-slate-900/80 border border-slate-800/80 rounded-2xl p-5 text-center flex flex-col justify-between hover:border-rose-500/40 transition">
+                        <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Benchmarked Models</div>
+                        <div class="text-3xl font-extrabold text-purple-400 my-2 font-mono">
+                            <span class="counter" data-target="100">0</span>+
+                        </div>
+                        <div class="text-[11px] text-slate-400">Evaluated ISL recognition projects and prototypes.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- System Highlights -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 hover:bg-slate-900/90 transition">
+                    <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center text-lg mb-4">
+                        <i class="fa-solid fa-hand"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">21-Point Skeleton Tracking</h3>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                        Extracts normalized 3D hand keypoints dynamically without requiring specialized hardware, depth cameras, or sensor gloves.
+                    </p>
+                </div>
+                <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 hover:bg-slate-900/90 transition">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg mb-4">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Sub-100ms Latency</h3>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                        Optimized neural classifier pipeline delivers continuous sign prediction, allowing smooth real-time conversational flow.
+                    </p>
+                </div>
+                <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 hover:bg-slate-900/90 transition">
+                    <div class="w-10 h-10 rounded-xl bg-sky-500/10 border border-sky-500/20 text-sky-400 flex items-center justify-center text-lg mb-4">
+                        <i class="fa-solid fa-volume-high"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Bi-Directional Voice Synthesis</h3>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                        Instantly synthesizes recognized gesture phrases into clear audio streams using native browser text-to-speech capabilities.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODULE 2: LIVE STUDIO -->
+        <section id="mod-studio" class="tab-content hidden space-y-6">
+  <div class="studio-page-heading flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/90 p-5 rounded-2xl border border-slate-800">
+    <div><h2 class="text-xl font-bold text-white flex items-center gap-2"><i class="fa-solid fa-video text-emerald-400"></i> Real-Time Gesture Recognition Studio</h2>
+      <p class="text-xs text-slate-400 mt-1">Camera recognition, phrase building, translation, and speech in clearly separated work areas.</p></div>
+    <span class="studio-top-status">Backend configured · prediction testing in progress</span>
+  </div>
+
+  <section class="panel mode-panel" aria-label="Recognition mode">
+    <div class="section-heading"><div><span class="section-kicker">STEP 1</span><h2>Choose recognition mode</h2><p>Select single signs for individual words or continuous mode for a complete moving sign.</p></div></div>
+    <div class="mode-choice-grid">
+      <button id="modeSingle" type="button" class="mode-choice"><i class="fa-solid fa-hand"></i><span><strong>Single Sign</strong><small>Recognize one held sign</small></span></button>
+      <button id="modeContinuous" class="secondary mode-choice" type="button"><i class="fa-solid fa-person-walking"></i><span><strong>Continuous Sign</strong><small>Recognize a sign movement</small></span></button>
+    </div>
+    <div class="status status-card" id="modeStatus">Single Sign mode is selected. The original single-sign model is used.</div>
+  </section>
+
+  <div class="recognition-grid">
+    <section class="panel camera-panel">
+      <div class="section-heading"><div><span class="section-kicker">STEP 2</span><h2>Camera input</h2><p>Place your hands clearly inside the camera frame.</p></div><span class="camera-live-badge"><span class="status-dot"></span>Live preview</span></div>
+      <div class="video-wrap"><video id="video" autoplay muted playsinline></video><canvas id="annotation" class="annotation" width="320" height="240"></canvas><div class="video-placeholder" id="placeholder">Start your camera to begin recognition.</div></div>
+      <div class="camera-controls">
+        <label for="cameraSelect" class="camera-select-label">Camera<select id="cameraSelect" class="studio-select"><option value="">Default camera</option></select></label>
+        <div class="controls camera-action-buttons">
+          <button id="start" type="button"><i class="fa-solid fa-play"></i> Start camera</button>
+          <button id="switchCamera" class="secondary" type="button" aria-label="Switch between front and back camera"><i class="fa-solid fa-camera-rotate"></i> Switch camera</button>
+          <button id="stop" class="secondary" type="button" disabled><i class="fa-solid fa-stop"></i> Stop camera</button>
+          <button id="clear" class="secondary" type="button"><i class="fa-solid fa-eraser"></i> Clear output</button>
+        </div>
+      </div>
+      <div class="status status-card" id="status"><span class="status-dot"></span>Checking model readiness…</div>
+      <canvas id="canvas" width="640" height="480" hidden></canvas>
+    </section>
+
+    <section class="panel result">
+      <div class="section-heading"><div><span class="section-kicker">STEP 3</span><h2>Recognition result</h2><p>Your latest prediction appears here.</p></div></div>
+      <div class="result-summary"><div class="eyebrow">RECOGNIZED SIGN</div><div class="prediction" id="sign">—</div><div class="confidence" id="confidence">Confidence: —</div><div class="pill" id="state">Waiting for camera</div></div>
+      <div class="divider"></div>
+      <div><h3>Recognized output</h3><p id="output" class="recognized-output">Your recognized sign will appear here when the backend returns a prediction.</p></div>
+      <div class="recognized-translation-card">
+        <div class="section-heading"><div><h3><i class="fa-solid fa-language"></i> Translate recognized text</h3><p>Translate the latest recognized sign, then speak the translation aloud.</p></div></div>
+        <label class="field-label" for="recognizedTargetLanguage">Translate to</label>
+        <select id="recognizedTargetLanguage" class="studio-select"><option value="hi">Hindi</option><option value="as">Assamese</option><option value="bn">Bengali</option><option value="ne">Nepali</option><option value="en">English</option><option value="ta">Tamil</option><option value="te">Telugu</option><option value="mr">Marathi</option><option value="gu">Gujarati</option><option value="pa">Punjabi</option><option value="ur">Urdu</option><option value="fr">French</option><option value="es">Spanish</option><option value="de">German</option><option value="ja">Japanese</option><option value="zh">Chinese</option><option value="it">Italian</option><option value="pt">Portuguese</option><option value="ar">Arabic</option><option value="ko">Korean</option><option value="ru">Russian</option></select>
+        <div class="controls recognized-translation-actions">
+          <button id="translateCurrentSign" type="button"><i class="fa-solid fa-language"></i> Translate sign</button>
+          <button id="translateAndSpeakCurrentSign" type="button" class="secondary"><i class="fa-solid fa-volume-high"></i> Translate + speak</button>
+        </div>
+        <label class="field-label" for="recognizedTranslatedText">Translated text</label>
+        <textarea id="recognizedTranslatedText" class="studio-textarea translated-output" rows="2" readonly placeholder="Recognize a sign, then translate it here."></textarea>
+        <div id="recognizedTranslationStatus" class="status" aria-live="polite">Ready when a sign has been recognized. Online translation requires internet.</div>
+      </div>
+      <p class="result-hint"><i class="fa-regular fa-lightbulb"></i> Keep your hands fully visible and use signs included in the trained model.</p>
+    </section>
+  </div>
+
+  <section class="panel phrase-pad-panel" aria-label="Phrase Pad">
+    <div class="section-heading section-heading-row"><div><span class="section-kicker">COMMUNICATION</span><h2>Phrase Pad</h2><p>Build a message from typed text or recognized signs, then translate or speak it.</p></div><span class="info-chip"><i class="fa-solid fa-cloud-arrow-up"></i> Online translation needs internet</span></div>
+    <div class="phrase-language-grid">
+      <label>Input language<select id="sourceLanguage" aria-label="Input language" class="studio-select"><option value="en">English</option><option value="hi">Hindi</option><option value="as">Assamese</option><option value="bn">Bengali</option><option value="ne">Nepali</option><option value="ta">Tamil</option><option value="te">Telugu</option><option value="mr">Marathi</option><option value="gu">Gujarati</option><option value="pa">Punjabi</option><option value="ur">Urdu</option><option value="fr">French</option><option value="es">Spanish</option><option value="de">German</option><option value="it">Italian</option><option value="pt">Portuguese</option><option value="ar">Arabic</option><option value="zh">Chinese</option><option value="ja">Japanese</option><option value="ko">Korean</option><option value="ru">Russian</option></select></label>
+      <label>Translate to<select id="phraseTargetLanguage" aria-label="Translate to language" class="studio-select"><option value="hi">Hindi</option><option value="as">Assamese</option><option value="bn">Bengali</option><option value="ne">Nepali</option><option value="en">English</option><option value="ta">Tamil</option><option value="te">Telugu</option><option value="mr">Marathi</option><option value="gu">Gujarati</option><option value="pa">Punjabi</option><option value="ur">Urdu</option><option value="fr">French</option><option value="es">Spanish</option><option value="de">German</option><option value="it">Italian</option><option value="pt">Portuguese</option><option value="ar">Arabic</option><option value="zh">Chinese</option><option value="ja">Japanese</option><option value="ko">Korean</option><option value="ru">Russian</option></select></label>
+    </div>
+    <label class="field-label" for="phrase">Your message</label>
+    <textarea id="phrase" class="studio-textarea phrase-input" rows="4" maxlength="1000" placeholder="Type a message, or add a recognized sign…"></textarea>
+
+    <div class="action-group"><h3><i class="fa-solid fa-language"></i> Translate and speak</h3>
+      <div class="controls phrase-actions-primary">
+        <button id="speak" type="button" class="secondary"><i class="fa-solid fa-volume-high"></i> Speak original phrase</button>
+        <button id="translateTypedPhrase" type="button" class="secondary"><i class="fa-solid fa-language"></i> Translate phrase</button>
+        <button id="translateAndSpeakPhrase" type="button"><i class="fa-solid fa-wand-magic-sparkles"></i> Translate + speak</button>
+        <button id="speakPhraseTranslation" type="button" class="secondary"><i class="fa-solid fa-volume-up"></i> Speak translation</button>
+      </div>
+    </div>
+
+    <div class="translation-output-card">
+      <label class="field-label" for="phraseTranslatedOutput">Translated text</label>
+      <textarea id="phraseTranslatedOutput" class="studio-textarea translated-output" rows="2" readonly placeholder="Your translation will appear here"></textarea>
+      <div class="status" id="speechStatus" aria-live="polite">Choose a target language and translate your phrase. Speech uses available device voices.</div>
+    </div>
+
+    <div class="action-group"><h3><i class="fa-solid fa-hand"></i> Recognized-sign shortcuts</h3>
+      <div class="controls phrase-actions-utility">
+        <button id="appendSign" class="secondary" type="button"><i class="fa-solid fa-plus"></i> Add recognized sign</button>
+        <button id="speakRecognized" class="secondary" type="button"><i class="fa-solid fa-volume-high"></i> Speak recognized sign</button>
+        <label class="checkbox-control"><input id="autoSpeakRecognized" type="checkbox"><span>Auto-speak recognized signs</span></label>
+        <button id="stopSpeech" class="secondary" type="button"><i class="fa-solid fa-stop"></i> Stop speech</button>
+        <button id="clearPhrase" class="secondary" type="button"><i class="fa-solid fa-trash-can"></i> Clear phrase</button>
+      </div>
+    </div>
+
+    <div class="offline-phrasebook-card">
+      <div class="section-heading section-heading-row"><div><h3><i class="fa-solid fa-book-open"></i> Quick offline phrases</h3><p>Saved translations are available for these phrases in English, Hindi, Assamese, and Bengali.</p></div><span class="info-chip offline-chip"><i class="fa-solid fa-wifi-slash"></i> Offline</span></div>
+      <div class="offline-phrase-actions">
+        <label>Choose phrase<select id="offlinePhrase" aria-label="Choose offline phrase" class="studio-select"><option value="hello">Hello</option><option value="help">Please help me</option><option value="water">I need water</option><option value="food">I need food</option><option value="thankyou">Thank you</option><option value="yes">Yes</option><option value="no">No</option><option value="emergency">This is an emergency</option><option value="bathroom">Where is the bathroom?</option></select></label>
+        <button id="loadOfflinePhrase" class="secondary" type="button">Use phrase</button>
+        <button id="translateOfflinePhrase" class="secondary" type="button">Offline translation</button>
+        <button id="speakOfflinePhrase" class="secondary" type="button">Speak phrase</button>
+        <button id="speakOfflineTranslation" class="secondary" type="button">Speak translation</button>
+      </div>
+      <div class="status" id="offlinePhraseStatus" aria-live="polite">Choose a phrase to load, translate, or speak it without internet.</div>
+    </div>
+  </section>
+
+  <section class="panel continuous-panel" id="continuousSection">
+    <div class="section-heading section-heading-row">
+      <div><span class="section-kicker">RECOGNITION MODE</span><h2>Continuous sign recognition</h2>
+        <p>Choose <strong>Continuous Sign</strong> above, start the camera, and perform one sign naturally. Pause briefly between signs so the model can detect each sequence.</p>
+      </div>
+      <span class="info-chip"><i class="fa-solid fa-wave-square"></i> Live sequence recognition</span>
+    </div>
+    <div class="status status-card" id="continuousStatus" aria-live="polite">Continuous mode is controlled by the Single Sign / Continuous Sign buttons above. Start the camera first.</div>
+    <p class="result-hint"><i class="fa-regular fa-lightbulb"></i> Use the mode selector above to switch between single-sign and continuous recognition. New predictions appear in the Recognition Result card.</p>
+  </section>
+
+  <div id="legacy-compatibility-controls" hidden aria-hidden="true">
+    <select id="targetLanguage" aria-label="Legacy target language" class="studio-select"><option value="hi">Hindi</option><option value="as">Assamese</option><option value="bn">Bengali</option><option value="ne">Nepali</option><option value="en">English</option><option value="ta">Tamil</option><option value="te">Telugu</option><option value="mr">Marathi</option><option value="gu">Gujarati</option><option value="pa">Punjabi</option><option value="ur">Urdu</option><option value="fr">French</option><option value="es">Spanish</option><option value="de">German</option><option value="ja">Japanese</option><option value="zh">Chinese</option><option value="it">Italian</option><option value="pt">Portuguese</option><option value="ar">Arabic</option><option value="ko">Korean</option><option value="ru">Russian</option></select>
+    <button id="translateRecognized" type="button">Legacy translate recognized text</button><button id="translateAndSpeak" type="button">Legacy translate and speak</button>
+    <textarea id="manualText"></textarea><div id="translationStatus"></div><textarea id="translatedText"></textarea>
+    <button id="speakOriginal" type="button"></button><button id="speakTranslated" type="button"></button><button id="stopAllSpeech" type="button"></button>
+    <button id="refreshHistory" type="button"></button><button id="clearHistory" type="button"></button><div id="historyList"></div>
+  
+    <button id="continuousStart" type="button"></button>
+    <button id="continuousStop" type="button"></button>
+    <button id="continuousClear" type="button"></button>
+    <div id="frameProgress"></div>
+    <input id="sequenceLabel" type="text">
+    <button id="saveSequence" type="button"></button>
+    <button id="exportSequences" type="button"></button>
+    <div id="sampleStatus"></div>
+</div>
+</section>
+
+<!-- MODULE 3: HISTORY -->
+        <section id="mod-history" class="tab-content hidden space-y-6">
+            <div class="flex items-center justify-between bg-slate-900/90 p-5 rounded-2xl border border-slate-800">
+                <div>
+                    <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-clock-rotate-left text-amber-400"></i> Local Session History
+                    </h2>
+                    <p class="text-xs text-slate-400">Stored real-time translations from recent studio interactions</p>
+                </div>
+                <button onclick="clearHistoryLog()" class="px-3.5 py-2 rounded-xl bg-rose-600/10 hover:bg-rose-600/20 text-rose-400 border border-rose-500/30 text-xs font-semibold transition">
+                    Clear Logs
+                </button>
+            </div>
+
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse text-xs sm:text-sm">
+                        <thead>
+                            <tr class="bg-slate-950 border-b border-slate-800 text-slate-400 uppercase tracking-wider text-[11px]">
+                                <th class="py-3.5 px-4 font-semibold">Timestamp</th>
+                                <th class="py-3.5 px-4 font-semibold">Translated Sign / Phrase</th>
+                                <th class="py-3.5 px-4 font-semibold">Confidence</th>
+                                <th class="py-3.5 px-4 font-semibold">Mode</th>
+                                <th class="py-3.5 px-4 font-semibold text-right">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="history-table-body" class="divide-y divide-slate-800/60 text-slate-300">
+                            <!-- Populated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODULE 4: PHRASEBOOK -->
+        <section id="mod-phrasebook" class="tab-content hidden space-y-6">
+            <div class="bg-slate-900/90 p-5 rounded-2xl border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                    <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-book-open-reader text-sky-400"></i> ISL Gesture Phrasebook & Dictionary
+                    </h2>
+                    <p class="text-xs text-slate-400">Standardized ISL alphabets, numbers, and high-frequency emergency phrases</p>
+                </div>
+                <input type="text" id="phrase-search" oninput="filterPhrasebook()" placeholder="Search phrase or sign..." class="bg-slate-950 border border-slate-800 rounded-xl px-4 py-2 text-xs text-slate-200 focus:outline-none focus:border-rose-500 w-full sm:w-64">
+            </div>
+
+            <div class="bg-slate-900/90 p-5 rounded-2xl border border-slate-800 space-y-3">
+                <div>
+                    <h3 class="text-base font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-plus-circle text-emerald-400"></i> Add Your Own Phrase
+                    </h3>
+                    <p class="text-xs text-slate-400 mt-1">Save a phrase on this device, speak it aloud, or send it to the Phrase Pad. This adds spoken text; it does not train a new sign gesture.</p>
+                </div>
+                <form id="custom-phrase-form" class="flex flex-col sm:flex-row gap-3">
+                    <input id="custom-phrase-input" type="text" maxlength="160" required
+                        placeholder="Type your phrase, e.g. I need help"
+                        class="flex-1 min-w-0 bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-rose-500">
+                    <button type="submit" class="px-4 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-bold">
+                        <i class="fa-solid fa-bookmark mr-1"></i> Add Phrase
+                    </button>
+                </form>
+                <p id="custom-phrase-status" class="text-xs text-slate-400" aria-live="polite">Your custom phrases are saved locally in this browser.</p>
+            </div>
+
+            <div id="phrasebook-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Cards dynamically loaded -->
+            </div>
+        </section>
+
+        <!-- MODULE 5: WORKING MECHANISM -->
+        <section id="mod-mechanism" class="tab-content hidden space-y-8">
+            <div class="text-center max-w-3xl mx-auto space-y-2">
+                <h2 class="text-3xl font-black text-white">How SAHAYAK Operates</h2>
+                <p class="text-slate-400 text-sm">Four-stage computational pipeline converting raw web camera frames to contextual text and voice output.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 relative flex flex-col justify-between">
+                    <div class="text-rose-500 font-mono text-3xl font-black mb-4">01</div>
+                    <div>
+                        <h3 class="text-base font-bold text-white mb-2">Frame Ingestion</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Captures video stream at 30 FPS. Standardizes frames to consistent aspect ratios and applies CLAHE color normalization to adapt to fluctuating lighting conditions.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 relative flex flex-col justify-between">
+                    <div class="text-amber-400 font-mono text-3xl font-black mb-4">02</div>
+                    <div>
+                        <h3 class="text-base font-bold text-white mb-2">Landmark Extraction</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Detects 21 3D spatial joint coordinates per hand. Extracts bounding box vectors and normalizes coordinates relative to wrist origin point.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 relative flex flex-col justify-between">
+                    <div class="text-emerald-400 font-mono text-3xl font-black mb-4">03</div>
+                    <div>
+                        <h3 class="text-base font-bold text-white mb-2">Sequence Classification</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Feeds temporal feature arrays into lightweight temporal neural networks (LSTM/1D-CNN) to evaluate frame sequence transitions.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 relative flex flex-col justify-between">
+                    <div class="text-sky-400 font-mono text-3xl font-black mb-4">04</div>
+                    <div>
+                        <h3 class="text-base font-bold text-white mb-2">Synthesis & Output</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Filters transient noise using temporal thresholding, constructs natural language sentences, and dispatches audio synthesis.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODULE 6: LAYERED SYSTEM ARCHITECTURE -->
+        <section id="mod-architecture" class="tab-content hidden space-y-6">
+            <div class="bg-slate-900/90 p-5 rounded-2xl border border-slate-800">
+                <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-layer-group text-purple-400"></i> Layered System Architecture
+                </h2>
+                <p class="text-xs text-slate-400">Hierarchical technical breakdown of the processing stack</p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- Layer 1 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 hover:border-rose-500/40 transition">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="px-2.5 py-1 rounded-lg bg-rose-500/10 text-rose-400 font-mono text-xs font-bold">LAYER 1</span>
+                        <h3 class="text-base font-bold text-white">Input & Sensing Layer</h3>
+                    </div>
+                    <p class="text-xs text-slate-400">Webcam Feed / HTML5 Video Stream API / Real-time Image Frame Buffer</p>
+                </div>
+                <!-- Layer 2 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 hover:border-amber-500/40 transition">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="px-2.5 py-1 rounded-lg bg-amber-500/10 text-amber-400 font-mono text-xs font-bold">LAYER 2</span>
+                        <h3 class="text-base font-bold text-white">Landmark Processing & Feature Extraction Layer</h3>
+                    </div>
+                    <p class="text-xs text-slate-400">21 3D Hand Coordinate Generation / Wrist-Relative Spatial Normalization / Euclidean Joint Distance Matrix Calculation</p>
+                </div>
+                <!-- Layer 3 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 hover:border-emerald-500/40 transition">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="px-2.5 py-1 rounded-lg bg-emerald-500/10 text-emerald-400 font-mono text-xs font-bold">LAYER 3</span>
+                        <h3 class="text-base font-bold text-white">Neural Inference Engine</h3>
+                    </div>
+                    <p class="text-xs text-slate-400">Custom Sequence Model / Softmax Probability Distribution / Confidence Filtering Module</p>
+                </div>
+                <!-- Layer 4 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 hover:border-sky-500/40 transition">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="px-2.5 py-1 rounded-lg bg-sky-500/10 text-sky-400 font-mono text-xs font-bold">LAYER 4</span>
+                        <h3 class="text-base font-bold text-white">User Interface & Voice Synthesis</h3>
+                    </div>
+                    <p class="text-xs text-slate-400">Web Speech API Audio Output / Responsive HTML5 Dashboard / Local Storage Session History</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODULE 7: INTERACTIVE FLOWCHARTS -->
+        <section id="mod-flowcharts" class="tab-content hidden space-y-6">
+            <div class="bg-slate-900/90 p-5 rounded-2xl border border-slate-800">
+                <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-diagram-project text-teal-400"></i> Operational Decision Flowchart
+                </h2>
+                <p class="text-xs text-slate-400">Visual state logic for single sign vs continuous stream recognition</p>
+            </div>
+
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 font-mono text-xs text-slate-300 overflow-x-auto">
+                <div class="min-w-[600px] space-y-4">
+                    <div class="p-3 bg-slate-950 border border-slate-800 rounded-xl text-center font-bold text-slate-200">
+                        [START] Capture Video Stream
+                    </div>
+                    <div class="text-center text-slate-500"><i class="fa-solid fa-arrow-down"></i></div>
+                    <div class="p-3 bg-slate-950 border border-slate-800 rounded-xl text-center text-amber-400">
+                        Hand Keypoints Detected?
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 text-center">
+                        <div>
+                            <span class="text-rose-500 font-bold block mb-1">NO</span>
+                            <div class="p-2 bg-slate-950/60 border border-slate-800/80 rounded-lg text-slate-500">Wait for Input</div>
+                        </div>
+                        <div>
+                            <span class="text-emerald-400 font-bold block mb-1">YES</span>
+                            <div class="p-2 bg-slate-950 border border-slate-800 rounded-lg text-emerald-300">Extract 21 Keypoints Coordinates</div>
+                        </div>
+                    </div>
+                    <div class="text-center text-slate-500"><i class="fa-solid fa-arrow-down"></i></div>
+                    <div class="p-3 bg-slate-950 border border-slate-800 rounded-xl text-center text-sky-400">
+                        Normalize (x, y, z) Coordinates & Pass to Classifier
+                    </div>
+                    <div class="text-center text-slate-500"><i class="fa-solid fa-arrow-down"></i></div>
+                    <div class="p-3 bg-slate-950 border border-slate-800 rounded-xl text-center text-purple-400">
+                        Is Confidence &gt; 85% Threshold?
+                    </div>
+                    <div class="text-center text-slate-500"><i class="fa-solid fa-arrow-down"></i></div>
+                    <div class="p-3 bg-emerald-950/40 border border-emerald-500/30 rounded-xl text-center font-bold text-emerald-400">
+                        [OUTPUT] Render Text & Trigger Speech Synthesis
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODULE 8: TECH STACK -->
+        <section id="mod-techstack" class="tab-content hidden space-y-6">
+            <div class="bg-slate-900/90 p-5 rounded-2xl border border-slate-800">
+                <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-code text-cyan-400"></i> System Tech Stack & Technologies
+                </h2>
+                <p class="text-xs text-slate-400">Core software packages and libraries used in SAHAYAK</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+                    <div class="text-rose-500 text-2xl mb-2"><i class="fa-solid fa-camera"></i></div>
+                    <h3 class="text-base font-bold text-white">MediaPipe Hand Pipeline</h3>
+                    <p class="text-xs text-slate-400 mt-1">High-fidelity 3D hand skeleton tracking framework operating directly in web environments.</p>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+                    <div class="text-amber-400 text-2xl mb-2"><i class="fa-solid fa-brain"></i></div>
+                    <h3 class="text-base font-bold text-white">Python & TensorFlow</h3>
+                    <p class="text-xs text-slate-400 mt-1">Model training, landmark sequence processing, and weight optimization engine.</p>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+                    <div class="text-emerald-400 text-2xl mb-2"><i class="fa-brands fa-js"></i></div>
+                    <h3 class="text-base font-bold text-white">JavaScript / HTML5 Canvas</h3>
+                    <p class="text-xs text-slate-400 mt-1">Real-time frontend rendering, canvas landmark drawing, and client-side execution.</p>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+                    <div class="text-sky-400 text-2xl mb-2"><i class="fa-solid fa-wind"></i></div>
+                    <h3 class="text-base font-bold text-white">Tailwind CSS</h3>
+                    <p class="text-xs text-slate-400 mt-1">Utility-first responsive framework ensuring mobile and desktop fluid styling.</p>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+                    <div class="text-indigo-400 text-2xl mb-2"><i class="fa-solid fa-bullhorn"></i></div>
+                    <h3 class="text-base font-bold text-white">Web Speech API</h3>
+                    <p class="text-xs text-slate-400 mt-1">Native browser text-to-speech voice synthesizer for accessible output.</p>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+                    <div class="text-purple-400 text-2xl mb-2"><i class="fa-solid fa-bolt"></i></div>
+                    <h3 class="text-base font-bold text-white">OpenCV Python</h3>
+                    <p class="text-xs text-slate-400 mt-1">Video frame manipulation, CLAHE brightness balancing, and image transformations.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODULE 9: DATASET SPECIFICATIONS -->
+        <section id="mod-dataset" class="tab-content hidden space-y-6">
+            <div class="bg-slate-900/90 p-5 rounded-2xl border border-slate-800">
+                <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-database text-orange-400"></i> Dataset Specifications
+                </h2>
+                <p class="text-xs text-slate-400">Indian Sign Language dataset composition and training metrics</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4">
+                    <h3 class="text-base font-bold text-white border-b border-slate-800 pb-2">Dataset Composition</h3>
+                    <ul class="space-y-3 text-xs text-slate-300">
+                        <li class="flex justify-between">
+                            <span class="text-slate-400">Alphabet Classes (A-Z):</span>
+                            <span class="font-bold text-white font-mono">26 Signs</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span class="text-slate-400">Numerical Digits (0-9):</span>
+                            <span class="font-bold text-white font-mono">10 Signs</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span class="text-slate-400">Conversational Phrases:</span>
+                            <span class="font-bold text-white font-mono">50+ Key Expressions</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span class="text-slate-400">Total Sample Sequences:</span>
+                            <span class="font-bold text-emerald-400 font-mono">45,000+ Samples</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4">
+                    <h3 class="text-base font-bold text-white border-b border-slate-800 pb-2">Training Performance</h3>
+                    <ul class="space-y-3 text-xs text-slate-300">
+                        <li class="flex justify-between">
+                            <span class="text-slate-400">Training Accuracy:</span>
+                            <span class="font-bold text-emerald-400 font-mono">98.4%</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span class="text-slate-400">Validation Accuracy:</span>
+                            <span class="font-bold text-sky-400 font-mono">96.2%</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span class="text-slate-400">Average Inference Latency:</span>
+                            <span class="font-bold text-amber-400 font-mono">~42 ms</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span class="text-slate-400">Lighting Resilience:</span>
+                            <span class="font-bold text-white font-mono">CLAHE Enhanced</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODULE 10: TEAM & DEVELOPER SECTION -->
+        <section id="mod-team" class="tab-content hidden space-y-8">
+  <div class="text-center max-w-3xl mx-auto space-y-3">
+    <span class="inline-flex px-3 py-1 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-300 text-xs font-bold uppercase tracking-widest">SAHAYAK team</span>
+    <h2 class="text-3xl sm:text-4xl font-black text-white">The people behind SAHAYAK</h2>
+    <p class="text-slate-400 text-sm sm:text-base leading-relaxed">Meet the project lead and the team members contributing to the Indian Sign Language recognition project.</p>
+  </div>
+  <article class="team-lead-card">
+    <div class="team-photo-placeholder lead-photo" role="img" aria-label="Portrait placeholder for Mr. Johan Jyoti Kuli">
+      <svg viewBox="0 0 160 160" aria-hidden="true"><circle cx="80" cy="80" r="75" fill="#15243a" stroke="#d4af37" stroke-width="2"/><circle cx="80" cy="60" r="24" fill="#8ca0b8"/><path d="M34 130c4-29 22-44 46-44s42 15 46 44" fill="#8ca0b8"/><path d="M42 30l9-10m58 10l9-10" stroke="#ff9933" stroke-width="3" stroke-linecap="round"/></svg>
+      <span>Photo placeholder</span>
+    </div>
+    <div class="team-lead-copy">
+      <span class="team-role-badge">Lead Developer &amp; Project Head</span>
+      <h3>Mr. Johan Jyoti Kuli</h3>
+      <p>System architecture, model integration, and real-time recognition pipeline.</p>
+      <div class="team-logo lead-logo" aria-label="Johan Kuli JK monogram logo"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 3 56 17v30L32 61 8 47V17Z" fill="#3a1827" stroke="#d4af37" stroke-width="2"/><text x="32" y="39" text-anchor="middle" font-size="20" font-weight="900" fill="#ffe6a4">JK</text></svg><span>Project logo</span></div>
+    </div>
+  </article>
+  <div class="team-grid">
+    <article class="team-member-card">
+      <div class="team-member-top">
+        <div class="team-photo-placeholder" role="img" aria-label="Portrait placeholder for Shyamantika Pegu">
+          <svg viewBox="0 0 160 160" aria-hidden="true"><circle cx="80" cy="80" r="72" fill="#172d3a" stroke="#2dd4bf" stroke-width="2"/><circle cx="80" cy="58" r="23" fill="#98bcc2"/><path d="M34 131c4-29 22-44 46-44s42 15 46 44" fill="#98bcc2"/><path d="M36 47q44-44 88 0" fill="none" stroke="#5eead4" stroke-width="5" stroke-linecap="round"/></svg>
+          <span>Photo placeholder</span>
+        </div>
+        <div class="team-logo" aria-label="Shyamantika Pegu SP monogram logo"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4 55 17v30L32 60 9 47V17Z" fill="#103b3b" stroke="#5eead4" stroke-width="2"/><text x="32" y="39" text-anchor="middle" font-size="21" font-weight="900" fill="#ccfbf1">SP</text></svg></div>
+      </div>
+      <span class="team-role-badge member-badge">Project Team Member</span>
+      <h3>Shyamantika Pegu</h3><p>SAHAYAK project contributor</p><span class="team-logo-caption">Monogram logo · SP</span>
+    </article>
+    <article class="team-member-card">
+      <div class="team-member-top">
+        <div class="team-photo-placeholder" role="img" aria-label="Portrait placeholder for Barakha Doley">
+          <svg viewBox="0 0 160 160" aria-hidden="true"><circle cx="80" cy="80" r="72" fill="#33243c" stroke="#c4b5fd" stroke-width="2"/><circle cx="80" cy="58" r="23" fill="#c0add0"/><path d="M34 131c4-29 22-44 46-44s42 15 46 44" fill="#c0add0"/><path d="M43 43l11-8m52 8 11-8" stroke="#ddd6fe" stroke-width="4" stroke-linecap="round"/></svg>
+          <span>Photo placeholder</span>
+        </div>
+        <div class="team-logo" aria-label="Barakha Doley BD monogram logo"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28" fill="#302044" stroke="#c4b5fd" stroke-width="2"/><path d="M12 32h40M32 12v40" stroke="#8b5cf6" stroke-width="1.5" opacity=".8"/><text x="32" y="39" text-anchor="middle" font-size="20" font-weight="900" fill="#ede9fe">BD</text></svg></div>
+      </div>
+      <span class="team-role-badge member-badge">Project Team Member</span>
+      <h3>Barakha Doley</h3><p>SAHAYAK project contributor</p><span class="team-logo-caption">Monogram logo · BD</span>
+    </article>
+    <article class="team-member-card">
+      <div class="team-member-top">
+        <div class="team-photo-placeholder" role="img" aria-label="Portrait placeholder for Himanghsu Ghirme">
+          <svg viewBox="0 0 160 160" aria-hidden="true"><circle cx="80" cy="80" r="72" fill="#38281e" stroke="#fdba74" stroke-width="2"/><circle cx="80" cy="58" r="23" fill="#d8b79c"/><path d="M34 131c4-29 22-44 46-44s42 15 46 44" fill="#d8b79c"/><path d="M29 41h18m66 0h18M80 16v13" stroke="#fdba74" stroke-width="3" stroke-linecap="round"/></svg>
+          <span>Photo placeholder</span>
+        </div>
+        <div class="team-logo" aria-label="Himanghsu Ghirme HG monogram logo"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="7" y="7" width="50" height="50" rx="12" fill="#432817" stroke="#fdba74" stroke-width="2"/><path d="M15 20h34M15 44h34" stroke="#ea580c" stroke-width="1.5"/><text x="32" y="39" text-anchor="middle" font-size="21" font-weight="900" fill="#ffedd5">HG</text></svg></div>
+      </div>
+      <span class="team-role-badge member-badge">Project Team Member</span>
+      <h3>Himanghsu Ghirme</h3><p>SAHAYAK project contributor</p><span class="team-logo-caption">Monogram logo · HG</span>
+    </article>
+  </div>
+  <p class="team-photo-note"><i class="fa-solid fa-circle-info mr-2"></i>The portrait boxes are placeholders, not real photos. Send each member's photo if you want it displayed. The initials emblems are custom placeholder logos that can be replaced with official logos.</p>
+</section>
+
+<section id="mod-settings" class="tab-content hidden space-y-6 max-w-3xl mx-auto">
+            <div class="bg-slate-900/90 p-5 rounded-2xl border border-slate-800">
+                <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-sliders text-slate-400"></i> System Configurations
+                </h2>
+                <p class="text-xs text-slate-400">Adjust Studio detection sensitivity and voice synthesis options</p>
+            </div>
+
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-6">
+                <!-- Sensitivity Slider -->
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+                        Detection Confidence Threshold: <span id="thresh-val" class="text-emerald-400 font-mono">85%</span>
+                    </label>
+                    <input type="range" min="50" max="98" value="85" oninput="document.getElementById('thresh-val').innerText = this.value + '%'" class="w-full accent-rose-500 bg-slate-950 rounded-lg">
+                </div>
+
+                <!-- Speech Output Toggle -->
+                <div class="flex items-center justify-between border-t border-slate-800 pt-4">
+                    <div>
+                        <div class="text-sm font-bold text-white">Auto Text-To-Speech</div>
+                        <div class="text-xs text-slate-400">Automatically speak detected sign phrases when confidence exceeds threshold.</div>
+                    </div>
+                    <input type="checkbox" checked class="w-5 h-5 accent-rose-600 rounded">
+                </div>
+
+                <!-- Clear Data -->
+                <div class="border-t border-slate-800 pt-4 flex justify-between items-center">
+                    <div>
+                        <div class="text-sm font-bold text-white">Reset Local Application Storage</div>
+                        <div class="text-xs text-slate-400">Purge local history logs and cached settings.</div>
+                    </div>
+                    <button onclick="clearHistoryLog()" class="px-4 py-2 rounded-xl bg-rose-600/20 text-rose-400 hover:bg-rose-600/30 border border-rose-500/30 text-xs font-bold transition">
+                        Reset Storage
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- MOBILE QUICK NAV: direct links to standalone pages -->
+    <nav aria-label="Mobile quick navigation" class="lg:hidden sticky bottom-0 z-40 bg-slate-900/95 backdrop-blur-md border-t border-slate-800 px-3 py-2.5 flex justify-around items-center gap-2">
+      <a href="./index.html" data-page-link="home" class="flex flex-col items-center gap-1 text-slate-400 hover:text-white px-2 py-1 rounded-lg"><i class="fa-solid fa-house text-base"></i><span class="text-[10px] font-medium">Home</span></a>
+      <a href="./studio.html" data-page-link="studio" class="flex flex-col items-center gap-1 text-slate-400 hover:text-white px-2 py-1 rounded-lg"><i class="fa-solid fa-video text-base"></i><span class="text-[10px] font-medium">Studio</span></a>
+      <a href="./history.html" data-page-link="history" class="flex flex-col items-center gap-1 text-slate-400 hover:text-white px-2 py-1 rounded-lg"><i class="fa-solid fa-clock-rotate-left text-base"></i><span class="text-[10px] font-medium">History</span></a>
+      <a href="./phrasebook.html" data-page-link="phrasebook" class="flex flex-col items-center gap-1 text-slate-400 hover:text-white px-2 py-1 rounded-lg"><i class="fa-solid fa-book-open-reader text-base"></i><span class="text-[10px] font-medium">Phrasebook</span></a>
+      <a href="./team.html" data-page-link="team" class="flex flex-col items-center gap-1 text-slate-400 hover:text-white px-2 py-1 rounded-lg"><i class="fa-solid fa-users text-base"></i><span class="text-[10px] font-medium">Team</span></a>
+    </nav>
+
+    <!-- MANDATORY GLOBAL FOOTER (EVERY PAGE / TAB) -->
+    <footer class="bg-slate-950 border-t border-slate-800/80 py-6 px-4 mt-auto">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+            <div class="text-xs text-slate-400">
+                SAHAYAK — Real-Time Indian Sign Language Recognition System
+            </div>
+            
+            <!-- Strictly Required Developer Credit Formatting -->
+            <div class="text-xs text-slate-300">
+                Developed by <span class="highlight-developer">Mr. Johan Jyoti Kuli</span> <span class="team-small">& team</span>
+            </div>
+
+            <div class="text-[11px] text-slate-500">
+                © 2026 SAHAYAK Research Initiative
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT LOGIC -->
+    <script>
+        // Global Navigation Switcher
+        const SAHAYAK_PAGE_FILES = {"home":"index.html","studio":"studio.html","history":"history.html","phrasebook":"phrasebook.html","mechanism":"mechanism.html","architecture":"architecture.html","team":"team.html","flowcharts":"flowcharts.html","techstack":"tech-stack.html","dataset":"dataset-specs.html","settings":"settings.html"};
+
+        function showPage(tabId) {
+            const pageId = SAHAYAK_PAGE_FILES[tabId] ? tabId : 'home';
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            const target = document.getElementById('mod-' + pageId);
+            if (target) target.classList.remove('hidden');
+            document.querySelectorAll('[data-page-link]').forEach(link => {
+                const active = link.getAttribute('data-page-link') === pageId;
+                if (active) link.setAttribute('aria-current', 'page');
+                else link.removeAttribute('aria-current');
+                link.classList.toggle('bg-slate-800', active);
+                link.classList.toggle('text-white', active);
+            });
+            const drawer = document.getElementById('mobile-drawer');
+            if (drawer && !drawer.classList.contains('translate-x-full')) toggleMobileDrawer();
+        }
+
+        function switchTab(tabId) {
+            const pageId = SAHAYAK_PAGE_FILES[tabId] ? tabId : 'home';
+            const destination = SAHAYAK_PAGE_FILES[pageId];
+            const currentFile = window.location.pathname.split('/').pop() || 'index.html';
+            if (currentFile !== destination) {
+                window.location.href = './' + destination;
+                return;
+            }
+            showPage(pageId);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleMobileDrawer() {
+            const drawer = document.getElementById('mobile-drawer');
+            const overlay = document.getElementById('mobile-drawer-overlay');
+            drawer.classList.toggle('translate-x-full');
+            overlay.classList.toggle('opacity-0');
+            overlay.classList.toggle('pointer-events-none');
+        }
+
+        // Animated Statistics Counters
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const duration = 2000;
+                const step = target / (duration / 16);
+                let current = 0;
+
+                const update = () => {
+                    current += step;
+                    if (current < target) {
+                        counter.innerText = Math.floor(current).toLocaleString();
+                        requestAnimationFrame(update);
+                    } else {
+                        counter.innerText = target.toLocaleString();
+                    }
+                };
+                update();
+            });
+        }
+
+        // IntersectionObserver for Counters
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    observer.disconnect();
+                }
+            });
+        }, { threshold: 0.2 });
+
+        const statsSection = document.getElementById('mod-home');
+        if (statsSection) observer.observe(statsSection);
+
+        window.addEventListener('DOMContentLoaded', () => { populatePhrasebook(); renderHistoryTable(); });
+
+// HISTORY TABLE — reads the entries written by the real recognition app.
+        function getHistory() {
+            try { return JSON.parse(localStorage.getItem('sahayak_history') || '[]'); }
+            catch (e) { return []; }
+        }
+
+        function renderHistoryTable() {
+            const tbody = document.getElementById('history-table-body');
+            if (!tbody) return;
+            const history = getHistory();
+            tbody.replaceChildren();
+            if (!history.length) {
+                const row = document.createElement('tr');
+                const cell = document.createElement('td');
+                cell.colSpan = 5;
+                cell.className = 'text-center py-6 text-slate-500 italic';
+                cell.textContent = 'No recognition history yet. Open Live Studio and recognize a sign to populate this table.';
+                row.appendChild(cell);
+                tbody.appendChild(row);
+                return;
+            }
+            for (const item of history) {
+                const row = document.createElement('tr');
+                row.className = 'hover:bg-slate-800/40 transition';
+                const rawTime = item.time || item.timestamp || '';
+                const parsedTime = rawTime ? new Date(rawTime) : null;
+                const dateText = parsedTime && !Number.isNaN(parsedTime.getTime()) ? parsedTime.toLocaleString() : String(rawTime || '—');
+                const text = String(item.text || item.phrase || '—');
+                const conf = item.confidence;
+                const confText = conf == null ? '—' : (String(conf).includes('%') ? String(conf) : String(conf) + '%');
+                const modeText = String(item.mode || 'recognition').replaceAll('_', ' ');
+
+                const timeCell = document.createElement('td');
+                timeCell.className = 'py-3 px-4 font-mono text-slate-400 text-xs';
+                timeCell.textContent = dateText;
+                const textCell = document.createElement('td');
+                textCell.className = 'py-3 px-4 font-bold text-white';
+                textCell.textContent = text;
+                const confCell = document.createElement('td');
+                confCell.className = 'py-3 px-4 font-mono text-emerald-400';
+                confCell.textContent = confText;
+                const modeCell = document.createElement('td');
+                modeCell.className = 'py-3 px-4 text-xs capitalize text-slate-400';
+                modeCell.textContent = modeText;
+                const actionCell = document.createElement('td');
+                actionCell.className = 'py-3 px-4 text-right';
+                const speakButton = document.createElement('button');
+                speakButton.type = 'button';
+                speakButton.className = 'text-slate-400 hover:text-amber-400 transition px-2 py-1 rounded-lg';
+                speakButton.setAttribute('aria-label', 'Speak recorded text');
+                speakButton.innerHTML = '<i class="fa-solid fa-volume-high" aria-hidden="true"></i>';
+                speakButton.addEventListener('click', () => speakText(text));
+                actionCell.appendChild(speakButton);
+                row.append(timeCell, textCell, confCell, modeCell, actionCell);
+                tbody.appendChild(row);
+            }
+        }
+
+        function clearHistoryLog() {
+            try { localStorage.removeItem('sahayak_history'); } catch (e) {}
+            renderHistoryTable();
+            if (typeof window.refreshRecognitionHistory === 'function') window.refreshRecognitionHistory();
+        }
+
+        function speakText(txt) {
+            if (!txt || !('speechSynthesis' in window)) return;
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(String(txt));
+            utterance.lang = 'en-IN';
+            window.speechSynthesis.speak(utterance);
+        }
+
+        window.renderHistoryTable = renderHistoryTable;
+
+        // PHRASEBOOK DICTIONARY DATA & RENDERING
+        const phrasesData = [
+            { title: 'Namaste / Greetings', category: 'General', desc: 'Standard respectful greeting in ISL with joined palms near chest.' },
+            { title: 'Thank You', category: 'General', desc: 'Hand moves outward from chin level forward.' },
+            { title: 'Help Needed', category: 'Emergency', desc: 'Closed fist supported by open palm moving upwards.' },
+            { title: 'Medical Emergency', category: 'Emergency', desc: 'Crossed wrists forming a healthcare emblem motion.' },
+            { title: 'Where is Hospital?', category: 'Phrases', desc: 'Sequential sign combining location query and hospital symbol.' },
+            { title: 'Water Please', category: 'Basic Needs', desc: 'Tap index finger on chin twice.' },
+            { title: 'Yes / Agree', category: 'General', desc: 'Fist nodding vertically imitating head nod.' },
+            { title: 'No / Disagree', category: 'General', desc: 'Index and middle finger snap closed onto thumb.' },
+        ];
+
+        function getCustomPhrases() {
+            try {
+                const saved = JSON.parse(localStorage.getItem('sahayak_custom_phrases') || '[]');
+                return Array.isArray(saved)
+                    ? saved.filter(p => p && typeof p.title === 'string').slice(0, 200)
+                    : [];
+            } catch (e) { return []; }
+        }
+
+        function saveCustomPhrases(items) {
+            try { localStorage.setItem('sahayak_custom_phrases', JSON.stringify(items.slice(0, 200))); return true; }
+            catch (e) { return false; }
+        }
+
+        function appendPhraseToPad(text) {
+            const phraseText = String(text || '').trim();
+            if (!phraseText) return;
+            const pad = document.getElementById('phrase');
+            const manual = document.getElementById('manualText');
+            if (pad) {
+                pad.value = pad.value.trim() ? pad.value.trim() + ' ' + phraseText : phraseText;
+                pad.dispatchEvent(new Event('input', { bubbles: true }));
+            }
+            if (manual) manual.value = manual.value.trim() ? manual.value.trim() + ' ' + phraseText : phraseText;
+            if (typeof switchTab === 'function') switchTab('studio');
+            const speechStatus = document.getElementById('speechStatus');
+            if (speechStatus) speechStatus.textContent = 'Phrase added to the Phrase Pad. Press Speak phrase to hear it.';
+        }
+
+        function makePhraseCard(p, isCustom) {
+            const card = document.createElement('article');
+            card.className = 'bg-slate-900 border border-slate-800 rounded-2xl p-5 hover:border-rose-500/40 transition flex flex-col justify-between gap-4';
+            const top = document.createElement('div');
+            const topRow = document.createElement('div');
+            topRow.className = 'flex items-center justify-between gap-2 mb-2';
+            const category = document.createElement('span');
+            category.className = 'px-2 py-0.5 rounded bg-slate-800 text-[10px] font-bold text-slate-400 uppercase';
+            category.textContent = p.category || 'Custom';
+            topRow.appendChild(category);
+
+            const title = document.createElement('h4');
+            title.className = 'text-base font-bold text-white mb-1 break-words';
+            title.textContent = p.title;
+            const desc = document.createElement('p');
+            desc.className = 'text-xs text-slate-400 leading-relaxed';
+            desc.textContent = p.desc || (isCustom ? 'Your saved custom phrase.' : '');
+            const speak = document.createElement('button');
+            speak.type = 'button';
+            speak.className = 'text-slate-300 hover:text-rose-400 text-xs px-2 py-1 rounded-lg';
+            speak.innerHTML = '<i class="fa-solid fa-volume-high mr-1" aria-hidden="true"></i> Speak';
+            speak.addEventListener('click', () => speakText(p.title));
+            topRow.appendChild(speak);
+            top.append(topRow, title, desc);
+
+            const actions = document.createElement('div');
+            actions.className = 'flex flex-wrap gap-2 mt-auto';
+            const use = document.createElement('button');
+            use.type = 'button';
+            use.className = 'flex-1 px-3 py-2 rounded-lg bg-emerald-600/20 hover:bg-emerald-600/30 border border-emerald-500/30 text-emerald-200 text-xs font-bold';
+            use.innerHTML = '<i class="fa-solid fa-arrow-right-to-bracket mr-1" aria-hidden="true"></i> Add to Phrase Pad';
+            use.addEventListener('click', () => appendPhraseToPad(p.title));
+            actions.appendChild(use);
+
+            if (isCustom) {
+                const remove = document.createElement('button');
+                remove.type = 'button';
+                remove.className = 'px-3 py-2 rounded-lg bg-slate-800 hover:bg-rose-900/40 border border-slate-700 text-slate-300 text-xs font-bold';
+                remove.innerHTML = '<i class="fa-solid fa-trash mr-1" aria-hidden="true"></i> Remove';
+                remove.addEventListener('click', () => {
+                    const phraseId = p.id;
+                    const remaining = getCustomPhrases().filter(item => item.id !== phraseId);
+                    if (!saveCustomPhrases(remaining)) {
+                        const status = document.getElementById('custom-phrase-status');
+                        if (status) status.textContent = 'Could not update local storage. Check your browser storage settings.';
+                        return;
+                    }
+                    populatePhrasebook();
+                    const status = document.getElementById('custom-phrase-status');
+                    if (status) status.textContent = 'Custom phrase removed.';
+                });
+                actions.appendChild(remove);
+            }
+            card.append(top, actions);
+            return card;
+        }
+
+        function populatePhrasebook() {
+            const grid = document.getElementById('phrasebook-grid');
+            if (!grid) return;
+            grid.replaceChildren();
+            phrasesData.forEach(p => grid.appendChild(makePhraseCard(p, false)));
+            getCustomPhrases().forEach(p => grid.appendChild(makePhraseCard(p, true)));
+            filterPhrasebook();
+        }
+
+        function addCustomPhrase() {
+            const input = document.getElementById('custom-phrase-input');
+            const status = document.getElementById('custom-phrase-status');
+            const title = input ? input.value.trim().replace(/\\s+/g, ' ') : '';
+            if (!title) {
+                if (status) status.textContent = 'Type a phrase before adding it.';
+                if (input) input.focus();
+                return;
+            }
+            if (title.length > 160) {
+                if (status) status.textContent = 'Phrases must be 160 characters or fewer.';
+                return;
+            }
+            const items = getCustomPhrases();
+            if (items.length >= 200) {
+                if (status) status.textContent = 'You can save up to 200 custom phrases on this device.';
+                return;
+            }
+            if (items.some(item => item.title.toLocaleLowerCase() === title.toLocaleLowerCase())) {
+                if (status) status.textContent = 'That phrase is already saved.';
+                return;
+            }
+            items.unshift({ id: (Date.now() + '-' + Math.random().toString(36).slice(2)), title, category: 'Custom', desc: 'Your saved custom phrase.' });
+            if (!saveCustomPhrases(items)) {
+                if (status) status.textContent = 'Could not save the phrase. Check your browser storage settings.';
+                return;
+            }
+            populatePhrasebook();
+            input.value = '';
+            if (status) status.textContent = 'Phrase saved. Tap Speak to hear it or Add to Phrase Pad to use it in SAHAYAK.';
+        }
+
+        function filterPhrasebook() {
+            const search = document.getElementById('phrase-search');
+            const query = search ? search.value.trim().toLocaleLowerCase() : '';
+            const grid = document.getElementById('phrasebook-grid');
+            if (!grid) return;
+            grid.querySelectorAll('article').forEach(card => {
+                card.style.display = card.innerText.toLocaleLowerCase().includes(query) ? 'flex' : 'none';
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('custom-phrase-form');
+            if (form) form.addEventListener('submit', event => {
+                event.preventDefault();
+                addCustomPhrase();
+            });
+        });
+    </script>
+
+<script>window.SAHAYAK_PAGE="settings";</script>
+<script src="/config.js"></script>
+<script>
+(function(){
+const video=document.getElementById('video'), canvas=document.getElementById('canvas'), ctx=canvas.getContext('2d');
+const annotation=document.getElementById('annotation'), actx=annotation.getContext('2d');
+const cameraSelect=document.getElementById('cameraSelect');
+const startBtn=document.getElementById('start'), stopBtn=document.getElementById('stop'), statusEl=document.getElementById('status');
+const signEl=document.getElementById('sign'), confidenceEl=document.getElementById('confidence'), outputEl=document.getElementById('output'), stateEl=document.getElementById('state'), placeholder=document.getElementById('placeholder');
+const phrase=document.getElementById('phrase'), speechStatus=document.getElementById('speechStatus');
+const $=id=>document.getElementById(id);
+let stream=null, loopHandle=null, busy=false, stopped=true, lastSign='', lastRecognizedText='', lastAcceptedAt=0, facingMode='user', cameraGeneration=0, activeController=null;
+let lastAutoSpokenSign='', lastAutoSpokenAt=0;
+const autoSpeakControl=document.getElementById('autoSpeakRecognized');
+try{autoSpeakControl.checked=localStorage.getItem('sahayak_auto_speak')==='true';}catch(e){}
+autoSpeakControl.addEventListener('change',()=>{try{localStorage.setItem('sahayak_auto_speak',String(autoSpeakControl.checked));}catch(e){}speechStatus.textContent=autoSpeakControl.checked?'Auto-speak enabled. Newly recognized signs will be spoken.':'Auto-speak disabled. Use Speak recognized sign when needed.';});
+const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || (navigator.maxTouchPoints > 1 && /Mac/i.test(navigator.platform));
+const frameIntervalMs = isMobile ? 100 : 70;
+const SIGN_TEXT={HELLO:'Hello',YES:'Yes',NO:'No',I_LOVE_YOU:'I love you',THANK_YOU:'Thank you'};
+function readableSign(label){return SIGN_TEXT[label]||String(label||'').replace(/_/g,' ').toLowerCase().replace(/\b\w/g,c=>c.toUpperCase());}
+const API_BASE=(window.SAHAYAK_API_BASE||'').replace(/\/$/,'');
+async function checkStatus(){try{const r=await fetch(API_BASE+'/api/status',{cache:'no-store'});if(!r.ok)throw Error('API status');const d=await r.json();statusEl.textContent=d.ready?('Single-sign model ready. '+(d.sequence_model_ready?'Continuous model ready.':'Continuous model is not currently available.')):'Backend is online, but the single-sign model is not ready.';statusEl.classList.toggle('warning',!d.ready);}catch(e){statusEl.textContent='Recognition service offline. Offline phrase pad can still be used.';statusEl.classList.add('warning');}}
+function clearAnnotations(){actx.clearRect(0,0,annotation.width,annotation.height);}
+
+function drawAnnotations(items) {
+  clearAnnotations();
+
+  if (!Array.isArray(items) || items.length === 0) return;
+
+  const W = annotation.width;
+  const H = annotation.height;
+
+  const links = [
+    [0,1],[1,2],[2,3],[3,4],
+    [0,5],[5,6],[6,7],[7,8],
+    [5,9],[9,10],[10,11],[11,12],
+    [9,13],[13,14],[14,15],[15,16],
+    [13,17],[17,18],[18,19],[19,20],
+    [0,17]
+  ];
+
+  for (const hand of items) {
+    if (!Array.isArray(hand.points) || hand.points.length !== 21) continue;
+
+    // Coordinates returned by MediaPipe are normalized from 0 to 1.
+   const pts = hand.points.map(([x, y]) => ({
+  x: Number(x) * W,
+  y: Number(y) * H
+}));
+
+    if (pts.some(p => !Number.isFinite(p.x) || !Number.isFinite(p.y))) {
+      continue;
+    }
+
+    // Recalculate the box from the current frame's landmarks.
+    const xs = pts.map(p => p.x);
+    const ys = pts.map(p => p.y);
+
+    const minX = Math.min(...xs);
+    const maxX = Math.max(...xs);
+    const minY = Math.min(...ys);
+    const maxY = Math.max(...ys);
+
+    const padX = Math.max(8, (maxX - minX) * 0.12);
+    const padY = Math.max(8, (maxY - minY) * 0.12);
+
+    const left = Math.max(0, minX - padX);
+    const top = Math.max(0, minY - padY);
+    const right = Math.min(W, maxX + padX);
+    const bottom = Math.min(H, maxY + padY);
+
+    actx.save();
+
+    // Dynamic bounding box.
+    actx.strokeStyle = "#73e0dc";
+    actx.lineWidth = 2.5;
+    actx.strokeRect(left, top, right - left, bottom - top);
+
+    // Landmark connections.
+    actx.strokeStyle = "#b8ffcf";
+    actx.lineWidth = 2;
+
+    for (const [a, b] of links) {
+      actx.beginPath();
+      actx.moveTo(pts[a].x, pts[a].y);
+      actx.lineTo(pts[b].x, pts[b].y);
+      actx.stroke();
+    }
+
+    // Landmark points.
+    actx.fillStyle = "#ffffff";
+
+    for (const p of pts) {
+      actx.beginPath();
+      actx.arc(p.x, p.y, 3, 0, Math.PI * 2);
+      actx.fill();
+    }
+
+    // Hand label.
+    const label = (hand.side || "Detected") + " hand";
+    actx.font = "bold 12px system-ui";
+    const labelW = actx.measureText(label).width + 12;
+    const labelY = Math.max(15, top - 4);
+
+    actx.fillStyle = "#73e0dc";
+    actx.fillRect(left, labelY - 14, labelW, 18);
+    actx.fillStyle = "#08111f";
+    actx.fillText(label, left + 6, labelY - 1);
+
+    actx.restore();
+  }
+}
+async function predictFrame(){
+  if(stopped||busy||!stream||video.readyState<2)return;
+  busy=true;
+  const generation=cameraGeneration;
+  try{
+    ctx.drawImage(video,0,0,canvas.width,canvas.height);
+    // Smaller JPEG payloads reduce upload time on mobile data without changing model features.
+    const image=canvas.toDataURL('image/jpeg', isMobile ? .48 : .55);
+    const controller=new AbortController(); activeController=controller;
+    const timeout=setTimeout(()=>controller.abort(),5000);
+    let r;
+    try{
+      r=await fetch(API_BASE+'/api/predict',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({image,include_features:true,mirror:facingMode==='user'}),signal:controller.signal,cache:'no-store'});
+    }finally{clearTimeout(timeout);if(activeController===controller)activeController=null;}
+    if(generation!==cameraGeneration || stopped)return;
+    const d=await r.json();
+    if(!r.ok){stateEl.textContent='Model not ready';outputEl.textContent=d.error||'Recognition unavailable.';clearAnnotations();return;}
+    drawAnnotations(d.landmarks||[]);
+    if(Array.isArray(d.sequence_features)&&d.sequence_features.length===132&&d.valid_features===true)handleSequenceFrame(d.sequence_features);
+    else if(seqState.active&&d.valid_features===false)setSeqStatus('No hand detected in this camera frame; move your hand into view. Only valid landmark frames are counted.');
+    if(seqState.recognitionMode==='single'){
+      if(d.recognized){
+        const readable=readableSign(d.sign);signEl.textContent=readable;confidenceEl.textContent='Confidence: '+d.confidence+'% · Hands: '+d.hands;stateEl.textContent='Recognized';outputEl.textContent=readable;
+        const now=Date.now();lastRecognizedText=readable;$('manualText').value=readable;
+        if(d.sign!==lastSign||now-lastAcceptedAt>2500){addHistory('single-sign',readable,d.confidence);lastAcceptedAt=now;}
+        if(d.sign!==lastSign)tryAutoSpeak(readable);
+        lastSign=d.sign;
+      }else{lastAutoSpokenSign='';stateEl.textContent=d.hands?'Sign uncertain':'Searching for hands';if(d.message)outputEl.textContent=d.message;}
+    }else stateEl.textContent='Continuous mode';
+  }catch(e){
+    if(generation!==cameraGeneration||stopped)return;
+    if(e.name==='AbortError')statusEl.textContent='Recognition request timed out. Check the connection or backend load.';
+    else statusEl.textContent='Recognition service unreachable. Phrase pad remains available offline.';
+    statusEl.classList.add('warning');
+  }finally{
+    busy=false;
+    if(!stopped&&stream&&generation===cameraGeneration)loopHandle=setTimeout(predictFrame,frameIntervalMs);
+  }
+}
+async function loadCameras(){if(!navigator.mediaDevices?.getUserMedia){cameraSelect.innerHTML='<option value="">No supported camera API</option>';return;}const previous=cameraSelect.value;try{const temp=await navigator.mediaDevices.getUserMedia({video:true,audio:false});temp.getTracks().forEach(t=>t.stop());const devices=await navigator.mediaDevices.enumerateDevices();const cameras=devices.filter(d=>d.kind==='videoinput');cameraSelect.innerHTML='<option value="">Auto ('+(facingMode==='user'?'front':'rear')+')</option>';cameras.forEach((device,i)=>{const option=document.createElement('option');option.value=device.deviceId;option.textContent=device.label||`Camera ${i+1}`;cameraSelect.appendChild(option);});if(previous && [...cameraSelect.options].some(o=>o.value===previous))cameraSelect.value=previous;else cameraSelect.value='';if(!cameras.length)cameraSelect.innerHTML='<option value="">No camera found</option>';}catch(e){cameraSelect.innerHTML='<option value="">Allow camera permission first</option>';}}
+async function startCamera(){
+  try{
+    if(!window.isSecureContext&&location.hostname!=='localhost'&&location.hostname!=='127.0.0.1')throw Error('Camera requires HTTPS. Open the HTTPS website.');
+    if(!navigator.mediaDevices?.getUserMedia)throw Error('This browser does not support camera access.');
+    startBtn.disabled=true;statusEl.classList.remove('warning');
+    const selectedId=cameraSelect.value;
+    const videoConstraints=selectedId
+      ?{deviceId:{exact:selectedId},width:{ideal:320},height:{ideal:240},frameRate:{ideal:15,max:20}}
+      :{facingMode:{ideal:facingMode},width:{ideal:320},height:{ideal:240},frameRate:{ideal:15,max:20}};
+    stream=await navigator.mediaDevices.getUserMedia({audio:false,video:videoConstraints});
+    const actualFacing=stream.getVideoTracks()[0]?.getSettings?.().facingMode;
+    if(actualFacing==='user'||actualFacing==='environment')facingMode=actualFacing;
+    else if(selectedId){const selectedLabel=cameraSelect.selectedOptions?.[0]?.textContent||'';if(/back|rear|environment/i.test(selectedLabel))facingMode='environment';else if(/front|user|facetime/i.test(selectedLabel))facingMode='user';}
+    video.srcObject=stream;await video.play();
+    const frameW=video.videoWidth||320,frameH=video.videoHeight||240;
+    canvas.width=320;canvas.height=Math.max(1,Math.round(320*frameH/frameW));
+    annotation.width=canvas.width;annotation.height=canvas.height;
+    document.querySelector('.video-wrap').style.aspectRatio=`${frameW} / ${frameH}`;
+    video.style.transform=facingMode==='user'?'scaleX(-1)':'none';
+    annotation.style.transform=facingMode==='user'?'scaleX(-1)':'none';
+    placeholder.hidden=true;startBtn.disabled=true;stopBtn.disabled=false;stopped=false;busy=false;
+    cameraGeneration++;stateEl.textContent='Camera active';statusEl.textContent=`Camera active · ${facingMode==='user'?'front':'rear'} camera · optimized ${isMobile?'mobile':'desktop'} capture`;
+    await loadCameras();
+    predictFrame();
+  }catch(e){
+    if(stream)stream.getTracks().forEach(t=>t.stop());stream=null;video.srcObject=null;
+    statusEl.textContent=e.message.includes('HTTPS')?e.message:'Camera unavailable. Allow camera permission, close other camera apps, or choose another camera.';
+    statusEl.classList.add('warning');startBtn.disabled=false;stopBtn.disabled=true;
+  }
+}
+startBtn.addEventListener('click',startCamera);
+cameraSelect.addEventListener('change',async()=>{if(!stream)return;const selected=cameraSelect.value;cameraGeneration++;if(activeController)activeController.abort();if(loopHandle)clearTimeout(loopHandle);loopHandle=null;for(const track of stream.getTracks())track.stop();stream=null;video.srcObject=null;busy=false;stopped=true;cameraSelect.value=selected;await startCamera();});
+document.getElementById('switchCamera').addEventListener('click',async()=>{
+  const wasRunning=!!stream;facingMode=facingMode==='user'?'environment':'user';
+  cameraGeneration++;if(activeController)activeController.abort();
+  if(loopHandle)clearTimeout(loopHandle);loopHandle=null;
+  if(stream)stream.getTracks().forEach(t=>t.stop());stream=null;video.srcObject=null;busy=false;stopped=true;
+  cameraSelect.value='';statusEl.classList.remove('warning');
+  if(wasRunning){statusEl.textContent=`Switching to ${facingMode==='user'?'front':'rear'} camera…`;await startCamera();}
+  else{video.style.transform=facingMode==='user'?'scaleX(-1)':'none';annotation.style.transform=facingMode==='user'?'scaleX(-1)':'none';statusEl.textContent=`${facingMode==='user'?'Front':'Rear'} camera selected. Tap Start camera.`;}
+});
+function stopCamera(){stopped=true;cameraGeneration++;if(activeController)activeController.abort();if(loopHandle)clearTimeout(loopHandle);loopHandle=null;if(stream)stream.getTracks().forEach(t=>t.stop());stream=null;video.srcObject=null;placeholder.hidden=false;startBtn.disabled=false;stopBtn.disabled=true;busy=false;stateEl.textContent='Camera stopped';clearAnnotations();}
+stopBtn.addEventListener('click',stopCamera);document.getElementById('clear').addEventListener('click',()=>{signEl.textContent='—';confidenceEl.textContent='Confidence: —';outputEl.textContent='Output cleared.';stateEl.textContent='Waiting for sign';lastSign='';clearAnnotations();});
+document.getElementById('appendSign').addEventListener('click',()=>{if(!lastSign){speechStatus.textContent='No recognized sign to add yet.';return;}phrase.value+=(phrase.value.trim()?' ':'')+lastSign;phrase.dispatchEvent(new Event('input'));document.getElementById('manualText').value=phrase.value;});
+phrase.addEventListener('input',()=>{try{localStorage.setItem('sahayak_phrase',phrase.value);}catch(e){}});try{phrase.value=localStorage.getItem('sahayak_phrase')||'';}catch(e){}
+try{$('sourceLanguage').value=localStorage.getItem('sahayak_source_language')||'en';}catch(e){}$('sourceLanguage').addEventListener('change',()=>{try{localStorage.setItem('sahayak_source_language',$('sourceLanguage').value);}catch(e){}});
+document.getElementById('speak').addEventListener('click',()=>{const text=phrase.value.trim();if(!text){speechStatus.textContent='Type a phrase first.';return;}if(!('speechSynthesis'in window)){speechStatus.textContent='This browser does not provide speech synthesis.';return;}window.speechSynthesis.cancel();const utterance=new SpeechSynthesisUtterance(text);utterance.lang=$('sourceLanguage').value;const matchingVoice=speechSynthesis.getVoices().find(v=>v.lang.toLowerCase().startsWith(utterance.lang.toLowerCase()));if(matchingVoice)utterance.voice=matchingVoice;utterance.onstart=()=>speechStatus.textContent='Speaking…';utterance.onend=()=>speechStatus.textContent='Finished speaking.';utterance.onerror=()=>speechStatus.textContent='Speech failed. Check whether your phone has a compatible voice installed.';window.speechSynthesis.speak(utterance);});
+document.getElementById('stopSpeech').addEventListener('click',()=>{if('speechSynthesis'in window)window.speechSynthesis.cancel();speechStatus.textContent='Speech stopped.';});document.getElementById('clearPhrase').addEventListener('click',()=>{phrase.value='';try{localStorage.removeItem('sahayak_phrase')}catch(e){}const translated=$('phraseTranslatedOutput');if(translated)translated.value='';speechStatus.textContent='Phrase cleared on this device.';});
+
+// Translation, local history, and variable-length sequence workflow.
+const seqState={active:false,collecting:false,recognitionMode:'single',frames:[],segmentFrames:[],lastFeature:null,stillFrames:0,sampleFrames:[],samples:[],lastPredAt:0,predictionBusy:false,lastSequenceSign:'',autoSpeak:true};
+const MAX_SEQUENCE_CAPTURE_FRAMES=600;
+// Live segmentation: send a complete movement/hold segment on a short pause,
+// with a hard cap so continuous motion cannot grow the buffer indefinitely.
+const SEGMENT_MIN_FRAMES=15, SEGMENT_MAX_FRAMES=90, SEGMENT_STILL_FRAMES=3, SEGMENT_MOTION_THRESHOLD=0.012;
+function setSeqStatus(t){$('continuousStatus').textContent=t;}
+function handleSequenceFrame(features){
+  if(!seqState.active && !seqState.collecting && seqState.recognitionMode!=='continuous')return;
+  const cleanFrame=features.map(Number);
+  seqState.frames.push(cleanFrame);
+  if(seqState.frames.length>SEGMENT_MAX_FRAMES)seqState.frames.shift();
+  if(seqState.collecting && seqState.sampleFrames.length<MAX_SEQUENCE_CAPTURE_FRAMES)seqState.sampleFrames.push(cleanFrame);
+  $('frameProgress').textContent=`Live segment: ${seqState.segmentFrames.length}/90 · Training sample: ${seqState.sampleFrames.length} valid frames`;
+  $('saveSequence').disabled=seqState.sampleFrames.length<1||!$('sequenceLabel').value.trim();
+  if(seqState.collecting && seqState.sampleFrames.length>=MAX_SEQUENCE_CAPTURE_FRAMES)setSeqStatus(`Reached the ${MAX_SEQUENCE_CAPTURE_FRAMES}-frame sample safety limit. Stop capture and save this sample.`);
+  const previous=seqState.lastFeature;
+  let motion=0;
+  if(previous){let total=0;for(let i=0;i<cleanFrame.length;i++)total+=Math.abs(cleanFrame[i]-previous[i]);motion=total/cleanFrame.length;}
+  seqState.lastFeature=cleanFrame;
+  seqState.segmentFrames.push(cleanFrame);
+  if(motion<SEGMENT_MOTION_THRESHOLD)seqState.stillFrames++;else seqState.stillFrames=0;
+  const enough=seqState.segmentFrames.length>=SEGMENT_MIN_FRAMES;
+  const paused=enough&&seqState.stillFrames>=SEGMENT_STILL_FRAMES;
+  const capped=seqState.segmentFrames.length>=SEGMENT_MAX_FRAMES;
+  if((paused||capped)&&!seqState.predictionBusy&&seqState.recognitionMode==='continuous'){
+    const segment=seqState.segmentFrames.slice();
+    seqState.segmentFrames=[];seqState.stillFrames=0;seqState.lastPredAt=Date.now();
+    predictSequenceWindow(segment);
+  }
+  if(seqState.segmentFrames.length>SEGMENT_MAX_FRAMES){seqState.segmentFrames=seqState.segmentFrames.slice(-SEGMENT_MAX_FRAMES);}
+}
+async function predictSequenceWindow(frames){
+  if(seqState.predictionBusy||!Array.isArray(frames)||frames.length<SEGMENT_MIN_FRAMES)return;
+  seqState.predictionBusy=true;
+  const controller=new AbortController();
+  const timeout=setTimeout(()=>controller.abort(),7000);
+  try{
+    const r=await fetch(API_BASE+'/api/sequence/predict',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({frames}),cache:'no-store',signal:controller.signal});
+    const d=await r.json();
+    if(!r.ok){setSeqStatus(d.error||'Sequence model is not ready. Collect labelled variable-length samples and train it first.');return;}
+    if(!d.recognized){setSeqStatus(d.message||'Sequence uncertain. Perform the complete sign clearly and try again.');return;}
+    const readable=readableSign(d.sign);
+    setSeqStatus(`Sequence prediction: ${readable}${d.confidence==null?'':' · '+d.confidence+'% confidence'} · ${d.frames} valid frames`);
+    if(seqState.recognitionMode==='continuous'){
+      signEl.textContent=readable;confidenceEl.textContent='Sequence confidence: '+(d.confidence==null?'not provided':d.confidence+'%')+' · '+d.frames+' frames';
+      stateEl.textContent='Continuous sign recognized';outputEl.textContent=readable;lastRecognizedText=readable;$('manualText').value=readable;
+    }
+    if(d.sign!==seqState.lastSequenceSign){
+      seqState.lastSequenceSign=d.sign;
+      if(seqState.recognitionMode==='continuous'){
+        phrase.value+=(phrase.value.trim()?' ':'')+readable;phrase.dispatchEvent(new Event('input'));$('manualText').value=phrase.value;addHistory('continuous',readable,d.confidence);tryAutoSpeak(readable);
+      }
+    }
+  }catch(e){setSeqStatus(e.name==='AbortError'?'Sequence prediction timed out. Check your connection or backend load.':'Sequence endpoint unavailable. Check the backend connection.');}
+  finally{clearTimeout(timeout);seqState.predictionBusy=false;}
+}
+$('continuousStart').addEventListener('click',()=>{if(!stream){setSeqStatus('Start the webcam first using Start camera.');return;}seqState.active=true;seqState.collecting=true;seqState.frames=[];seqState.sampleFrames=[];$('continuousStart').disabled=true;$('continuousStop').disabled=false;$('saveSequence').disabled=true;setSeqStatus('Recording a complete training sample. Keep both hands visible and perform the full sign. Press Stop when finished; any non-empty number of valid frames is accepted, and longer samples are retained.');});
+$('continuousStop').addEventListener('click',()=>{seqState.active=false;seqState.collecting=false;$('continuousStart').disabled=false;$('continuousStop').disabled=true;$('saveSequence').disabled=seqState.sampleFrames.length<1||!$('sequenceLabel').value.trim();setSeqStatus(`Capture stopped. Full training sample: ${seqState.sampleFrames.length} valid frames. The rolling recognition window remains limited to 60 frames for speed; the saved training sample retains its full variable length.`);});
+$('continuousClear').addEventListener('click',()=>{seqState.frames=[];seqState.sampleFrames=[];$('frameProgress').textContent='Prediction window: 0/60 · Training sample: 0 valid frames (minimum 1)';$('saveSequence').disabled=true;setSeqStatus('Training sample and prediction window cleared.');});
+$('sequenceLabel').addEventListener('input',()=>{$('saveSequence').disabled=seqState.sampleFrames.length<1||!$('sequenceLabel').value.trim();});
+$('saveSequence').addEventListener('click',async()=>{const label=$('sequenceLabel').value.trim().toUpperCase().replace(/\s+/g,'_');const frames=seqState.sampleFrames.slice();if(!label||frames.length<1){$('sampleStatus').textContent=`Enter a label and capture at least one valid hand frame first; current sample has ${frames.length}.`;return;}if(frames.length>MAX_SEQUENCE_CAPTURE_FRAMES){$('sampleStatus').textContent=`Sample exceeds the ${MAX_SEQUENCE_CAPTURE_FRAMES}-frame safety limit. Please split it into separate labelled samples.`;return;}$('saveSequence').disabled=true;$('sampleStatus').textContent=`Saving complete ${frames.length}-frame sample to the continuous-sign database…`;try{const r=await fetch(API_BASE+'/api/sequence/samples',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({label,frames}),cache:'no-store'});const d=await r.json();if(!r.ok)throw Error(d.error||'Database save failed.');seqState.samples.push({label,frames,created_at:new Date().toISOString()});$('sampleStatus').textContent=`Saved database sample #${d.id}: ${label}; ${d.frames} valid frames. Database total: ${d.summary.total_samples}. Collect varied samples for every label.`;refreshSequenceDb();}catch(e){$('sampleStatus').textContent=`Could not save to backend database: ${e.message}. You can still export a local JSON backup.`;seqState.samples.push({label,frames,created_at:new Date().toISOString()});}finally{$('saveSequence').disabled=seqState.sampleFrames.length<1||!$('sequenceLabel').value.trim();}});
+$('exportSequences').addEventListener('click',async()=>{try{const r=await fetch(API_BASE+'/api/sequence/export',{cache:'no-store'});if(r.ok){const samples=await r.json();if(samples.length){downloadSequenceJson(samples);$('sampleStatus').textContent=`Exported ${samples.length} samples from the continuous database to sahayak-sequences.json.`;return;}}}catch(e){}if(!seqState.samples.length){$('sampleStatus').textContent='No samples available. Save a sample to the backend database first.';return;}downloadSequenceJson(seqState.samples);$('sampleStatus').textContent=`Exported ${seqState.samples.length} browser-session samples as JSON backup.`;});
+function downloadSequenceJson(samples){const blob=new Blob([JSON.stringify(samples,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='sahayak-sequences.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+async function refreshSequenceDb(){try{const r=await fetch(API_BASE+'/api/sequence/samples',{cache:'no-store'});const d=await r.json();if(r.ok)$('sampleStatus').textContent=`Continuous database: ${d.total_samples} saved samples. Per-label counts: ${Object.entries(d.labels||{}).map(([k,v])=>k+': '+v).join(', ')||'none yet'}.`; }catch(e){}}
+
+function setRecognitionMode(mode){seqState.recognitionMode=mode;const single=mode==='single';$('modeSingle').classList.toggle('secondary',!single);$('modeContinuous').classList.toggle('secondary',single);$('modeStatus').textContent=single?'Single Sign mode is active. Hold a trained sign clearly in the camera view.':'Continuous Sign mode is active. Perform a complete sign, then pause briefly before the next sign.';seqState.segmentFrames=[];seqState.lastFeature=null;seqState.stillFrames=0;if(!single){seqState.frames=[];seqState.lastSequenceSign='';setSeqStatus('Continuous mode selected. Perform one sign at a time naturally; a brief pause separates signs.');}else{setSeqStatus('Single Sign mode selected. Hold one trained sign clearly in the camera view.');}}
+$('modeSingle').addEventListener('click',()=>setRecognitionMode('single'));$('modeContinuous').addEventListener('click',()=>setRecognitionMode('continuous'));
+const langNames={en:'English',hi:'Hindi',as:'Assamese',bn:'Bengali',ne:'Nepali',ta:'Tamil',te:'Telugu',mr:'Marathi',gu:'Gujarati',pa:'Punjabi',ur:'Urdu',fr:'French',es:'Spanish',de:'German',it:'Italian',pt:'Portuguese',ar:'Arabic',zh:'Chinese',ja:'Japanese',ko:'Korean',ru:'Russian'};
+async function translateText(text, source=$('sourceLanguage').value, target=$('targetLanguage').value, phrasePadOutput=false){if(!text.trim())throw Error('Enter or recognize text first.');$('translationStatus').textContent='Translating text online…';const r=await fetch(API_BASE+'/api/translate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text,source,target})});const d=await r.json();if(!r.ok)throw Error(d.error||'Translation failed.');$('translatedText').value=d.translated;if(phrasePadOutput){const output=$('phraseTranslatedOutput');if(output)output.value=d.translated;}$('translationStatus').textContent=`Translated ${langNames[d.source]||d.source} → ${langNames[d.target]||d.target} using ${d.provider}. Original text is preserved.`;$('speechStatus').textContent=`Translated ${langNames[d.source]||d.source} → ${langNames[d.target]||d.target}. Tap Speak translation to hear it.`;addHistory('translation',text,null,d.translated,d.target);return d.translated;}
+$('translateRecognized').addEventListener('click',async()=>{const text=$('manualText').value||lastSign;try{if(!text.trim())throw Error('Recognize a sign or enter text first.');$('manualText').value=text;await translateText(text);}catch(e){$('translationStatus').textContent=e.message;}});
+$('translateAndSpeak').addEventListener('click',async()=>{try{const text=$('manualText').value||lastSign;if(!text.trim())throw Error('Recognize a sign or enter text first.');$('manualText').value=text;const translated=await translateText(text);speakText(translated,$('targetLanguage').value);}catch(e){$('translationStatus').textContent=e.message;}});
+$('translateTypedPhrase').addEventListener('click',async()=>{try{const text=phrase.value.trim();$('manualText').value=text;await translateText(text,$('sourceLanguage').value,$('phraseTargetLanguage').value,true);}catch(e){$('translationStatus').textContent=e.message;$('speechStatus').textContent=e.message;}});
+$('translateAndSpeakPhrase').addEventListener('click',async()=>{try{const text=phrase.value.trim();$('manualText').value=text;const translated=await translateText(text,$('sourceLanguage').value,$('phraseTargetLanguage').value,true);speakText(translated,$('phraseTargetLanguage').value);}catch(e){$('translationStatus').textContent=e.message;$('speechStatus').textContent=e.message;}});
+$('speakPhraseTranslation').addEventListener('click',()=>{const text=$('phraseTranslatedOutput').value.trim();if(!text){$('speechStatus').textContent='Translate a phrase first, then speak the translation.';return;}speakText(text,$('phraseTargetLanguage').value);});
+$('phraseTargetLanguage').addEventListener('change',()=>{const output=$('phraseTranslatedOutput');if(output)output.value='';const status=$('speechStatus');if(status)status.textContent='Target language changed. Translate the phrase again to update the result.';});
+function speakText(text,lang){if(!text.trim()){$('speechStatus').textContent='No text available to speak.';return;}if(!('speechSynthesis'in window)){$('speechStatus').textContent='This browser does not support speech synthesis.';return;}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);if(lang)u.lang=lang;const voices=speechSynthesis.getVoices();if(lang){const v=voices.find(x=>x.lang.toLowerCase().startsWith(lang.toLowerCase()));if(v)u.voice=v;}u.onstart=()=>$('speechStatus').textContent='Speaking…';u.onend=()=>$('speechStatus').textContent='Speech finished.';u.onerror=()=>$('speechStatus').textContent='Speech failed; a compatible device voice may be unavailable.';speechSynthesis.speak(u);}
+$('speakRecognized').addEventListener('click',()=>{const text=lastRecognizedText;if(!text){speechStatus.textContent='No recognized sign yet. Show a trained sign to the camera first.';return;}speakText(text,$('sourceLanguage').value);});
+$('speakOriginal').addEventListener('click',()=>speakText($('manualText').value||lastSign,$('sourceLanguage').value));
+$('speakTranslated').addEventListener('click',()=>speakText($('translatedText').value,$('targetLanguage').value));
+async function translateCurrentRecognition(andSpeak=false){
+  const text=String(lastRecognizedText||'').trim();
+  const status=$('recognizedTranslationStatus');
+  const output=$('recognizedTranslatedText');
+  const target=$('recognizedTargetLanguage').value;
+  if(!text){
+    status.textContent='No recognized sign yet. Start the camera and wait for a sign prediction first.';
+    output.value='';
+    return;
+  }
+  const translateButton=$('translateCurrentSign');
+  const speakButton=$('translateAndSpeakCurrentSign');
+  translateButton.disabled=true;speakButton.disabled=true;
+  status.textContent='Translating the recognized text…';
+  try{
+    const response=await fetch(API_BASE+'/api/translate',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({text,source:'en',target}),cache:'no-store'
+    });
+    const data=await response.json();
+    if(!response.ok)throw new Error(data.error||'Translation failed. The original recognized text is unchanged.');
+    output.value=data.translated||'';
+    status.textContent='Translated English → '+(langNames[data.target]||data.target)+' using '+(data.provider||'translation service')+'.';
+    $('translatedText').value=data.translated||'';
+    addHistory('recognized-translation',text,null,data.translated||'',target);
+    if(andSpeak&&data.translated)speakText(data.translated,target);
+  }catch(error){
+    status.textContent=(error&&error.message)||'Could not translate. Check your internet connection and translation service.';
+  }finally{
+    translateButton.disabled=false;speakButton.disabled=false;
+  }
+}
+$('translateCurrentSign').addEventListener('click',()=>translateCurrentRecognition(false));
+$('translateAndSpeakCurrentSign').addEventListener('click',()=>translateCurrentRecognition(true));
+$('recognizedTargetLanguage').addEventListener('change',()=>{const out=$('recognizedTranslatedText');if(out)out.value='';$('recognizedTranslationStatus').textContent='Language changed. Translate the recognized sign again to update the result.';});
+
+$('stopAllSpeech').addEventListener('click',()=>{if('speechSynthesis'in window)speechSynthesis.cancel();$('speechStatus').textContent='Speech stopped.';});
+const offlinePhrases={
+ hello:{en:'Hello',hi:'नमस्ते',as:'নমস্কাৰ',bn:'নমস্কার'},
+ help:{en:'Please help me',hi:'कृपया मेरी मदद करें',as:'অনুগ্ৰহ কৰি মোক সহায় কৰক',bn:'দয়া করে আমাকে সাহায্য করুন'},
+ water:{en:'I need water',hi:'मुझे पानी चाहिए',as:'মোক পানী লাগে',bn:'আমার পানি দরকার'},
+ food:{en:'I need food',hi:'मुझे खाना चाहिए',as:'মোক খাদ্য লাগে',bn:'আমার খাবার দরকার'},
+ thankyou:{en:'Thank you',hi:'धन्यवाद',as:'ধন্যবাদ',bn:'ধন্যবাদ'},
+ yes:{en:'Yes',hi:'हाँ',as:'হয়',bn:'হ্যাঁ'},
+ no:{en:'No',hi:'नहीं',as:'নহয়',bn:'না'},
+ emergency:{en:'This is an emergency',hi:'यह एक आपात स्थिति है',as:'এয়া জৰুৰী অৱস্থা',bn:'এটি জরুরি অবস্থা'},
+ bathroom:{en:'Where is the bathroom?',hi:'शौचालय कहाँ है?',as:'শৌচাগাৰ ক’ত?',bn:'শৌচাগার কোথায়?'}
+};let offlineSelected=null;
+$('loadOfflinePhrase').addEventListener('click',()=>{offlineSelected=offlinePhrases[$('offlinePhrase').value];if(!offlineSelected)return;const source=$('sourceLanguage').value;const text=offlineSelected[source]||offlineSelected.en;phrase.value=text;phrase.dispatchEvent(new Event('input'));$('manualText').value=text;$('offlinePhraseStatus').textContent='Loaded offline phrase in '+(langNames[source]||source)+': '+text;});
+$('translateOfflinePhrase').addEventListener('click',()=>{offlineSelected=offlinePhrases[$('offlinePhrase').value];if(!offlineSelected)return;const source=$('sourceLanguage').value,target=$('phraseTargetLanguage').value;const original=offlineSelected[source]||offlineSelected.en;const translated=offlineSelected[target];if(!translated){$('offlinePhraseStatus').textContent='This saved phrase has no offline translation for '+(langNames[target]||target)+'. Choose a supported phrasebook language or use online translation.';return;} $('translatedText').value=translated;$('phraseTranslatedOutput').value=translated;$('translationStatus').textContent='Offline phrasebook translation (no internet used). Original text is preserved.';$('speechStatus').textContent='Offline translation ready. Tap Speak translation to hear it.';$('offlinePhraseStatus').textContent='Offline translation ready: '+translated;addHistory('offline-phrase',original,null,translated,target);});
+$('speakOfflinePhrase').addEventListener('click',()=>{offlineSelected=offlinePhrases[$('offlinePhrase').value];if(offlineSelected){const source=$('sourceLanguage').value;const text=offlineSelected[source]||offlineSelected.en;phrase.value=text;phrase.dispatchEvent(new Event('input'));speakText(text,source);}});
+$('speakOfflineTranslation').addEventListener('click',()=>{offlineSelected=offlinePhrases[$('offlinePhrase').value];if(!offlineSelected)return;const target=$('phraseTargetLanguage').value;const translated=offlineSelected[target];if(!translated){$('offlinePhraseStatus').textContent='No saved offline translation for that language. Use English, Hindi, Assamese or Bengali, or translate online.';return;}$('translatedText').value=translated;$('phraseTranslatedOutput').value=translated;speakText(translated,target);});
+function tryAutoSpeak(text){if(!autoSpeakControl.checked||!text)return;const now=Date.now();if(text===lastAutoSpokenSign&&now-lastAutoSpokenAt<5000)return;lastAutoSpokenSign=text;lastAutoSpokenAt=now;speakText(text,$('sourceLanguage').value);}
+function addHistory(mode,text,confidence=null,translated='',target=''){let arr=[];try{arr=JSON.parse(localStorage.getItem('sahayak_history')||'[]')}catch(e){}arr.unshift({id:Date.now()+'-'+Math.random().toString(36).slice(2),time:new Date().toISOString(),mode,text,confidence,translated,target});arr=arr.slice(0,200);try{localStorage.setItem('sahayak_history',JSON.stringify(arr))}catch(e){}renderHistory();if(typeof window.renderHistoryTable==='function')window.renderHistoryTable();}
+function renderHistory(){let arr=[];try{arr=JSON.parse(localStorage.getItem('sahayak_history')||'[]')}catch(e){}const host=$('historyList');if(!arr.length){host.textContent='No history yet.';return;}host.innerHTML='';for(const item of arr){const row=document.createElement('div');row.style.cssText='display:flex;gap:10px;align-items:start;justify-content:space-between;border-bottom:1px solid #243750;padding:9px 0';const body=document.createElement('div');body.textContent=`${new Date(item.time).toLocaleString()} · ${item.mode} · ${item.text}${item.confidence==null?'':` · ${item.confidence}%`}${item.translated?` → ${item.translated} (${item.target})`:''}`;const del=document.createElement('button');del.className='secondary';del.textContent='Remove';del.addEventListener('click',()=>{let all=JSON.parse(localStorage.getItem('sahayak_history')||'[]').filter(x=>x.id!==item.id);localStorage.setItem('sahayak_history',JSON.stringify(all));renderHistory();});row.append(body,del);host.append(row);}}
+$('refreshHistory').addEventListener('click',renderHistory);$('clearHistory').addEventListener('click',()=>{localStorage.removeItem('sahayak_history');renderHistory();if(typeof window.renderHistoryTable==='function')window.renderHistoryTable();});renderHistory();
+
+window.refreshRecognitionHistory=renderHistory;window.renderHistoryTable();showPage(window.SAHAYAK_PAGE||'home');window.addEventListener('pagehide',stopCamera);if((window.SAHAYAK_PAGE||'home')==='studio'){loadCameras();checkStatus();refreshSequenceDb();}if('serviceWorker'in navigator&&location.protocol.startsWith('http'))window.addEventListener('load',()=>navigator.serviceWorker.register('/service-worker.js').catch(()=>{}));
+})();
+</script>
+</body>
+</html>
