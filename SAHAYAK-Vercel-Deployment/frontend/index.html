@@ -175,6 +175,12 @@
 #mod-studio .prediction{font-size:clamp(2.3rem,5vw,3.9rem);font-weight:850;line-height:1.08;overflow-wrap:anywhere;margin:.8rem 0 .45rem}
 #mod-studio .confidence{color:#a8b7cc;font-size:.82rem;line-height:1.5}
 #mod-studio .pill{display:inline-flex;align-self:flex-start;background:#122c2a;border:1px solid #276253;color:#7ee7b0;border-radius:999px;padding:.45rem .7rem;font-size:.73rem;margin-top:.7rem}
+#mod-studio .recognized-translation-card{display:flex;flex-direction:column;gap:.7rem;border:1px solid #293b50;background:rgba(5,13,25,.62);border-radius:1rem;padding:1rem;min-width:0}
+#mod-studio .recognized-translation-card .section-heading h3{color:#f1f5f9}
+#mod-studio .recognized-translation-card .section-heading p{color:#9fb0c7;font-size:.78rem;margin-top:.3rem}
+#mod-studio .recognized-translation-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem}
+#mod-studio .recognized-translation-actions button{width:100%;min-height:46px}
+@media(max-width:620px){#mod-studio .recognized-translation-actions{grid-template-columns:minmax(0,1fr)}}
 #mod-studio .recognized-output{color:#d6e0ef;line-height:1.65;background:#08111f;border-radius:.75rem;padding:.85rem;border:1px solid #26384d;overflow-wrap:anywhere}
 #mod-studio .result-hint{margin-top:auto!important;padding-top:1rem;color:#98abc2;font-size:.78rem;display:flex;align-items:flex-start;gap:.5rem}
 #mod-studio .divider{height:1px;background:#293548;margin:.3rem 0}
@@ -513,6 +519,18 @@
       <div class="result-summary"><div class="eyebrow">RECOGNIZED SIGN</div><div class="prediction" id="sign">—</div><div class="confidence" id="confidence">Confidence: —</div><div class="pill" id="state">Waiting for camera</div></div>
       <div class="divider"></div>
       <div><h3>Recognized output</h3><p id="output" class="recognized-output">Your recognized sign will appear here when the backend returns a prediction.</p></div>
+      <div class="recognized-translation-card">
+        <div class="section-heading"><div><h3><i class="fa-solid fa-language"></i> Translate recognized text</h3><p>Translate the latest recognized sign, then speak the translation aloud.</p></div></div>
+        <label class="field-label" for="recognizedTargetLanguage">Translate to</label>
+        <select id="recognizedTargetLanguage" class="studio-select"><option value="hi">Hindi</option><option value="as">Assamese</option><option value="bn">Bengali</option><option value="ne">Nepali</option><option value="en">English</option><option value="ta">Tamil</option><option value="te">Telugu</option><option value="mr">Marathi</option><option value="gu">Gujarati</option><option value="pa">Punjabi</option><option value="ur">Urdu</option><option value="fr">French</option><option value="es">Spanish</option><option value="de">German</option><option value="ja">Japanese</option><option value="zh">Chinese</option><option value="it">Italian</option><option value="pt">Portuguese</option><option value="ar">Arabic</option><option value="ko">Korean</option><option value="ru">Russian</option></select>
+        <div class="controls recognized-translation-actions">
+          <button id="translateCurrentSign" type="button"><i class="fa-solid fa-language"></i> Translate sign</button>
+          <button id="translateAndSpeakCurrentSign" type="button" class="secondary"><i class="fa-solid fa-volume-high"></i> Translate + speak</button>
+        </div>
+        <label class="field-label" for="recognizedTranslatedText">Translated text</label>
+        <textarea id="recognizedTranslatedText" class="studio-textarea translated-output" rows="2" readonly placeholder="Recognize a sign, then translate it here."></textarea>
+        <div id="recognizedTranslationStatus" class="status" aria-live="polite">Ready when a sign has been recognized. Online translation requires internet.</div>
+      </div>
       <p class="result-hint"><i class="fa-regular fa-lightbulb"></i> Keep your hands fully visible and use signs included in the trained model.</p>
     </section>
   </div>
@@ -565,18 +583,14 @@
   </section>
 
   <section class="panel continuous-panel" id="continuousSection">
-    <div class="section-heading section-heading-row"><div><span class="section-kicker">ADVANCED MODE</span><h2>Continuous sign recognition</h2><p>Capture movement sequences and save labelled samples to the model database.</p></div><span class="info-chip"><i class="fa-solid fa-database"></i> Sequence tools</span></div>
-    <div class="continuous-controls">
-      <button id="continuousStart" type="button"><i class="fa-solid fa-circle-dot"></i> Start continuous</button>
-      <button id="continuousStop" class="secondary" type="button" disabled><i class="fa-solid fa-stop"></i> Stop continuous</button>
-      <button id="continuousClear" class="secondary" type="button"><i class="fa-solid fa-rotate-left"></i> Clear window</button>
+    <div class="section-heading section-heading-row">
+      <div><span class="section-kicker">RECOGNITION MODE</span><h2>Continuous sign recognition</h2>
+        <p>Choose <strong>Continuous Sign</strong> above, start the camera, and perform one sign naturally. Pause briefly between signs so the model can detect each sequence.</p>
+      </div>
+      <span class="info-chip"><i class="fa-solid fa-wave-square"></i> Live sequence recognition</span>
     </div>
-    <div class="continuous-status-grid"><div class="status status-card" id="continuousStatus">Ready. Start the camera first, then start continuous capture.</div><div class="frame-progress-card"><span class="field-label">Capture progress</span><strong id="frameProgress">Frames: 0 / 60</strong></div></div>
-    <div class="training-sample-card">
-      <div class="section-heading"><div><h3>Save a training sample</h3><p>Enter the sign label and capture a complete example. Only landmark data is stored, not camera images.</p></div></div>
-      <div class="training-sample-grid"><label>Training label<input id="sequenceLabel" maxlength="60" class="studio-input" placeholder="e.g. HELLO"></label><div class="training-sample-actions"><button id="saveSequence" class="secondary" type="button" disabled><i class="fa-solid fa-floppy-disk"></i> Save captured sample</button><button id="exportSequences" class="secondary" type="button"><i class="fa-solid fa-file-arrow-down"></i> Export samples JSON</button></div></div>
-      <div class="status status-card" id="sampleStatus">Loading continuous-sign database information…</div>
-    </div>
+    <div class="status status-card" id="continuousStatus" aria-live="polite">Continuous mode is controlled by the Single Sign / Continuous Sign buttons above. Start the camera first.</div>
+    <p class="result-hint"><i class="fa-regular fa-lightbulb"></i> Training-data collection is a development task and is no longer shown in the normal user interface.</p>
   </section>
 
   <div id="legacy-compatibility-controls" hidden aria-hidden="true">
@@ -585,7 +599,16 @@
     <textarea id="manualText"></textarea><div id="translationStatus"></div><textarea id="translatedText"></textarea>
     <button id="speakOriginal" type="button"></button><button id="speakTranslated" type="button"></button><button id="stopAllSpeech" type="button"></button>
     <button id="refreshHistory" type="button"></button><button id="clearHistory" type="button"></button><div id="historyList"></div>
-  </div>
+  
+    <button id="continuousStart" type="button"></button>
+    <button id="continuousStop" type="button"></button>
+    <button id="continuousClear" type="button"></button>
+    <div id="frameProgress"></div>
+    <input id="sequenceLabel" type="text">
+    <button id="saveSequence" type="button"></button>
+    <button id="exportSequences" type="button"></button>
+    <div id="sampleStatus"></div>
+</div>
 </section>
 
 <!-- MODULE 3: HISTORY -->
@@ -1337,7 +1360,7 @@ const frameIntervalMs = isMobile ? 100 : 70;
 const SIGN_TEXT={HELLO:'Hello',YES:'Yes',NO:'No',I_LOVE_YOU:'I love you',THANK_YOU:'Thank you'};
 function readableSign(label){return SIGN_TEXT[label]||String(label||'').replace(/_/g,' ').toLowerCase().replace(/\b\w/g,c=>c.toUpperCase());}
 const API_BASE=(window.SAHAYAK_API_BASE||'').replace(/\/$/,'');
-async function checkStatus(){try{const r=await fetch(API_BASE+'/api/status',{cache:'no-store'});if(!r.ok)throw Error('API status');const d=await r.json();statusEl.textContent=d.ready?('Single-sign model ready. '+(d.sequence_model_ready?'Continuous model ready.':'Continuous model not trained yet; collect samples and train it.')):'Backend is online, but the single-sign model is not ready.';statusEl.classList.toggle('warning',!d.ready);}catch(e){statusEl.textContent='Recognition service offline. Offline phrase pad can still be used.';statusEl.classList.add('warning');}}
+async function checkStatus(){try{const r=await fetch(API_BASE+'/api/status',{cache:'no-store'});if(!r.ok)throw Error('API status');const d=await r.json();statusEl.textContent=d.ready?('Single-sign model ready. '+(d.sequence_model_ready?'Continuous model ready.':'Continuous model is not currently available.')):'Backend is online, but the single-sign model is not ready.';statusEl.classList.toggle('warning',!d.ready);}catch(e){statusEl.textContent='Recognition service offline. Offline phrase pad can still be used.';statusEl.classList.add('warning');}}
 function clearAnnotations(){actx.clearRect(0,0,annotation.width,annotation.height);}
 
 function drawAnnotations(items) {
@@ -1583,7 +1606,7 @@ $('exportSequences').addEventListener('click',async()=>{try{const r=await fetch(
 function downloadSequenceJson(samples){const blob=new Blob([JSON.stringify(samples,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='sahayak-sequences.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
 async function refreshSequenceDb(){try{const r=await fetch(API_BASE+'/api/sequence/samples',{cache:'no-store'});const d=await r.json();if(r.ok)$('sampleStatus').textContent=`Continuous database: ${d.total_samples} saved samples. Per-label counts: ${Object.entries(d.labels||{}).map(([k,v])=>k+': '+v).join(', ')||'none yet'}.`; }catch(e){}}
 
-function setRecognitionMode(mode){seqState.recognitionMode=mode;const single=mode==='single';$('modeSingle').classList.toggle('secondary',!single);$('modeContinuous').classList.toggle('secondary',single);$('modeStatus').textContent=single?'Single Sign mode: predictions use the existing sahayak_twohand.joblib model.':'Continuous Sign mode: segments are predicted after a brief pause or a 90-frame safety cap. If the sequence model is not trained, use the collector and train it first.';seqState.segmentFrames=[];seqState.lastFeature=null;seqState.stillFrames=0;if(!single){seqState.frames=[];seqState.lastSequenceSign='';setSeqStatus('Continuous mode selected. Perform one sign at a time naturally; a brief pause separates signs.');}else{setSeqStatus('Single Sign mode selected. Continuous collection can still be used from its collection controls.');}}
+function setRecognitionMode(mode){seqState.recognitionMode=mode;const single=mode==='single';$('modeSingle').classList.toggle('secondary',!single);$('modeContinuous').classList.toggle('secondary',single);$('modeStatus').textContent=single?'Single Sign mode is active. Hold a trained sign clearly in the camera view.':'Continuous Sign mode is active. Perform a complete sign, then pause briefly before the next sign.';seqState.segmentFrames=[];seqState.lastFeature=null;seqState.stillFrames=0;if(!single){seqState.frames=[];seqState.lastSequenceSign='';setSeqStatus('Continuous mode selected. Perform one sign at a time naturally; a brief pause separates signs.');}else{setSeqStatus('Single Sign mode selected. Hold one trained sign clearly in the camera view.');}}
 $('modeSingle').addEventListener('click',()=>setRecognitionMode('single'));$('modeContinuous').addEventListener('click',()=>setRecognitionMode('continuous'));
 const langNames={en:'English',hi:'Hindi',as:'Assamese',bn:'Bengali',ne:'Nepali',ta:'Tamil',te:'Telugu',mr:'Marathi',gu:'Gujarati',pa:'Punjabi',ur:'Urdu',fr:'French',es:'Spanish',de:'German',it:'Italian',pt:'Portuguese',ar:'Arabic',zh:'Chinese',ja:'Japanese',ko:'Korean',ru:'Russian'};
 async function translateText(text, source=$('sourceLanguage').value, target=$('targetLanguage').value, phrasePadOutput=false){if(!text.trim())throw Error('Enter or recognize text first.');$('translationStatus').textContent='Translating text online…';const r=await fetch(API_BASE+'/api/translate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text,source,target})});const d=await r.json();if(!r.ok)throw Error(d.error||'Translation failed.');$('translatedText').value=d.translated;if(phrasePadOutput){const output=$('phraseTranslatedOutput');if(output)output.value=d.translated;}$('translationStatus').textContent=`Translated ${langNames[d.source]||d.source} → ${langNames[d.target]||d.target} using ${d.provider}. Original text is preserved.`;$('speechStatus').textContent=`Translated ${langNames[d.source]||d.source} → ${langNames[d.target]||d.target}. Tap Speak translation to hear it.`;addHistory('translation',text,null,d.translated,d.target);return d.translated;}
@@ -1597,6 +1620,42 @@ function speakText(text,lang){if(!text.trim()){$('speechStatus').textContent='No
 $('speakRecognized').addEventListener('click',()=>{const text=lastRecognizedText;if(!text){speechStatus.textContent='No recognized sign yet. Show a trained sign to the camera first.';return;}speakText(text,$('sourceLanguage').value);});
 $('speakOriginal').addEventListener('click',()=>speakText($('manualText').value||lastSign,$('sourceLanguage').value));
 $('speakTranslated').addEventListener('click',()=>speakText($('translatedText').value,$('targetLanguage').value));
+async function translateCurrentRecognition(andSpeak=false){
+  const text=String(lastRecognizedText||'').trim();
+  const status=$('recognizedTranslationStatus');
+  const output=$('recognizedTranslatedText');
+  const target=$('recognizedTargetLanguage').value;
+  if(!text){
+    status.textContent='No recognized sign yet. Start the camera and wait for a sign prediction first.';
+    output.value='';
+    return;
+  }
+  const translateButton=$('translateCurrentSign');
+  const speakButton=$('translateAndSpeakCurrentSign');
+  translateButton.disabled=true;speakButton.disabled=true;
+  status.textContent='Translating the recognized text…';
+  try{
+    const response=await fetch(API_BASE+'/api/translate',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({text,source:'en',target}),cache:'no-store'
+    });
+    const data=await response.json();
+    if(!response.ok)throw new Error(data.error||'Translation failed. The original recognized text is unchanged.');
+    output.value=data.translated||'';
+    status.textContent='Translated English → '+(langNames[data.target]||data.target)+' using '+(data.provider||'translation service')+'.';
+    $('translatedText').value=data.translated||'';
+    addHistory('recognized-translation',text,null,data.translated||'',target);
+    if(andSpeak&&data.translated)speakText(data.translated,target);
+  }catch(error){
+    status.textContent=(error&&error.message)||'Could not translate. Check your internet connection and translation service.';
+  }finally{
+    translateButton.disabled=false;speakButton.disabled=false;
+  }
+}
+$('translateCurrentSign').addEventListener('click',()=>translateCurrentRecognition(false));
+$('translateAndSpeakCurrentSign').addEventListener('click',()=>translateCurrentRecognition(true));
+$('recognizedTargetLanguage').addEventListener('change',()=>{const out=$('recognizedTranslatedText');if(out)out.value='';$('recognizedTranslationStatus').textContent='Language changed. Translate the recognized sign again to update the result.';});
+
 $('stopAllSpeech').addEventListener('click',()=>{if('speechSynthesis'in window)speechSynthesis.cancel();$('speechStatus').textContent='Speech stopped.';});
 const offlinePhrases={
  hello:{en:'Hello',hi:'नमस्ते',as:'নমস্কাৰ',bn:'নমস্কার'},
