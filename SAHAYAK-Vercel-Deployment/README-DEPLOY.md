@@ -3,7 +3,8 @@
 This package keeps the actual camera-based recognition UI and backend. The uploaded UI/UX prototype is preserved under `docs/`; its Live Studio uses simulated gesture buttons, so it is not used as the live recognition page. The functional page adopts the reference's saffron/gold brand accents while retaining the existing recognition controls.
 
 ## Layout
-- `frontend/`: static website for Vercel (real camera UI, single/continuous modes, local history, speech and phrasebook).
+- `frontend/index.html`: responsive multi-section SAHAYAK website (home, mechanism, architecture, flowcharts, tech stack, dataset, team, settings, history and phrasebook).
+- `frontend/studio.html`: the real camera-recognition UI, single/continuous modes, camera switching, translation, speech and offline phrasebook, connected to the Render API. The Live Studio menu opens this page; no simulated recognizer is used.
 - `backend/`: Flask API, original trained models, feature code and continuous-sample database.
 - `docs/ui-ux-reference-prototype.html`: provided visual reference.
 
@@ -16,9 +17,9 @@ This package keeps the actual camera-based recognition UI and backend. The uploa
 6. Deploy and open `https://YOUR-API.onrender.com/api/status`. Confirm `model_ready` and `sequence_model_ready` are both `true`.
 
 ## Deploy frontend (Vercel)
-1. Import the same repository into Vercel.
-2. Leave Root Directory at repository root.
-3. `vercel.json` sets the output directory to `frontend`.
+1. Import `Mrjohanjyotikuli/SAHAYAK-ISL` into Vercel.
+2. Set **Root Directory** to `SAHAYAK-Vercel-Deployment` (the folder containing `vercel.json`).
+3. `vercel.json` sets the output directory to `frontend`; `index.html` is the site homepage and `studio.html` is the real recognizer.
 4. Edit `frontend/config.js` and set `window.SAHAYAK_API_BASE` to the deployed Render URL, with no trailing slash, e.g. `https://your-api.onrender.com`.
 5. Redeploy Vercel.
 6. In Render, replace `SAHAYAK_FRONTEND_ORIGIN` with the exact Vercel production origin (e.g. `https://your-project.vercel.app`) for tighter CORS. If using a custom domain, include its origin instead.
@@ -29,7 +30,7 @@ This package keeps the actual camera-based recognition UI and backend. The uploa
 - Recognition history is stored in the browser's localStorage, per browser/device. The continuous-sign sample database is included, but new SQLite writes on a free ephemeral backend may not persist through instance replacement/redeploy. Use persistent storage or a managed database if you need permanent server-side sample collection.
 - Camera access requires HTTPS (Vercel provides it) or localhost during local development. Phone camera permissions must be granted in the browser.
 - Speech uses the browser's Web Speech API and installed voices; availability differs by device.
-- The provided design-reference prototype is preserved separately because its camera studio simulates predictions instead of calling the trained model.
+- The original design-reference prototype remains in `docs/ui-ux-reference-prototype.html` for reference only; its simulated camera is not used by the deployed Live Studio.
 
 ## Local test
 Backend:

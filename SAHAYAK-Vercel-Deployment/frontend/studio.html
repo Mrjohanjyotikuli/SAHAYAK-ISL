@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#08111f">
+<title>SAHAYAK - A Real-Time Sign Language Recognition System for Differently-Abled Persons</title>
+<style>
+:root{color-scheme:dark;--bg:#08111f;--panel:#111e31;--line:#263a56;--text:#f4f7fb;--muted:#a9b8cc;--cyan:#FF9933;--blue:#D4AF37}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#281725 0,#08111f 58%);font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--text);min-height:100vh}
+main{max-width:1120px;margin:auto;padding:32px 20px 50px}.top{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:28px}.brand-logo{display:block;width:min(100%,760px);height:auto;object-fit:contain;border-radius:12px;background:#fff}
+h1{font-size:clamp(28px,4vw,44px);margin:0;letter-spacing:1px} .sub{color:var(--muted);margin-top:4px}.tag{margin-left:auto;border:1px solid #2b4c66;color:var(--cyan);padding:8px 12px;border-radius:99px;font-size:12px;white-space:nowrap}
+.grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);gap:20px}.panel{background:linear-gradient(145deg,#14233a,#0e192a);border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:0 16px 40px #0003}.panel
+.video-wrap {
+  position: relative;
+  background: #030811;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  display: grid;
+  place-items: center;
+}
+
+.video-wrap video,
+.video-wrap canvas.annotation {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.video-wrap video {
+  transform: scaleX(-1); /* Front-camera mirror; JS disables this for rear camera. */
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+.video-wrap canvas.annotation {
+  transform: scaleX(-1); /* Must mirror with the front-camera preview. JS disables this for rear camera. */
+  pointer-events: none;
+  z-index: 2;
+}.video-wrap .roi {
+  display: none;
+} h2{font-size:18px;margin:0 0 15px}.video-wrap{position:relative;background:#030811;border-radius:16px;overflow:hidden;aspect-ratio:4/3;display:grid;place-items:center}.video-wrap video,.video-wrap canvas.annotation{position:absolute;inset:0;width:100%;height:100%;object-fit:fill}.video-placeholder{position:absolute;color:var(--muted);text-align:center;padding:20px}.controls{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}button{border:0;border-radius:12px;padding:12px 16px;font-weight:700;cursor:pointer;background:var(--cyan);color:#062126}button.secondary{background:#243750;color:var(--text);border:1px solid #38516f}button:disabled{opacity:.45;cursor:not-allowed}.status{color:var(--muted);font-size:13px;line-height:1.5;margin-top:12px}.result{display:flex;flex-direction:column;min-height:100%}.eyebrow{color:var(--cyan);font-size:12px;font-weight:800;letter-spacing:1.5px}.prediction{font-size:clamp(38px,6vw,62px);font-weight:750;line-height:1.1;overflow-wrap:anywhere;margin:15px 0 10px}.confidence{color:var(--muted);font-size:14px}.divider{height:1px;background:var(--line);margin:22px 0}.pill{display:inline-flex;align-self:flex-start;background:#1a3543;border:1px solid #285665;color:var(--cyan);border-radius:99px;padding:7px 10px;font-size:12px;margin-top:18px}.bottom{color:var(--muted);font-size:12px;text-align:center;margin-top:22px;line-height:1.6}.warning{color:#ffd18b}.status-dot{display:inline-block;width:8px;height:8px;background:#e7b65d;border-radius:50%;margin-right:7px}
+button, select, textarea, input { touch-action: manipulation; }
+button { min-height: 44px; }
+select, input, textarea { max-width: 100%; font-size: 16px; }
+.video-wrap { width: 100%; contain: layout paint; }
+@media(max-width:780px){
+  .grid{grid-template-columns:minmax(0,1fr)}.tag{display:none}.top{justify-content:center}
+  main{padding:calc(14px + env(safe-area-inset-top)) 12px calc(24px + env(safe-area-inset-bottom))}
+  .panel{padding:14px;border-radius:16px}.controls{gap:8px}.controls button{flex:1 1 140px;padding:12px 10px}
+  .controls label{flex:1 1 100%;min-width:0}.controls select{width:100%;max-width:100%}
+  .video-wrap{aspect-ratio:4/3;max-height:65svh}.prediction{font-size:clamp(34px,10vw,52px)}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+.site-return{display:inline-flex;align-items:center;gap:8px;margin-bottom:18px;padding:10px 14px;min-height:44px;border:1px solid var(--line);border-radius:12px;background:#14233a;color:var(--text);text-decoration:none;font-size:14px;font-weight:700}
+.site-return:hover{border-color:var(--cyan);color:var(--cyan)}
+@media(max-width:420px){.brand-logo{max-height:90px;object-fit:contain}.site-return{margin-bottom:12px}}
+</style>
+</head>
+<body>
+<main>
+<a class="site-return" href="./index.html"><span aria-hidden="true">←</span> SAHAYAK Home</a>
+<header class="top"><img class="brand-logo" src="assets/sahayak-logo.png" alt="SAHAYAK — A Real-Time Sign Language Recognition System"><div class="tag">LIVE CAMERA DEMO</div></header>
+<section class="panel" style="margin-bottom:20px" aria-label="Recognition mode">
+<h2>Choose recognition mode</h2>
+<div class="controls"><button id="modeSingle" type="button">1 · Single Sign</button><button id="modeContinuous" class="secondary" type="button">2 · Continuous Sign</button></div>
+<div class="status" id="modeStatus">Single Sign mode is selected. The original single-sign model is used.</div>
+</section>
+<div class="grid">
+<section class="panel">
+<h2>Camera input</h2>
+<div class="video-wrap"><video id="video" autoplay muted playsinline></video><canvas id="annotation" class="annotation" width="320" height="240"></canvas><div class="video-placeholder" id="placeholder">Start your camera to begin recognition.</div></div>
+<div class="controls"><label for="cameraSelect" style="display:flex;align-items:center;gap:8px;color:var(--muted);font-size:13px">Camera <select id="cameraSelect" style="max-width:240px;padding:10px;border-radius:10px;background:#243750;color:var(--text);border:1px solid #38516f"><option value="">Default camera</option></select></label><button id="start">Start camera</button><button id="switchCamera" class="secondary" type="button" aria-label="Switch between front and back camera">Switch front/back</button><button id="stop" class="secondary" disabled>Stop camera</button><button id="clear" class="secondary">Clear output</button></div>
+<div class="status" id="status"><span class="status-dot"></span>Checking model readiness…</div>
+<canvas id="canvas" width="640" height="480" hidden></canvas>
+</section>
+<section class="panel result">
+<div class="eyebrow">RECOGNIZED SIGN</div><div class="prediction" id="sign">—</div><div class="confidence" id="confidence">Confidence: —</div><div class="pill" id="state">Waiting for camera</div>
+<div class="divider"></div><h2>Recognized output</h2><p id="output" style="color:var(--muted);line-height:1.7;margin:0">Your recognized sign will appear here after you collect training samples and train the model.</p>
+<div style="margin-top:auto;padding-top:24px;color:var(--muted);font-size:13px">Show one or both hands clearly. The classifier must be trained on each sign you want it to recognize.</div>
+</section>
+</div>
+<section class="panel" style="margin-top:20px">
+<h2>Offline phrase pad</h2>
+<p class="status">Type in the language you know. Your text is saved on this device and remains available offline. Select the language you typed in and the language you want; translating arbitrary typed text needs internet, while saved phrasebook translations work offline.</p>
+<div class="controls"><label>Input language <select id="sourceLanguage" style="padding:10px;border-radius:10px;background:#243750;color:var(--text);border:1px solid #38516f"><option value="en">English</option><option value="hi">Hindi</option><option value="as">Assamese</option><option value="bn">Bengali</option><option value="ne">Nepali</option><option value="ta">Tamil</option><option value="te">Telugu</option><option value="mr">Marathi</option><option value="gu">Gujarati</option><option value="pa">Punjabi</option><option value="ur">Urdu</option><option value="fr">French</option><option value="es">Spanish</option><option value="de">German</option><option value="it">Italian</option><option value="pt">Portuguese</option><option value="ar">Arabic</option><option value="zh">Chinese</option><option value="ja">Japanese</option><option value="ko">Korean</option><option value="ru">Russian</option></select></label></div>
+<textarea id="phrase" rows="3" maxlength="1000" placeholder="Type a message in your language…" style="width:100%;resize:vertical;border-radius:12px;padding:12px;background:#08111f;border:1px solid #38516f;color:var(--text);font:inherit"></textarea>
+<div class="controls"><button id="appendSign" class="secondary">Add recognized sign</button><button id="speakRecognized" type="button">Speak recognized sign</button><label style="display:flex;align-items:center;gap:8px;padding:10px 12px;border:1px solid #38516f;border-radius:12px;color:var(--text)"><input id="autoSpeakRecognized" type="checkbox" style="width:18px;height:18px"> Auto-speak recognized signs</label><button id="speak">Speak phrase</button><button id="translateTypedPhrase">Translate typed phrase</button><button id="stopSpeech" class="secondary">Stop speech</button><button id="clearPhrase" class="secondary">Clear phrase</button></div>
+<div class="status" id="speechStatus">Speech uses your phone's installed voices. For offline speech, install/download an offline voice in your phone's text-to-speech settings first.</div>
+<div class="divider"></div><h3>Offline phrasebook</h3>
+<p class="status">These built-in phrases and their saved translations work without internet. This is a small curated phrasebook, not a general offline translator. Your typed phrase remains saved locally.</p>
+<div class="controls"><label>Choose phrase <select id="offlinePhrase" style="padding:10px;border-radius:10px;background:#243750;color:var(--text);border:1px solid #38516f"><option value="hello">Hello</option><option value="help">Please help me</option><option value="water">I need water</option><option value="food">I need food</option><option value="thankyou">Thank you</option><option value="yes">Yes</option><option value="no">No</option><option value="emergency">This is an emergency</option><option value="bathroom">Where is the bathroom?</option></select></label><button id="loadOfflinePhrase" class="secondary">Use phrase</button><button id="translateOfflinePhrase">Offline translation</button><button id="speakOfflinePhrase">Speak phrase</button><button id="speakOfflineTranslation">Speak translation</button></div>
+<div class="status" id="offlinePhraseStatus">Choose a phrase. Offline translations are available in English, Hindi, Assamese and Bengali.</div>
+</section>
+
+<section class="panel" style="margin-top:20px" id="continuousSection">
+<h2>Continuous Sign Recognition</h2>
+<p class="status">Continuous mode collects 132 temporal features per valid frame (126 pose values plus six wrist-position values). Training accepts any non-empty variable-length sequence; live recognition uses a rolling 60-frame window.</p>
+<div class="controls"><button id="continuousStart">Start continuous</button><button id="continuousStop" class="secondary" disabled>Stop continuous</button><button id="continuousClear" class="secondary">Clear window</button></div>
+<div class="status" id="continuousStatus">Ready. Start the camera first; then start continuous capture.</div>
+<div class="confidence" id="frameProgress">Frames: 0 / 60</div>
+<div class="controls"><label>Training label <input id="sequenceLabel" maxlength="60" placeholder="e.g. HELLO" style="padding:10px;border-radius:10px;background:#08111f;color:var(--text);border:1px solid #38516f"></label><button id="saveSequence" class="secondary" disabled>Save captured sample</button><button id="exportSequences" class="secondary">Export samples JSON</button></div>
+<div class="status" id="sampleStatus">Each saved sample is stored in continuous_gesture_db.db on the Python backend. Only landmark features are stored, not camera images.</div>
+<div class="divider"></div><h2>Translation & translated speech</h2>
+<p class="status">Choose the input language above and a target language below. Online translation sends text only to MyMemory, never images or landmarks. Saved phrasebook entries can be translated offline; arbitrary text needs internet.</p>
+<div class="controls"><label>Target language <select id="targetLanguage" style="padding:10px;border-radius:10px;background:#243750;color:var(--text);border:1px solid #38516f"><option value="hi">Hindi</option><option value="as">Assamese</option><option value="bn">Bengali</option><option value="ne">Nepali</option><option value="en">English</option><option value="ta">Tamil</option><option value="te">Telugu</option><option value="mr">Marathi</option><option value="gu">Gujarati</option><option value="pa">Punjabi</option><option value="ur">Urdu</option><option value="fr">French</option><option value="es">Spanish</option><option value="de">German</option><option value="ja">Japanese</option><option value="zh">Chinese</option><option value="it">Italian</option><option value="pt">Portuguese</option><option value="ar">Arabic</option><option value="ko">Korean</option><option value="ru">Russian</option></select></label><button id="translateRecognized">Translate recognized text</button><button id="translateAndSpeak">Translate + speak</button></div>
+<label for="manualText" class="status">Text to translate</label><textarea id="manualText" rows="2" maxlength="5000" placeholder="Recognized text is copied here, or enter text manually" style="width:100%;resize:vertical;border-radius:12px;padding:12px;background:#08111f;border:1px solid #38516f;color:var(--text);font:inherit"></textarea>
+<div class="status" id="translationStatus">Translation not yet requested.</div><h3 style="margin-bottom:8px">Translated text</h3><textarea id="translatedText" rows="2" readonly placeholder="Translation appears here" style="width:100%;resize:vertical;border-radius:12px;padding:12px;background:#08111f;border:1px solid #38516f;color:var(--text);font:inherit"></textarea>
+<div class="controls"><button id="speakOriginal" class="secondary">Speak original text</button><button id="speakTranslated">Speak translated text</button><button id="stopAllSpeech" class="secondary">Stop speech</button></div>
+<div class="divider"></div><h2>Recognition history</h2><div class="controls"><button id="refreshHistory" class="secondary">Refresh history</button><button id="clearHistory" class="secondary">Clear history</button></div><div id="historyList" class="status">No history yet.</div>
+</section>
+
+<footer class="bottom">SAHAYAK<br>Developed by <strong style="color:var(--text)">Mr. Johan Jyoti Kuli</strong></footer>
+</main>
+<script src="/config.js"></script>
+<script>
+const video=document.getElementById('video'), canvas=document.getElementById('canvas'), ctx=canvas.getContext('2d');
+const annotation=document.getElementById('annotation'), actx=annotation.getContext('2d');
+const cameraSelect=document.getElementById('cameraSelect');
+const startBtn=document.getElementById('start'), stopBtn=document.getElementById('stop'), statusEl=document.getElementById('status');
+const signEl=document.getElementById('sign'), confidenceEl=document.getElementById('confidence'), outputEl=document.getElementById('output'), stateEl=document.getElementById('state'), placeholder=document.getElementById('placeholder');
+const phrase=document.getElementById('phrase'), speechStatus=document.getElementById('speechStatus');
+const $=id=>document.getElementById(id);
+let stream=null, loopHandle=null, busy=false, stopped=true, lastSign='', lastRecognizedText='', lastAcceptedAt=0, facingMode='user', cameraGeneration=0, activeController=null;
+let lastAutoSpokenSign='', lastAutoSpokenAt=0;
+const autoSpeakControl=document.getElementById('autoSpeakRecognized');
+try{autoSpeakControl.checked=localStorage.getItem('sahayak_auto_speak')==='true';}catch(e){}
+autoSpeakControl.addEventListener('change',()=>{try{localStorage.setItem('sahayak_auto_speak',String(autoSpeakControl.checked));}catch(e){}speechStatus.textContent=autoSpeakControl.checked?'Auto-speak enabled. Newly recognized signs will be spoken.':'Auto-speak disabled. Use Speak recognized sign when needed.';});
+const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || (navigator.maxTouchPoints > 1 && /Mac/i.test(navigator.platform));
+const frameIntervalMs = isMobile ? 100 : 70;
+const SIGN_TEXT={HELLO:'Hello',YES:'Yes',NO:'No',I_LOVE_YOU:'I love you',THANK_YOU:'Thank you'};
+function readableSign(label){return SIGN_TEXT[label]||String(label||'').replace(/_/g,' ').toLowerCase().replace(/\b\w/g,c=>c.toUpperCase());}
+const API_BASE=(window.SAHAYAK_API_BASE||'').replace(/\/$/,'');
+async function checkStatus(){try{const r=await fetch(API_BASE+'/api/status',{cache:'no-store'});if(!r.ok)throw Error('API status');const d=await r.json();statusEl.textContent=d.ready?('Single-sign model ready. '+(d.sequence_model_ready?'Continuous model ready.':'Continuous model not trained yet; collect samples and train it.')):'Backend is online, but the single-sign model is not ready.';statusEl.classList.toggle('warning',!d.ready);}catch(e){statusEl.textContent='Recognition service offline. Offline phrase pad can still be used.';statusEl.classList.add('warning');}}
+function clearAnnotations(){actx.clearRect(0,0,annotation.width,annotation.height);}
+
+function drawAnnotations(items) {
+  clearAnnotations();
+
+  if (!Array.isArray(items) || items.length === 0) return;
+
+  const W = annotation.width;
+  const H = annotation.height;
+
+  const links = [
+    [0,1],[1,2],[2,3],[3,4],
+    [0,5],[5,6],[6,7],[7,8],
+    [5,9],[9,10],[10,11],[11,12],
+    [9,13],[13,14],[14,15],[15,16],
+    [13,17],[17,18],[18,19],[19,20],
+    [0,17]
+  ];
+
+  for (const hand of items) {
+    if (!Array.isArray(hand.points) || hand.points.length !== 21) continue;
+
+    // Coordinates returned by MediaPipe are normalized from 0 to 1.
+   const pts = hand.points.map(([x, y]) => ({
+  x: Number(x) * W,
+  y: Number(y) * H
+}));
+
+    if (pts.some(p => !Number.isFinite(p.x) || !Number.isFinite(p.y))) {
+      continue;
+    }
+
+    // Recalculate the box from the current frame's landmarks.
+    const xs = pts.map(p => p.x);
+    const ys = pts.map(p => p.y);
+
+    const minX = Math.min(...xs);
+    const maxX = Math.max(...xs);
+    const minY = Math.min(...ys);
+    const maxY = Math.max(...ys);
+
+    const padX = Math.max(8, (maxX - minX) * 0.12);
+    const padY = Math.max(8, (maxY - minY) * 0.12);
+
+    const left = Math.max(0, minX - padX);
+    const top = Math.max(0, minY - padY);
+    const right = Math.min(W, maxX + padX);
+    const bottom = Math.min(H, maxY + padY);
+
+    actx.save();
+
+    // Dynamic bounding box.
+    actx.strokeStyle = "#73e0dc";
+    actx.lineWidth = 2.5;
+    actx.strokeRect(left, top, right - left, bottom - top);
+
+    // Landmark connections.
+    actx.strokeStyle = "#b8ffcf";
+    actx.lineWidth = 2;
+
+    for (const [a, b] of links) {
+      actx.beginPath();
+      actx.moveTo(pts[a].x, pts[a].y);
+      actx.lineTo(pts[b].x, pts[b].y);
+      actx.stroke();
+    }
+
+    // Landmark points.
+    actx.fillStyle = "#ffffff";
+
+    for (const p of pts) {
+      actx.beginPath();
+      actx.arc(p.x, p.y, 3, 0, Math.PI * 2);
+      actx.fill();
+    }
+
+    // Hand label.
+    const label = (hand.side || "Detected") + " hand";
+    actx.font = "bold 12px system-ui";
+    const labelW = actx.measureText(label).width + 12;
+    const labelY = Math.max(15, top - 4);
+
+    actx.fillStyle = "#73e0dc";
+    actx.fillRect(left, labelY - 14, labelW, 18);
+    actx.fillStyle = "#08111f";
+    actx.fillText(label, left + 6, labelY - 1);
+
+    actx.restore();
+  }
+}
+async function predictFrame(){
+  if(stopped||busy||!stream||video.readyState<2)return;
+  busy=true;
+  const generation=cameraGeneration;
+  try{
+    ctx.drawImage(video,0,0,canvas.width,canvas.height);
+    // Smaller JPEG payloads reduce upload time on mobile data without changing model features.
+    const image=canvas.toDataURL('image/jpeg', isMobile ? .48 : .55);
+    const controller=new AbortController(); activeController=controller;
+    const timeout=setTimeout(()=>controller.abort(),5000);
+    let r;
+    try{
+      r=await fetch(API_BASE+'/api/predict',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({image,include_features:true,mirror:facingMode==='user'}),signal:controller.signal,cache:'no-store'});
+    }finally{clearTimeout(timeout);if(activeController===controller)activeController=null;}
+    if(generation!==cameraGeneration || stopped)return;
+    const d=await r.json();
+    if(!r.ok){stateEl.textContent='Model not ready';outputEl.textContent=d.error||'Recognition unavailable.';clearAnnotations();return;}
+    drawAnnotations(d.landmarks||[]);
+    if(Array.isArray(d.sequence_features)&&d.sequence_features.length===132&&d.valid_features===true)handleSequenceFrame(d.sequence_features);
+    else if(seqState.active&&d.valid_features===false)setSeqStatus('No hand detected in this camera frame; move your hand into view. Only valid landmark frames are counted.');
+    if(seqState.recognitionMode==='single'){
+      if(d.recognized){
+        const readable=readableSign(d.sign);signEl.textContent=readable;confidenceEl.textContent='Confidence: '+d.confidence+'% · Hands: '+d.hands;stateEl.textContent='Recognized';outputEl.textContent=readable;
+        const now=Date.now();lastRecognizedText=readable;$('manualText').value=readable;
+        if(d.sign!==lastSign||now-lastAcceptedAt>2500){addHistory('single-sign',readable,d.confidence);lastAcceptedAt=now;}
+        if(d.sign!==lastSign)tryAutoSpeak(readable);
+        lastSign=d.sign;
+      }else{lastAutoSpokenSign='';stateEl.textContent=d.hands?'Sign uncertain':'Searching for hands';if(d.message)outputEl.textContent=d.message;}
+    }else stateEl.textContent='Continuous mode';
+  }catch(e){
+    if(generation!==cameraGeneration||stopped)return;
+    if(e.name==='AbortError')statusEl.textContent='Recognition request timed out. Check the connection or backend load.';
+    else statusEl.textContent='Recognition service unreachable. Phrase pad remains available offline.';
+    statusEl.classList.add('warning');
+  }finally{
+    busy=false;
+    if(!stopped&&stream&&generation===cameraGeneration)loopHandle=setTimeout(predictFrame,frameIntervalMs);
+  }
+}
+async function loadCameras(){if(!navigator.mediaDevices?.getUserMedia){cameraSelect.innerHTML='<option value="">No supported camera API</option>';return;}const previous=cameraSelect.value;try{const temp=await navigator.mediaDevices.getUserMedia({video:true,audio:false});temp.getTracks().forEach(t=>t.stop());const devices=await navigator.mediaDevices.enumerateDevices();const cameras=devices.filter(d=>d.kind==='videoinput');cameraSelect.innerHTML='<option value="">Auto ('+(facingMode==='user'?'front':'rear')+')</option>';cameras.forEach((device,i)=>{const option=document.createElement('option');option.value=device.deviceId;option.textContent=device.label||`Camera ${i+1}`;cameraSelect.appendChild(option);});if(previous && [...cameraSelect.options].some(o=>o.value===previous))cameraSelect.value=previous;else cameraSelect.value='';if(!cameras.length)cameraSelect.innerHTML='<option value="">No camera found</option>';}catch(e){cameraSelect.innerHTML='<option value="">Allow camera permission first</option>';}}
+async function startCamera(){
+  try{
+    if(!window.isSecureContext&&location.hostname!=='localhost'&&location.hostname!=='127.0.0.1')throw Error('Camera requires HTTPS. Open the Netlify HTTPS URL.');
+    if(!navigator.mediaDevices?.getUserMedia)throw Error('This browser does not support camera access.');
+    startBtn.disabled=true;statusEl.classList.remove('warning');
+    const selectedId=cameraSelect.value;
+    const videoConstraints=selectedId
+      ?{deviceId:{exact:selectedId},width:{ideal:320},height:{ideal:240},frameRate:{ideal:15,max:20}}
+      :{facingMode:{ideal:facingMode},width:{ideal:320},height:{ideal:240},frameRate:{ideal:15,max:20}};
+    stream=await navigator.mediaDevices.getUserMedia({audio:false,video:videoConstraints});
+    const actualFacing=stream.getVideoTracks()[0]?.getSettings?.().facingMode;
+    if(actualFacing==='user'||actualFacing==='environment')facingMode=actualFacing;
+    else if(selectedId){const selectedLabel=cameraSelect.selectedOptions?.[0]?.textContent||'';if(/back|rear|environment/i.test(selectedLabel))facingMode='environment';else if(/front|user|facetime/i.test(selectedLabel))facingMode='user';}
+    video.srcObject=stream;await video.play();
+    const frameW=video.videoWidth||320,frameH=video.videoHeight||240;
+    canvas.width=320;canvas.height=Math.max(1,Math.round(320*frameH/frameW));
+    annotation.width=canvas.width;annotation.height=canvas.height;
+    document.querySelector('.video-wrap').style.aspectRatio=`${frameW} / ${frameH}`;
+    video.style.transform=facingMode==='user'?'scaleX(-1)':'none';
+    annotation.style.transform=facingMode==='user'?'scaleX(-1)':'none';
+    placeholder.hidden=true;startBtn.disabled=true;stopBtn.disabled=false;stopped=false;busy=false;
+    cameraGeneration++;stateEl.textContent='Camera active';statusEl.textContent=`Camera active · ${facingMode==='user'?'front':'rear'} camera · optimized ${isMobile?'mobile':'desktop'} capture`;
+    await loadCameras();
+    predictFrame();
+  }catch(e){
+    if(stream)stream.getTracks().forEach(t=>t.stop());stream=null;video.srcObject=null;
+    statusEl.textContent=e.message.includes('HTTPS')?e.message:'Camera unavailable. Allow camera permission, close other camera apps, or choose another camera.';
+    statusEl.classList.add('warning');startBtn.disabled=false;stopBtn.disabled=true;
+  }
+}
+startBtn.addEventListener('click',startCamera);
+cameraSelect.addEventListener('change',async()=>{if(!stream)return;const selected=cameraSelect.value;cameraGeneration++;if(activeController)activeController.abort();if(loopHandle)clearTimeout(loopHandle);loopHandle=null;for(const track of stream.getTracks())track.stop();stream=null;video.srcObject=null;busy=false;stopped=true;cameraSelect.value=selected;await startCamera();});
+document.getElementById('switchCamera').addEventListener('click',async()=>{
+  const wasRunning=!!stream;facingMode=facingMode==='user'?'environment':'user';
+  cameraGeneration++;if(activeController)activeController.abort();
+  if(loopHandle)clearTimeout(loopHandle);loopHandle=null;
+  if(stream)stream.getTracks().forEach(t=>t.stop());stream=null;video.srcObject=null;busy=false;stopped=true;
+  cameraSelect.value='';statusEl.classList.remove('warning');
+  if(wasRunning){statusEl.textContent=`Switching to ${facingMode==='user'?'front':'rear'} camera…`;await startCamera();}
+  else{video.style.transform=facingMode==='user'?'scaleX(-1)':'none';annotation.style.transform=facingMode==='user'?'scaleX(-1)':'none';statusEl.textContent=`${facingMode==='user'?'Front':'Rear'} camera selected. Tap Start camera.`;}
+});
+function stopCamera(){stopped=true;cameraGeneration++;if(activeController)activeController.abort();if(loopHandle)clearTimeout(loopHandle);loopHandle=null;if(stream)stream.getTracks().forEach(t=>t.stop());stream=null;video.srcObject=null;placeholder.hidden=false;startBtn.disabled=false;stopBtn.disabled=true;busy=false;stateEl.textContent='Camera stopped';clearAnnotations();}
+stopBtn.addEventListener('click',stopCamera);document.getElementById('clear').addEventListener('click',()=>{signEl.textContent='—';confidenceEl.textContent='Confidence: —';outputEl.textContent='Output cleared.';stateEl.textContent='Waiting for sign';lastSign='';clearAnnotations();});
+document.getElementById('appendSign').addEventListener('click',()=>{if(!lastSign){speechStatus.textContent='No recognized sign to add yet.';return;}phrase.value+=(phrase.value.trim()?' ':'')+lastSign;phrase.dispatchEvent(new Event('input'));document.getElementById('manualText').value=phrase.value;});
+phrase.addEventListener('input',()=>{try{localStorage.setItem('sahayak_phrase',phrase.value);}catch(e){}});try{phrase.value=localStorage.getItem('sahayak_phrase')||'';}catch(e){}
+try{$('sourceLanguage').value=localStorage.getItem('sahayak_source_language')||'en';}catch(e){}$('sourceLanguage').addEventListener('change',()=>{try{localStorage.setItem('sahayak_source_language',$('sourceLanguage').value);}catch(e){}});
+document.getElementById('speak').addEventListener('click',()=>{const text=phrase.value.trim();if(!text){speechStatus.textContent='Type a phrase first.';return;}if(!('speechSynthesis'in window)){speechStatus.textContent='This browser does not provide speech synthesis.';return;}window.speechSynthesis.cancel();const utterance=new SpeechSynthesisUtterance(text);utterance.lang=$('sourceLanguage').value;const matchingVoice=speechSynthesis.getVoices().find(v=>v.lang.toLowerCase().startsWith(utterance.lang.toLowerCase()));if(matchingVoice)utterance.voice=matchingVoice;utterance.onstart=()=>speechStatus.textContent='Speaking…';utterance.onend=()=>speechStatus.textContent='Finished speaking.';utterance.onerror=()=>speechStatus.textContent='Speech failed. Check whether your phone has a compatible voice installed.';window.speechSynthesis.speak(utterance);});
+document.getElementById('stopSpeech').addEventListener('click',()=>{if('speechSynthesis'in window)window.speechSynthesis.cancel();speechStatus.textContent='Speech stopped.';});document.getElementById('clearPhrase').addEventListener('click',()=>{phrase.value='';try{localStorage.removeItem('sahayak_phrase')}catch(e){}speechStatus.textContent='Phrase cleared on this device.';});
+
+// Translation, local history, and variable-length sequence workflow.
+const seqState={active:false,collecting:false,recognitionMode:'single',frames:[],segmentFrames:[],lastFeature:null,stillFrames:0,sampleFrames:[],samples:[],lastPredAt:0,predictionBusy:false,lastSequenceSign:'',autoSpeak:true};
+const MAX_SEQUENCE_CAPTURE_FRAMES=600;
+// Live segmentation: send a complete movement/hold segment on a short pause,
+// with a hard cap so continuous motion cannot grow the buffer indefinitely.
+const SEGMENT_MIN_FRAMES=15, SEGMENT_MAX_FRAMES=90, SEGMENT_STILL_FRAMES=3, SEGMENT_MOTION_THRESHOLD=0.012;
+function setSeqStatus(t){$('continuousStatus').textContent=t;}
+function handleSequenceFrame(features){
+  if(!seqState.active && !seqState.collecting && seqState.recognitionMode!=='continuous')return;
+  const cleanFrame=features.map(Number);
+  seqState.frames.push(cleanFrame);
+  if(seqState.frames.length>SEGMENT_MAX_FRAMES)seqState.frames.shift();
+  if(seqState.collecting && seqState.sampleFrames.length<MAX_SEQUENCE_CAPTURE_FRAMES)seqState.sampleFrames.push(cleanFrame);
+  $('frameProgress').textContent=`Live segment: ${seqState.segmentFrames.length}/90 · Training sample: ${seqState.sampleFrames.length} valid frames`;
+  $('saveSequence').disabled=seqState.sampleFrames.length<1||!$('sequenceLabel').value.trim();
+  if(seqState.collecting && seqState.sampleFrames.length>=MAX_SEQUENCE_CAPTURE_FRAMES)setSeqStatus(`Reached the ${MAX_SEQUENCE_CAPTURE_FRAMES}-frame sample safety limit. Stop capture and save this sample.`);
+  const previous=seqState.lastFeature;
+  let motion=0;
+  if(previous){let total=0;for(let i=0;i<cleanFrame.length;i++)total+=Math.abs(cleanFrame[i]-previous[i]);motion=total/cleanFrame.length;}
+  seqState.lastFeature=cleanFrame;
+  seqState.segmentFrames.push(cleanFrame);
+  if(motion<SEGMENT_MOTION_THRESHOLD)seqState.stillFrames++;else seqState.stillFrames=0;
+  const enough=seqState.segmentFrames.length>=SEGMENT_MIN_FRAMES;
+  const paused=enough&&seqState.stillFrames>=SEGMENT_STILL_FRAMES;
+  const capped=seqState.segmentFrames.length>=SEGMENT_MAX_FRAMES;
+  if((paused||capped)&&!seqState.predictionBusy&&seqState.recognitionMode==='continuous'){
+    const segment=seqState.segmentFrames.slice();
+    seqState.segmentFrames=[];seqState.stillFrames=0;seqState.lastPredAt=Date.now();
+    predictSequenceWindow(segment);
+  }
+  if(seqState.segmentFrames.length>SEGMENT_MAX_FRAMES){seqState.segmentFrames=seqState.segmentFrames.slice(-SEGMENT_MAX_FRAMES);}
+}
+async function predictSequenceWindow(frames){
+  if(seqState.predictionBusy||!Array.isArray(frames)||frames.length<SEGMENT_MIN_FRAMES)return;
+  seqState.predictionBusy=true;
+  const controller=new AbortController();
+  const timeout=setTimeout(()=>controller.abort(),7000);
+  try{
+    const r=await fetch(API_BASE+'/api/sequence/predict',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({frames}),cache:'no-store',signal:controller.signal});
+    const d=await r.json();
+    if(!r.ok){setSeqStatus(d.error||'Sequence model is not ready. Collect labelled variable-length samples and train it first.');return;}
+    if(!d.recognized){setSeqStatus(d.message||'Sequence uncertain. Perform the complete sign clearly and try again.');return;}
+    const readable=readableSign(d.sign);
+    setSeqStatus(`Sequence prediction: ${readable}${d.confidence==null?'':' · '+d.confidence+'% confidence'} · ${d.frames} valid frames`);
+    if(seqState.recognitionMode==='continuous'){
+      signEl.textContent=readable;confidenceEl.textContent='Sequence confidence: '+(d.confidence==null?'not provided':d.confidence+'%')+' · '+d.frames+' frames';
+      stateEl.textContent='Continuous sign recognized';outputEl.textContent=readable;lastRecognizedText=readable;$('manualText').value=readable;
+    }
+    if(d.sign!==seqState.lastSequenceSign){
+      seqState.lastSequenceSign=d.sign;
+      if(seqState.recognitionMode==='continuous'){
+        phrase.value+=(phrase.value.trim()?' ':'')+readable;phrase.dispatchEvent(new Event('input'));$('manualText').value=phrase.value;addHistory('continuous',readable,d.confidence);tryAutoSpeak(readable);
+      }
+    }
+  }catch(e){setSeqStatus(e.name==='AbortError'?'Sequence prediction timed out. Check your connection or backend load.':'Sequence endpoint unavailable. Check the backend connection.');}
+  finally{clearTimeout(timeout);seqState.predictionBusy=false;}
+}
+$('continuousStart').addEventListener('click',()=>{if(!stream){setSeqStatus('Start the webcam first using Start camera.');return;}seqState.active=true;seqState.collecting=true;seqState.frames=[];seqState.sampleFrames=[];$('continuousStart').disabled=true;$('continuousStop').disabled=false;$('saveSequence').disabled=true;setSeqStatus('Recording a complete training sample. Keep both hands visible and perform the full sign. Press Stop when finished; any non-empty number of valid frames is accepted, and longer samples are retained.');});
+$('continuousStop').addEventListener('click',()=>{seqState.active=false;seqState.collecting=false;$('continuousStart').disabled=false;$('continuousStop').disabled=true;$('saveSequence').disabled=seqState.sampleFrames.length<1||!$('sequenceLabel').value.trim();setSeqStatus(`Capture stopped. Full training sample: ${seqState.sampleFrames.length} valid frames. The rolling recognition window remains limited to 60 frames for speed; the saved training sample retains its full variable length.`);});
+$('continuousClear').addEventListener('click',()=>{seqState.frames=[];seqState.sampleFrames=[];$('frameProgress').textContent='Prediction window: 0/60 · Training sample: 0 valid frames (minimum 1)';$('saveSequence').disabled=true;setSeqStatus('Training sample and prediction window cleared.');});
+$('sequenceLabel').addEventListener('input',()=>{$('saveSequence').disabled=seqState.sampleFrames.length<1||!$('sequenceLabel').value.trim();});
+$('saveSequence').addEventListener('click',async()=>{const label=$('sequenceLabel').value.trim().toUpperCase().replace(/\s+/g,'_');const frames=seqState.sampleFrames.slice();if(!label||frames.length<1){$('sampleStatus').textContent=`Enter a label and capture at least one valid hand frame first; current sample has ${frames.length}.`;return;}if(frames.length>MAX_SEQUENCE_CAPTURE_FRAMES){$('sampleStatus').textContent=`Sample exceeds the ${MAX_SEQUENCE_CAPTURE_FRAMES}-frame safety limit. Please split it into separate labelled samples.`;return;}$('saveSequence').disabled=true;$('sampleStatus').textContent=`Saving complete ${frames.length}-frame sample to the continuous-sign database…`;try{const r=await fetch(API_BASE+'/api/sequence/samples',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({label,frames}),cache:'no-store'});const d=await r.json();if(!r.ok)throw Error(d.error||'Database save failed.');seqState.samples.push({label,frames,created_at:new Date().toISOString()});$('sampleStatus').textContent=`Saved database sample #${d.id}: ${label}; ${d.frames} valid frames. Database total: ${d.summary.total_samples}. Collect varied samples for every label.`;refreshSequenceDb();}catch(e){$('sampleStatus').textContent=`Could not save to backend database: ${e.message}. You can still export a local JSON backup.`;seqState.samples.push({label,frames,created_at:new Date().toISOString()});}finally{$('saveSequence').disabled=seqState.sampleFrames.length<1||!$('sequenceLabel').value.trim();}});
+$('exportSequences').addEventListener('click',async()=>{try{const r=await fetch(API_BASE+'/api/sequence/export',{cache:'no-store'});if(r.ok){const samples=await r.json();if(samples.length){downloadSequenceJson(samples);$('sampleStatus').textContent=`Exported ${samples.length} samples from the continuous database to sahayak-sequences.json.`;return;}}}catch(e){}if(!seqState.samples.length){$('sampleStatus').textContent='No samples available. Save a sample to the backend database first.';return;}downloadSequenceJson(seqState.samples);$('sampleStatus').textContent=`Exported ${seqState.samples.length} browser-session samples as JSON backup.`;});
+function downloadSequenceJson(samples){const blob=new Blob([JSON.stringify(samples,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='sahayak-sequences.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+async function refreshSequenceDb(){try{const r=await fetch(API_BASE+'/api/sequence/samples',{cache:'no-store'});const d=await r.json();if(r.ok)$('sampleStatus').textContent=`Continuous database: ${d.total_samples} saved samples. Per-label counts: ${Object.entries(d.labels||{}).map(([k,v])=>k+': '+v).join(', ')||'none yet'}.`; }catch(e){}}
+
+function setRecognitionMode(mode){seqState.recognitionMode=mode;const single=mode==='single';$('modeSingle').classList.toggle('secondary',!single);$('modeContinuous').classList.toggle('secondary',single);$('modeStatus').textContent=single?'Single Sign mode: predictions use the existing sahayak_twohand.joblib model.':'Continuous Sign mode: segments are predicted after a brief pause or a 90-frame safety cap. If the sequence model is not trained, use the collector and train it first.';seqState.segmentFrames=[];seqState.lastFeature=null;seqState.stillFrames=0;if(!single){seqState.frames=[];seqState.lastSequenceSign='';setSeqStatus('Continuous mode selected. Perform one sign at a time naturally; a brief pause separates signs.');}else{setSeqStatus('Single Sign mode selected. Continuous collection can still be used from its collection controls.');}}
+$('modeSingle').addEventListener('click',()=>setRecognitionMode('single'));$('modeContinuous').addEventListener('click',()=>setRecognitionMode('continuous'));
+const langNames={en:'English',hi:'Hindi',as:'Assamese',bn:'Bengali',ne:'Nepali',ta:'Tamil',te:'Telugu',mr:'Marathi',gu:'Gujarati',pa:'Punjabi',ur:'Urdu',fr:'French',es:'Spanish',de:'German',it:'Italian',pt:'Portuguese',ar:'Arabic',zh:'Chinese',ja:'Japanese',ko:'Korean',ru:'Russian'};
+async function translateText(text, source=$('sourceLanguage').value){if(!text.trim())throw Error('Enter or recognize text first.');$('translationStatus').textContent='Translating text online…';const r=await fetch(API_BASE+'/api/translate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text,source,target:$('targetLanguage').value})});const d=await r.json();if(!r.ok)throw Error(d.error||'Translation failed.');$('translatedText').value=d.translated; $('translationStatus').textContent=`Translated ${langNames[d.source]||d.source} → ${langNames[d.target]||d.target} using ${d.provider}. Original text is preserved.`;addHistory('translation',text,null,d.translated,d.target);return d.translated;}
+$('translateRecognized').addEventListener('click',async()=>{const text=$('manualText').value||lastSign;try{if(!text.trim())throw Error('Recognize a sign or enter text first.');$('manualText').value=text;await translateText(text);}catch(e){$('translationStatus').textContent=e.message;}});
+$('translateAndSpeak').addEventListener('click',async()=>{try{const text=$('manualText').value||lastSign;if(!text.trim())throw Error('Recognize a sign or enter text first.');$('manualText').value=text;const translated=await translateText(text);speakText(translated,$('targetLanguage').value);}catch(e){$('translationStatus').textContent=e.message;}});
+$('translateTypedPhrase').addEventListener('click',async()=>{try{$('manualText').value=phrase.value;await translateText(phrase.value, $('sourceLanguage').value);}catch(e){$('translationStatus').textContent=e.message;}});
+function speakText(text,lang){if(!text.trim()){$('speechStatus').textContent='No text available to speak.';return;}if(!('speechSynthesis'in window)){$('speechStatus').textContent='This browser does not support speech synthesis.';return;}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);if(lang)u.lang=lang;const voices=speechSynthesis.getVoices();if(lang){const v=voices.find(x=>x.lang.toLowerCase().startsWith(lang.toLowerCase()));if(v)u.voice=v;}u.onstart=()=>$('speechStatus').textContent='Speaking…';u.onend=()=>$('speechStatus').textContent='Speech finished.';u.onerror=()=>$('speechStatus').textContent='Speech failed; a compatible device voice may be unavailable.';speechSynthesis.speak(u);}
+$('speakRecognized').addEventListener('click',()=>{const text=lastRecognizedText;if(!text){speechStatus.textContent='No recognized sign yet. Show a trained sign to the camera first.';return;}speakText(text,$('sourceLanguage').value);});
+$('speakOriginal').addEventListener('click',()=>speakText($('manualText').value||lastSign,$('sourceLanguage').value));
+$('speakTranslated').addEventListener('click',()=>speakText($('translatedText').value,$('targetLanguage').value));
+$('stopAllSpeech').addEventListener('click',()=>{if('speechSynthesis'in window)speechSynthesis.cancel();$('speechStatus').textContent='Speech stopped.';});
+const offlinePhrases={
+ hello:{en:'Hello',hi:'नमस्ते',as:'নমস্কাৰ',bn:'নমস্কার'},
+ help:{en:'Please help me',hi:'कृपया मेरी मदद करें',as:'অনুগ্ৰহ কৰি মোক সহায় কৰক',bn:'দয়া করে আমাকে সাহায্য করুন'},
+ water:{en:'I need water',hi:'मुझे पानी चाहिए',as:'মোক পানী লাগে',bn:'আমার পানি দরকার'},
+ food:{en:'I need food',hi:'मुझे खाना चाहिए',as:'মোক খাদ্য লাগে',bn:'আমার খাবার দরকার'},
+ thankyou:{en:'Thank you',hi:'धन्यवाद',as:'ধন্যবাদ',bn:'ধন্যবাদ'},
+ yes:{en:'Yes',hi:'हाँ',as:'হয়',bn:'হ্যাঁ'},
+ no:{en:'No',hi:'नहीं',as:'নহয়',bn:'না'},
+ emergency:{en:'This is an emergency',hi:'यह एक आपात स्थिति है',as:'এয়া জৰুৰী অৱস্থা',bn:'এটি জরুরি অবস্থা'},
+ bathroom:{en:'Where is the bathroom?',hi:'शौचालय कहाँ है?',as:'শৌচাগাৰ ক’ত?',bn:'শৌচাগার কোথায়?'}
+};let offlineSelected=null;
+$('loadOfflinePhrase').addEventListener('click',()=>{offlineSelected=offlinePhrases[$('offlinePhrase').value];if(!offlineSelected)return;const source=$('sourceLanguage').value;const text=offlineSelected[source]||offlineSelected.en;phrase.value=text;phrase.dispatchEvent(new Event('input'));$('manualText').value=text;$('offlinePhraseStatus').textContent='Loaded offline phrase in '+(langNames[source]||source)+': '+text;});
+$('translateOfflinePhrase').addEventListener('click',()=>{offlineSelected=offlinePhrases[$('offlinePhrase').value];if(!offlineSelected)return;const source=$('sourceLanguage').value,target=$('targetLanguage').value;const original=offlineSelected[source]||offlineSelected.en;const translated=offlineSelected[target];if(!translated){$('offlinePhraseStatus').textContent='This saved phrase has no offline translation for '+(langNames[target]||target)+'. Choose a supported phrasebook language or use online translation.';return;} $('translatedText').value=translated;$('translationStatus').textContent='Offline phrasebook translation (no internet used). Original text is preserved.';$('offlinePhraseStatus').textContent='Offline translation ready: '+translated;addHistory('offline-phrase',original,null,translated,target);});
+$('speakOfflinePhrase').addEventListener('click',()=>{offlineSelected=offlinePhrases[$('offlinePhrase').value];if(offlineSelected){const source=$('sourceLanguage').value;const text=offlineSelected[source]||offlineSelected.en;phrase.value=text;phrase.dispatchEvent(new Event('input'));speakText(text,source);}});
+$('speakOfflineTranslation').addEventListener('click',()=>{offlineSelected=offlinePhrases[$('offlinePhrase').value];if(!offlineSelected)return;const target=$('targetLanguage').value;const translated=offlineSelected[target];if(!translated){$('offlinePhraseStatus').textContent='No saved offline translation for that language. Use English, Hindi, Assamese or Bengali, or translate online.';return;}$('translatedText').value=translated;speakText(translated,target);});
+function tryAutoSpeak(text){if(!autoSpeakControl.checked||!text)return;const now=Date.now();if(text===lastAutoSpokenSign&&now-lastAutoSpokenAt<5000)return;lastAutoSpokenSign=text;lastAutoSpokenAt=now;speakText(text,$('sourceLanguage').value);}
+function addHistory(mode,text,confidence=null,translated='',target=''){let arr=[];try{arr=JSON.parse(localStorage.getItem('sahayak_history')||'[]')}catch(e){}arr.unshift({id:Date.now()+'-'+Math.random().toString(36).slice(2),time:new Date().toISOString(),mode,text,confidence,translated,target});arr=arr.slice(0,200);try{localStorage.setItem('sahayak_history',JSON.stringify(arr))}catch(e){}renderHistory();}
+function renderHistory(){let arr=[];try{arr=JSON.parse(localStorage.getItem('sahayak_history')||'[]')}catch(e){}const host=$('historyList');if(!arr.length){host.textContent='No history yet.';return;}host.innerHTML='';for(const item of arr){const row=document.createElement('div');row.style.cssText='display:flex;gap:10px;align-items:start;justify-content:space-between;border-bottom:1px solid #243750;padding:9px 0';const body=document.createElement('div');body.textContent=`${new Date(item.time).toLocaleString()} · ${item.mode} · ${item.text}${item.confidence==null?'':` · ${item.confidence}%`}${item.translated?` → ${item.translated} (${item.target})`:''}`;const del=document.createElement('button');del.className='secondary';del.textContent='Remove';del.addEventListener('click',()=>{let all=JSON.parse(localStorage.getItem('sahayak_history')||'[]').filter(x=>x.id!==item.id);localStorage.setItem('sahayak_history',JSON.stringify(all));renderHistory();});row.append(body,del);host.append(row);}}
+$('refreshHistory').addEventListener('click',renderHistory);$('clearHistory').addEventListener('click',()=>{localStorage.removeItem('sahayak_history');renderHistory();});renderHistory();
+
+window.addEventListener('pagehide',stopCamera);loadCameras();checkStatus();refreshSequenceDb();if('serviceWorker'in navigator&&location.protocol.startsWith('http'))window.addEventListener('load',()=>navigator.serviceWorker.register('/service-worker.js').catch(()=>{}));
+</script>
+</body>
+</html>

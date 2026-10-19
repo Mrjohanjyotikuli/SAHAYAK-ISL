@@ -1,6 +1,6 @@
 
-const CACHE = 'sahayak-shell-v4';
-const SHELL = ['/', '/index.html', '/config.js'];
+const CACHE = 'sahayak-shell-v5';
+const SHELL = ['/', '/index.html', '/studio.html', '/config.js'];
 
 self.addEventListener('install', event => {
   event.waitUntil(
@@ -37,18 +37,20 @@ self.addEventListener('fetch', event => {
   }
 
   if (request.mode === 'navigate') {
+    const cacheKey = url.pathname === '/' ? '/' : url.pathname;
     event.respondWith(
       fetch(request)
         .then(response => {
           if (response.ok) {
-            const copy = response.clone();
-            caches.open(CACHE).then(cache =>
-              cache.put('/index.html', copy)
-            );
+            caches.open(CACHE).then(async cache => {
+              await cache.put(cacheKey, response.clone());
+              if (url.pathname === '/') await cache.put('/index.html', response.clone());
+              if (url.pathname === '/index.html') await cache.put('/', response.clone());
+            });
           }
           return response;
         })
-        .catch(() => caches.match('/index.html'))
+        .catch(async () => (await caches.match(cacheKey)) || caches.match('/index.html'))
     );
     return;
   }
