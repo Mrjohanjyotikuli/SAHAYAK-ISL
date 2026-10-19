@@ -131,6 +131,8 @@ try{autoSpeakControl.checked=localStorage.getItem('sahayak_auto_speak')==='true'
 autoSpeakControl.addEventListener('change',()=>{try{localStorage.setItem('sahayak_auto_speak',String(autoSpeakControl.checked));}catch(e){}speechStatus.textContent=autoSpeakControl.checked?'Auto-speak enabled. Newly recognized signs will be spoken.':'Auto-speak disabled. Use Speak recognized sign when needed.';});
 const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || (navigator.maxTouchPoints > 1 && /Mac/i.test(navigator.platform));
 const frameIntervalMs = isMobile ? 100 : 70;
+let apiFailureCount = 0;
+let retryDelayMs = 0;
 const SIGN_TEXT={HELLO:'Hello',YES:'Yes',NO:'No',I_LOVE_YOU:'I love you',THANK_YOU:'Thank you'};
 function readableSign(label){return SIGN_TEXT[label]||String(label||'').replace(/_/g,' ').toLowerCase().replace(/\b\w/g,c=>c.toUpperCase());}
 const API_BASE=(window.SAHAYAK_API_BASE||'https://sahayak-backend-krh1.onrender.com').replace(/\/$/,'');
@@ -226,7 +228,7 @@ function drawAnnotations(items) {
   }
 }
 async function predictFrame(){
-  if(stopped||busy||!stream||video.readyState<2)return;
+  if(stopped||busy||!stream||video.readyState<2||document.hidden)return;
   busy=true;
   const generation=cameraGeneration;
   try{
@@ -234,14 +236,15 @@ async function predictFrame(){
     // Smaller JPEG payloads reduce upload time on mobile data without changing model features.
     const image=canvas.toDataURL('image/jpeg', isMobile ? .48 : .55);
     const controller=new AbortController(); activeController=controller;
-    const timeout=setTimeout(()=>controller.abort(),5000);
+    const timeout=setTimeout(()=>controller.abort(),15000);
     let r;
     try{
       r=await fetch(API_BASE+'/api/predict',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({image,include_features:true,mirror:facingMode==='user'}),signal:controller.signal,cache:'no-store'});
     }finally{clearTimeout(timeout);if(activeController===controller)activeController=null;}
     if(generation!==cameraGeneration || stopped)return;
     const d=await r.json();
-    if(!r.ok){stateEl.textContent='Model not ready';outputEl.textContent=d.error||'Recognition unavailable.';clearAnnotations();return;}
+    if(!r.ok){apiFailureCount=Math.min(apiFailureCount+1,5);retryDelayMs=Math.min(10000,1000*Math.pow(2,apiFailureCount-1));stateEl.textContent='Model not ready';outputEl.textContent=d.error||'Recognition unavailable.';clearAnnotations();return;}
+    apiFailureCount=0;retryDelayMs=0;
     statusEl.classList.remove('warning');
     drawAnnotations(d.landmarks||[]);
     if(Array.isArray(d.sequence_features)&&d.sequence_features.length===132&&d.valid_features===true)handleSequenceFrame(d.sequence_features);
@@ -256,13 +259,15 @@ async function predictFrame(){
       }else{lastAutoSpokenSign='';signEl.textContent='—';confidenceEl.textContent=d.hands?'Confidence: below recognition threshold':'Confidence: —';stateEl.textContent=d.hands?'Sign uncertain':'Searching for hands';if(d.message)outputEl.textContent=d.message;}
     }else stateEl.textContent='Continuous mode';
   }catch(e){
-    if(generation!==cameraGeneration||stopped)return;
-    if(e.name==='AbortError')statusEl.textContent='Recognition request timed out. Check the connection or backend load.';
-    else statusEl.textContent='Recognition service unreachable. Phrase pad remains available offline.';
+    if(generation!==cameraGeneration||stopped||document.hidden)return;
+    apiFailureCount=Math.min(apiFailureCount+1,5);
+    retryDelayMs=Math.min(10000,1000*Math.pow(2,apiFailureCount-1));
+    if(e.name==='AbortError')statusEl.textContent='Recognition request timed out. Retrying more slowly to protect the backend.';
+    else statusEl.textContent='Recognition service unreachable. Retrying more slowly; phrase pad remains available offline.';
     statusEl.classList.add('warning');
   }finally{
     busy=false;
-    if(!stopped&&stream&&generation===cameraGeneration)loopHandle=setTimeout(predictFrame,frameIntervalMs);
+    if(!stopped&&stream&&!document.hidden&&generation===cameraGeneration)loopHandle=setTimeout(predictFrame,apiFailureCount?retryDelayMs:frameIntervalMs);
   }
 }
 async function loadCameras(){
@@ -331,7 +336,7 @@ document.getElementById('switchCamera').addEventListener('click',async()=>{
   else{video.style.transform=facingMode==='user'?'scaleX(-1)':'none';annotation.style.transform=facingMode==='user'?'scaleX(-1)':'none';statusEl.textContent=`${facingMode==='user'?'Front':'Rear'} camera selected. Tap Start camera.`;}
 });
 function stopCamera(){stopped=true;cameraGeneration++;if(activeController)activeController.abort();if(loopHandle)clearTimeout(loopHandle);loopHandle=null;if(stream)stream.getTracks().forEach(t=>t.stop());stream=null;video.srcObject=null;placeholder.hidden=false;startBtn.disabled=false;stopBtn.disabled=true;busy=false;stateEl.textContent='Camera stopped';clearAnnotations();}
-stopBtn.addEventListener('click',stopCamera);document.getElementById('clear').addEventListener('click',()=>{signEl.textContent='—';confidenceEl.textContent='Confidence: —';outputEl.textContent='Output cleared.';stateEl.textContent='Waiting for sign';lastSign='';lastRecognizedText='';$('manualText').value='';clearAnnotations();});
+stopBtn.addEventListener('click',stopCamera);document.addEventListener('visibilitychange',()=>{if(document.hidden){if(loopHandle)clearTimeout(loopHandle);loopHandle=null;if(activeController)activeController.abort();return;}if(!stopped&&stream&&!busy)predictFrame();});document.getElementById('clear').addEventListener('click',()=>{signEl.textContent='—';confidenceEl.textContent='Confidence: —';outputEl.textContent='Output cleared.';stateEl.textContent='Waiting for sign';lastSign='';lastRecognizedText='';$('manualText').value='';clearAnnotations();});
 document.getElementById('appendSign').addEventListener('click',()=>{if(!lastRecognizedText){speechStatus.textContent='No recognized sign yet. Show a trained sign to the camera first.';return;}phrase.value+=(phrase.value.trim()?' ':'')+lastRecognizedText;phrase.dispatchEvent(new Event('input'));document.getElementById('manualText').value=phrase.value;});
 phrase.addEventListener('input',()=>{try{localStorage.setItem('sahayak_phrase',phrase.value);}catch(e){}});try{phrase.value=localStorage.getItem('sahayak_phrase')||'';}catch(e){}
 try{$('sourceLanguage').value=localStorage.getItem('sahayak_source_language')||'en';}catch(e){}$('sourceLanguage').addEventListener('change',()=>{try{localStorage.setItem('sahayak_source_language',$('sourceLanguage').value);}catch(e){}});

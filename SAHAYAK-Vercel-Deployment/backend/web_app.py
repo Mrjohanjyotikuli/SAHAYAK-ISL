@@ -1,7 +1,14 @@
 """SAHAYAK Flask API. Run locally with python web_app.py; deploy API separately from Netlify."""
 from pathlib import Path
-import base64, os, json, urllib.parse, urllib.request, urllib.error, threading
+import os
+# Limit native numerical-library thread oversubscription on the small Render instance.
+os.environ.setdefault("OMP_NUM_THREADS", "1")
+os.environ.setdefault("OPENBLAS_NUM_THREADS", "1")
+os.environ.setdefault("MKL_NUM_THREADS", "1")
+os.environ.setdefault("NUMEXPR_NUM_THREADS", "1")
+import base64, json, urllib.parse, urllib.request, urllib.error, threading, time
 import cv2, numpy as np, joblib, mediapipe as mp
+cv2.setNumThreads(1)
 from flask import Flask, jsonify, request, send_from_directory
 from flask_cors import CORS
 from features import two_hand_features, two_hand_sequence_features, landmarks_for_preview, TOTAL_FEATURES
@@ -19,6 +26,29 @@ sequence_model = None
 init_sequence_db()
 hands = mp.solutions.hands.Hands(static_image_mode=False, max_num_hands=2, model_complexity=0, min_detection_confidence=.55)
 hands_lock = threading.Lock()
+
+# Warm MediaPipe inside the Render worker before the first real camera frame.
+try:
+    _warm_started = time.monotonic()
+    with hands_lock:
+        hands.process(np.zeros((240, 320, 3), dtype=np.uint8))
+    app.logger.info("[SAHAYAK] MediaPipe warm-up completed in %.0f ms", (time.monotonic() - _warm_started) * 1000)
+except Exception:
+    app.logger.exception("[SAHAYAK] MediaPipe warm-up failed; live requests will still attempt detection")
+
+@app.before_request
+def trace_api_request_start():
+    request.environ["sahayak_started_at"] = time.monotonic()
+    if request.path.startswith("/api/"):
+        app.logger.info("[SAHAYAK] request_start method=%s path=%s bytes=%s", request.method, request.path, request.content_length or 0)
+
+@app.after_request
+def trace_api_request_finish(response):
+    started = request.environ.get("sahayak_started_at")
+    if request.path.startswith("/api/") and started is not None:
+        elapsed_ms = (time.monotonic() - started) * 1000
+        app.logger.info("[SAHAYAK] request_done method=%s path=%s status=%s elapsed_ms=%.0f", request.method, request.path, response.status_code, elapsed_ms)
+    return response
 def get_sequence_model():
     global sequence_model
     if sequence_model is None and SEQUENCE_MODEL_PATH.exists():
@@ -67,8 +97,12 @@ def status():
     return jsonify({"project":"SAHAYAK", "developer":"Mr. Johan Jyoti Kuli", "model_ready":ready, "ready":ready, "mode":"two-hand", "sequence_model_ready":sequence_ready, "sequence_input_frames":MIN_SEQUENCE_FRAMES, "sequence_features":SEQUENCE_FEATURES, "model_error":model_error, "sequence_error":sequence_error, "sequence_database":sequence_db_summary(), "message":"Two-hand recognition model ready." if ready else (model_error or "Single-sign model missing. Restore the original model before recognition.")})
 @app.post("/api/predict")
 def predict():
+    predict_started = time.monotonic()
+    app.logger.info("[SAHAYAK] predict_stage=begin bytes=%s", request.content_length or 0)
     try: clf = get_model()
-    except Exception as e: return jsonify({"error":str(e)}), 500
+    except Exception as e:
+        app.logger.exception("[SAHAYAK] predict_stage=model_load_failed")
+        return jsonify({"error":str(e)}), 500
     if clf is None: return jsonify({"error":"Two-hand model not trained yet. Collect data and run python train_model.py; use --promote only when ready to replace the live model."}), 503
     body = request.get_json(silent=True) or {}
     data_url = body.get("image", "")
@@ -79,16 +113,22 @@ def predict():
         if len(raw) > 1_500_000: return jsonify({"error":"Frame too large; lower camera resolution."}), 413
         frame = cv2.imdecode(np.frombuffer(raw, np.uint8), cv2.IMREAD_COLOR)
     except Exception: frame = None
-    if frame is None: return jsonify({"error":"Could not decode camera frame."}), 400
+    if frame is None:
+        app.logger.warning("[SAHAYAK] predict_stage=decode_failed elapsed_ms=%.0f", (time.monotonic() - predict_started) * 1000)
+        return jsonify({"error":"Could not decode camera frame."}), 400
+    app.logger.info("[SAHAYAK] predict_stage=decoded width=%s height=%s elapsed_ms=%.0f", frame.shape[1], frame.shape[0], (time.monotonic() - predict_started) * 1000)
     # Always mirror the inference frame to preserve the original model's preprocessing.
     # Convert returned landmarks back to raw camera coordinates for both cameras. The
     # frontend mirrors the preview AND overlay together for the front camera only.
     frame = cv2.flip(frame, 1)
+    app.logger.info("[SAHAYAK] predict_stage=mediapipe_start width=%s height=%s", frame.shape[1], frame.shape[0])
     with hands_lock:
         result = hands.process(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
+    app.logger.info("[SAHAYAK] predict_stage=mediapipe_done hands=%s elapsed_ms=%.0f", len(result.multi_hand_landmarks or []), (time.monotonic() - predict_started) * 1000)
     features, visible = two_hand_features(result)
     temporal_features = two_hand_sequence_features(result)
     visible = landmarks_for_preview(visible)
+    app.logger.info("[SAHAYAK] predict_stage=features_done visible_hands=%s elapsed_ms=%.0f", len(visible), (time.monotonic() - predict_started) * 1000)
     if features is None:
         response = {"recognized":False,"sign":"","confidence":0,"hands":0,"landmarks":[],"message":"No hand detected. Show one or both hands clearly."}
         if body.get("include_features"):
@@ -96,8 +136,10 @@ def predict():
             response["sequence_features"] = []
             response["valid_features"] = False
         return jsonify(response)
+    app.logger.info("[SAHAYAK] predict_stage=classifier_start")
     probs = clf.predict_proba(features)[0]
     idx = int(np.argmax(probs)); confidence = float(probs[idx]); sign = str(clf.classes_[idx])
+    app.logger.info("[SAHAYAK] predict_stage=classifier_done elapsed_ms=%.0f", (time.monotonic() - predict_started) * 1000)
     accepted = confidence >= .60
     response = {"recognized":accepted,"sign":sign if accepted else "","confidence":round(confidence*100,1),"hands":len(visible),"landmarks":visible,"message":"Sign recognized." if accepted else "Uncertain sign; hold it steady and try again."}
     if body.get("include_features"):
