@@ -115,6 +115,7 @@ select, input, textarea { max-width: 100%; font-size: 16px; }
 
 <footer class="bottom">SAHAYAK<br>Developed by <strong style="color:var(--text)">Mr. Johan Jyoti Kuli</strong></footer>
 </main>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1675469240/hands.js" crossorigin="anonymous"></script>
 <script src="/config.js"></script>
 <script>
 const video=document.getElementById('video'), canvas=document.getElementById('canvas'), ctx=canvas.getContext('2d');
@@ -125,6 +126,7 @@ const signEl=document.getElementById('sign'), confidenceEl=document.getElementBy
 const phrase=document.getElementById('phrase'), speechStatus=document.getElementById('speechStatus');
 const $=id=>document.getElementById(id);
 let stream=null, loopHandle=null, busy=false, stopped=true, lastSign='', lastRecognizedText='', lastAcceptedAt=0, facingMode='user', cameraGeneration=0, activeController=null;
+let browserHands=null, browserHandsPromise=null, classifierBusy=false;
 let lastAutoSpokenSign='', lastAutoSpokenAt=0;
 const autoSpeakControl=document.getElementById('autoSpeakRecognized');
 try{autoSpeakControl.checked=localStorage.getItem('sahayak_auto_speak')==='true';}catch(e){}
@@ -227,47 +229,182 @@ function drawAnnotations(items) {
     actx.restore();
   }
 }
+async function setupBrowserHands(){
+  if(browserHands) return browserHands;
+  if(browserHandsPromise) return browserHandsPromise;
+  browserHandsPromise=(async()=>{
+    if(typeof Hands!=='function'){
+      throw new Error('Browser hand detector did not load. Check internet access and refresh the page.');
+    }
+    const detector=new Hands({
+      locateFile:file=>'https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1675469240/'+file
+    });
+    detector.setOptions({
+      maxNumHands:2,
+      modelComplexity:0,
+      minDetectionConfidence:0.55,
+      minTrackingConfidence:0.5
+    });
+    detector.onResults(handleBrowserHandResults);
+    if(typeof detector.initialize==='function') await detector.initialize();
+    browserHands=detector;
+    statusEl.classList.remove('warning');
+    statusEl.textContent='Browser hand detector ready · waiting for a camera frame';
+    return detector;
+  })();
+  try{return await browserHandsPromise;}
+  catch(error){browserHandsPromise=null;throw error;}
+}
+
+function buildBrowserFeatures(results){
+  const found=results.multiHandLandmarks||[];
+  const handed=results.multiHandedness||[];
+  const slots={Left:Array(63).fill(0),Right:Array(63).fill(0)};
+  const wrists={Left:[0,0,0],Right:[0,0,0]};
+  const assigned=new Set();
+  const visible=[];
+  for(let i=0;i<found.length&&i<2;i++){
+    const points=found[i];
+    if(!Array.isArray(points)||points.length!==21) continue;
+    const meta=handed[i]||{};
+    let side=meta.label||(meta.classification&&meta.classification[0]&&meta.classification[0].label)||'Unknown';
+    if(!Object.prototype.hasOwnProperty.call(slots,side)||assigned.has(side)){
+      side=!assigned.has('Left')?'Left':(!assigned.has('Right')?'Right':null);
+    }
+    if(!side) continue;
+    assigned.add(side);
+    const xyz=points.map(p=>[Number(p.x),Number(p.y),Number(p.z)]);
+    const origin=xyz[0];
+    const relative=xyz.map(p=>[p[0]-origin[0],p[1]-origin[1],p[2]-origin[2]]);
+    let scale=1e-6;
+    for(const p of relative) for(const value of p) scale=Math.max(scale,Math.abs(value));
+    slots[side]=relative.flatMap(p=>p.map(value=>value/scale));
+    wrists[side]=[Number(points[0].x),Number(points[0].y),Number(points[0].z)];
+    // MediaPipe sees a mirrored inference canvas to preserve the original model's
+    // preprocessing; convert annotation x back to raw video coordinates.
+    visible.push({
+      side,
+      points:points.map(p=>[1-Number(p.x),Number(p.y)])
+    });
+  }
+  const features=[...slots.Left,...slots.Right];
+  const sequenceFeatures=[...features,...wrists.Left,...wrists.Right];
+  return {hands:visible,features,sequenceFeatures,valid:visible.length>0};
+}
+
+async function recognizeBrowserFeatures(payload,generation){
+  if(classifierBusy||!payload.valid||stopped||generation!==cameraGeneration) return;
+  classifierBusy=true;
+  const controller=new AbortController();
+  activeController=controller;
+  const timeout=setTimeout(()=>controller.abort(),10000);
+  try{
+    const response=await fetch(API_BASE+'/api/predict-features',{
+      method:'POST',
+      headers:{'Content-Type':'text/plain;charset=UTF-8'},
+      body:JSON.stringify({
+        features:payload.features,
+        sequence_features:payload.sequenceFeatures,
+        landmarks:payload.hands,
+        include_features:true
+      }),
+      signal:controller.signal,
+      cache:'no-store'
+    });
+    const data=await response.json();
+    if(generation!==cameraGeneration||stopped) return;
+    if(!response.ok) throw new Error(data.error||'Classifier request failed.');
+    apiFailureCount=0;retryDelayMs=0;
+    statusEl.classList.remove('warning');
+    statusEl.textContent='Browser hand tracking active · classifier connected';
+    if(seqState.recognitionMode==='single'){
+      if(data.recognized){
+        const readable=readableSign(data.sign);
+        signEl.textContent=readable;
+        confidenceEl.textContent='Confidence: '+data.confidence+'% · Hands: '+data.hands;
+        stateEl.textContent='Recognized';
+        outputEl.textContent=readable;
+        const now=Date.now();
+        lastRecognizedText=readable;
+        $('manualText').value=readable;
+        if(data.sign!==lastSign||now-lastAcceptedAt>2500){
+          addHistory('single-sign',readable,data.confidence);
+          lastAcceptedAt=now;
+        }
+        if(data.sign!==lastSign) tryAutoSpeak(readable);
+        lastSign=data.sign;
+      }else{
+        lastAutoSpokenSign='';
+        signEl.textContent='—';
+        confidenceEl.textContent=data.hands?'Confidence: below recognition threshold':'Confidence: —';
+        stateEl.textContent=data.hands?'Sign uncertain':'Searching for hands';
+        if(data.message) outputEl.textContent=data.message;
+      }
+    }else{
+      stateEl.textContent='Continuous mode';
+    }
+  }catch(error){
+    if(generation!==cameraGeneration||stopped||document.hidden) return;
+    statusEl.classList.add('warning');
+    statusEl.textContent=error.name==='AbortError'
+      ?'Classifier request timed out; browser annotation remains active.'
+      :'Hand tracking is active, but classifier API failed: '+error.message;
+  }finally{
+    clearTimeout(timeout);
+    if(activeController===controller) activeController=null;
+    classifierBusy=false;
+  }
+}
+
+function handleBrowserHandResults(results){
+  if(stopped) return;
+  const payload=buildBrowserFeatures(results);
+  drawAnnotations(payload.hands);
+  if(payload.valid){
+    statusEl.classList.remove('warning');
+    if(seqState.active||seqState.recognitionMode==='continuous'){
+      handleSequenceFrame(payload.sequenceFeatures);
+    }
+    if(!classifierBusy) recognizeBrowserFeatures(payload,cameraGeneration);
+  }else{
+    if(seqState.active){
+      seqState.lastFeature=null;
+      seqState.stillFrames=0;
+      setSeqStatus('No hand detected in this frame. Move your hand into view; only valid landmark frames are counted.');
+    }
+    lastAutoSpokenSign='';
+    signEl.textContent='—';
+    confidenceEl.textContent='Confidence: —';
+    stateEl.textContent='Searching for hands';
+    outputEl.textContent='No hand detected. Show one or both hands clearly.';
+  }
+}
+
 async function predictFrame(){
   if(stopped||busy||!stream||video.readyState<2||document.hidden)return;
   busy=true;
   const generation=cameraGeneration;
   try{
+    const detector=await setupBrowserHands();
+    if(generation!==cameraGeneration||stopped)return;
+    ctx.save();
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    // Original backend mirrored every image before MediaPipe; preserve that input
+    // orientation while moving detection to the browser's local CPU.
+    ctx.translate(canvas.width,0);
+    ctx.scale(-1,1);
     ctx.drawImage(video,0,0,canvas.width,canvas.height);
-    // Smaller JPEG payloads reduce upload time on mobile data without changing model features.
-    const image=canvas.toDataURL('image/jpeg', isMobile ? .48 : .55);
-    const controller=new AbortController(); activeController=controller;
-    const timeout=setTimeout(()=>controller.abort(),15000);
-    let r;
-    try{
-      r=await fetch(API_BASE+'/api/predict',{method:'POST',headers:{'Content-Type':'text/plain;charset=UTF-8'},body:JSON.stringify({image,include_features:true,mirror:facingMode==='user'}),signal:controller.signal,cache:'no-store'});
-    }finally{clearTimeout(timeout);if(activeController===controller)activeController=null;}
-    if(generation!==cameraGeneration || stopped)return;
-    const d=await r.json();
-    if(!r.ok){apiFailureCount=Math.min(apiFailureCount+1,5);retryDelayMs=Math.min(10000,1000*Math.pow(2,apiFailureCount-1));stateEl.textContent='Model not ready';outputEl.textContent=d.error||'Recognition unavailable.';clearAnnotations();return;}
-    apiFailureCount=0;retryDelayMs=0;
-    statusEl.classList.remove('warning');
-    drawAnnotations(d.landmarks||[]);
-    if(Array.isArray(d.sequence_features)&&d.sequence_features.length===132&&d.valid_features===true)handleSequenceFrame(d.sequence_features);
-    else if(seqState.active&&d.valid_features===false)setSeqStatus('No hand detected in this camera frame; move your hand into view. Only valid landmark frames are counted.');
-    if(seqState.recognitionMode==='single'){
-      if(d.recognized){
-        const readable=readableSign(d.sign);signEl.textContent=readable;confidenceEl.textContent='Confidence: '+d.confidence+'% · Hands: '+d.hands;stateEl.textContent='Recognized';outputEl.textContent=readable;
-        const now=Date.now();lastRecognizedText=readable;$('manualText').value=readable;
-        if(d.sign!==lastSign||now-lastAcceptedAt>2500){addHistory('single-sign',readable,d.confidence);lastAcceptedAt=now;}
-        if(d.sign!==lastSign)tryAutoSpeak(readable);
-        lastSign=d.sign;
-      }else{lastAutoSpokenSign='';signEl.textContent='—';confidenceEl.textContent=d.hands?'Confidence: below recognition threshold':'Confidence: —';stateEl.textContent=d.hands?'Sign uncertain':'Searching for hands';if(d.message)outputEl.textContent=d.message;}
-    }else stateEl.textContent='Continuous mode';
-  }catch(e){
-    if(generation!==cameraGeneration||stopped||document.hidden)return;
-    apiFailureCount=Math.min(apiFailureCount+1,5);
-    retryDelayMs=Math.min(10000,1000*Math.pow(2,apiFailureCount-1));
-    if(e.name==='AbortError')statusEl.textContent='Recognition request timed out. Retrying more slowly to protect the backend.';
-    else statusEl.textContent='Recognition service unreachable. Retrying more slowly; phrase pad remains available offline.';
+    ctx.restore();
+    await detector.send({image:canvas});
+  }catch(error){
+    if(generation!==cameraGeneration||stopped)return;
     statusEl.classList.add('warning');
+    statusEl.textContent='Browser hand detector failed: '+error.message;
   }finally{
     busy=false;
-    if(!stopped&&stream&&!document.hidden&&generation===cameraGeneration)loopHandle=setTimeout(predictFrame,apiFailureCount?retryDelayMs:frameIntervalMs);
+    if(!stopped&&stream&&!document.hidden&&generation===cameraGeneration){
+      loopHandle=setTimeout(predictFrame,frameIntervalMs);
+    }
   }
 }
 async function loadCameras(){
@@ -317,10 +454,11 @@ async function startCamera(){
     placeholder.hidden=true;startBtn.disabled=true;stopBtn.disabled=false;stopped=false;busy=false;
     cameraGeneration++;stateEl.textContent='Camera active';statusEl.textContent=`Camera active · ${facingMode==='user'?'front':'rear'} camera · optimized ${isMobile?'mobile':'desktop'} capture`;
     await loadCameras();
+    await setupBrowserHands();
     predictFrame();
   }catch(e){
     if(stream)stream.getTracks().forEach(t=>t.stop());stream=null;video.srcObject=null;
-    statusEl.textContent=e.message.includes('HTTPS')?e.message:'Camera unavailable. Allow camera permission, close other camera apps, or choose another camera.';
+    statusEl.textContent=e.message.includes('HTTPS')||e.message.includes('Browser hand detector')?e.message:'Camera unavailable. Allow camera permission, close other camera apps, or choose another camera.';
     statusEl.classList.add('warning');startBtn.disabled=false;stopBtn.disabled=true;
   }
 }

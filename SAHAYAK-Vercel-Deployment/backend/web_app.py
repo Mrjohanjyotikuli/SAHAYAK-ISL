@@ -97,6 +97,84 @@ def status():
         except Exception as exc:
             sequence_error = str(exc)
     return jsonify({"project":"SAHAYAK", "developer":"Mr. Johan Jyoti Kuli", "model_ready":ready, "ready":ready, "mode":"two-hand", "sequence_model_ready":sequence_ready, "sequence_input_frames":MIN_SEQUENCE_FRAMES, "sequence_features":SEQUENCE_FEATURES, "model_error":model_error, "sequence_error":sequence_error, "sequence_database":sequence_db_summary(), "message":"Two-hand recognition model ready." if ready else (model_error or "Single-sign model missing. Restore the original model before recognition.")})
+@app.post("/api/predict-features")
+def predict_features():
+    """Classify browser-computed hand landmarks without running MediaPipe on the server."""
+    started = time.monotonic()
+    app.logger.info("[SAHAYAK] feature_predict_stage=begin bytes=%s", request.content_length or 0)
+    try:
+        clf = get_model()
+    except Exception as exc:
+        app.logger.exception("[SAHAYAK] feature_predict_stage=model_load_failed")
+        return jsonify({"error": str(exc)}), 500
+    if clf is None:
+        return jsonify({"error": "Two-hand classifier model is missing."}), 503
+    body = request.get_json(force=True, silent=True) or {}
+    raw_features = body.get("features")
+    if not isinstance(raw_features, list) or len(raw_features) != TOTAL_FEATURES:
+        return jsonify({"error": f"Expected exactly {TOTAL_FEATURES} normalized hand features."}), 400
+    try:
+        values = np.asarray([float(value) for value in raw_features], dtype=np.float32)
+    except (TypeError, ValueError, OverflowError):
+        return jsonify({"error": "Hand features must contain numeric values."}), 400
+    if not np.isfinite(values).all():
+        return jsonify({"error": "Hand features contain non-finite values."}), 400
+    raw_sequence = body.get("sequence_features", [])
+    sequence_values = []
+    if isinstance(raw_sequence, list) and len(raw_sequence) == SEQUENCE_FEATURES:
+        try:
+            parsed_sequence = [float(value) for value in raw_sequence]
+            if np.isfinite(parsed_sequence).all():
+                sequence_values = parsed_sequence
+        except (TypeError, ValueError, OverflowError):
+            sequence_values = []
+    raw_visible = body.get("landmarks", [])
+    visible = []
+    if isinstance(raw_visible, list):
+        for hand in raw_visible[:2]:
+            if not isinstance(hand, dict):
+                continue
+            points = hand.get("points")
+            if not isinstance(points, list) or len(points) != 21:
+                continue
+            safe_points = []
+            try:
+                for point in points:
+                    if not isinstance(point, (list, tuple)) or len(point) != 2:
+                        raise ValueError("Invalid landmark point")
+                    x, y = float(point[0]), float(point[1])
+                    if not np.isfinite([x, y]).all():
+                        raise ValueError("Invalid landmark point")
+                    safe_points.append([x, y])
+            except (TypeError, ValueError, OverflowError):
+                continue
+            visible.append({"side": str(hand.get("side", "Detected"))[:16], "points": safe_points})
+    app.logger.info("[SAHAYAK] feature_predict_stage=validated hands=%s elapsed_ms=%.0f", len(visible), (time.monotonic() - started) * 1000)
+    try:
+        probs = clf.predict_proba(values.reshape(1, -1))[0]
+        index = int(np.argmax(probs))
+        confidence = float(probs[index])
+        sign = str(clf.classes_[index])
+    except Exception as exc:
+        app.logger.exception("[SAHAYAK] feature_predict_stage=classifier_failed")
+        return jsonify({"error": "Classifier prediction failed: " + str(exc)}), 500
+    accepted = confidence >= .60
+    response = {
+        "recognized": accepted,
+        "sign": sign if accepted else "",
+        "confidence": round(confidence * 100, 1),
+        "hands": len(visible),
+        "landmarks": visible,
+        "message": "Sign recognized." if accepted else "Uncertain sign; hold it steady and try again.",
+        "valid_features": len(sequence_values) == SEQUENCE_FEATURES,
+        "sequence_features": sequence_values
+    }
+    if body.get("include_features"):
+        response["features"] = values.astype(float).tolist()
+    app.logger.info("[SAHAYAK] feature_predict_stage=complete status=200 elapsed_ms=%.0f", (time.monotonic() - started) * 1000)
+    return jsonify(response)
+
+
 @app.post("/api/predict")
 def predict():
     predict_started = time.monotonic()
