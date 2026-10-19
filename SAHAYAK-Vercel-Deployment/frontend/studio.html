@@ -595,7 +595,7 @@ async function translateText(text, source=$('sourceLanguage').value){
   const original=String(text||'').trim();
   if(!original)throw Error('Enter or recognize text first.');
   const target=$('targetLanguage').value;
-  const normalize=value=>String(value||'').trim().replace(/\\s+/g,' ').toLocaleLowerCase();
+  const normalize=value=>String(value||'').trim().replace(/\s+/g,' ').toLocaleLowerCase();
   // The one Translate button uses the offline phrase dictionary when there is an exact match.
   for(const saved of Object.values(offlinePhrases)){
     const offlineSource=saved[source];
