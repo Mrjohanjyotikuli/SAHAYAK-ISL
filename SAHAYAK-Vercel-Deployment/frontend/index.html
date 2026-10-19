@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAHAYAK — Real-Time Indian Sign Language Recognition System</title>
+    <title>SAHAYAK — Real-Time Indian Sign Language Recognition System — Home</title>
     
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -112,7 +112,33 @@
             background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
             background-size: 24px 24px;
         }
-    </style>
+    
+.page-nav-link[aria-current="page"]{background:#1e293b;color:#fff;box-shadow:inset 0 0 0 1px rgba(148,163,184,.15)}
+.team-lead-card{display:grid;grid-template-columns:11rem minmax(0,1fr);align-items:center;gap:1.4rem;max-width:55rem;margin:0 auto;padding:1.5rem;border:1px solid rgba(212,175,55,.45);border-radius:1.5rem;background:linear-gradient(135deg,#111c2d,#101827);box-shadow:0 20px 48px rgba(0,0,0,.18)}
+.team-lead-copy h3{font-size:1.45rem;font-weight:900;color:#fff;margin:.65rem 0 .3rem}
+.team-lead-copy p{font-size:.88rem;color:#aab9cd;line-height:1.6}
+.team-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.team-member-card{display:flex;flex-direction:column;align-items:center;gap:.7rem;min-width:0;padding:1.25rem;border:1px solid #293548;border-radius:1.35rem;background:linear-gradient(150deg,#111d2e,#0c1422);text-align:center;box-shadow:0 12px 32px rgba(0,0,0,.16)}
+.team-member-card h3{font-size:1.15rem;font-weight:850;color:#f8fafc;line-height:1.3}
+.team-member-card p{font-size:.82rem;color:#aab9cd;line-height:1.55}
+.team-member-top{display:flex;align-items:flex-start;justify-content:center;gap:.6rem;position:relative;width:100%;margin-bottom:.2rem}
+.team-photo-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.25rem;width:min(100%,13rem);aspect-ratio:1/1;border:1px dashed #4b6078;border-radius:1.1rem;background:radial-gradient(circle at 50% 30%,#24384c,#0d1726 70%);overflow:hidden;color:#90a5bd;font-size:.68rem;font-weight:700}
+.team-photo-placeholder svg{width:100%;height:calc(100% - 1.4rem);max-height:12rem;display:block}
+.team-photo-placeholder span{padding:0 .25rem .45rem;text-align:center}
+.lead-photo{width:10rem;max-width:100%;border-radius:50%;aspect-ratio:1/1}
+.lead-photo svg{height:100%}
+.team-logo{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.2rem;flex:none;width:4rem;color:#90a5bd;font-size:.58rem;font-weight:700;text-align:center}
+.team-logo svg{display:block;width:3.6rem;height:3.6rem}
+.lead-logo{display:flex;flex-direction:row;align-items:center;gap:.5rem;width:auto;margin-top:.8rem;color:#e2c46f}
+.lead-logo svg{width:2.7rem;height:2.7rem}
+.team-role-badge{display:inline-flex;align-items:center;justify-content:center;padding:.4rem .7rem;border-radius:999px;background:rgba(200,16,46,.14);border:1px solid rgba(200,16,46,.28);color:#fda4af;font-size:.68rem;font-weight:850;text-transform:uppercase;letter-spacing:.08em}
+.member-badge{font-size:.62rem;letter-spacing:.05em}
+.team-logo-caption{font-size:.67rem;color:#8497b1}
+.team-photo-note{max-width:56rem;margin:0 auto;color:#94a3b8;font-size:.78rem;line-height:1.6;text-align:center;border-top:1px solid #263548;padding-top:1rem}
+@media(max-width:1100px){.page-nav-link{padding-left:.4rem!important;padding-right:.4rem!important;font-size:10px!important}}
+@media(max-width:900px){.team-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.team-member-top{gap:.4rem}.team-logo{width:3.2rem}.team-logo svg{width:2.9rem;height:2.9rem}}
+@media(max-width:620px){.team-grid{grid-template-columns:minmax(0,1fr)}.team-lead-card{grid-template-columns:minmax(0,1fr);justify-items:center;text-align:center;padding:1.1rem}.team-lead-copy{display:flex;flex-direction:column;align-items:center}.team-member-card{padding:1rem}.team-photo-placeholder{width:min(100%,14rem)}.lead-photo{width:9rem}}
+</style>
 
 <style id="sahayak-live-studio-styles">
 #mod-studio{display:flex;flex-direction:column;gap:1.15rem;width:100%;max-width:84rem;margin-inline:auto;padding-bottom:1.5rem}
@@ -203,7 +229,7 @@
 
     <!-- TOP HEADER -->
     <header class="sticky top-0 z-40 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 transition-all">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-20 py-3 flex flex-wrap items-center justify-between gap-3">
             
             <!-- Logo Section -->
             <div class="flex items-center gap-3 cursor-pointer" onclick="switchTab('home')">
@@ -264,47 +290,19 @@
             </div>
 
             <!-- Desktop Header Navigation (Top Bar) -->
-            <nav class="hidden lg:flex items-center gap-1 bg-slate-950/60 p-1.5 rounded-xl border border-slate-800/80">
-                <button onclick="switchTab('home')" id="nav-home" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition hover:bg-slate-800 text-slate-300">
-                    <i class="fa-solid fa-house mr-1.5 text-rose-500"></i>Home
-                </button>
-                <button onclick="switchTab('studio')" id="nav-studio" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition hover:bg-slate-800 text-slate-300">
-                    <i class="fa-solid fa-video mr-1.5 text-emerald-400"></i>Live Studio
-                </button>
-                <button onclick="switchTab('history')" id="nav-history" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition hover:bg-slate-800 text-slate-300">
-                    <i class="fa-solid fa-clock-rotate-left mr-1.5 text-amber-400"></i>History
-                </button>
-                <button onclick="switchTab('phrasebook')" id="nav-phrasebook" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition hover:bg-slate-800 text-slate-300">
-                    <i class="fa-solid fa-book-open-reader mr-1.5 text-sky-400"></i>Phrasebook
-                </button>
-                <button onclick="switchTab('mechanism')" id="nav-mechanism" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition hover:bg-slate-800 text-slate-300">
-                    <i class="fa-solid fa-gears mr-1.5 text-indigo-400"></i>Mechanism
-                </button>
-                <button onclick="switchTab('architecture')" id="nav-architecture" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition hover:bg-slate-800 text-slate-300">
-                    <i class="fa-solid fa-layer-group mr-1.5 text-purple-400"></i>Architecture
-                </button>
-                <button onclick="switchTab('team')" id="nav-team" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition hover:bg-slate-800 text-slate-300">
-                    <i class="fa-solid fa-users mr-1.5 text-yellow-400"></i>Team
-                </button>
-                <button onclick="toggleMoreMenu()" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white hover:bg-slate-800 transition relative">
-                    More <i class="fa-solid fa-chevron-down ml-1 text-[10px]"></i>
-                    <!-- Dropdown for Remaining Modules -->
-                    <div id="more-dropdown" class="hidden absolute right-0 top-full mt-2 w-48 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl py-2 z-50 text-left">
-                        <button onclick="switchTab('flowcharts')" class="w-full px-4 py-2 text-xs font-medium text-slate-300 hover:bg-slate-800 hover:text-white text-left flex items-center gap-2">
-                            <i class="fa-solid fa-diagram-project text-teal-400 w-4"></i>Flowcharts
-                        </button>
-                        <button onclick="switchTab('techstack')" class="w-full px-4 py-2 text-xs font-medium text-slate-300 hover:bg-slate-800 hover:text-white text-left flex items-center gap-2">
-                            <i class="fa-solid fa-code text-cyan-400 w-4"></i>Tech Stack
-                        </button>
-                        <button onclick="switchTab('dataset')" class="w-full px-4 py-2 text-xs font-medium text-slate-300 hover:bg-slate-800 hover:text-white text-left flex items-center gap-2">
-                            <i class="fa-solid fa-database text-orange-400 w-4"></i>Dataset Specs
-                        </button>
-                        <button onclick="switchTab('settings')" class="w-full px-4 py-2 text-xs font-medium text-slate-300 hover:bg-slate-800 hover:text-white text-left flex items-center gap-2">
-                            <i class="fa-solid fa-sliders text-slate-400 w-4"></i>Settings
-                        </button>
-                    </div>
-                </button>
-            </nav>
+            <nav aria-label="Main navigation" class="hidden lg:flex items-center gap-0.5 bg-slate-950/60 p-1.5 rounded-xl border border-slate-800/80 max-w-[78%] flex-wrap justify-end">
+  <a href="./index.html" id="nav-home" data-page-link="home" class="nav-btn page-nav-link px-2 py-1.5 rounded-lg text-[11px] font-semibold transition hover:bg-slate-800 text-slate-300 whitespace-nowrap"><i class="fa-solid fa-house mr-1 text-rose-500"></i>Home</a>
+  <a href="./studio.html" id="nav-studio" data-page-link="studio" class="nav-btn page-nav-link px-2 py-1.5 rounded-lg text-[11px] font-semibold transition hover:bg-slate-800 text-slate-300 whitespace-nowrap"><i class="fa-solid fa-video mr-1 text-emerald-400"></i>Live Studio</a>
+  <a href="./history.html" id="nav-history" data-page-link="history" class="nav-btn page-nav-link px-2 py-1.5 rounded-lg text-[11px] font-semibold transition hover:bg-slate-800 text-slate-300 whitespace-nowrap"><i class="fa-solid fa-clock-rotate-left mr-1 text-amber-400"></i>History</a>
+  <a href="./phrasebook.html" id="nav-phrasebook" data-page-link="phrasebook" class="nav-btn page-nav-link px-2 py-1.5 rounded-lg text-[11px] font-semibold transition hover:bg-slate-800 text-slate-300 whitespace-nowrap"><i class="fa-solid fa-book-open-reader mr-1 text-sky-400"></i>Phrasebook</a>
+  <a href="./mechanism.html" id="nav-mechanism" data-page-link="mechanism" class="nav-btn page-nav-link px-2 py-1.5 rounded-lg text-[11px] font-semibold transition hover:bg-slate-800 text-slate-300 whitespace-nowrap"><i class="fa-solid fa-gears mr-1 text-indigo-400"></i>Mechanism</a>
+  <a href="./architecture.html" id="nav-architecture" data-page-link="architecture" class="nav-btn page-nav-link px-2 py-1.5 rounded-lg text-[11px] font-semibold transition hover:bg-slate-800 text-slate-300 whitespace-nowrap"><i class="fa-solid fa-layer-group mr-1 text-purple-400"></i>Architecture</a>
+  <a href="./team.html" id="nav-team" data-page-link="team" class="nav-btn page-nav-link px-2 py-1.5 rounded-lg text-[11px] font-semibold transition hover:bg-slate-800 text-slate-300 whitespace-nowrap"><i class="fa-solid fa-users mr-1 text-yellow-400"></i>Team</a>
+  <a href="./flowcharts.html" id="nav-flowcharts" data-page-link="flowcharts" class="nav-btn page-nav-link px-2 py-1.5 rounded-lg text-[11px] font-semibold transition hover:bg-slate-800 text-slate-300 whitespace-nowrap"><i class="fa-solid fa-diagram-project mr-1 text-teal-400"></i>Flowcharts</a>
+  <a href="./tech-stack.html" id="nav-techstack" data-page-link="techstack" class="nav-btn page-nav-link px-2 py-1.5 rounded-lg text-[11px] font-semibold transition hover:bg-slate-800 text-slate-300 whitespace-nowrap"><i class="fa-solid fa-code mr-1 text-cyan-400"></i>Tech Stack</a>
+  <a href="./dataset-specs.html" id="nav-dataset" data-page-link="dataset" class="nav-btn page-nav-link px-2 py-1.5 rounded-lg text-[11px] font-semibold transition hover:bg-slate-800 text-slate-300 whitespace-nowrap"><i class="fa-solid fa-database mr-1 text-orange-400"></i>Dataset Specs</a>
+  <a href="./settings.html" id="nav-settings" data-page-link="settings" class="nav-btn page-nav-link px-2 py-1.5 rounded-lg text-[11px] font-semibold transition hover:bg-slate-800 text-slate-300 whitespace-nowrap"><i class="fa-solid fa-sliders mr-1 text-slate-400"></i>Settings</a>
+</nav>
 
             <!-- Mobile Drawer Toggle Button -->
             <button onclick="toggleMobileDrawer()" class="lg:hidden p-2.5 text-slate-300 hover:text-white focus:outline-none bg-slate-800/60 rounded-lg">
@@ -328,42 +326,18 @@
             </div>
             
             <div class="py-4 space-y-1">
-                <button onclick="switchTab('home')" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left">
-                    <i class="fa-solid fa-house text-rose-500 w-5"></i>Home
-                </button>
-                <button onclick="switchTab('studio')" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left">
-                    <i class="fa-solid fa-video text-emerald-400 w-5"></i>Live Studio
-                </button>
-                <button onclick="switchTab('history')" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left">
-                    <i class="fa-solid fa-clock-rotate-left text-amber-400 w-5"></i>History
-                </button>
-                <button onclick="switchTab('phrasebook')" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left">
-                    <i class="fa-solid fa-book-open-reader text-sky-400 w-5"></i>Phrasebook
-                </button>
-                <button onclick="switchTab('mechanism')" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left">
-                    <i class="fa-solid fa-gears text-indigo-400 w-5"></i>Working Mechanism
-                </button>
-                <button onclick="switchTab('architecture')" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left">
-                    <i class="fa-solid fa-layer-group text-purple-400 w-5"></i>System Architecture
-                </button>
-                <button onclick="switchTab('flowcharts')" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left">
-                    <i class="fa-solid fa-diagram-project text-teal-400 w-5"></i>Interactive Flowcharts
-                </button>
-                <button onclick="switchTab('techstack')" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left">
-                    <i class="fa-solid fa-code text-cyan-400 w-5"></i>Tech Stack
-                </button>
-                <button onclick="switchTab('dataset')" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left">
-                    <i class="fa-solid fa-database text-orange-400 w-5"></i>Dataset Specs
-                </button>
-                <button onclick="switchTab('team')" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left">
-                    <i class="fa-solid fa-users text-yellow-400 w-5"></i>Team & Developer
-                </button>
-                <button onclick="switchTab('settings')" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left">
-                    <i class="fa-solid fa-sliders text-slate-400 w-5"></i>System Settings
-                </button>
-            </div>
-        </div>
-
+  <a href="./index.html" data-page-link="home" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left"><i class="fa-solid fa-house text-rose-500 w-5"></i>Home</a>
+  <a href="./studio.html" data-page-link="studio" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left"><i class="fa-solid fa-video text-emerald-400 w-5"></i>Live Studio</a>
+  <a href="./history.html" data-page-link="history" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left"><i class="fa-solid fa-clock-rotate-left text-amber-400 w-5"></i>History</a>
+  <a href="./phrasebook.html" data-page-link="phrasebook" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left"><i class="fa-solid fa-book-open-reader text-sky-400 w-5"></i>Phrasebook</a>
+  <a href="./mechanism.html" data-page-link="mechanism" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left"><i class="fa-solid fa-gears text-indigo-400 w-5"></i>Mechanism</a>
+  <a href="./architecture.html" data-page-link="architecture" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left"><i class="fa-solid fa-layer-group text-purple-400 w-5"></i>Architecture</a>
+  <a href="./team.html" data-page-link="team" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left"><i class="fa-solid fa-users text-yellow-400 w-5"></i>Team</a>
+  <a href="./flowcharts.html" data-page-link="flowcharts" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left"><i class="fa-solid fa-diagram-project text-teal-400 w-5"></i>Flowcharts</a>
+  <a href="./tech-stack.html" data-page-link="techstack" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left"><i class="fa-solid fa-code text-cyan-400 w-5"></i>Tech Stack</a>
+  <a href="./dataset-specs.html" data-page-link="dataset" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left"><i class="fa-solid fa-database text-orange-400 w-5"></i>Dataset Specs</a>
+  <a href="./settings.html" data-page-link="settings" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left"><i class="fa-solid fa-sliders text-slate-400 w-5"></i>Settings</a>
+</div>
         <div class="pt-4 border-t border-slate-800 text-center text-xs text-slate-400">
             SAHAYAK Engine v2.4 (Active)
         </div>
@@ -919,44 +893,63 @@
         </section>
 
         <!-- MODULE 10: TEAM & DEVELOPER SECTION -->
-        <section id="mod-team" class="tab-content hidden space-y-10">
-            <div class="text-center max-w-2xl mx-auto space-y-2">
-                <h2 class="text-3xl font-black text-white">Project Leadership & Team</h2>
-                <p class="text-slate-400 text-sm">Researchers and developers behind SAHAYAK ISL Recognition System.</p>
-            </div>
+        <section id="mod-team" class="tab-content hidden space-y-8">
+  <div class="text-center max-w-3xl mx-auto space-y-3">
+    <span class="inline-flex px-3 py-1 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-300 text-xs font-bold uppercase tracking-widest">SAHAYAK team</span>
+    <h2 class="text-3xl sm:text-4xl font-black text-white">The people behind SAHAYAK</h2>
+    <p class="text-slate-400 text-sm sm:text-base leading-relaxed">Meet the project lead and the team members contributing to the Indian Sign Language recognition project.</p>
+  </div>
+  <article class="team-lead-card">
+    <div class="team-photo-placeholder lead-photo" role="img" aria-label="Portrait placeholder for Mr. Johan Jyoti Kuli">
+      <svg viewBox="0 0 160 160" aria-hidden="true"><circle cx="80" cy="80" r="75" fill="#15243a" stroke="#d4af37" stroke-width="2"/><circle cx="80" cy="60" r="24" fill="#8ca0b8"/><path d="M34 130c4-29 22-44 46-44s42 15 46 44" fill="#8ca0b8"/><path d="M42 30l9-10m58 10l9-10" stroke="#ff9933" stroke-width="3" stroke-linecap="round"/></svg>
+      <span>Photo placeholder</span>
+    </div>
+    <div class="team-lead-copy">
+      <span class="team-role-badge">Lead Developer &amp; Project Head</span>
+      <h3>Mr. Johan Jyoti Kuli</h3>
+      <p>System architecture, model integration, and real-time recognition pipeline.</p>
+      <div class="team-logo lead-logo" aria-label="Johan Kuli JK monogram logo"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 3 56 17v30L32 61 8 47V17Z" fill="#3a1827" stroke="#d4af37" stroke-width="2"/><text x="32" y="39" text-anchor="middle" font-size="20" font-weight="900" fill="#ffe6a4">JK</text></svg><span>Project logo</span></div>
+    </div>
+  </article>
+  <div class="team-grid">
+    <article class="team-member-card">
+      <div class="team-member-top">
+        <div class="team-photo-placeholder" role="img" aria-label="Portrait placeholder for Shyamantika Pegu">
+          <svg viewBox="0 0 160 160" aria-hidden="true"><circle cx="80" cy="80" r="72" fill="#172d3a" stroke="#2dd4bf" stroke-width="2"/><circle cx="80" cy="58" r="23" fill="#98bcc2"/><path d="M34 131c4-29 22-44 46-44s42 15 46 44" fill="#98bcc2"/><path d="M36 47q44-44 88 0" fill="none" stroke="#5eead4" stroke-width="5" stroke-linecap="round"/></svg>
+          <span>Photo placeholder</span>
+        </div>
+        <div class="team-logo" aria-label="Shyamantika Pegu SP monogram logo"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4 55 17v30L32 60 9 47V17Z" fill="#103b3b" stroke="#5eead4" stroke-width="2"/><text x="32" y="39" text-anchor="middle" font-size="21" font-weight="900" fill="#ccfbf1">SP</text></svg></div>
+      </div>
+      <span class="team-role-badge member-badge">Project Team Member</span>
+      <h3>Shyamantika Pegu</h3><p>SAHAYAK project contributor</p><span class="team-logo-caption">Monogram logo · SP</span>
+    </article>
+    <article class="team-member-card">
+      <div class="team-member-top">
+        <div class="team-photo-placeholder" role="img" aria-label="Portrait placeholder for Barakha Doley">
+          <svg viewBox="0 0 160 160" aria-hidden="true"><circle cx="80" cy="80" r="72" fill="#33243c" stroke="#c4b5fd" stroke-width="2"/><circle cx="80" cy="58" r="23" fill="#c0add0"/><path d="M34 131c4-29 22-44 46-44s42 15 46 44" fill="#c0add0"/><path d="M43 43l11-8m52 8 11-8" stroke="#ddd6fe" stroke-width="4" stroke-linecap="round"/></svg>
+          <span>Photo placeholder</span>
+        </div>
+        <div class="team-logo" aria-label="Barakha Doley BD monogram logo"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28" fill="#302044" stroke="#c4b5fd" stroke-width="2"/><path d="M12 32h40M32 12v40" stroke="#8b5cf6" stroke-width="1.5" opacity=".8"/><text x="32" y="39" text-anchor="middle" font-size="20" font-weight="900" fill="#ede9fe">BD</text></svg></div>
+      </div>
+      <span class="team-role-badge member-badge">Project Team Member</span>
+      <h3>Barakha Doley</h3><p>SAHAYAK project contributor</p><span class="team-logo-caption">Monogram logo · BD</span>
+    </article>
+    <article class="team-member-card">
+      <div class="team-member-top">
+        <div class="team-photo-placeholder" role="img" aria-label="Portrait placeholder for Himanghsu Ghirme">
+          <svg viewBox="0 0 160 160" aria-hidden="true"><circle cx="80" cy="80" r="72" fill="#38281e" stroke="#fdba74" stroke-width="2"/><circle cx="80" cy="58" r="23" fill="#d8b79c"/><path d="M34 131c4-29 22-44 46-44s42 15 46 44" fill="#d8b79c"/><path d="M29 41h18m66 0h18M80 16v13" stroke="#fdba74" stroke-width="3" stroke-linecap="round"/></svg>
+          <span>Photo placeholder</span>
+        </div>
+        <div class="team-logo" aria-label="Himanghsu Ghirme HG monogram logo"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="7" y="7" width="50" height="50" rx="12" fill="#432817" stroke="#fdba74" stroke-width="2"/><path d="M15 20h34M15 44h34" stroke="#ea580c" stroke-width="1.5"/><text x="32" y="39" text-anchor="middle" font-size="21" font-weight="900" fill="#ffedd5">HG</text></svg></div>
+      </div>
+      <span class="team-role-badge member-badge">Project Team Member</span>
+      <h3>Himanghsu Ghirme</h3><p>SAHAYAK project contributor</p><span class="team-logo-caption">Monogram logo · HG</span>
+    </article>
+  </div>
+  <p class="team-photo-note"><i class="fa-solid fa-circle-info mr-2"></i>The portrait boxes are placeholders, not real photos. Send each member's photo if you want it displayed. The initials emblems are custom placeholder logos that can be replaced with official logos.</p>
+</section>
 
-            <!-- Lead Developer (Mr. Johan Jyoti Kuli) -->
-            <div class="max-w-xl mx-auto">
-                <div class="bg-slate-900 rounded-3xl p-8 lead-border text-center space-y-4 relative overflow-hidden">
-                    <div class="w-32 h-32 mx-auto rounded-full overflow-hidden bg-slate-800 flex items-center justify-center border-2 border-amber-400 shadow-xl">
-                        <!-- Automatic SVG Initial Fallback Container -->
-                        <svg class="w-full h-full bg-slate-800" viewBox="0 0 100 100">
-                            <rect width="100" height="100" fill="#1e293b"/>
-                            <text x="50" y="58" font-size="32" font-weight="bold" fill="#FFD700" text-anchor="middle" font-family="sans-serif">JK</text>
-                        </svg>
-                    </div>
-
-                    <div>
-                        <span class="px-3 py-1 rounded-full bg-rose-500/20 text-rose-300 text-xs font-bold uppercase tracking-wider">
-                            Lead Developer & Project Head
-                        </span>
-                        <h3 class="text-2xl font-black text-white mt-2">Mr. Johan Jyoti Kuli</h3>
-                        <p class="text-xs text-slate-400 mt-1">System Architecture, ML Model Optimization, Real-Time Pipeline Lead</p>
-                    </div>
-
-                    <div class="pt-2 flex justify-center gap-3 text-slate-400 text-base">
-                        <a href="#" class="hover:text-amber-400 transition"><i class="fa-brands fa-github"></i></a>
-                        <a href="#" class="hover:text-amber-400 transition"><i class="fa-brands fa-linkedin"></i></a>
-                        <a href="#" class="hover:text-amber-400 transition"><i class="fa-solid fa-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            
-        </section>
-
-        <!-- MODULE 11: SYSTEM SETTINGS -->
-        <section id="mod-settings" class="tab-content hidden space-y-6 max-w-3xl mx-auto">
+<section id="mod-settings" class="tab-content hidden space-y-6 max-w-3xl mx-auto">
             <div class="bg-slate-900/90 p-5 rounded-2xl border border-slate-800">
                 <h2 class="text-xl font-bold text-white flex items-center gap-2">
                     <i class="fa-solid fa-sliders text-slate-400"></i> System Configurations
@@ -997,25 +990,14 @@
 
     </main>
 
-    <!-- SMARTPHONE BOTTOM QUICK-ACTION BAR (MOBILE ONLY) -->
-    <div class="lg:hidden sticky bottom-0 z-40 bg-slate-900/95 backdrop-blur-md border-t border-slate-800 px-4 py-2.5 flex justify-around items-center">
-        <button onclick="switchTab('home')" class="flex flex-col items-center gap-1 text-slate-400 hover:text-white">
-            <i class="fa-solid fa-house text-base"></i>
-            <span class="text-[10px] font-medium">Home</span>
-        </button>
-        <button onclick="switchTab('studio')" class="flex flex-col items-center gap-1 text-rose-500 hover:text-rose-400">
-            <i class="fa-solid fa-video text-base"></i>
-            <span class="text-[10px] font-bold">Studio</span>
-        </button>
-        <button onclick="switchTab('phrasebook')" class="flex flex-col items-center gap-1 text-slate-400 hover:text-white">
-            <i class="fa-solid fa-book-open-reader text-base"></i>
-            <span class="text-[10px] font-medium">Phrasebook</span>
-        </button>
-        <button onclick="switchTab('team')" class="flex flex-col items-center gap-1 text-slate-400 hover:text-white">
-            <i class="fa-solid fa-users text-base"></i>
-            <span class="text-[10px] font-medium">Team</span>
-        </button>
-    </div>
+    <!-- MOBILE QUICK NAV: direct links to standalone pages -->
+    <nav aria-label="Mobile quick navigation" class="lg:hidden sticky bottom-0 z-40 bg-slate-900/95 backdrop-blur-md border-t border-slate-800 px-3 py-2.5 flex justify-around items-center gap-2">
+      <a href="./index.html" data-page-link="home" class="flex flex-col items-center gap-1 text-slate-400 hover:text-white px-2 py-1 rounded-lg"><i class="fa-solid fa-house text-base"></i><span class="text-[10px] font-medium">Home</span></a>
+      <a href="./studio.html" data-page-link="studio" class="flex flex-col items-center gap-1 text-slate-400 hover:text-white px-2 py-1 rounded-lg"><i class="fa-solid fa-video text-base"></i><span class="text-[10px] font-medium">Studio</span></a>
+      <a href="./history.html" data-page-link="history" class="flex flex-col items-center gap-1 text-slate-400 hover:text-white px-2 py-1 rounded-lg"><i class="fa-solid fa-clock-rotate-left text-base"></i><span class="text-[10px] font-medium">History</span></a>
+      <a href="./phrasebook.html" data-page-link="phrasebook" class="flex flex-col items-center gap-1 text-slate-400 hover:text-white px-2 py-1 rounded-lg"><i class="fa-solid fa-book-open-reader text-base"></i><span class="text-[10px] font-medium">Phrasebook</span></a>
+      <a href="./team.html" data-page-link="team" class="flex flex-col items-center gap-1 text-slate-400 hover:text-white px-2 py-1 rounded-lg"><i class="fa-solid fa-users text-base"></i><span class="text-[10px] font-medium">Team</span></a>
+    </nav>
 
     <!-- MANDATORY GLOBAL FOOTER (EVERY PAGE / TAB) -->
     <footer class="bg-slate-950 border-t border-slate-800/80 py-6 px-4 mt-auto">
@@ -1038,29 +1020,34 @@
     <!-- SCRIPT LOGIC -->
     <script>
         // Global Navigation Switcher
-        function switchTab(tabId) {
+        const SAHAYAK_PAGE_FILES = {"home":"index.html","studio":"studio.html","history":"history.html","phrasebook":"phrasebook.html","mechanism":"mechanism.html","architecture":"architecture.html","team":"team.html","flowcharts":"flowcharts.html","techstack":"tech-stack.html","dataset":"dataset-specs.html","settings":"settings.html"};
+
+        function showPage(tabId) {
+            const pageId = SAHAYAK_PAGE_FILES[tabId] ? tabId : 'home';
             document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
-            const target = document.getElementById('mod-' + tabId);
+            const target = document.getElementById('mod-' + pageId);
             if (target) target.classList.remove('hidden');
-
-            // Close mobile drawer if open
+            document.querySelectorAll('[data-page-link]').forEach(link => {
+                const active = link.getAttribute('data-page-link') === pageId;
+                if (active) link.setAttribute('aria-current', 'page');
+                else link.removeAttribute('aria-current');
+                link.classList.toggle('bg-slate-800', active);
+                link.classList.toggle('text-white', active);
+            });
             const drawer = document.getElementById('mobile-drawer');
-            const overlay = document.getElementById('mobile-drawer-overlay');
-            if (drawer && !drawer.classList.contains('translate-x-full')) {
-                toggleMobileDrawer();
-            }
-
-            // Close dropdown
-            const dropdown = document.getElementById('more-dropdown');
-            if (dropdown) dropdown.classList.add('hidden');
-
-            // Scroll top smooth
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            if (drawer && !drawer.classList.contains('translate-x-full')) toggleMobileDrawer();
         }
 
-        function toggleMoreMenu() {
-            const dropdown = document.getElementById('more-dropdown');
-            dropdown.classList.toggle('hidden');
+        function switchTab(tabId) {
+            const pageId = SAHAYAK_PAGE_FILES[tabId] ? tabId : 'home';
+            const destination = SAHAYAK_PAGE_FILES[pageId];
+            const currentFile = window.location.pathname.split('/').pop() || 'index.html';
+            if (currentFile !== destination) {
+                window.location.href = './' + destination;
+                return;
+            }
+            showPage(pageId);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function toggleMobileDrawer() {
@@ -1340,6 +1327,7 @@
         });
     </script>
 
+<script>window.SAHAYAK_PAGE="home";</script>
 <script src="/config.js"></script>
 <script>
 (function(){
@@ -1677,7 +1665,7 @@ function addHistory(mode,text,confidence=null,translated='',target=''){let arr=[
 function renderHistory(){let arr=[];try{arr=JSON.parse(localStorage.getItem('sahayak_history')||'[]')}catch(e){}const host=$('historyList');if(!arr.length){host.textContent='No history yet.';return;}host.innerHTML='';for(const item of arr){const row=document.createElement('div');row.style.cssText='display:flex;gap:10px;align-items:start;justify-content:space-between;border-bottom:1px solid #243750;padding:9px 0';const body=document.createElement('div');body.textContent=`${new Date(item.time).toLocaleString()} · ${item.mode} · ${item.text}${item.confidence==null?'':` · ${item.confidence}%`}${item.translated?` → ${item.translated} (${item.target})`:''}`;const del=document.createElement('button');del.className='secondary';del.textContent='Remove';del.addEventListener('click',()=>{let all=JSON.parse(localStorage.getItem('sahayak_history')||'[]').filter(x=>x.id!==item.id);localStorage.setItem('sahayak_history',JSON.stringify(all));renderHistory();});row.append(body,del);host.append(row);}}
 $('refreshHistory').addEventListener('click',renderHistory);$('clearHistory').addEventListener('click',()=>{localStorage.removeItem('sahayak_history');renderHistory();if(typeof window.renderHistoryTable==='function')window.renderHistoryTable();});renderHistory();
 
-window.refreshRecognitionHistory=renderHistory;window.renderHistoryTable();window.addEventListener('pagehide',stopCamera);loadCameras();checkStatus();refreshSequenceDb();if('serviceWorker'in navigator&&location.protocol.startsWith('http'))window.addEventListener('load',()=>navigator.serviceWorker.register('/service-worker.js').catch(()=>{}));
+window.refreshRecognitionHistory=renderHistory;window.renderHistoryTable();showPage(window.SAHAYAK_PAGE||'home');window.addEventListener('pagehide',stopCamera);if((window.SAHAYAK_PAGE||'home')==='studio'){loadCameras();checkStatus();refreshSequenceDb();}if('serviceWorker'in navigator&&location.protocol.startsWith('http'))window.addEventListener('load',()=>navigator.serviceWorker.register('/service-worker.js').catch(()=>{}));
 })();
 </script>
 </body>
