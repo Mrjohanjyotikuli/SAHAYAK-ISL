@@ -1,0 +1,517 @@
+%PDF-1.4
+%SAHY
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [ 6 0 R 8 0 R 10 0 R 12 0 R 14 0 R 16 0 R 18 0 R ] /Count 7 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 7 0 R >>
+endobj
+7 0 obj
+<< /Length 1083 >>
+stream
+q
+0.035 0.42 0.48 rg
+0 824 595 18 re f
+Q
+BT
+/F2 20 Tf
+52 792 Td
+(SAHAYAK) Tj
+/F2 14 Tf
+0 -23 Td
+(CONTINUOUS SIGN COLLECTION, TRAINING AND DEPLOYMENT) Tj
+/F1 9.2 Tf
+0 -14 Td
+(A repeatable workflow for adding a movement-based sign while keeping the static-sign model) Tj
+/F1 9.2 Tf
+0 -14 Td
+(unchanged.) Tj
+/F2 12 Tf
+0 -20 Td
+(THE SAFE WORKFLOW) Tj
+/F1 9.2 Tf
+0 -14 Td
+(1. Back up continuous samples and the active sequence model.) Tj
+/F1 9.2 Tf
+0 -14 Td
+(2. Record a complete movement sequence under one stable label.) Tj
+/F1 9.2 Tf
+0 -14 Td
+(3. Train a candidate, then test on fresh recordings.) Tj
+/F1 9.2 Tf
+0 -14 Td
+(4. Promote only after reviewing the results.) Tj
+/F1 9.2 Tf
+0 -14 Td
+(5. Deploy only sahayak_sequence.joblib, not the static model.) Tj
+/F2 9.4 Tf
+0 -15 Td
+(Sequence input size: 1320 features per complete recording.) Tj
+/F2 12 Tf
+0 -20 Td
+(Project folder) Tj
+/F3 7.6 Tf
+0 -11 Td
+(C:\\Users\\user\\Videos\\SAHAYAK-Updated-UI-Local-Training) Tj
+ET
+BT
+/F1 7.5 Tf
+1 0 0 1 52 25 Tm
+(SAHAYAK | SAHAYAK Continuous Sign Collection and Training Guide | Page 1 of 7) Tj
+ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 9 0 R >>
+endobj
+9 0 obj
+<< /Length 1304 >>
+stream
+q
+0.035 0.42 0.48 rg
+0 824 595 18 re f
+Q
+BT
+/F2 20 Tf
+52 792 Td
+(STEP 1 - BACK UP) Tj
+/F3 7.6 Tf
+0 -11 Td
+(Set-Location "C:\\Users\\user\\Videos\\SAHAYAK-Updated-UI-Local-Training") Tj
+/F3 7.6 Tf
+0 -11 Td
+(.\\.venv\\Scripts\\Activate.ps1) Tj
+/F3 7.6 Tf
+0 -11 Td
+($stamp = Get-Date -Format "yyyyMMdd_HHmmss") Tj
+/F3 7.6 Tf
+0 -11 Td
+($backup = ".\\backups\\sequence_$stamp") Tj
+/F3 7.6 Tf
+0 -11 Td
+(New-Item -ItemType Directory -Force $backup | Out-Null) Tj
+/F3 7.6 Tf
+0 -11 Td
+(Copy-Item .\\continuous_gesture_db.db $backup -Force) Tj
+/F3 7.6 Tf
+0 -11 Td
+(Copy-Item .\\model\\sahayak_sequence.joblib $backup -Force) Tj
+/F1 9.2 Tf
+0 -14 Td
+(Confirm \(.venv\) is active. Preserve the printed backup path.) Tj
+/F2 12 Tf
+0 -20 Td
+(Check existing continuous labels) Tj
+/F3 7.6 Tf
+0 -11 Td
+(python -c "import sqlite3; c=sqlite3.connect\('continuous_gesture_db.db'\); print\(*c.execute\('SELECT label,) Tj
+/F3 7.6 Tf
+0 -11 Td
+(COUNT\(*\) FROM sequence_samples GROUP BY label ORDER BY label'\), sep='\\\\n'\); c.close\(\)") Tj
+/F1 9.2 Tf
+0 -14 Td
+(The source database is continuous_gesture_db.db. Do not edit or replace the static CSV or legacy) Tj
+/F1 9.2 Tf
+0 -14 Td
+(gesture databases.) Tj
+ET
+BT
+/F1 7.5 Tf
+1 0 0 1 52 25 Tm
+(SAHAYAK | SAHAYAK Continuous Sign Collection and Training Guide | Page 2 of 7) Tj
+ET
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 11 0 R >>
+endobj
+11 0 obj
+<< /Length 1524 >>
+stream
+q
+0.035 0.42 0.48 rg
+0 824 595 18 re f
+Q
+BT
+/F2 20 Tf
+52 792 Td
+(STEP 2 - COLLECT THE NEW SIGN) Tj
+/F1 9.2 Tf
+0 -14 Td
+(Run the sequence collector once for each label:) Tj
+/F3 7.6 Tf
+0 -11 Td
+(python collect_sequences.py) Tj
+/F1 9.2 Tf
+0 -14 Td
+(When prompted, type one stable uppercase label with underscores, for example:) Tj
+/F3 7.6 Tf
+0 -11 Td
+(WHAT_IS_YOUR_NAME) Tj
+/F1 9.2 Tf
+0 -14 Td
+(Perform the complete movement each time. Press C in the camera window to save one sequence.) Tj
+/F1 9.2 Tf
+0 -14 Td
+(Follow the on-screen quit key to finish.) Tj
+/F2 12 Tf
+0 -20 Td
+(How many examples?) Tj
+/F1 9.2 Tf
+0 -14 Td
+(Aim for about 30-40 varied recordings for the new sign, if possible. Change speed and position) Tj
+/F1 9.2 Tf
+0 -14 Td
+(naturally while preserving the correct sign.) Tj
+/F1 9.2 Tf
+0 -14 Td
+(Repeat the collector for every separate label you intend to train. The collector asks for one) Tj
+/F1 9.2 Tf
+0 -14 Td
+(label per run.) Tj
+/F2 12 Tf
+0 -20 Td
+(Verify sample counts) Tj
+/F3 7.6 Tf
+0 -11 Td
+(python -c "import sqlite3; c=sqlite3.connect\('continuous_gesture_db.db'\); print\(*c.execute\('SELECT label,) Tj
+/F3 7.6 Tf
+0 -11 Td
+(COUNT\(*\) FROM sequence_samples GROUP BY label ORDER BY label'\), sep='\\\\n'\); c.close\(\)") Tj
+/F2 9.4 Tf
+0 -15 Td
+(Fix spelling mistakes before training: labels such as GPPD_MORNING create a separate class until) Tj
+/F2 9.4 Tf
+0 -15 Td
+(corrected.) Tj
+ET
+BT
+/F1 7.5 Tf
+1 0 0 1 52 25 Tm
+(SAHAYAK | SAHAYAK Continuous Sign Collection and Training Guide | Page 3 of 7) Tj
+ET
+endstream
+endobj
+12 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 13 0 R >>
+endobj
+13 0 obj
+<< /Length 1096 >>
+stream
+q
+0.035 0.42 0.48 rg
+0 824 595 18 re f
+Q
+BT
+/F2 20 Tf
+52 792 Td
+(STEP 3 - TRAIN CANDIDATE) Tj
+/F1 9.2 Tf
+0 -14 Td
+(Train from the continuous database without changing the active model:) Tj
+/F3 7.6 Tf
+0 -11 Td
+(python train_sequence_model.py --db) Tj
+/F1 9.2 Tf
+0 -14 Td
+(The trainer validates samples and reports label counts, holdout accuracy and per-label metrics.) Tj
+/F1 9.2 Tf
+0 -14 Td
+(It writes a candidate model:) Tj
+/F3 7.6 Tf
+0 -11 Td
+(model\\sahayak_sequence_candidate.joblib) Tj
+/F2 12 Tf
+0 -20 Td
+(Verify the candidate) Tj
+/F3 7.6 Tf
+0 -11 Td
+(python -c "import joblib; m=joblib.load\(r'model\\sahayak_sequence_candidate.joblib'\);) Tj
+/F3 7.6 Tf
+0 -11 Td
+(print\('Features:',m.n_features_in_\); print\('Labels:',sorted\(str\(x\) for x in m.classes_\)\)") Tj
+/F1 9.2 Tf
+0 -14 Td
+(Expect 1320 features and all intended continuous labels.) Tj
+/F2 9.4 Tf
+0 -15 Td
+(Do not use --promote yet. A high random holdout score is not a guarantee of real-world accuracy.) Tj
+ET
+BT
+/F1 7.5 Tf
+1 0 0 1 52 25 Tm
+(SAHAYAK | SAHAYAK Continuous Sign Collection and Training Guide | Page 4 of 7) Tj
+ET
+endstream
+endobj
+14 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 15 0 R >>
+endobj
+15 0 obj
+<< /Length 2377 >>
+stream
+q
+0.035 0.42 0.48 rg
+0 824 595 18 re f
+Q
+BT
+/F2 20 Tf
+52 792 Td
+(STEP 4 - FRESH TEST) Tj
+/F1 9.2 Tf
+0 -14 Td
+(After training the candidate but before recording test samples, record the current database ID:) Tj
+/F3 7.6 Tf
+0 -11 Td
+($testStartId = [int]\(python -c "import sqlite3; c=sqlite3.connect\('continuous_gesture_db.db';) Tj
+/F3 7.6 Tf
+0 -11 Td
+(print\(c.execute\('SELECT COALESCE\(MAX\(id\),0\) FROM sequence_samples'\).fetchone\(\)[0]\); c.close\(\)"\)) Tj
+/F1 9.2 Tf
+0 -14 Td
+(Keep this terminal open so $testStartId is preserved.) Tj
+/F1 9.2 Tf
+0 -14 Td
+(Record at least five NEW examples per label with collect_sequences.py. Do not retrain before) Tj
+/F1 9.2 Tf
+0 -14 Td
+(testing. These rows must have IDs above $testStartId.) Tj
+/F2 12 Tf
+0 -20 Td
+(Create the reusable test script) Tj
+/F3 7.6 Tf
+0 -11 Td
+(@') Tj
+/F3 7.6 Tf
+0 -11 Td
+(import argparse, json, sqlite3, joblib, numpy as np) Tj
+/F3 7.6 Tf
+0 -11 Td
+(from sequence_features import summarize_sequence) Tj
+/F3 7.6 Tf
+0 -11 Td
+(p=argparse.ArgumentParser\(\); p.add_argument\('--after-id',type=int,required=True\); a=p.parse_args\(\)) Tj
+/F3 7.6 Tf
+0 -11 Td
+(m=joblib.load\('model/sahayak_sequence_candidate.joblib'\)) Tj
+/F3 7.6 Tf
+0 -11 Td
+(c=sqlite3.connect\('continuous_gesture_db.db'\)) Tj
+/F3 7.6 Tf
+0 -11 Td
+(r=c.execute\('SELECT id,label,frames_json FROM sequence_samples WHERE id>? ORDER BY) Tj
+/F3 7.6 Tf
+0 -11 Td
+(id',\(a.after_id,\)\).fetchall\(\); c.close\(\)) Tj
+/F3 7.6 Tf
+0 -11 Td
+(if not r: raise SystemExit\('No fresh test samples found'\)) Tj
+/F3 7.6 Tf
+0 -11 Td
+(X=np.asarray\([summarize_sequence\(json.loads\(z\)\) for _,_,z in r]\); y=np.asarray\([lab for _,lab,_ in r]\)) Tj
+/F3 7.6 Tf
+0 -11 Td
+(pred=m.predict\(X\); print\('Samples:',len\(r\),'Accuracy:',round\(float\(np.mean\(y==pred\)\)*100,1\),'%'\)) Tj
+/F3 7.6 Tf
+0 -11 Td
+(for lab in sorted\(set\(y\)\): print\(lab,int\(np.sum\(\(y==lab\)&\(pred==y\)\)\), '/', int\(np.sum\(y==lab\)\)\)) Tj
+/F3 7.6 Tf
+0 -11 Td
+('@ | Set-Content .\\test_sequence_candidate.py -Encoding utf8) Tj
+/F2 12 Tf
+0 -20 Td
+(Run the fresh test) Tj
+/F3 7.6 Tf
+0 -11 Td
+(python .\\test_sequence_candidate.py --after-id $testStartId) Tj
+/F2 9.4 Tf
+0 -15 Td
+(The candidate must not be trained on these fresh recordings before the test.) Tj
+ET
+BT
+/F1 7.5 Tf
+1 0 0 1 52 25 Tm
+(SAHAYAK | SAHAYAK Continuous Sign Collection and Training Guide | Page 5 of 7) Tj
+ET
+endstream
+endobj
+16 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 17 0 R >>
+endobj
+17 0 obj
+<< /Length 1365 >>
+stream
+q
+0.035 0.42 0.48 rg
+0 824 595 18 re f
+Q
+BT
+/F2 20 Tf
+52 792 Td
+(STEP 5 - PROMOTE AND VERIFY) Tj
+/F1 9.2 Tf
+0 -14 Td
+(Review fresh-test results. If a class performs poorly, collect more varied examples and) Tj
+/F1 9.2 Tf
+0 -14 Td
+(investigate before activation.) Tj
+/F1 9.2 Tf
+0 -14 Td
+(When satisfied, run:) Tj
+/F3 7.6 Tf
+0 -11 Td
+(python train_sequence_model.py --db --promote) Tj
+/F1 9.2 Tf
+0 -14 Td
+(This retrains using the current full database and backs up the prior active sequence model.) Tj
+/F2 12 Tf
+0 -20 Td
+(Verify the active model) Tj
+/F3 7.6 Tf
+0 -11 Td
+(python -c "import joblib; m=joblib.load\(r'model\\sahayak_sequence.joblib'\);) Tj
+/F3 7.6 Tf
+0 -11 Td
+(print\('Features:',m.n_features_in_\); print\('Labels:',sorted\(str\(x\) for x in m.classes_\)\)") Tj
+/F1 9.2 Tf
+0 -14 Td
+(Then run the automated tests:) Tj
+/F3 7.6 Tf
+0 -11 Td
+(python -m unittest test_sahayak.py test_sequence.py test_sequence_db.py) Tj
+/F1 9.2 Tf
+0 -14 Td
+(Start the local API with python web_app.py and test each old and new continuous sign in the) Tj
+/F1 9.2 Tf
+0 -14 Td
+(local Studio.) Tj
+/F2 9.4 Tf
+0 -15 Td
+(If the new model causes regressions, restore the previous sequence-model backup. Do not change the) Tj
+/F2 9.4 Tf
+0 -15 Td
+(static model.) Tj
+ET
+BT
+/F1 7.5 Tf
+1 0 0 1 52 25 Tm
+(SAHAYAK | SAHAYAK Continuous Sign Collection and Training Guide | Page 6 of 7) Tj
+ET
+endstream
+endobj
+18 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 19 0 R >>
+endobj
+19 0 obj
+<< /Length 1722 >>
+stream
+q
+0.035 0.42 0.48 rg
+0 824 595 18 re f
+Q
+BT
+/F2 20 Tf
+52 792 Td
+(STEP 6 - DEPLOY THE SEQUENCE MODEL) Tj
+/F1 9.2 Tf
+0 -14 Td
+(Copy only the promoted sequence model into the deployment project:) Tj
+/F3 7.6 Tf
+0 -11 Td
+(.\\deployment\\SAHAYAK-Vercel-Deployment\\backend\\model\\sahayak_sequence.joblib) Tj
+/F1 9.2 Tf
+0 -14 Td
+(Commit this file to the branch watched by Render and wait for the deployment to complete.) Tj
+/F2 12 Tf
+0 -20 Td
+(Verify the deployed backend) Tj
+/F3 7.6 Tf
+0 -11 Td
+(https://sahayak-backend-krh1.onrender.com/api/status) Tj
+/F1 9.2 Tf
+0 -14 Td
+(Confirm sequence_model_ready is true and sequence_sign_labels lists the expected continuous) Tj
+/F1 9.2 Tf
+0 -14 Td
+(signs.) Tj
+/F1 9.2 Tf
+0 -14 Td
+(Open the live Studio and test old and new sequences. If the status endpoint lists old labels,) Tj
+/F1 9.2 Tf
+0 -14 Td
+(check the path, commit, and Render deployment.) Tj
+/F2 12 Tf
+0 -20 Td
+(Do not deploy training data) Tj
+/F1 9.2 Tf
+0 -14 Td
+(Do not replace sahayak_twohand.joblib for a continuous-only change. Do not upload) Tj
+/F1 9.2 Tf
+0 -14 Td
+(continuous_gesture_db.db, the static CSV, or raw samples to the website repository.) Tj
+/F1 9.2 Tf
+0 -14 Td
+(Only publish the trained model artifact needed by the backend. Keep backups and consented) Tj
+/F1 9.2 Tf
+0 -14 Td
+(training samples private.) Tj
+/F2 12 Tf
+0 -20 Td
+(Repeatable checklist) Tj
+/F1 9.2 Tf
+0 -14 Td
+([ ] Backup. [ ] Label spelling verified. [ ] Candidate reviewed. [ ] Fresh test passed.) Tj
+/F1 9.2 Tf
+0 -14 Td
+([ ] Promotion and regression tests passed. [ ] Sequence model deployed. [ ] Live Studio checked.) Tj
+ET
+BT
+/F1 7.5 Tf
+1 0 0 1 52 25 Tm
+(SAHAYAK | SAHAYAK Continuous Sign Collection and Training Guide | Page 7 of 7) Tj
+ET
+endstream
+endobj
+20 0 obj
+<< /Title (SAHAYAK Continuous Sign Collection and Training Guide) /Author (SAHAYAK - Mr. Johan Jyoti Kuli) /Producer (SAHAYAK Guide Generator) >>
+endobj
+xref
+0 21
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000164 00000 n 
+0000000234 00000 n 
+0000000309 00000 n 
+0000000377 00000 n 
+0000000523 00000 n 
+0000001657 00000 n 
+0000001803 00000 n 
+0000003158 00000 n 
+0000003306 00000 n 
+0000004882 00000 n 
+0000005030 00000 n 
+0000006178 00000 n 
+0000006326 00000 n 
+0000008755 00000 n 
+0000008903 00000 n 
+0000010320 00000 n 
+0000010468 00000 n 
+0000012242 00000 n 
+trailer
+<< /Size 21 /Root 1 0 R /Info 20 0 R >>
+startxref
+12404
+%%EOF
