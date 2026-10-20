@@ -1,194 +1,472 @@
 %PDF-1.4
-%SAHY ReportLab Generated PDF document (opensource)
+%SAHY
 1 0 obj
-<<
-/F1 2 0 R /F2 3 0 R /F3 5 0 R
->>
+<< /Type /Catalog /Pages 2 0 R >>
 endobj
 2 0 obj
-<<
-/BaseFont /Helvetica /Encoding /WinAnsiEncoding /Name /F1 /Subtype /Type1 /Type /Font
->>
+<< /Type /Pages /Kids [ 6 0 R 8 0 R 10 0 R 12 0 R 14 0 R 16 0 R ] /Count 6 >>
 endobj
 3 0 obj
-<<
-/BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding /Name /F2 /Subtype /Type1 /Type /Font
->>
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
 endobj
 4 0 obj
-<<
-/Contents 15 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 14 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 /Trans <<
-
->> 
-  /Type /Page
->>
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
 endobj
 5 0 obj
-<<
-/BaseFont /Courier /Encoding /WinAnsiEncoding /Name /F3 /Subtype /Type1 /Type /Font
->>
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
 endobj
 6 0 obj
-<<
-/Contents 16 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 14 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 /Trans <<
-
->> 
-  /Type /Page
->>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 7 0 R >>
 endobj
 7 0 obj
-<<
-/Contents 17 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 14 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 /Trans <<
-
->> 
-  /Type /Page
->>
+<< /Length 1159 >>
+stream
+q
+0.035 0.42 0.48 rg
+0 824 595 18 re f
+Q
+BT
+/F2 20 Tf
+52 792 Td
+(SAHAYAK) Tj
+/F2 14 Tf
+0 -23 Td
+(STATIC SIGN COLLECTION, TRAINING AND DEPLOYMENT) Tj
+/F1 9.2 Tf
+0 -14 Td
+(A repeatable step-by-step workflow for adding one static sign while preserving all existing) Tj
+/F1 9.2 Tf
+0 -14 Td
+(classes.) Tj
+/F2 12 Tf
+0 -20 Td
+(THE SAFE WORKFLOW) Tj
+/F1 9.2 Tf
+0 -14 Td
+(1. Back up the dataset and active model.) Tj
+/F1 9.2 Tf
+0 -14 Td
+(2. Collect the new sign into the existing CSV.) Tj
+/F1 9.2 Tf
+0 -14 Td
+(3. Verify all old and new labels.) Tj
+/F1 9.2 Tf
+0 -14 Td
+(4. Train a candidate, run tests, then promote only if correct.) Tj
+/F1 9.2 Tf
+0 -14 Td
+(5. Copy only the promoted static model to the deployment project.) Tj
+/F2 9.4 Tf
+0 -15 Td
+(Static training uses data/landmarks_2hand.csv and 126 features.) Tj
+/F2 12 Tf
+0 -20 Td
+(Project folder) Tj
+/F3 7.6 Tf
+0 -11 Td
+(C:\\Users\\user\\Videos\\SAHAYAK-Updated-UI-Local-Training) Tj
+/F1 9.2 Tf
+0 -14 Td
+(Do not train on only the new sign. The candidate must include all retained old classes.) Tj
+ET
+BT
+/F1 7.5 Tf
+1 0 0 1 52 25 Tm
+(SAHAYAK | SAHAYAK Static Sign Collection and Training Guide | Page 1 of 6) Tj
+ET
+endstream
 endobj
 8 0 obj
-<<
-/Contents 18 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 14 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 /Trans <<
-
->> 
-  /Type /Page
->>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 9 0 R >>
 endobj
 9 0 obj
-<<
-/Contents 19 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 14 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 /Trans <<
-
->> 
-  /Type /Page
->>
+<< /Length 1578 >>
+stream
+q
+0.035 0.42 0.48 rg
+0 824 595 18 re f
+Q
+BT
+/F2 20 Tf
+52 792 Td
+(STEP 1 - BACK UP) Tj
+/F1 9.2 Tf
+0 -14 Td
+(Open PowerShell in VS Code and run:) Tj
+/F3 7.6 Tf
+0 -11 Td
+(Set-Location "C:\\Users\\user\\Videos\\SAHAYAK-Updated-UI-Local-Training") Tj
+/F3 7.6 Tf
+0 -11 Td
+(.\\.venv\\Scripts\\Activate.ps1) Tj
+/F3 7.6 Tf
+0 -11 Td
+($stamp = Get-Date -Format "yyyyMMdd_HHmmss") Tj
+/F3 7.6 Tf
+0 -11 Td
+($backup = ".\\backups\\static_$stamp") Tj
+/F3 7.6 Tf
+0 -11 Td
+(New-Item -ItemType Directory -Force $backup | Out-Null) Tj
+/F3 7.6 Tf
+0 -11 Td
+(Copy-Item .\\data\\landmarks_2hand.csv $backup -Force) Tj
+/F3 7.6 Tf
+0 -11 Td
+(Copy-Item .\\model\\sahayak_twohand.joblib $backup -Force) Tj
+/F3 7.6 Tf
+0 -11 Td
+(Copy-Item .\\model\\labels_twohand.json $backup -Force) Tj
+/F1 9.2 Tf
+0 -14 Td
+(Confirm the prompt begins with \(.venv\). Avoid reinstalling working packages.) Tj
+/F2 12 Tf
+0 -20 Td
+(Check current labels and counts) Tj
+/F3 7.6 Tf
+0 -11 Td
+(@') Tj
+/F3 7.6 Tf
+0 -11 Td
+(import csv) Tj
+/F3 7.6 Tf
+0 -11 Td
+(from collections import Counter) Tj
+/F3 7.6 Tf
+0 -11 Td
+(with open\("data/landmarks_2hand.csv", newline="", encoding="utf-8-sig"\) as f:) Tj
+/F3 7.6 Tf
+0 -11 Td
+(rows = list\(csv.DictReader\(f\)\)) Tj
+/F3 7.6 Tf
+0 -11 Td
+(print\("Rows:", len\(rows\)\)) Tj
+/F3 7.6 Tf
+0 -11 Td
+(print\(Counter\(r["label"] for r in rows\)\)) Tj
+/F3 7.6 Tf
+0 -11 Td
+('@ | python -) Tj
+/F2 9.4 Tf
+0 -15 Td
+(Stop if the dataset is empty or an old label unexpectedly disappears.) Tj
+ET
+BT
+/F1 7.5 Tf
+1 0 0 1 52 25 Tm
+(SAHAYAK | SAHAYAK Static Sign Collection and Training Guide | Page 2 of 6) Tj
+ET
+endstream
 endobj
 10 0 obj
-<<
-/Contents 20 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 14 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 /Trans <<
-
->> 
-  /Type /Page
->>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 11 0 R >>
 endobj
 11 0 obj
-<<
-/Contents 21 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 14 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 /Trans <<
-
->> 
-  /Type /Page
->>
+<< /Length 1646 >>
+stream
+q
+0.035 0.42 0.48 rg
+0 824 595 18 re f
+Q
+BT
+/F2 20 Tf
+52 792 Td
+(STEP 2 - COLLECT) Tj
+/F1 9.2 Tf
+0 -14 Td
+(Run the existing collector:) Tj
+/F3 7.6 Tf
+0 -11 Td
+(python collect_data.py) Tj
+/F1 9.2 Tf
+0 -14 Td
+(Follow the collector prompts. Use one consistent label, usually uppercase with underscores, such) Tj
+/F1 9.2 Tf
+0 -14 Td
+(as PLEASE.) Tj
+/F1 9.2 Tf
+0 -14 Td
+(Make sure the camera view clearly shows the complete hand pose. Capture varied attempts with) Tj
+/F1 9.2 Tf
+0 -14 Td
+(natural changes in position and lighting.) Tj
+/F2 12 Tf
+0 -20 Td
+(Verify the CSV after collection) Tj
+/F3 7.6 Tf
+0 -11 Td
+(@') Tj
+/F3 7.6 Tf
+0 -11 Td
+(import csv) Tj
+/F3 7.6 Tf
+0 -11 Td
+(from collections import Counter) Tj
+/F3 7.6 Tf
+0 -11 Td
+(with open\("data/landmarks_2hand.csv", newline="", encoding="utf-8-sig"\) as f:) Tj
+/F3 7.6 Tf
+0 -11 Td
+(rows = list\(csv.DictReader\(f\)\)) Tj
+/F3 7.6 Tf
+0 -11 Td
+(print\("Total:", len\(rows\)\)) Tj
+/F3 7.6 Tf
+0 -11 Td
+(for k,v in sorted\(Counter\(r["label"].strip\(\).upper\(\) for r in rows\).items\(\)\):) Tj
+/F3 7.6 Tf
+0 -11 Td
+(print\(k, v\)) Tj
+/F3 7.6 Tf
+0 -11 Td
+('@ | python -) Tj
+/F2 12 Tf
+0 -20 Td
+(Before training) Tj
+/F1 9.2 Tf
+0 -14 Td
+(Confirm the CSV has the label column plus v0 through v125 \(126 feature values\).) Tj
+/F1 9.2 Tf
+0 -14 Td
+(Confirm every old intended label and the new label are present; review unexpected labels.) Tj
+/F1 9.2 Tf
+0 -14 Td
+(Collect enough varied samples; avoid saving many identical frames. Follow the collector's) Tj
+/F1 9.2 Tf
+0 -14 Td
+(prompts.) Tj
+ET
+BT
+/F1 7.5 Tf
+1 0 0 1 52 25 Tm
+(SAHAYAK | SAHAYAK Static Sign Collection and Training Guide | Page 3 of 6) Tj
+ET
+endstream
 endobj
 12 0 obj
-<<
-/PageMode /UseNone /Pages 14 0 R /Type /Catalog
->>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 13 0 R >>
 endobj
 13 0 obj
-<<
-/Author (SAHAYAK - Mr. Johan Jyoti Kuli) /CreationDate (D:20261020142148+00'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20261020142148+00'00') /Producer (ReportLab PDF Library - \(opensource\)) 
-  /Subject (\(unspecified\)) /Title (SAHAYAK Static Sign Collection, Training & Deployment Guide) /Trapped /False
->>
+<< /Length 1380 >>
+stream
+q
+0.035 0.42 0.48 rg
+0 824 595 18 re f
+Q
+BT
+/F2 20 Tf
+52 792 Td
+(STEP 3 - TRAIN CANDIDATE) Tj
+/F1 9.2 Tf
+0 -14 Td
+(Train without promotion first:) Tj
+/F3 7.6 Tf
+0 -11 Td
+(python train_model.py) Tj
+/F1 9.2 Tf
+0 -14 Td
+(The trainer should create candidate files, leaving the active model unchanged:) Tj
+/F3 7.6 Tf
+0 -11 Td
+(model\\sahayak_twohand_candidate.joblib) Tj
+/F3 7.6 Tf
+0 -11 Td
+(model\\labels_twohand_candidate.json) Tj
+/F2 12 Tf
+0 -20 Td
+(Inspect candidate labels and feature size) Tj
+/F3 7.6 Tf
+0 -11 Td
+(Get-Content .\\model\\labels_twohand_candidate.json) Tj
+/F3 7.6 Tf
+0 -11 Td
+(python -c "import joblib; m=joblib.load\(r'model\\sahayak_twohand_candidate.joblib'\);) Tj
+/F3 7.6 Tf
+0 -11 Td
+(print\('Features:',m.n_features_in_\); print\('Labels:',sorted\(str\(x\) for x in m.classes_\)\)") Tj
+/F1 9.2 Tf
+0 -14 Td
+(Expect 126 features and all intended old labels plus the new label.) Tj
+/F1 9.2 Tf
+0 -14 Td
+(Do not promote if any intended old class is missing or an accidental label appears.) Tj
+/F2 12 Tf
+0 -20 Td
+(Run tests) Tj
+/F3 7.6 Tf
+0 -11 Td
+(python -m unittest test_sahayak.py) Tj
+/F1 9.2 Tf
+0 -14 Td
+(A perfect random holdout score is encouraging, but it does not prove real-camera accuracy. Test) Tj
+/F1 9.2 Tf
+0 -14 Td
+(fresh captures.) Tj
+ET
+BT
+/F1 7.5 Tf
+1 0 0 1 52 25 Tm
+(SAHAYAK | SAHAYAK Static Sign Collection and Training Guide | Page 4 of 6) Tj
+ET
+endstream
 endobj
 14 0 obj
-<<
-/Count 7 /Kids [ 4 0 R 6 0 R 7 0 R 8 0 R 9 0 R 10 0 R 11 0 R ] /Type /Pages
->>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 15 0 R >>
 endobj
 15 0 obj
-<<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 1571
->>
+<< /Length 1182 >>
 stream
-Gatm:9lo#Z&A@ZcqQuM^Kiu[pbh`UKNY<0@/16]4?Xt>7apLOuE7Y&<HUcH)"B2";D9>DVHFeI[][n_B&Up\Y:0.G!A,,(9"j.t%!@inUGRBXZn9mPG*D'ak:dM']5T%s:;V9h9epb0:Ot\I&(dX!5f"a1rS!UY37b#!QDOgpIR2"5U)['503K\o7=S4Sq'OckKcnZf.EX=RsROE&=ED<g*]XO[=aX#H9HP;,Y3f4s^$C6c+*<[=1&]5l9EE$J*&EZiq?qCTsUgORAGB",eQ4?"sS8ul*-lM!]p>XIr<"_e4"g&V2[i3ZXD3bjQ,7`.(U:GAc/Rlj:883lfP4]TGL;n@&4n=IYY%.B,UgWHXiOWFWPd&5,#a+WSEF[/`q18e%F]ATL?[3IPE.8<@'ELM8LuUqBO<FOC81\Y81,9IoYs'<]C!0k_8]8,R8eP0%AFn7[9(V!!*kMr[6K6Ie"UX]+FhiNAVZY57$=6trhMo7055Yo\2i(g%<I?ij!\s%?lp^'jKl-tc$+_T?7m)[Ta)H$I2M:OI3h;5ioD.a<cfpV,L_liXg%jtCIY0SCO43pV^F$;^f-O"j#dT[8KgdI0*)Q!V>D@_Q[QPP`*Qe:uLhVsfo'q\;<i!cNKP.[6Oug-+18sJS1VA/R\guS(ng,>a\V4S)bh'=#Xts0m5L:p[o+\5&Fq$\(Ea6*,AlZ:QG><C0T9m145H`'6)eR*4.fJsn[9'uK+E[(&)lBdK+no*>:@A-C'$:K5d)9Su6bI@4(\s.%-6@c["2I7HluM(f)Eg@j7NHda@ZCk?T*o#hQOB2+a.k)2>g2(M(&YLG.duWt0`L\/l4QsoY-)qm\[qWrn<WjMAaAi+ZV9Y#3P7Hr:<PICL@I1Df8/Z)(r"&jDZ^]C&Y&n7/I<\t;H[+l%>]`\*?_B_$2u@2U/buIhR>tf>OQMBj3t:)'LED4,'B-cK$3*ArHO[b56)=\DVQh<:Ha-dG8%J']q)s*q;T<Hl28`.$&;J(]$Gl+J4(b-la2<KE7/hI9&OiTrXHIKe9;e+]BqL\f78XE<*9[PH3m/HkP#jqb%4VD+:3U98NpX<N52qSMCblXKg0?4?e;-(OStAE[1i**iq!IfE[(m?`\KQ*ce14kH%7*LcAKb3=!amVG*oYlXm8p>$!3G>B.QXdn2c4*;QM6i)JorsL9N4;?.R["b#O;\I'q+_3B@ibVc5/!@ibL98gT&-D@L_heI?Wb?&#`QX):`sV)#3F<?[78`tkDdFgg;gPqTJk9<u^KaX_SML<].taK%E&i)I+'*$G%)_@IOpD&oiR"p_UXKmt#MTnJH][\PZnDh-b](Lr4"QO/8I<<r+_@g*<$1qZR#U0NB@7YR)G?LH\#OVZMDQ*^;Yc"%$:bNU:2PBN?9.'r8(gHt;L\Z;/">s.`d7qj2l4i2cZ3s6S%cbA,f?I1R29nCbT7.KiK_?"i#n\XH]DJC_r/=)lGcG*BI?%VJ33l;WEGDa\Pj\lE;:,+]Fn9#,:9/FgD:&oZcFAkm#9sO+kINE!irV.Au4V#@l4b5:KDj0Vn4$*,'VN5BrK7<oSIO>R~>endstream
+q
+0.035 0.42 0.48 rg
+0 824 595 18 re f
+Q
+BT
+/F2 20 Tf
+52 792 Td
+(STEP 4 - PROMOTE AND TEST) Tj
+/F1 9.2 Tf
+0 -14 Td
+(Only after candidate labels and tests are correct, activate the candidate:) Tj
+/F3 7.6 Tf
+0 -11 Td
+(python train_model.py --promote) Tj
+/F1 9.2 Tf
+0 -14 Td
+(Check that the active model and labels were updated successfully. Keep the backup path printed) Tj
+/F1 9.2 Tf
+0 -14 Td
+(by the trainer.) Tj
+/F2 12 Tf
+0 -20 Td
+(Verify active labels) Tj
+/F3 7.6 Tf
+0 -11 Td
+(Get-Content .\\model\\labels_twohand.json) Tj
+/F3 7.6 Tf
+0 -11 Td
+(python -c "import joblib; m=joblib.load\(r'model\\sahayak_twohand.joblib'\); print\(m.n_features_in_,) Tj
+/F3 7.6 Tf
+0 -11 Td
+(sorted\(str\(x\) for x in m.classes_\)\)") Tj
+/F2 12 Tf
+0 -20 Td
+(Test local camera) Tj
+/F3 7.6 Tf
+0 -11 Td
+(python web_app.py) Tj
+/F1 9.2 Tf
+0 -14 Td
+(Try the new sign and several old signs in the local website. Check the label, landmarks/box and) Tj
+/F1 9.2 Tf
+0 -14 Td
+(stability.) Tj
+/F2 9.4 Tf
+0 -15 Td
+(If old signs regress, restore the backed-up model and labels before publishing.) Tj
+ET
+BT
+/F1 7.5 Tf
+1 0 0 1 52 25 Tm
+(SAHAYAK | SAHAYAK Static Sign Collection and Training Guide | Page 5 of 6) Tj
+ET
+endstream
 endobj
 16 0 obj
-<<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 2059
->>
-stream
-GauHKD/\-!&H9tY(g0"e<:SQ.fT@ACOL.TK-8[]am`m1jbS$H@X^2*bgAL]7>oR9OBXq/YU'0%/4#8ti4>UI^'`:tMru_M*ET-"p'iYXt$)e%_^qGCW\+R:#CdV:s%M67i^B&<ga&WVYH.*ra/6W@I.T&%Yd\,V[7.2NR`*aJfdEKV*#R2kh"J=X5[,P%3Lsf-ogBOAjWnO_.BNiG1<QOY(!OZsT2I\0Hd2Z-k2hq%!Hf"_-q[U?W_!S]L4W%G:\UmW/2t('[?@P!9pE&*+gdlS&%QA4U[j/Iufp3,d:`W1p(CXNs9mr@Bbp90dg8ZiTR0J*C7IGq&R,#O6/0%TM+j2=0q4%Nb2e3*L@GtM/2I3:>CDp&$B2`g-^S@GZ%Xc&Ce0d;X=;r$\*6l=dnKdK:6Np/$J`f:@GU,*XM"\VIlf5D^f,7;UQr:RcH;B.pr+$3\5Bq]][c,SVQW0gGP)?3c9Q\BS&38Mlh8IR9/ubDi-P_;-4L+*Jm7A><<N>A@:XWoMEsNHS3.P<rV?G['"s<c569ec&Hn_Bo"@3sHGRm:%1kd2,+K&B'#?7X/V"k*B>@"DF](dI#VVo>pZT3`S0)B,QoiL@]/=e3dA0f!4L.X!N*$$-U3lkceDGOTG'VW!pP+\Tp_P5S6>T's^c"QC'ISM8)*rAAla*g2H>Jrg["u=aa*(@aU9S;kPi&-3fE6s`1Wh:Wb8jL`ik4gRG1]aS"jE\3?C?Bdtr:%@[#k\m5<D)?,D![p:q=[.FMIa3=O]9AdGTN:%A<)Fs4Nn-ph$o6\NorsQe91\U`>!13nf7%jol"O5(B<e7>_\)H#c!837MHLV0<A98U/Zh+?3aW7Go94B#T>eI`abhofoXmalGG5,=JfAV@Cq%u2USfX=c@3&l(uKIbi9FXj/`5=9c"5NFrBlR!o8,?NY,]._?rMb3.EFA6\bNYP/G!9n_.\Oh%/N"SCU`s`=cLX>llBbBb?p]KR?84P2gUs:l(7`d>s,s39kshOCq\GG]R(FY?_*>lD]Y9oGu_6L'`_n3/0@__GfM#aKL:,OI#\5rr%((4?nm:`n'L&`bY4*+*sE2M;7j1GY(H:nhH=n6D[*f$qGaY9S]I$p$jQDO=pqZKD=mf1CC$gNb'ohQV_F$=l@#%l21n?ZU2Bp7FBhE8Jk<Z0"gc/og9:.nC2bjKUIhur.,<b.=NQDRnJN4,Xo^9O82_(ks#T774L^odnpg>G"G4'Ldl24bgPPkd3)/fMp0Te)^<di=\ab4&K-Y\61>BLYF&8R#?0]E\.ij9jmB\_p]BCW2dB<[7>C8eNF&&*b;bg.T#Bt-*bu.Uo!"eXH-.hA-`%OKkB%,$HF,`BG)[`?2[uO%WOu,e1CoI!8b2OF[&bcBVMB+^PIk<#$Y?Xi7&/D"&,%KC:!r?nF"OZ'F;jk!ZJ!NI]fGrYM%iUZJY+i,`cP6T2jFTlEUe)is4h.&#IFsQjfCS[MjfX-!&a,Gi6ZpsL@`r0fBpH5qY$e12LrVH^O+FPcU=A7)jM2$mXa<]HI+r3NZ%1/OViFq@bG,&bYt$M2?441'139`Z0[<VQHhHDH*^%L[&idu9_"4+)@D@aCfq9E\>35j.*b=BHuZ&R=LP^3NXBgaH$unHaI*tY0pV^Q<m,>M>.%'=DB;;qX$hF4J_'M:pkH*1T[]M!TWA;2o-`\j*Nejb^oF@=ZTP-W!PQ<>S7H8(_1(/N295\<%8kNAm1<@6\Ja+KR&YJ+`S#r`BHdkgT%Ac,j"/F_5d[_Q1ep(KObf>h*#'8i1-H[(RW$>[=K/QXXCQS7?B:VsI-J$b%d',4\l>F^M"cL[V"f8q[1g-e8W"Q^dNM>:FGu_NQ=e*([UjjN_dhU\QlIte&O;A/fl;]61gZYmpG<;9)rrr<ea83;d'/br@=gfY:HUj`,TTA0.0%")Ld;9n!Y5GuGdh.,8NQS!<@mXdhi\P5rZSAYq:if17qPoDpWuX;6G,mTapBu(R.23c@+5"qWJU79W-^XY0>cp_1If\t@;f<Yo"WV0&2_Y_J]n#':bB2P#?CX_af_>uRdADt&,@hk2Z~>endstream
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 17 0 R >>
 endobj
 17 0 obj
-<<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 2005
->>
+<< /Length 1524 >>
 stream
-GauHKCMskV'`FV1EFl,d61M2J#7(VL&kGSc8?APcY0^cD)\;:nRGEOPo&"e+G.lNS8OFq$Ph8'=BC>)UHgf[!iR^!fdt6fJN#q??A32WkaS(ukZU<H9D11&GOltG981Y,@2e'$,8!ZXmcaT9;QWkd32R=A^E%$ZTk(]0r"o4b1*.MfSVpd5m"D]t%/TItG=eXqI&M`%Hm4][F32,Ni,gZ,a]/Oh.&m6r1@b[_^60$GYMs50/Qh2YrcDIq#>rk,nrefPPS\3`B4F4>.ZZe7<YEebZKj&IQGfO&RL]Wp1B?,Q,'>2D+IJ5)=NmE+-NbkKeYY(+L)OZCZPim/FM?TmaeWMF800&K_68a'ZM=XV^RPN[b36V`hc&7XHF&)/WJ_.u[E$AQ+g'_!o4#+%=PB<]>>3'H.3X9i0,N5"TN)+)5a5k&2h($`rg/(di;GGSqe6'IobOsH=f"*^s!9<jY-EmIgD2mjkoC(8_@:tTp`YtCH=>O5a9gTEn>;dZ=a]Zn<P>so*(=>q$Ug-`%.8DX4Q<[=?'l6PBTbW_DW2M=nJ`B^>T@&mlbA-V0<!m>M.F77;YIkj!l5?<nAjR9CPERC6?7p3U_<E+S'iltVZS\-Ac7m?r/pWk*W[)/$X-IE1\7@P=DhY88ZC,p'CmI'D\BH*L`d]@VBjr,0,'/7W1A>s#2KZB$>b-Gi/&`*f!*)6(_eM/p1_!e3-Sj@a0beqAHgJ_;K+I%jq`8d.Zb+_t@'a_&b`%j-IFTmLP0sh3D\l!/YkmW82#iNLG6!N`URJta\-juG(V6_VXg[lY(16tscaoR0`gX:UCLc%$QX#`bm]+ktiAq6s+YVFTpsscN^'j`5Lfnk7i)TsAFe_J0[09;_+k*Gj-n-'9D-_4N-J6D'1S4&K7&&Tb71C@\+7;j!pDCU)]Jc*j\1:0mT#ghe/qaiUY?2bUT-e^0!^[]['Yq55K2LM-nrh,uS#CID;K/%;ieU&Ha4e%.S1f#M]*$(OfNSkd*9gWgZkIh]"qMRFXYkdliSWVk_g9s&E^F(-MuJ5ZK+SL`%6*I0`m9\/e^9=Np5TZ]]6cA]Yt)F(^D_=($2k;[N3ag;!?_,6bGrf!9]QP3P1?D'VBS`jq)h16MF>0[D]PAhQDt<^#FS.b-BK744j!"P8blg#[4/3bY"0r%C.HmB$5]2]%uk/5&5&uqj:3YC<L`?J(Vp`%Y!#G+pMGo%1:,F'Xm>Q/F7Y^3+8"@\2sB=,GN7d-G<IJRD.[MTkflCp,.\:uGC/EjQef_j572=AYTLB!/%ll1p4c&j9h^+HYVS`"=Ru*4QcKqj7<,]`XA>-R8m8W6U]-Z7?JsYQ-cFj[?h!PLpOgiC2!>iETLjkeb=(F5]`Fe#W%6O4TKXopB&5<J'a:_RPM+J0ic7smGOSk-X^mI^3!bm`XB4QEO_36uCBuheDmKdUS<$<lR>[4m*fY?iYc@qPn9EG@fd*#Z@mc7h7G5T;G/B=&n)GD\G<XSgI4!D)KI81/o5Q\GSo5.V[D]-H1JVoIiFjUj$ME?e+^M:`dV[?]nU_IFif!WBpDo$<*uU3g+&"OieFPC70U6!p1F6DnKAGW_TOo^f1Z.&r]Jh5XI59E&IRp)ida+[GKC1n=%,L[Ga`hiB5];Y)Ge-gB)!%j'#lXIV*;BC+G)gpPs5.ho.AL6H4,Xm$eQfkCb(G.)qW94-6\3G9eXR2Un-a@d&L:rr)GfRN_&sJpC@m&'TW34OU,m3-?!+$nZ>.^PFC@PuHu(kFAR'G$Y#2O2]ta(Q(G,:c\T$2d7cV?'Vm7d"VU>(UE]*JsF=Aqp/0<35Jl"ggpdhDSLK"f.S>&n<2Pn$\SrE+*R2c+'jHt4cPu<ZZVVr^trL4*s5sq$\i%p7r16\1OE#Wk%U=>r<<U<5]*>=`->N[2))SS9%%8MXB.X`]B6L[X,MYprnKDB79@C1ORC6,ro"KMO"DMjgP8.VGHb=>Z-o+nOS6GIOb_'7?8L$k.3hRH6EDX`n!rW3Tq:*T~>endstream
+q
+0.035 0.42 0.48 rg
+0 824 595 18 re f
+Q
+BT
+/F2 20 Tf
+52 792 Td
+(STEP 5 - PUBLISH STATIC MODEL) Tj
+/F1 9.2 Tf
+0 -14 Td
+(Copy only the promoted static model into the deployment project:) Tj
+/F3 7.6 Tf
+0 -11 Td
+(.\\deployment\\SAHAYAK-Vercel-Deployment\\backend\\model\\sahayak_twohand.joblib) Tj
+/F1 9.2 Tf
+0 -14 Td
+(If labels_twohand.json is maintained as metadata, copy the promoted labels file to the backend) Tj
+/F1 9.2 Tf
+0 -14 Td
+(root as well.) Tj
+/F1 9.2 Tf
+0 -14 Td
+(Commit the changed model file\(s\) to the branch watched by Render. Wait for the deployment to) Tj
+/F1 9.2 Tf
+0 -14 Td
+(finish.) Tj
+/F2 12 Tf
+0 -20 Td
+(Verify the backend) Tj
+/F3 7.6 Tf
+0 -11 Td
+(https://sahayak-backend-krh1.onrender.com/api/status) Tj
+/F1 9.2 Tf
+0 -14 Td
+(Check model_ready is true and single_sign_labels includes the new sign. Then test the live) Tj
+/F1 9.2 Tf
+0 -14 Td
+(Studio.) Tj
+/F2 12 Tf
+0 -20 Td
+(Safety checklist) Tj
+/F1 9.2 Tf
+0 -14 Td
+([ ] Backup created. [ ] Existing labels retained. [ ] Candidate inspected.) Tj
+/F1 9.2 Tf
+0 -14 Td
+([ ] Tests pass. [ ] Old and new signs tested locally. [ ] Correct model deployed.) Tj
+/F1 9.2 Tf
+0 -14 Td
+(Never upload the raw CSV/database unless there is a specific need. Never replace the sequence) Tj
+/F1 9.2 Tf
+0 -14 Td
+(model when publishing static signs.) Tj
+/F2 9.4 Tf
+0 -15 Td
+(If a command fails, stop before promotion and save the complete error output.) Tj
+ET
+BT
+/F1 7.5 Tf
+1 0 0 1 52 25 Tm
+(SAHAYAK | SAHAYAK Static Sign Collection and Training Guide | Page 6 of 6) Tj
+ET
+endstream
 endobj
 18 0 obj
-<<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 1899
->>
-stream
-Gb!Slqem-.&H4hB`@)?C7?(I=H]]dT$BuSH/^<.Ge)aQ>]2#uB05RO4Vu,Lmm!WtKP7iG,PE(NrhAsr&Rr?=,;R#YGRa7c0GS.jBf+b.mnH,X^>_nI"<BU+?,,+=!-NFb`qDTOZ'nqq]B87_k_9Jn]NtTWZHlIYc,#2NC.)9n0@XE_t3Qst4#X6.SBI.Cf&1aut0Ea^J8cp/kD$R466!W[aZur`7&m>mP,O.O!^gsnRB)hW(\*u?#ir/Z9!+n`Vn)2+*g"Y-!-QdLSrWr$-D5<.Ed"]G%3oYC5kW;%7)Yk/[i.e]#3L`^s*q:WfWA/g+,qK9I=B9%q-!W(/Pf"2M_'KoL*;Gjo.fDhKQ_h@\9!?pVM<.6O'q_d)%dm`BHd"gk,Nu@TIH!b?K\=gGg'U1T4DdCIJ4:F`gAisr`NN%Q60D_u%5:=TR:[mH*3(c$h/R#>1U])]L*Bu@&"W5BjG\9%naPYlcFAii'T=\+UZfnSZ35<h)dp4,RnR*f9*NdY/ZPO3QPQ!NMEm+e]q86p&?`R*=]If6feo*c%nflVfdNkbkHHM$.op!I'J<FJnc`7[MJNd+bI\j)6#;0rM>Ihk)r(]`m1;!097^D6)-KFIK7YO1bJ\8lV:HLoOf)mXdAc&^8earJSt7^R7O1<Q0%OLm7[B$@#d\k"=I[YA=pJi&RT^rUb+r>eRUlTh\\WsKX*[hC"oj(j1qF`o3lZs&,#a;MVCd9ophd7SD7F2[9>*1-%,P*1*a;"RJ]p/Tml.Ms&#2<?lNI?>R("02ANZW]6pg#b,_G=h6'B=j'9SkHQd<)_PnOdG>>dI>p8hIrRH73k'rAk%^a_^Iq-:3U[UPlSeP1`tQCdi<OH7p\Sm?H*FRhH(i43)?0!"OJ886Eg0ZgE*,3;(14Xk`/c(oHO5-=,SnGLuin*<MYG:0b9J9U\n**i$pdsuoWWo)s2(Kr*^?So/XY,2G(WHbCmbif!]]Dg9Fk651a[.OK<1sG6N/WU,%HJX+Bj#E6&!\t4&MT;Sn9P$f=0rX\TF3'[FVKiBb&s(uZhMa`H*n)oFeW;A5Pu(o<Cnrfm74+k&N_hgO>*f(ZbnHlU,WV&OI4),!3>:t76b8?6p9s#Q2Ke\eX/i>'EVPVsXN",37.7-eWOA`XQ\O6r(U]":V,oml[R*UaY./jB*TN5tJ9_('cU:g`Pu*R`lWs:cT.b.=6Y,a-1Pk(XKN@e3K>kf8\XKKJgt^#Aij'BI_k)-/T8^$Ug!^oq0:;M[cYZt,"KdaJ4/Am%3M.G[E]fHX`oC?2-<5qFg)D]q@N&!]k!h@=&f1FC49>B3jDV6pCd&G\N"%)RIhJ_K<mN.lIYjj6qDUYr6.91r9jVFg3o_dAmhYMcq9JAY[auWgnqs:-]4jQ,^NCTX#9'hl8qf>;B"t`;4r`sfBQ-.t#ST_1c!unc?:aHgo5e8+IhJ,@i`]3WU0nf\`jo<8p>u)S/OtQi$_21%_PekRH/:.!EHiJiH2JZN?gVAarIN7oM*L3YHF[$_]bOf0<kJ)F];eMpLV'R%=l7V,f+*tI\j"_hQL$:($qo<p:5O01dnL!)Q(batWg;Z<N`kB7kFkr/2'3&Vhm`%=.m(?*icg3GHVrC<4DW;dE:J?NkOUCk!:56'\=3r=Z\H'#/7:8K0VOg*#i;'k^HD<LL8,X!4,Mqgm,[68M,eoM.PZ>*#D!l8<[+O_OEI-D4oXAR`"K5VJ1F$qaE!$!3\+s8`kaL'WmoBBPt90%S4dp'`7hr(Yj87MlAI581"OrLr%sa9gs"ksMb7*f"U!RiMcr]c@i+Y"cglIk$Yd%OE1mN!H^:Hkl=sY!6gIY&QH95YD"678na;LnZaMBI?>b1N[',=_br\2gVHTHB[-k<@mjQpm:lZ1t$499&!&OPC5Q~>endstream
-endobj
-19 0 obj
-<<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 1701
->>
-stream
-Gb!SlD/\/e&H;*)ETf)!.r%fnonj1\de%*RK/HB1'a5!KZp_rL,uU#,U^$PQGGJb<DOj3*g&WdWfTASmm^_MP]2L+;pd=F]=opf]i9+_eW!g]SW(/s@:>fhAHTra;a!_=H7%sDa8F49Wj2'F?)=c[3-GcUuEEV3d(rq;`%YYOCcQfSW\lHQAbSn<E\.>^[]a<\ONZU\TW(1P=!--iAo-r1UAcqE@*K3B]9\c!j84kj$5Q(KLc/B'*#L8ONjS0#+O.ZFYY@!m7G]rZKohU[^L#ep^dc1^piFkJHQle]s"6.]fE6nbAEgb6k1[Y%WV_k.!oSH1c!P7F(biL-U[Ws3-%TP)!;-sV@+7_mj-V]%=RpB*MP?jM76+hR6.DHSTO#FX;(5<jg2V)2"K%Q'F4[[Yn(cpRo$\ea%Rn1%I&-qC?do5b_q*[(9&a6WaLdRG"$RcG-@^G+?IYV1k*Y*IJ6XAgXefjLD^f`0RUHd#jVRO42=lN.1/TIE+L^ROJT5MSTDD,c+X+rLOT%eO(`Sajbgd)9O_\)#CRelQ](+WCO>\fImns[lqN!;Gp9'jNWMdN1DHgrJV>s^X*%(/@&(5TA=:i5i.8XPjkb$5n\2?js,?h4_V8#jf]H1;.=^7?EL+*EEJ&N\?4)#E1o,F.uDb8]gAg?;F<cUL^#S_MG7j_2oQUL)cB*^LJM*:7)EH=IR:ef<:3&d&C)NZjP\m\ccFo7qqBB2]O!MTHbofHh'(CQZ>`Q/K5BAHJ29Ue90?/idP<)QsM_kq=CJ2ioJM9#G[Z0$?]u=1AF!J9"BmhDG$X(H(\=D/5_\aPEQrHtQVp:(bHT'SX'>`AK2@hMGR6\WRUG@I1=qMpZ'gD$(c?n4!oZ#Zi8h*6d@I6^VL5Qj$iS![FkD`hI-5#SN]9OgBTT=/+Q%.^K%[0"$e/a?V8?@#:A-OS7l;#9Xq5/O8KKp\q"hQ'alX6er%$jNBkl*3Bns.ZpIj\!Ybe;e.>]DUt*sOaREHkA*qI3e2=F#Lc^Q#`$"-Xr\!K[A[',&P%H\!4BJ^<SMV(QoBg91I$R.cO8Mc*?$:%=+^-8[9_-\LgiMCGq!Kgh)OT=#)Zp351=obPU?'>48oWoJbS7?Hplo"n#P';a``nfbcA@FSBh8,HbQ7%B1JkX;IuT<^'=1S5B;.P*R8;>+DCcV`ud)sZ,=t.IuDJh=Ru)i")VUj]/#YlLpk]9UKDA@D<CRMWl7k?GIJ@rZaHp(`M+IK;#^\pYooF/GcGhLf#J#4M)jc0,]KiY=fW<,A\)K2bnMO,F+@s*\SR6ah/3oPef_]fNG'ZG9eW6iEd`i/Soh<7XT<U<>5(rIn>a'(GFm-:o0)@+=tD<<q):E/H<rF)Z@@FNYPLRXHW^Y8b*g#i:/G\;EljsrEjVc<*%),'hk*A::+r92(1_`SOoiV/\nOYo3i&bi.+)34\`j?[#-g$h<H^;Z3c1`XCGIR5MO,'(d7KbAPAYWi:s!GS)keVbNQ';PjIRL$=)Et]G--Y=G]^F!R.!fe(5kYf_MeFs<&>l:<`O_HpV@2t1n]?6Ok`u4piYNU2n70+g@Ea5K*+\RC9PQ)AK^*m86)/TYneWJ+H+4ZFa8)a@aVsi?0H'8hH7j'[4Ln1KCQt9QHYu#3YhBDg/[s<!uiP1/FIr#C[N6t"h>Z(!kat$</,Pm91o6Zeq1d.2=796_!GE``P2Q~>endstream
-endobj
-20 0 obj
-<<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 2107
->>
-stream
-Gau0D=`<%S&:Vs/R$S!)U8CB8l2h@'l'6,>Up[\N!W`@+U22-=W"l;C!VXS&O?.2jmF2G?"A)#OQuB-GL8&)7%lJjs!oVT;`c!;&)eLNqQae_2K/^-3Iu[(`3n+IdKRnRR&m8(F\a\_:&b07O<.[VsANRU85njnYYUC4D\Lt/#NE8,6O,OWtL\jn?e;5;K@!Q/dKY!BP4qQHY>`V4bcl6X'F:]'g&[<SG^oW(Hl/_g(n&Yh0(T+O\m.:FXVscgc\+;6phO^9fHNpflQp'%f3rK+33#o:MNou23"2q$uD]o6BZlRKG-ee9M7qkMRkVEgW*)t1g1+O0FBX3</#ca=d?@V.RIq2IA)4<'K\IE+0fsZb!8)"8UYQY8]A&DsO_QY9KD=.2<O6d.cVk%pk%5%(V"RQ:0BhR*u&BE8QRgY`)_*p0+1V!Wck-q"L*#+`s-Qj.&=U^!TGeO>t2`,8d6DGA\[YN4W$R820F$,u*$]P?B2@9YWFtc6Ef19#DGR_2<Gg$M$1BS&FqZ:5([8<o-'LIF0-m:++0^fZ]jl3`,V:&#>H)q:a(/P>A%F22rXGU/KA-l0S:8VBF'otcmpl<Uej:\U7W;mHG%tpCl@Sp_e'.*Ib9ead4i@]=n=.>PjZ&(C_n2AH%&qWS4g(I*>OF(sM%LF[:LqlO<cpMc:\1aMBWNI1JlFSaU/^tZdkBNs)l.1*'f&3K473_B0X8)g>[uim!9cn8f&"-t\L!T--bJ7ts@-GZeC>/h.p%nIAq'a?50u2HP-PH-m$V>+sb?1smgD'%af36ZoM@//.nNu)Dl?tJGoZ^]N4uiPZ1;tSHT.48";nkSs-LrfC-!RZZG&sK\@Yk[`Xp&G1r9)ct)30`B7pgN^o6g1VaM@>9`AbG'`Wk]&JO"XV?LNrQZ;o344I9gdnfCT/_r?6kk3RaTZA:qd)p)Ns3lGVlTXI7ZV,2-M1fO)"/TYOGGp8C4E!EjnLL,Jin+F@/hDH%^UOlrG=YnPR]eioq-`jGZf&jjBP!.uQgG6Fd3JVLr34+$.IG0!8T/d=76U1$NA'5`lE9@9UL^p3%6g4@]J\V%R;i>7mKU*[.?8Xk&hLolF]OA0-A0#Y8=B"ES)et\SnHdDj?G]U>9"l:+(R\GbEtXC?r3<ueiH9Q!<-HaOfsm*de*5OfeXV[.Cj<r)ApCLf-heZNdBgSWd?CC<P/AP:%-PMM]e@g-JkDVE=0ULKm%u*2+#pIJ9)aJ%*dpS9*=4`2;qlVWVT=/ZX/ajkZ6J0bR?)ZPU<$$CU=%8%<lRd70bl?=]D4%+5pp)>Fa:(eM;8dsb9X/WI?Wf&Fnq!3Bo:Z`$G0HBc;i/!DORMgA\!0h%2uXTEj*$d;5+uhn97FA('jmd-VSQ"NL^>j2j+DOP<5Vc"a3fkb-_Pq'Cb_>G7pK>R)1$D<?5nGDa!\=Rq@"fJr.[[1/i_"X"O?R[Cl<rZ,k.*cWQ&Njhfs)VS#/p*!K,[ts=Bqi%[KCSM$';>S/^3OO'Z$X:K2TuS#,<8_9[$7]AC9KM8Q7N'$U8pS\)R(jVekFPok&PKFG0YAB83!l!%;.j-oFi^897k7hRcBLjS-!TSWm>rWN*\]Ai.=k:4$+C/,aRu-bb>/Bdk@Nn>5ajr31f%,8A7@cnrY"HnT1"HXi3l#,aLCQ`_=h%C+4r&Q4k-3T];U!)l@LI\[gS-sCsZ%PWuH+=Z>BGoq;gu/TP/*J#=F36M`WXk"qPo_3U5UQFAjhA&S5efA:2\&Com)eNVq\A[VJ1-lXA7nlD$*'<_=?"B)*Af)*1t9CMT=-<Y*X)ghfA9<c5"lFk#9.!PL:6D<CsJMDj;eKGEhm6QSbL)/e]5Y.K<1];Jf2DsXcd@kM?HjN']Ta--_VUohd9k^2V8.osdS3DYaj%k^mXkl)d&:6n#VBe-u!buoX(X9;N^]WK8BmlA/2?V[b-L;XE6k7-:GN"nt!l53a/k!(>shcSHkD``i*J;X-o#Sdk!.pG/;T-QO'/Cb$,.J[k--c2kjF$k!R=fS4H8:TGL9'UuYWqud+4s^f.["]NfmQ\_.Ys=N:gd^Ja/MM#f@t!:b]FCDJjoYmA[Xj(<(8]G:X.R.2HJn!OBq-R8~>endstream
-endobj
-21 0 obj
-<<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 2142
->>
-stream
-GauHL=\mgD&:WeDeB>#I.+>\S>BqDD8Q\H50P7*1Aq_/8LN2eu\'6)`O5Hu*Z1/B[0G1BU%%b2uqPrj3F0P/Oolj:6]T$@_*=$IL49t:0(ZHn1a'7H0=Qhg$$%R^14TUJB.(!5=H,%<\\DA^Oj34eLhhE82QkNRA$Lh;eg"pBjLY7t/Jn);$V*mrgbR,mS%"WDbo=tTCgO\[1BJ*s#?Re)B$*B$:&U,?M@!f?Z@J?t]6hhI0nSW`Y#IB'W+5uh=al0krdHBC0rX/0G'!ekt+Mm#E*HO>-oGq<lO*h=8E'rCMS9:QCO*R7N>`51SM9)B-6rmp]"^H.P.U`C$,F*)J,flHK[5=YaMc-[W17W18bjqOZK9+!*KOD1G'1QE_&bNe\IHF%CK[I^%d?tbpFH!>=,^8j9N*bsafKRtQSaF.^m_dn:rOp,5_(:=J+[.nI`Ne*OUSIVBj80R>*nJDU7N+"ATWpYEk?A33P37'L\a!?+>Z-kSUU?o%:1=$!8SAp.Jn-$gb8_N/;BuW`ZU2NGeU^7i&>34SAr1[bK6SQeq,L;"=]Idd'nn&U;6DB.(WiM*Y/W7DLnr9L4@POX*,%nrc=O02'+D7\N=A:.*9QlOL.h]2Z>9l3&6He!Ceru-p]oZMOtn=8;pgIU?ZOYu&C%%4ZPWDX&p:&$*UCI]:\Wt-lV6jnlNL#8X7BLB/R"i9;<JR?XsaAb1O_fJZ2,6=ZZZ@L.<2(](gL4P-41\/'"ha+p1AfKDI(pFaN>ds0XIfBKd7I,TiH6l.?10%?CSbid$=1!2TD5Z5U3HfGqIJSN:L=23q[@%^s(.aesV7'`?K#l+Jf5eLoq.R,^"L7Y/T`@jTPhWIbnmKP5Ctn)H:&>S.^M0ra_$YFc?O3&@I0Afjs\jUI[BE6R3uU*aY[M:W\pSLLfT\)NRf;A7J:;4,+oT9&ZY8gm"*P,e/AkEHZBPQSM8RC"<>jLR/pU6(Ae^]`sLI6O$+0)hZH&J3;i>%)]/k_<'fH$*?<D,^m"KoDih66Y&*'OLQtTfA0G.N;[i3eR0sdW3o^Bi^XJ.FU6&i0?rHNsr_@X/O"5hoH(qO,\As72q,ph=F0E=7\TI+i57Xo6Dqr[C4Ed%LXg<LqpFbV[5"jTBCgl#"VNqR+N2.$M.>D-@P_:c=dM^=L3ZL(^HB5/TO)q$#W0/ef?YOc3'P:c40-FA7W)D3Z.+WpY`cNZVf`VdOji8j)n)JXZN%dZJN4A8"5k5)bs[q'PChrX,r`W=ZT[*-;&'+`*K+=c;1)4Gp-?`4,qat;G_iaU16*UOuDod$o/H0!+kF.I<I3KMZja8VPtJT=6ZF[r5Z6TCTrpJgj*!6_eY,'1l^H$\f/bg5'Yc1>q=50Hg2?C*+'Rln9Y=Meb4<-2mUB6esoF2_UhOs-SMDGU#A\E:9LM)5(pbYH2FOQ8l20_U^o]^D\,$lH];6q?%?Ii7i9_!Xf8JnZ6Vc`AluOJ;L=+2Suuc%g]moF:eKdY;6$\6i8f0L5O(P\Il7gXbPDAXW&KjCF8XKg4F4=KQZE''ft6hn22R0Zbd"!5E/L)4Q)Qd"/$/c[aR:Eq(aUJ7n$5996:ELpI&FRKPm@BNplG6qnXiD)cgk=PD'*5pTTE+=n+Y]M471_N0VEcS;7qYT7[+5YVbGD_>l`&ohFOtRHZr!0foE'$O*M3ahfHd4UXUlGBq?^86:p4H+(O^60#kUu<:X6@b=!i>_)a`%a3kLU[4YU=6r]rj:2AYf<$`_$F*U=0I`oF%ARs",q"OI/='VnW`FW^P0pH5F7;oP*D;!aT[5)KVf%mHQp_;^9UD[]$K1'6,K>77#j<&RZpnJq_%-)4ps6Sng5+6KdEh#5*%OYuB5PNl[>/q5Gk`4l0/EkuX3@i>rq/o8f65M(V1_:iVNfesU#p#CXetu\"K]'J/?iem\dqmNM0Kd;*0>c:,'t.cFd4q/]:A6VF$l.B`1n5'<e0QbT/BpVLX4NH9PT7:53_X$LSJ!i+GR$!kM6"AUS"sCh&A6f'g1uAfZ^Xh61"@0I)hk^!:s+)L1`]LP))gU/@+"9S--ZanX!,L?eX.1**qOGtpQp.!1f4(RGcSV$`p_r9=>sFRr@uM?nI@816c&^cPjU)VY8jtlInhu?+)Ll\s5Tc9~>endstream
+<< /Title (SAHAYAK Static Sign Collection and Training Guide) /Author (SAHAYAK - Mr. Johan Jyoti Kuli) /Producer (SAHAYAK Guide Generator) >>
 endobj
 xref
-0 22
+0 19
 0000000000 65535 f 
-0000000061 00000 n 
-0000000112 00000 n 
-0000000219 00000 n 
-0000000331 00000 n 
-0000000536 00000 n 
-0000000641 00000 n 
-0000000846 00000 n 
-0000001051 00000 n 
-0000001256 00000 n 
-0000001461 00000 n 
-0000001667 00000 n 
-0000001873 00000 n 
-0000001943 00000 n 
-0000002287 00000 n 
-0000002385 00000 n 
-0000004048 00000 n 
-0000006199 00000 n 
-0000008296 00000 n 
-0000010287 00000 n 
-0000012080 00000 n 
-0000014279 00000 n 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000157 00000 n 
+0000000227 00000 n 
+0000000302 00000 n 
+0000000370 00000 n 
+0000000516 00000 n 
+0000001726 00000 n 
+0000001872 00000 n 
+0000003501 00000 n 
+0000003649 00000 n 
+0000005347 00000 n 
+0000005495 00000 n 
+0000006927 00000 n 
+0000007075 00000 n 
+0000008309 00000 n 
+0000008457 00000 n 
+0000010033 00000 n 
 trailer
-<<
-/ID 
-[<1e5be971633b059f7c6d064ff1b2cf99><1e5be971633b059f7c6d064ff1b2cf99>]
-% ReportLab generated PDF document -- digest (opensource)
-
-/Info 13 0 R
-/Root 12 0 R
-/Size 22
->>
+<< /Size 19 /Root 1 0 R /Info 18 0 R >>
 startxref
-16513
+10191
 %%EOF
