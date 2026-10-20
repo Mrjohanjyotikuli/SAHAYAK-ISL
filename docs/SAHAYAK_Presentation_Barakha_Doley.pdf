@@ -1,0 +1,165 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [5 0 R 7 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Length 3083 >>
+stream
+BT
+/F1 10 Tf
+50 790 Td
+(SAHAYAK | SCIENCE EXHIBITION) Tj
+0 -14 Td
+(BARAKHA DOLEY) Tj
+0 -14 Td
+(SYSTEM DESIGN, TECHNOLOGY & WORKFLOW) Tj
+0 -14 Td
+(ROLE-SPECIFIC SPEAKING SCRIPT) Tj
+0 -14 Td
+(Suggested speaking time: 3-5 minutes) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(HANDOVER AND OVERVIEW) Tj
+0 -14 Td
+(Thank you. I will explain how SAHAYAK works behind the screen. The core idea is to) Tj
+0 -14 Td
+(turn hand movements captured by a camera into numerical features that a trained) Tj
+0 -14 Td
+(machine-learning model can classify.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(WORKFLOW) Tj
+0 -14 Td
+(First, the browser requests camera permission. MediaPipe Hands detects hand) Tj
+0 -14 Td
+(landmarks. The application converts these points into a numerical feature vector and) Tj
+0 -14 Td
+(sends it to the Python Flask backend. The trained model predicts a label, and the) Tj
+0 -14 Td
+(website displays the result. The browser handles the camera preview and landmark) Tj
+0 -14 Td
+(overlay; the backend performs model inference.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(STATIC MODEL FEATURES) Tj
+0 -14 Td
+(Each hand has 21 landmarks, with x, y, and z coordinates for each point. That gives) Tj
+0 -14 Td
+(21 times 3, or 63 values per hand. For two hands, the static feature vector contains) Tj
+0 -14 Td
+(126 values: 2 x 21 x 3 = 126. The intended current labels include HELLO, YES, NO,) Tj
+0 -14 Td
+(THANK YOU, and I LOVE YOU. Recognition still depends on the model and the) Tj
+0 -14 Td
+(conditions.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(SEQUENCE PATHWAY) Tj
+0 -14 Td
+(Some signs depend on movement over time. The sequence pathway uses 132 values per) Tj
+0 -14 Td
+(frame, including landmark coordinates and wrist-position information. A sequence is) Tj
+0 -14 Td
+(resampled into 10 time bins, producing 1,320 values for the sequence model. This) Tj
+0 -14 Td
+(design represents movement over time; we should only claim a continuous sign works) Tj
+0 -14 Td
+(when it has been tested with the deployed model.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(FRONTEND AND BACKEND) Tj
+0 -14 Td
+(The frontend is hosted on Vercel and the Python Flask backend on Render. They) Tj
+0 -14 Td
+(communicate through API routes for predictions and supporting functions. Some online) Tj
+0 -14 Td
+(translation and speech services require internet access. Therefore, we must not) Tj
+0 -14 Td
+(claim that every feature works fully offline.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(DATA, TRAINING AND HANDOVER) Tj
+0 -14 Td
+(Adding a label to a list does not train a model. To add a sign properly, collect) Tj
+0 -14 Td
+(labelled examples, check data quality, train a compatible model, evaluate it on) Tj
+0 -14 Td
+(examples not used for training, and deploy the verified model. A single successful) Tj
+0 -14 Td
+(demo does not establish accuracy. My teammate will now demonstrate the prototype and) Tj
+0 -14 Td
+(explain how to test it responsibly.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(JUDGE Q&A) Tj
+0 -14 Td
+(Why use landmarks? They provide a compact numerical representation of hand shape and) Tj
+0 -14 Td
+(position.) Tj
+0 -14 Td
+(What does 126 mean? Two hands x 21 landmarks x 3 coordinates.) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 4 0 R >>
+endobj
+6 0 obj
+<< /Length 610 >>
+stream
+BT
+/F1 10 Tf
+50 790 Td
+(Static versus sequence recognition? Static uses a frame's features; sequence) Tj
+0 -14 Td
+(recognition uses information across time.) Tj
+0 -14 Td
+(Is it always correct? No. Predictions can fail and must be evaluated.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(REMINDERS) Tj
+0 -14 Td
+(Do not describe the current backend as TensorFlow/CNN-based; the deployed model) Tj
+0 -14 Td
+(artifacts use scikit-learn/joblib. A feature dimension is not the number of training) Tj
+0 -14 Td
+(samples. If the demo fails, explain the workflow honestly using the architecture) Tj
+0 -14 Td
+(slide.) Tj
+0 -14 Td
+() Tj
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 6 0 R >>
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000121 00000 n 
+0000000191 00000 n 
+0000003326 00000 n 
+0000003452 00000 n 
+0000004113 00000 n 
+trailer
+<< /Size 8 /Root 1 0 R >>
+startxref
+4239
+%%EOF

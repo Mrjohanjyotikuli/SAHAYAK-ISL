@@ -1,0 +1,175 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [5 0 R 7 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Length 3232 >>
+stream
+BT
+/F1 10 Tf
+50 790 Td
+(SAHAYAK | SCIENCE EXHIBITION) Tj
+0 -14 Td
+(HIMANGHSU GHIRME) Tj
+0 -14 Td
+(LIVE DEMO, TESTING & CONCLUSION) Tj
+0 -14 Td
+(ROLE-SPECIFIC SPEAKING SCRIPT) Tj
+0 -14 Td
+(Suggested speaking time: 3-5 minutes) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(DEMO INTRODUCTION) Tj
+0 -14 Td
+(Thank you. I will demonstrate how someone can try SAHAYAK and explain how we should) Tj
+0 -14 Td
+(judge whether it works reliably. This is a prototype, so the demonstration should) Tj
+0 -14 Td
+(show both its capabilities and its limitations.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(LIVE DEMONSTRATION SCRIPT) Tj
+0 -14 Td
+(I open the SAHAYAK website and go to Live Studio. I allow camera access and make) Tj
+0 -14 Td
+(sure my hand is visible in the frame. The landmark overlay shows the points detected) Tj
+0 -14 Td
+(by the browser. I perform a sign supported by the model, keeping my hand clearly) Tj
+0 -14 Td
+(visible. The extracted features are sent to the backend and the predicted label) Tj
+0 -14 Td
+(appears on the website. I repeat with another supported sign. If a prediction is) Tj
+0 -14 Td
+(wrong, I will acknowledge it and try again under clearer conditions rather than hide) Tj
+0 -14 Td
+(the error.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(HOW TO TEST FAIRLY) Tj
+0 -14 Td
+(One successful demonstration does not prove high accuracy. We should repeat trials) Tj
+0 -14 Td
+(for every sign, record correct and incorrect predictions, and test with people and) Tj
+0 -14 Td
+(recording sessions not used in training. We should vary lighting, distance, camera) Tj
+0 -14 Td
+(angle, and signing speed. Per-sign results and a confusion matrix can show which) Tj
+0 -14 Td
+(signs are confused. Response time should be measured separately from accuracy.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(LIMITATIONS) Tj
+0 -14 Td
+(The current model recognises a limited vocabulary. It may not understand full) Tj
+0 -14 Td
+(sentences, facial expressions, grammar, or every regional variation of ISL.) Tj
+0 -14 Td
+(Landmarks can be missed if hands are outside the frame, occluded, or poorly lit.) Tj
+0 -14 Td
+(Online translation and speech services may not work offline. This prototype is not a) Tj
+0 -14 Td
+(substitute for interpreters or a guaranteed communication service.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(FUTURE IMPROVEMENTS) Tj
+0 -14 Td
+(Future work includes collecting a larger, consent-based dataset with diverse) Tj
+0 -14 Td
+(signers, documenting data quality, testing on unseen people, measuring errors for) Tj
+0 -14 Td
+(every class, and improving sequence recognition. New signs should be added only) Tj
+0 -14 Td
+(after evaluation. Collaboration with ISL users and qualified experts is essential) Tj
+0 -14 Td
+(before wider use.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(CONCLUSION) Tj
+0 -14 Td
+(SAHAYAK demonstrates a pipeline combining camera input, hand-landmark detection,) Tj
+0 -14 Td
+(machine learning, and a web interface. It is a starting point rather than a finished) Tj
+0 -14 Td
+(universal translator. We have learned that assistive technology needs not only a) Tj
+0 -14 Td
+(working demo, but also representative data, careful testing, user feedback, and) Tj
+0 -14 Td
+(honest reporting. Thank you for listening. We are happy to answer your questions.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(JUDGE Q&A) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 4 0 R >>
+endobj
+6 0 obj
+<< /Length 1008 >>
+stream
+BT
+/F1 10 Tf
+50 790 Td
+(What if a prediction is wrong? We record the failure and investigate under) Tj
+0 -14 Td
+(controlled conditions.) Tj
+0 -14 Td
+(Does it work offline? Not all features do; online backend inference and services) Tj
+0 -14 Td
+(require connectivity.) Tj
+0 -14 Td
+(How can it improve? Collect diverse labelled data, prevent training/test data) Tj
+0 -14 Td
+(leakage, evaluate per class, and retrain only after verification.) Tj
+0 -14 Td
+(How do you protect users? Request camera permission, minimise identifiable data,) Tj
+0 -14 Td
+(obtain consent for dataset collection, and explain what is transmitted or stored.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(REMINDERS) Tj
+0 -14 Td
+(Before judging, check internet, backend health, camera permission, and lighting.) Tj
+0 -14 Td
+(Keep a backup screenshot or architecture slide. Never invent accuracy figures. If) Tj
+0 -14 Td
+(you do not know an answer, say: We have not measured that yet, and it is one of our) Tj
+0 -14 Td
+(planned tests.) Tj
+0 -14 Td
+() Tj
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 6 0 R >>
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000121 00000 n 
+0000000191 00000 n 
+0000003475 00000 n 
+0000003601 00000 n 
+0000004661 00000 n 
+trailer
+<< /Size 8 /Root 1 0 R >>
+startxref
+4787
+%%EOF

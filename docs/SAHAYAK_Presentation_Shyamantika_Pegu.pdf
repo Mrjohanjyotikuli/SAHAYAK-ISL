@@ -1,0 +1,149 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [5 0 R 7 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Length 3025 >>
+stream
+BT
+/F1 10 Tf
+50 790 Td
+(SAHAYAK | SCIENCE EXHIBITION) Tj
+0 -14 Td
+(SHYAMANTIKA PEGU) Tj
+0 -14 Td
+(INTRODUCTION, PROBLEM & PURPOSE) Tj
+0 -14 Td
+(ROLE-SPECIFIC SPEAKING SCRIPT) Tj
+0 -14 Td
+(Suggested speaking time: 3-5 minutes) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(OPENING) Tj
+0 -14 Td
+(Good morning respected judges, teachers, and everyone present here. We are) Tj
+0 -14 Td
+(presenting SAHAYAK, a real-time Indian Sign Language recognition system. I will) Tj
+0 -14 Td
+(introduce the communication challenge that inspired our project, explain its) Tj
+0 -14 Td
+(purpose, and describe what we aim to demonstrate.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(THE PROBLEM) Tj
+0 -14 Td
+(People who use sign language may face barriers when others around them do not) Tj
+0 -14 Td
+(understand signs. This can make everyday communication in classrooms, public) Tj
+0 -14 Td
+(services, and other settings more difficult. Sign languages are full languages with) Tj
+0 -14 Td
+(their own grammar and regional variation; they are not simply gestures or) Tj
+0 -14 Td
+(word-for-word versions of spoken language.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(WHY SAHAYAK) Tj
+0 -14 Td
+(We wanted to explore how computer vision and machine learning might help in a) Tj
+0 -14 Td
+(specific accessibility task. SAHAYAK uses a camera to detect hands, extracts hand) Tj
+0 -14 Td
+(landmarks, and predicts a label from a limited set of signs that its model has been) Tj
+0 -14 Td
+(trained to recognise. The website displays the prediction, and supporting speech or) Tj
+0 -14 Td
+(translation features may be available depending on connectivity.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(SCOPE AND HONEST LIMITATIONS) Tj
+0 -14 Td
+(SAHAYAK is a prototype, not a complete ISL translator. It does not understand every) Tj
+0 -14 Td
+(sign, sentence, facial expression, grammar rule, or regional variation. Lighting,) Tj
+0 -14 Td
+(camera angle, occlusion, and differences between signers can affect results. A) Tj
+0 -14 Td
+(broader system would need more representative data, systematic testing, and feedback) Tj
+0 -14 Td
+(from ISL users and experts.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(HANDOVER) Tj
+0 -14 Td
+(That explains the problem and our goal. My teammate will now explain how the system) Tj
+0 -14 Td
+(works technically, from camera input and hand landmarks to numerical features and) Tj
+0 -14 Td
+(model prediction.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(JUDGE Q&A) Tj
+0 -14 Td
+(Is sign language universal? No. Different sign languages exist and have their own) Tj
+0 -14 Td
+(linguistic rules.) Tj
+0 -14 Td
+(Can it replace an interpreter? No. It is a limited prototype and should not replace) Tj
+0 -14 Td
+(qualified interpreters.) Tj
+0 -14 Td
+(Why is it useful? It demonstrates one possible assistive-technology approach and) Tj
+0 -14 Td
+(helps identify what must improve before real-world use.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(REMINDERS) Tj
+0 -14 Td
+(Speak clearly, make eye contact, and do not claim unsupported accuracy or user) Tj
+0 -14 Td
+(counts. Explain that the project recognises only its trained labels. If asked about) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 4 0 R >>
+endobj
+6 0 obj
+<< /Length 106 >>
+stream
+BT
+/F1 10 Tf
+50 790 Td
+(an unmeasured result, say that it has not yet been measured.) Tj
+0 -14 Td
+() Tj
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 6 0 R >>
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000121 00000 n 
+0000000191 00000 n 
+0000003268 00000 n 
+0000003394 00000 n 
+0000003551 00000 n 
+trailer
+<< /Size 8 /Root 1 0 R >>
+startxref
+3677
+%%EOF
