@@ -1,149 +1,141 @@
 %PDF-1.4
+%SAHAYAK-GUIDE
 1 0 obj
 << /Type /Catalog /Pages 2 0 R >>
 endobj
 2 0 obj
-<< /Type /Pages /Kids [5 0 R 7 0 R] /Count 2 >>
+<< /Type /Pages /Kids [6 0 R 8 0 R] /Count 2 >>
 endobj
 3 0 obj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
 endobj
 4 0 obj
-<< /Length 3025 >>
-stream
-BT
-/F1 10 Tf
-50 790 Td
-(SAHAYAK | SCIENCE EXHIBITION) Tj
-0 -14 Td
-(SHYAMANTIKA PEGU) Tj
-0 -14 Td
-(INTRODUCTION, PROBLEM & PURPOSE) Tj
-0 -14 Td
-(ROLE-SPECIFIC SPEAKING SCRIPT) Tj
-0 -14 Td
-(Suggested speaking time: 3-5 minutes) Tj
-0 -14 Td
-() Tj
-0 -14 Td
-(OPENING) Tj
-0 -14 Td
-(Good morning respected judges, teachers, and everyone present here. We are) Tj
-0 -14 Td
-(presenting SAHAYAK, a real-time Indian Sign Language recognition system. I will) Tj
-0 -14 Td
-(introduce the communication challenge that inspired our project, explain its) Tj
-0 -14 Td
-(purpose, and describe what we aim to demonstrate.) Tj
-0 -14 Td
-() Tj
-0 -14 Td
-(THE PROBLEM) Tj
-0 -14 Td
-(People who use sign language may face barriers when others around them do not) Tj
-0 -14 Td
-(understand signs. This can make everyday communication in classrooms, public) Tj
-0 -14 Td
-(services, and other settings more difficult. Sign languages are full languages with) Tj
-0 -14 Td
-(their own grammar and regional variation; they are not simply gestures or) Tj
-0 -14 Td
-(word-for-word versions of spoken language.) Tj
-0 -14 Td
-() Tj
-0 -14 Td
-(WHY SAHAYAK) Tj
-0 -14 Td
-(We wanted to explore how computer vision and machine learning might help in a) Tj
-0 -14 Td
-(specific accessibility task. SAHAYAK uses a camera to detect hands, extracts hand) Tj
-0 -14 Td
-(landmarks, and predicts a label from a limited set of signs that its model has been) Tj
-0 -14 Td
-(trained to recognise. The website displays the prediction, and supporting speech or) Tj
-0 -14 Td
-(translation features may be available depending on connectivity.) Tj
-0 -14 Td
-() Tj
-0 -14 Td
-(SCOPE AND HONEST LIMITATIONS) Tj
-0 -14 Td
-(SAHAYAK is a prototype, not a complete ISL translator. It does not understand every) Tj
-0 -14 Td
-(sign, sentence, facial expression, grammar rule, or regional variation. Lighting,) Tj
-0 -14 Td
-(camera angle, occlusion, and differences between signers can affect results. A) Tj
-0 -14 Td
-(broader system would need more representative data, systematic testing, and feedback) Tj
-0 -14 Td
-(from ISL users and experts.) Tj
-0 -14 Td
-() Tj
-0 -14 Td
-(HANDOVER) Tj
-0 -14 Td
-(That explains the problem and our goal. My teammate will now explain how the system) Tj
-0 -14 Td
-(works technically, from camera input and hand landmarks to numerical features and) Tj
-0 -14 Td
-(model prediction.) Tj
-0 -14 Td
-() Tj
-0 -14 Td
-(JUDGE Q&A) Tj
-0 -14 Td
-(Is sign language universal? No. Different sign languages exist and have their own) Tj
-0 -14 Td
-(linguistic rules.) Tj
-0 -14 Td
-(Can it replace an interpreter? No. It is a limited prototype and should not replace) Tj
-0 -14 Td
-(qualified interpreters.) Tj
-0 -14 Td
-(Why is it useful? It demonstrates one possible assistive-technology approach and) Tj
-0 -14 Td
-(helps identify what must improve before real-world use.) Tj
-0 -14 Td
-() Tj
-0 -14 Td
-(REMINDERS) Tj
-0 -14 Td
-(Speak clearly, make eye contact, and do not claim unsupported accuracy or user) Tj
-0 -14 Td
-(counts. Explain that the project recognises only its trained labels. If asked about) Tj
-ET
-endstream
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
 endobj
 5 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 4 0 R >>
-endobj
-6 0 obj
-<< /Length 106 >>
+<< /Length 5107 >>
 stream
-BT
-/F1 10 Tf
-50 790 Td
-(an unmeasured result, say that it has not yet been measured.) Tj
-0 -14 Td
-() Tj
-ET
+q 0.04 0.16 0.32 rg 0 812 612 30 re f Q
+BT /F2 8 Tf 1 1 1 rg 48 823 Td (SAHAYAK | SCIENCE EXHIBITION) Tj ET
+q 0.91 0.95 0.99 rg 38 716 536 86 re f Q
+BT /F2 20 Tf 0.04 0.16 0.32 rg 50 780 Td (SAHAYAK - PRESENTATION GUIDE) Tj ET
+BT /F2 17 Tf 0.08 0.28 0.55 rg 50 755 Td (SHYAMANTIKA PEGU) Tj ET
+BT /F2 10.5 Tf 0.13 0.36 0.64 rg 50 735 Td (INTRODUCTION, PROBLEM AND PURPOSE) Tj ET
+BT /F1 8.5 Tf 0.25 0.30 0.37 rg 50 624 Td (Suggested speaking time: 3-4 minutes) Tj ET
+BT /F1 8.5 Tf 0.25 0.30 0.37 rg 50 608 Td (Speaking script, slide cues, handover, troubleshooting and judge Q&A) Tj ET
+q 0.86 0.92 0.98 rg 46 582 520 18 re f Q
+BT /F2 11.2 Tf 0.04 0.31 0.62 rg 50 587 Td (YOUR ROLE) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 564 Td (You are the first speaker. Set the context, explain the communication challenge, introduce) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 551.5 Td (SAHAYAK and its limited goal, then hand over clearly to Barakha. Keep the technical) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 539 Td (details for the second speaker.) Tj ET
+q 0.86 0.92 0.98 rg 46 516.5 520 18 re f Q
+BT /F2 11.2 Tf 0.04 0.31 0.62 rg 50 521.5 Td (SLIDE 1 - TITLE AND OPENING) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 498.5 Td (Say: Good morning respected judges, teachers, and everyone present here. We are presenting) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 486 Td (SAHAYAK - a real-time Indian Sign Language recognition system. Our project explores how) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 473.5 Td (computer vision and machine learning can support communication accessibility. We will) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 461 Td (explain the problem, show how our prototype works, and discuss what it can and cannot do.) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 443.5 Td (Stage cue: Pause after the project name and introduce your teammates.) Tj ET
+q 0.86 0.92 0.98 rg 46 421 520 18 re f Q
+BT /F2 11.2 Tf 0.04 0.31 0.62 rg 50 426 Td (SLIDE 2 - THE COMMUNICATION CHALLENGE) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 403 Td (Say: People who use sign language can face barriers when people around them do not) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 390.5 Td (understand the signs they use. This can make everyday conversations more difficult in) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 378 Td (classrooms, public services, and other settings. Technology may help in particular) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 365.5 Td (situations, but it must be developed with the people who use it.) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 348 Td (Important distinction: Indian Sign Language is a language, not just a collection of hand) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 335.5 Td (gestures. Sign languages have their own grammar and variation. Recognising a few hand) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 323 Td (signs is not the same as understanding a full signed conversation.) Tj ET
+q 0.86 0.92 0.98 rg 46 300.5 520 18 re f Q
+BT /F2 11.2 Tf 0.04 0.31 0.62 rg 50 305.5 Td (SLIDE 3 - WHY ACCESSIBILITY MATTERS) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 282.5 Td (Optional evidence: The 2011 Census of India recorded 5,071,007 people in its 'disability) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 270 Td (in hearing' category. The WHO's hearing-loss fact sheet discusses the wider global impact) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 257.5 Td (of hearing loss. These figures describe hearing-related disability; they are NOT counts of) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 245 Td (Indian Sign Language users.) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 227.5 Td (Say: These figures remind us that hearing accessibility is an important issue, but we must) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 215 Td (not confuse hearing-loss statistics with the number of people who use ISL. Our project) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 202.5 Td (addresses one small technical problem within a much larger accessibility challenge.) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 185 Td (Sources: https://censusindia.gov.in/nada/index.php/catalog/43369/ and) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 172.5 Td (https://www.who.int/news-room/fact-sheets/detail/deafness-and-hearing-loss) Tj ET
+q 0.86 0.92 0.98 rg 46 150 520 18 re f Q
+BT /F2 11.2 Tf 0.04 0.31 0.62 rg 50 155 Td (SLIDE 4 - INTRODUCING SAHAYAK) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 132 Td (Say: SAHAYAK is a camera-based prototype. It detects hand landmarks, turns them into) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 119.5 Td (numerical features, and sends those features to a trained machine-learning model. The) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 107 Td (model predicts a label from the signs it has learned. The website then displays the) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 94.5 Td (result.) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 77 Td (Simple explanation: Landmarks are reference points on a hand. Instead of asking the model) Tj ET
+q 0.76 0.80 0.85 RG 48 42 m 564 42 l S Q
+BT /F1 8 Tf 0.35 0.39 0.44 rg 48 27 Td (SHYAMANTIKA PEGU | SAHAYAK Presentation Guide) Tj ET
+BT /F1 8 Tf 0.35 0.39 0.44 rg 530 27 Td (1 / 2) Tj ET
+
 endstream
 endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 5 0 R >>
+endobj
 7 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 6 0 R >>
+<< /Length 4369 >>
+stream
+q 0.04 0.16 0.32 rg 0 812 612 30 re f Q
+BT /F2 8 Tf 1 1 1 rg 48 823 Td (SAHAYAK | SCIENCE EXHIBITION) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 790 Td (to interpret a whole picture directly, the application describes hand position and shape) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 777.5 Td (using numbers. The model learns patterns in those numbers from labelled examples.) Tj ET
+q 0.86 0.92 0.98 rg 46 755 520 18 re f Q
+BT /F2 11.2 Tf 0.04 0.31 0.62 rg 50 760 Td (SLIDE 5 - PROJECT GOAL AND SCOPE) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 737 Td (Say: Our goal is to demonstrate a working pipeline from camera input to a predicted sign) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 724.5 Td (label. The current system has a limited vocabulary. It is not a complete ISL translator,) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 712 Td (and it should not be treated as a replacement for interpreters or qualified communication) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 699.5 Td (support.) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 682 Td (The website has supporting speech and translation functions, but not every feature works) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 669.5 Td (offline. The system may make mistakes because of lighting, camera angle, hands being) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 657 Td (hidden, movement, or differences between signers.) Tj ET
+q 0.86 0.92 0.98 rg 46 634.5 520 18 re f Q
+BT /F2 11.2 Tf 0.04 0.31 0.62 rg 50 639.5 Td (HANDOVER TO BARAKHA) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 616.5 Td (Say: I have introduced the problem and why we chose this project. My teammate Barakha will) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 604 Td (now explain the technical workflow, how hand landmarks become features, and how the) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 591.5 Td (machine-learning model makes a prediction.) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 574 Td (Stage cue: Turn toward Barakha and pause for the next speaker.) Tj ET
+q 0.86 0.92 0.98 rg 46 551.5 520 18 re f Q
+BT /F2 11.2 Tf 0.04 0.31 0.62 rg 50 556.5 Td (JUDGE QUESTIONS AND ANSWERS) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 533.5 Td (Q: Is sign language universal? A: No. Different sign languages exist, including Indian) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 521 Td (Sign Language, and they have their own linguistic rules.) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 503.5 Td (Q: Does SAHAYAK translate every ISL sentence? A: No. It recognises a limited set of) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 491 Td (trained labels; full language translation is a much harder problem.) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 473.5 Td (Q: Can it replace an interpreter? A: No. It is an educational prototype, not a substitute) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 461 Td (for qualified interpreters.) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 443.5 Td (Q: Why is the project useful if it has limitations? A: It demonstrates a possible) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 431 Td (assistive-technology approach and gives us a way to study recognition, evaluation, and) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 418.5 Td (responsible design.) Tj ET
+q 0.86 0.92 0.98 rg 46 396 520 18 re f Q
+BT /F2 11.2 Tf 0.04 0.31 0.62 rg 50 401 Td (PRESENTATION CHECKLIST) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 378 Td (Practise the opening and handover aloud. Keep eye contact instead of reading every) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 365.5 Td (sentence. If you do not know a statistic, leave it out rather than guess. When discussing) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 353 Td (hearing-loss figures, clearly say they do not represent ISL users. If a judge asks for) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 340.5 Td (accuracy data that has not been measured, say so honestly.) Tj ET
+q 0.86 0.92 0.98 rg 46 318 520 18 re f Q
+BT /F2 11.2 Tf 0.04 0.31 0.62 rg 50 323 Td (ONE-SENTENCE SUMMARY) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 300 Td (I explain why SAHAYAK was built, what problem it explores, and why the current prototype) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 287.5 Td (is a limited sign-recognition demonstration rather than a complete language translator.) Tj ET
+q 0.76 0.80 0.85 RG 48 42 m 564 42 l S Q
+BT /F1 8 Tf 0.35 0.39 0.44 rg 48 27 Td (SHYAMANTIKA PEGU | SAHAYAK Presentation Guide) Tj ET
+BT /F1 8 Tf 0.35 0.39 0.44 rg 530 27 Td (2 / 2) Tj ET
+
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 7 0 R >>
 endobj
 xref
-0 8
+0 9
 0000000000 65535 f 
-0000000009 00000 n 
-0000000058 00000 n 
-0000000121 00000 n 
-0000000191 00000 n 
-0000003268 00000 n 
-0000003394 00000 n 
-0000003551 00000 n 
+0000000024 00000 n 
+0000000073 00000 n 
+0000000136 00000 n 
+0000000206 00000 n 
+0000000281 00000 n 
+0000005440 00000 n 
+0000005576 00000 n 
+0000009997 00000 n 
 trailer
-<< /Size 8 /Root 1 0 R >>
+<< /Size 9 /Root 1 0 R >>
 startxref
-3677
+10133
 %%EOF

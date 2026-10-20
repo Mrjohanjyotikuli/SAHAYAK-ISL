@@ -1,165 +1,147 @@
 %PDF-1.4
+%SAHAYAK-GUIDE
 1 0 obj
 << /Type /Catalog /Pages 2 0 R >>
 endobj
 2 0 obj
-<< /Type /Pages /Kids [5 0 R 7 0 R] /Count 2 >>
+<< /Type /Pages /Kids [6 0 R 8 0 R] /Count 2 >>
 endobj
 3 0 obj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
 endobj
 4 0 obj
-<< /Length 3083 >>
-stream
-BT
-/F1 10 Tf
-50 790 Td
-(SAHAYAK | SCIENCE EXHIBITION) Tj
-0 -14 Td
-(BARAKHA DOLEY) Tj
-0 -14 Td
-(SYSTEM DESIGN, TECHNOLOGY & WORKFLOW) Tj
-0 -14 Td
-(ROLE-SPECIFIC SPEAKING SCRIPT) Tj
-0 -14 Td
-(Suggested speaking time: 3-5 minutes) Tj
-0 -14 Td
-() Tj
-0 -14 Td
-(HANDOVER AND OVERVIEW) Tj
-0 -14 Td
-(Thank you. I will explain how SAHAYAK works behind the screen. The core idea is to) Tj
-0 -14 Td
-(turn hand movements captured by a camera into numerical features that a trained) Tj
-0 -14 Td
-(machine-learning model can classify.) Tj
-0 -14 Td
-() Tj
-0 -14 Td
-(WORKFLOW) Tj
-0 -14 Td
-(First, the browser requests camera permission. MediaPipe Hands detects hand) Tj
-0 -14 Td
-(landmarks. The application converts these points into a numerical feature vector and) Tj
-0 -14 Td
-(sends it to the Python Flask backend. The trained model predicts a label, and the) Tj
-0 -14 Td
-(website displays the result. The browser handles the camera preview and landmark) Tj
-0 -14 Td
-(overlay; the backend performs model inference.) Tj
-0 -14 Td
-() Tj
-0 -14 Td
-(STATIC MODEL FEATURES) Tj
-0 -14 Td
-(Each hand has 21 landmarks, with x, y, and z coordinates for each point. That gives) Tj
-0 -14 Td
-(21 times 3, or 63 values per hand. For two hands, the static feature vector contains) Tj
-0 -14 Td
-(126 values: 2 x 21 x 3 = 126. The intended current labels include HELLO, YES, NO,) Tj
-0 -14 Td
-(THANK YOU, and I LOVE YOU. Recognition still depends on the model and the) Tj
-0 -14 Td
-(conditions.) Tj
-0 -14 Td
-() Tj
-0 -14 Td
-(SEQUENCE PATHWAY) Tj
-0 -14 Td
-(Some signs depend on movement over time. The sequence pathway uses 132 values per) Tj
-0 -14 Td
-(frame, including landmark coordinates and wrist-position information. A sequence is) Tj
-0 -14 Td
-(resampled into 10 time bins, producing 1,320 values for the sequence model. This) Tj
-0 -14 Td
-(design represents movement over time; we should only claim a continuous sign works) Tj
-0 -14 Td
-(when it has been tested with the deployed model.) Tj
-0 -14 Td
-() Tj
-0 -14 Td
-(FRONTEND AND BACKEND) Tj
-0 -14 Td
-(The frontend is hosted on Vercel and the Python Flask backend on Render. They) Tj
-0 -14 Td
-(communicate through API routes for predictions and supporting functions. Some online) Tj
-0 -14 Td
-(translation and speech services require internet access. Therefore, we must not) Tj
-0 -14 Td
-(claim that every feature works fully offline.) Tj
-0 -14 Td
-() Tj
-0 -14 Td
-(DATA, TRAINING AND HANDOVER) Tj
-0 -14 Td
-(Adding a label to a list does not train a model. To add a sign properly, collect) Tj
-0 -14 Td
-(labelled examples, check data quality, train a compatible model, evaluate it on) Tj
-0 -14 Td
-(examples not used for training, and deploy the verified model. A single successful) Tj
-0 -14 Td
-(demo does not establish accuracy. My teammate will now demonstrate the prototype and) Tj
-0 -14 Td
-(explain how to test it responsibly.) Tj
-0 -14 Td
-() Tj
-0 -14 Td
-(JUDGE Q&A) Tj
-0 -14 Td
-(Why use landmarks? They provide a compact numerical representation of hand shape and) Tj
-0 -14 Td
-(position.) Tj
-0 -14 Td
-(What does 126 mean? Two hands x 21 landmarks x 3 coordinates.) Tj
-ET
-endstream
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
 endobj
 5 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 4 0 R >>
-endobj
-6 0 obj
-<< /Length 610 >>
+<< /Length 5231 >>
 stream
-BT
-/F1 10 Tf
-50 790 Td
-(Static versus sequence recognition? Static uses a frame's features; sequence) Tj
-0 -14 Td
-(recognition uses information across time.) Tj
-0 -14 Td
-(Is it always correct? No. Predictions can fail and must be evaluated.) Tj
-0 -14 Td
-() Tj
-0 -14 Td
-(REMINDERS) Tj
-0 -14 Td
-(Do not describe the current backend as TensorFlow/CNN-based; the deployed model) Tj
-0 -14 Td
-(artifacts use scikit-learn/joblib. A feature dimension is not the number of training) Tj
-0 -14 Td
-(samples. If the demo fails, explain the workflow honestly using the architecture) Tj
-0 -14 Td
-(slide.) Tj
-0 -14 Td
-() Tj
-ET
+q 0.04 0.16 0.32 rg 0 812 612 30 re f Q
+BT /F2 8 Tf 1 1 1 rg 48 823 Td (SAHAYAK | SCIENCE EXHIBITION) Tj ET
+q 0.91 0.95 0.99 rg 38 716 536 86 re f Q
+BT /F2 20 Tf 0.04 0.16 0.32 rg 50 780 Td (SAHAYAK - PRESENTATION GUIDE) Tj ET
+BT /F2 17 Tf 0.08 0.28 0.55 rg 50 755 Td (BARAKHA DOLEY) Tj ET
+BT /F2 10.5 Tf 0.13 0.36 0.64 rg 50 735 Td (SYSTEM DESIGN, TECHNOLOGY AND WORKFLOW) Tj ET
+BT /F1 8.5 Tf 0.25 0.30 0.37 rg 50 624 Td (Suggested speaking time: 4-5 minutes) Tj ET
+BT /F1 8.5 Tf 0.25 0.30 0.37 rg 50 608 Td (Speaking script, slide cues, handover, troubleshooting and judge Q&A) Tj ET
+q 0.86 0.92 0.98 rg 46 582 520 18 re f Q
+BT /F2 11.2 Tf 0.04 0.31 0.62 rg 50 587 Td (YOUR ROLE) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 564 Td (You are the technical speaker. Explain the data path step by step: camera, MediaPipe hand) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 551.5 Td (landmarks, feature vector, backend model, predicted label, website display. The judges do) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 539 Td (not need every line of code; they need to understand what each component contributes.) Tj ET
+q 0.86 0.92 0.98 rg 46 516.5 520 18 re f Q
+BT /F2 11.2 Tf 0.04 0.31 0.62 rg 50 521.5 Td (SLIDE 6 - THE COMPLETE WORKFLOW) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 498.5 Td (Say: Thank you. I will explain what happens behind the screen. First, the browser requests) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 486 Td (access to the camera. MediaPipe Hands detects hand landmarks. The application converts the) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 473.5 Td (detected points into numerical features and sends them to the Python Flask backend. A) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 461 Td (trained model predicts a label, and the website displays the result.) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 443.5 Td (The browser handles the camera preview and landmark overlay; the backend handles model) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 431 Td (inference. This separation keeps the visual interface and model processing independent.) Tj ET
+q 0.86 0.92 0.98 rg 46 408.5 520 18 re f Q
+BT /F2 11.2 Tf 0.04 0.31 0.62 rg 50 413.5 Td (SLIDE 7 - WHAT ARE HAND LANDMARKS?) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 390.5 Td (Say: A landmark is a reference point on the hand, such as a fingertip or joint. MediaPipe) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 378 Td (detects 21 landmarks for each hand. Each landmark is represented by x, y, and z) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 365.5 Td (coordinates. The numbers describe hand shape and position in a form that a) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 353 Td (machine-learning model can process.) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 335.5 Td (Simple example: A person may look at a hand and notice a bent finger. The feature vector) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 323 Td (represents landmark positions numerically. The model learns statistical patterns from) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 310.5 Td (labelled examples; it does not understand signs like a human signer.) Tj ET
+q 0.86 0.92 0.98 rg 46 288 520 18 re f Q
+BT /F2 11.2 Tf 0.04 0.31 0.62 rg 50 293 Td (SLIDE 8 - STATIC FEATURES: WHY 126 VALUES?) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 270 Td (Say: Each hand has 21 landmarks, and each landmark has three coordinates. So one hand) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 257.5 Td (gives 21 times 3, which equals 63 values. For two hands, 63 times 2 equals 126 values.) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 245 Td (That is the static feature vector used by the two-hand prediction pathway.) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 227.5 Td (Write: 2 hands x 21 landmarks x 3 coordinates = 126 values.) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 210 Td (The current intended label set includes HELLO, YES, NO, THANK YOU, and I LOVE YOU. Actual) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 197.5 Td (recognition is limited by what the deployed model was trained to recognise and how it) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 185 Td (performs. A label in a file alone does not prove reliable recognition.) Tj ET
+q 0.86 0.92 0.98 rg 46 162.5 520 18 re f Q
+BT /F2 11.2 Tf 0.04 0.31 0.62 rg 50 167.5 Td (SLIDE 9 - WHY SEQUENCES MATTER) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 144.5 Td (Say: Some signs involve movement, so a single frame may not capture the full pattern.) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 132 Td (SAHAYAK also has a sequence pathway. Each frame uses 132 values, including 126) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 119.5 Td (hand-landmark coordinates plus six wrist-position values. A sequence is resampled into 10) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 107 Td (time bins, giving 132 times 10, or 1,320 values for the sequence model.) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 89.5 Td (This is the designed input format. It does not prove every moving sign works. We need) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 77 Td (labelled sequence samples and fair evaluation to show which continuous signs the deployed) Tj ET
+q 0.76 0.80 0.85 RG 48 42 m 564 42 l S Q
+BT /F1 8 Tf 0.35 0.39 0.44 rg 48 27 Td (BARAKHA DOLEY | SAHAYAK Presentation Guide) Tj ET
+BT /F1 8 Tf 0.35 0.39 0.44 rg 530 27 Td (1 / 2) Tj ET
+
 endstream
 endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 5 0 R >>
+endobj
 7 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 6 0 R >>
+<< /Length 4957 >>
+stream
+q 0.04 0.16 0.32 rg 0 812 612 30 re f Q
+BT /F2 8 Tf 1 1 1 rg 48 823 Td (SAHAYAK | SCIENCE EXHIBITION) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 790 Td (model recognises correctly.) Tj ET
+q 0.86 0.92 0.98 rg 46 767.5 520 18 re f Q
+BT /F2 11.2 Tf 0.04 0.31 0.62 rg 50 772.5 Td (SLIDE 10 - FRONTEND, BACKEND AND MODEL) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 749.5 Td (Say: The frontend website is hosted on Vercel, and the Python Flask backend is hosted on) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 737 Td (Render. The frontend sends prediction requests to backend API routes. The backend loads) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 724.5 Td (model files and returns prediction results. The browser draws the camera view and hand) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 712 Td (landmarks.) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 694.5 Td (The current backend uses scikit-learn/joblib model artifacts. Do not describe it as a) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 682 Td (TensorFlow or convolutional-neural-network system unless the implementation changes and is) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 669.5 Td (verified. Some online translation or speech functions need internet access, so do not) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 657 Td (claim the entire system is fully offline.) Tj ET
+q 0.86 0.92 0.98 rg 46 634.5 520 18 re f Q
+BT /F2 11.2 Tf 0.04 0.31 0.62 rg 50 639.5 Td (SLIDE 11 - DATA, TRAINING AND FAIR EVALUATION) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 616.5 Td (Say: To teach a model a new sign, we need correctly labelled examples. Then we check the) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 604 Td (samples, train a model with a compatible feature format, and test it on examples not used) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 591.5 Td (for training. Ideally, test data should include different people or recording sessions to) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 579 Td (reduce the risk of memorising familiar examples.) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 561.5 Td (Accuracy is not the same as response speed, and feature count is not dataset size. We) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 549 Td (should not quote an accuracy percentage until we have documented testing results. Useful) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 536.5 Td (evidence includes results per sign, confusion between labels, and trials across lighting) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 524 Td (and camera conditions.) Tj ET
+q 0.86 0.92 0.98 rg 46 501.5 520 18 re f Q
+BT /F2 11.2 Tf 0.04 0.31 0.62 rg 50 506.5 Td (HANDOVER TO HIMANGHSU) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 483.5 Td (Say: That is the technical workflow from camera input to prediction. My teammate Himanghsu) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 471 Td (will now demonstrate the website, explain how to test it fairly, and discuss limitations) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 458.5 Td (and future improvements.) Tj ET
+q 0.86 0.92 0.98 rg 46 436 520 18 re f Q
+BT /F2 11.2 Tf 0.04 0.31 0.62 rg 50 441 Td (JUDGE QUESTIONS AND ANSWERS) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 418 Td (Q: Why use landmarks instead of the whole image? A: Landmarks give a compact numerical) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 405.5 Td (description of hand shape and position.) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 388 Td (Q: What does 126 mean? A: Two hands times 21 landmarks times three coordinates per) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 375.5 Td (landmark.) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 358 Td (Q: Static versus sequence recognition? A: Static uses one frame's features; sequence) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 345.5 Td (recognition uses information across time.) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 328 Td (Q: Does adding a label automatically add a sign? A: No. We need labelled data, model) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 315.5 Td (training, evaluation, and deployment.) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 298 Td (Q: Where is recognition calculated? A: The browser detects and annotates landmarks; the) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 285.5 Td (trained classifier is loaded by the backend for prediction.) Tj ET
+q 0.86 0.92 0.98 rg 46 263 520 18 re f Q
+BT /F2 11.2 Tf 0.04 0.31 0.62 rg 50 268 Td (TECHNICAL CHECKLIST) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 245 Td (Remember: 126 static values; 132 values per sequence frame; 10 time bins; 1,320 sequence) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 232.5 Td (input values. Distinguish architecture from measured performance. If the live request) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 220 Td (fails, explain the workflow using the diagram instead of pretending a prediction) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 207.5 Td (succeeded.) Tj ET
+q 0.76 0.80 0.85 RG 48 42 m 564 42 l S Q
+BT /F1 8 Tf 0.35 0.39 0.44 rg 48 27 Td (BARAKHA DOLEY | SAHAYAK Presentation Guide) Tj ET
+BT /F1 8 Tf 0.35 0.39 0.44 rg 530 27 Td (2 / 2) Tj ET
+
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 7 0 R >>
 endobj
 xref
-0 8
+0 9
 0000000000 65535 f 
-0000000009 00000 n 
-0000000058 00000 n 
-0000000121 00000 n 
-0000000191 00000 n 
-0000003326 00000 n 
-0000003452 00000 n 
-0000004113 00000 n 
+0000000024 00000 n 
+0000000073 00000 n 
+0000000136 00000 n 
+0000000206 00000 n 
+0000000281 00000 n 
+0000005564 00000 n 
+0000005700 00000 n 
+0000010709 00000 n 
 trailer
-<< /Size 8 /Root 1 0 R >>
+<< /Size 9 /Root 1 0 R >>
 startxref
-4239
+10845
 %%EOF

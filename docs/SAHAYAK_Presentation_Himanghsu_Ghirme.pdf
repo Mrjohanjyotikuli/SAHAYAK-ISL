@@ -1,175 +1,177 @@
 %PDF-1.4
+%SAHAYAK-GUIDE
 1 0 obj
 << /Type /Catalog /Pages 2 0 R >>
 endobj
 2 0 obj
-<< /Type /Pages /Kids [5 0 R 7 0 R] /Count 2 >>
+<< /Type /Pages /Kids [6 0 R 8 0 R 10 0 R] /Count 3 >>
 endobj
 3 0 obj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
 endobj
 4 0 obj
-<< /Length 3232 >>
-stream
-BT
-/F1 10 Tf
-50 790 Td
-(SAHAYAK | SCIENCE EXHIBITION) Tj
-0 -14 Td
-(HIMANGHSU GHIRME) Tj
-0 -14 Td
-(LIVE DEMO, TESTING & CONCLUSION) Tj
-0 -14 Td
-(ROLE-SPECIFIC SPEAKING SCRIPT) Tj
-0 -14 Td
-(Suggested speaking time: 3-5 minutes) Tj
-0 -14 Td
-() Tj
-0 -14 Td
-(DEMO INTRODUCTION) Tj
-0 -14 Td
-(Thank you. I will demonstrate how someone can try SAHAYAK and explain how we should) Tj
-0 -14 Td
-(judge whether it works reliably. This is a prototype, so the demonstration should) Tj
-0 -14 Td
-(show both its capabilities and its limitations.) Tj
-0 -14 Td
-() Tj
-0 -14 Td
-(LIVE DEMONSTRATION SCRIPT) Tj
-0 -14 Td
-(I open the SAHAYAK website and go to Live Studio. I allow camera access and make) Tj
-0 -14 Td
-(sure my hand is visible in the frame. The landmark overlay shows the points detected) Tj
-0 -14 Td
-(by the browser. I perform a sign supported by the model, keeping my hand clearly) Tj
-0 -14 Td
-(visible. The extracted features are sent to the backend and the predicted label) Tj
-0 -14 Td
-(appears on the website. I repeat with another supported sign. If a prediction is) Tj
-0 -14 Td
-(wrong, I will acknowledge it and try again under clearer conditions rather than hide) Tj
-0 -14 Td
-(the error.) Tj
-0 -14 Td
-() Tj
-0 -14 Td
-(HOW TO TEST FAIRLY) Tj
-0 -14 Td
-(One successful demonstration does not prove high accuracy. We should repeat trials) Tj
-0 -14 Td
-(for every sign, record correct and incorrect predictions, and test with people and) Tj
-0 -14 Td
-(recording sessions not used in training. We should vary lighting, distance, camera) Tj
-0 -14 Td
-(angle, and signing speed. Per-sign results and a confusion matrix can show which) Tj
-0 -14 Td
-(signs are confused. Response time should be measured separately from accuracy.) Tj
-0 -14 Td
-() Tj
-0 -14 Td
-(LIMITATIONS) Tj
-0 -14 Td
-(The current model recognises a limited vocabulary. It may not understand full) Tj
-0 -14 Td
-(sentences, facial expressions, grammar, or every regional variation of ISL.) Tj
-0 -14 Td
-(Landmarks can be missed if hands are outside the frame, occluded, or poorly lit.) Tj
-0 -14 Td
-(Online translation and speech services may not work offline. This prototype is not a) Tj
-0 -14 Td
-(substitute for interpreters or a guaranteed communication service.) Tj
-0 -14 Td
-() Tj
-0 -14 Td
-(FUTURE IMPROVEMENTS) Tj
-0 -14 Td
-(Future work includes collecting a larger, consent-based dataset with diverse) Tj
-0 -14 Td
-(signers, documenting data quality, testing on unseen people, measuring errors for) Tj
-0 -14 Td
-(every class, and improving sequence recognition. New signs should be added only) Tj
-0 -14 Td
-(after evaluation. Collaboration with ISL users and qualified experts is essential) Tj
-0 -14 Td
-(before wider use.) Tj
-0 -14 Td
-() Tj
-0 -14 Td
-(CONCLUSION) Tj
-0 -14 Td
-(SAHAYAK demonstrates a pipeline combining camera input, hand-landmark detection,) Tj
-0 -14 Td
-(machine learning, and a web interface. It is a starting point rather than a finished) Tj
-0 -14 Td
-(universal translator. We have learned that assistive technology needs not only a) Tj
-0 -14 Td
-(working demo, but also representative data, careful testing, user feedback, and) Tj
-0 -14 Td
-(honest reporting. Thank you for listening. We are happy to answer your questions.) Tj
-0 -14 Td
-() Tj
-0 -14 Td
-(JUDGE Q&A) Tj
-ET
-endstream
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
 endobj
 5 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 4 0 R >>
-endobj
-6 0 obj
-<< /Length 1008 >>
+<< /Length 4711 >>
 stream
-BT
-/F1 10 Tf
-50 790 Td
-(What if a prediction is wrong? We record the failure and investigate under) Tj
-0 -14 Td
-(controlled conditions.) Tj
-0 -14 Td
-(Does it work offline? Not all features do; online backend inference and services) Tj
-0 -14 Td
-(require connectivity.) Tj
-0 -14 Td
-(How can it improve? Collect diverse labelled data, prevent training/test data) Tj
-0 -14 Td
-(leakage, evaluate per class, and retrain only after verification.) Tj
-0 -14 Td
-(How do you protect users? Request camera permission, minimise identifiable data,) Tj
-0 -14 Td
-(obtain consent for dataset collection, and explain what is transmitted or stored.) Tj
-0 -14 Td
-() Tj
-0 -14 Td
-(REMINDERS) Tj
-0 -14 Td
-(Before judging, check internet, backend health, camera permission, and lighting.) Tj
-0 -14 Td
-(Keep a backup screenshot or architecture slide. Never invent accuracy figures. If) Tj
-0 -14 Td
-(you do not know an answer, say: We have not measured that yet, and it is one of our) Tj
-0 -14 Td
-(planned tests.) Tj
-0 -14 Td
-() Tj
-ET
+q 0.04 0.16 0.32 rg 0 812 612 30 re f Q
+BT /F2 8 Tf 1 1 1 rg 48 823 Td (SAHAYAK | SCIENCE EXHIBITION) Tj ET
+q 0.91 0.95 0.99 rg 38 716 536 86 re f Q
+BT /F2 20 Tf 0.04 0.16 0.32 rg 50 780 Td (SAHAYAK - PRESENTATION GUIDE) Tj ET
+BT /F2 17 Tf 0.08 0.28 0.55 rg 50 755 Td (HIMANGHSU GHIRME) Tj ET
+BT /F2 10.5 Tf 0.13 0.36 0.64 rg 50 735 Td (LIVE DEMONSTRATION, TESTING AND CONCLUSION) Tj ET
+BT /F1 8.5 Tf 0.25 0.30 0.37 rg 50 624 Td (Suggested speaking time: 4-5 minutes) Tj ET
+BT /F1 8.5 Tf 0.25 0.30 0.37 rg 50 608 Td (Speaking script, slide cues, handover, troubleshooting and judge Q&A) Tj ET
+q 0.86 0.92 0.98 rg 46 582 520 18 re f Q
+BT /F2 11.2 Tf 0.04 0.31 0.62 rg 50 587 Td (YOUR ROLE) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 564 Td (You are the final speaker. Demonstrate the live website if it is working, explain what) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 551.5 Td (counts as a fair test, describe limitations and future plans, then give the conclusion and) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 539 Td (invite questions. Be ready with a backup if the camera or internet fails.) Tj ET
+q 0.86 0.92 0.98 rg 46 516.5 520 18 re f Q
+BT /F2 11.2 Tf 0.04 0.31 0.62 rg 50 521.5 Td (SLIDE 12 - INTRODUCE THE DEMONSTRATION) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 498.5 Td (Say: Thank you. I will show how someone can try SAHAYAK and explain how we should judge) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 486 Td (its output. This is a prototype, so the demonstration helps us see both what it can do and) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 473.5 Td (where it may fail.) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 456 Td (Before opening the camera, make sure the audience can see the screen. Ask permission) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 443.5 Td (before using another person's image or signing in a recorded demonstration.) Tj ET
+q 0.86 0.92 0.98 rg 46 421 520 18 re f Q
+BT /F2 11.2 Tf 0.04 0.31 0.62 rg 50 426 Td (LIVE DEMO - STEP BY STEP) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 403 Td (1. Open the SAHAYAK website and choose Live Studio.) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 385.5 Td (2. Check internet access and confirm the backend is reachable. Allow camera permission) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 373 Td (when asked.) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 355.5 Td (3. Place the hand clearly inside the camera frame and wait for the landmark overlay.) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 338 Td (4. Perform a sign intended to be supported by the current model. Keep the hand visible and) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 325.5 Td (avoid rushing.) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 308 Td (5. Point out the predicted label. Explain that a prediction is the model's output, not a) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 295.5 Td (guarantee of correctness.) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 278 Td (6. Try a second supported sign. If the model makes a mistake, acknowledge it and adjust) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 265.5 Td (the conditions once. Do not hide failed attempts.) Tj ET
+q 0.86 0.92 0.98 rg 46 243 520 18 re f Q
+BT /F2 11.2 Tf 0.04 0.31 0.62 rg 50 248 Td (WHAT TO SAY WHILE THE DEMO RUNS) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 225 Td (Say: The points drawn over the hand are landmarks detected by the browser. Those points) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 212.5 Td (are converted into numerical features. The backend model receives the features and returns) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 200 Td (a predicted label, which the website displays.) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 182.5 Td (A good demonstration shows the process, but one or two successful predictions cannot) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 170 Td (establish overall accuracy. To know how reliable it is, we need repeatable testing on a) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 157.5 Td (larger set of examples.) Tj ET
+q 0.86 0.92 0.98 rg 46 135 520 18 re f Q
+BT /F2 11.2 Tf 0.04 0.31 0.62 rg 50 140 Td (BACKUP PLAN IF THE DEMO FAILS) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 117 Td (If the camera does not start: check browser permission and whether another app is using) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 104.5 Td (it. If it still fails, use a screenshot or architecture slide and explain the intended) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 92 Td (workflow.) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 74.5 Td (If the backend does not respond: state that the prediction service is unavailable. Do not) Tj ET
+q 0.76 0.80 0.85 RG 48 42 m 564 42 l S Q
+BT /F1 8 Tf 0.35 0.39 0.44 rg 48 27 Td (HIMANGHSU GHIRME | SAHAYAK Presentation Guide) Tj ET
+BT /F1 8 Tf 0.35 0.39 0.44 rg 530 27 Td (1 / 3) Tj ET
+
 endstream
 endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 5 0 R >>
+endobj
 7 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 6 0 R >>
+<< /Length 6280 >>
+stream
+q 0.04 0.16 0.32 rg 0 812 612 30 re f Q
+BT /F2 8 Tf 1 1 1 rg 48 823 Td (SAHAYAK | SCIENCE EXHIBITION) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 790 Td (say the model predicted a sign when no result returned.) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 772.5 Td (If the overlay appears but a prediction is wrong: explain that landmark detection and) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 760 Td (classification are separate stages. Good landmarks do not guarantee a correct) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 747.5 Td (classification.) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 730 Td (If internet is unavailable: explain that online backend inference and some translation or) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 717.5 Td (speech services need connectivity. Do not claim the complete application works offline.) Tj ET
+q 0.86 0.92 0.98 rg 46 695 520 18 re f Q
+BT /F2 11.2 Tf 0.04 0.31 0.62 rg 50 700 Td (SLIDE 13 - HOW SHOULD WE TEST IT?) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 677 Td (Say: We should collect repeated trials for each sign and record correct and incorrect) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 664.5 Td (predictions. Testing should include people and recording sessions not used during model) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 652 Td (training. We should vary lighting, distance, camera angle, signing speed, and hand) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 639.5 Td (visibility.) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 622 Td (Per-sign results and a confusion matrix help show which signs are difficult to) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 609.5 Td (distinguish. We should measure response time separately. A fast prediction can still be) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 597 Td (wrong, so speed and correctness are different measures.) Tj ET
+q 0.86 0.92 0.98 rg 46 574.5 520 18 re f Q
+BT /F2 11.2 Tf 0.04 0.31 0.62 rg 50 579.5 Td (SLIDE 14 - LIMITATIONS AND RESPONSIBLE USE) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 556.5 Td (Say: The current model recognises only a limited vocabulary. It does not understand all) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 544 Td (ISL sentences, facial grammar, or regional variation. Landmark detection may fail when) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 531.5 Td (hands are hidden, out of frame, or poorly lit. The website is not a guaranteed) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 519 Td (communication service or a replacement for a qualified interpreter.) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 501.5 Td (Responsible data collection matters. Samples should be collected with informed consent,) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 489 Td (stored carefully, and tested without leaking test examples into training. Users should) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 476.5 Td (understand what is processed or transmitted.) Tj ET
+q 0.86 0.92 0.98 rg 46 454 520 18 re f Q
+BT /F2 11.2 Tf 0.04 0.31 0.62 rg 50 459 Td (SLIDE 15 - FUTURE IMPROVEMENTS) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 436 Td (Say: Future work includes collecting a larger and more diverse dataset with consent,) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 423.5 Td (adding signs only after training and evaluation, improving sequence recognition, reporting) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 411 Td (results for each class, and testing usability with people who use Indian Sign Language. We) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 398.5 Td (also need to improve error handling and clearly communicate which features need internet) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 386 Td (access.) Tj ET
+q 0.86 0.92 0.98 rg 46 363.5 520 18 re f Q
+BT /F2 11.2 Tf 0.04 0.31 0.62 rg 50 368.5 Td (FINAL CONCLUSION) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 345.5 Td (Say: To conclude, SAHAYAK demonstrates a pipeline combining camera input, hand-landmark) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 333 Td (detection, machine learning, and a web interface. It is a starting point, not a finished) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 320.5 Td (universal translator. Useful assistive technology needs more than a working demo: it) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 308 Td (requires representative data, systematic testing, user feedback, privacy awareness, and) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 295.5 Td (honest reporting. Thank you for listening. We are happy to answer your questions.) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 278 Td (Stage cue: Pause, face the judges, and invite questions.) Tj ET
+q 0.86 0.92 0.98 rg 46 255.5 520 18 re f Q
+BT /F2 11.2 Tf 0.04 0.31 0.62 rg 50 260.5 Td (JUDGE QUESTIONS AND ANSWERS) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 237.5 Td (Q: What happens when the model is wrong? A: We record the failure and investigate the) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 225 Td (input conditions and model behaviour instead of hiding it.) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 207.5 Td (Q: Does the complete website work offline? A: No. Online backend inference and some) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 195 Td (translation or speech functions need connectivity. Some local phrase tools may work after) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 182.5 Td (loading, depending on the feature.) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 165 Td (Q: How can the model improve? A: Collect diverse labelled examples, separate training and) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 152.5 Td (test people or sessions, evaluate per class, inspect errors, and retrain only after) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 140 Td (verification.) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 122.5 Td (Q: How do you protect privacy? A: Request camera permission, explain what data is sent or) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 110 Td (stored, minimise retention, and obtain consent before collecting training samples.) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 92.5 Td (Q: What is the current accuracy? A: Give a number only if there is a documented evaluation) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 80 Td (result. Otherwise, say it has not yet been reliably measured.) Tj ET
+q 0.76 0.80 0.85 RG 48 42 m 564 42 l S Q
+BT /F1 8 Tf 0.35 0.39 0.44 rg 48 27 Td (HIMANGHSU GHIRME | SAHAYAK Presentation Guide) Tj ET
+BT /F1 8 Tf 0.35 0.39 0.44 rg 530 27 Td (2 / 3) Tj ET
+
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 7 0 R >>
+endobj
+9 0 obj
+<< /Length 892 >>
+stream
+q 0.04 0.16 0.32 rg 0 812 612 30 re f Q
+BT /F2 8 Tf 1 1 1 rg 48 823 Td (SAHAYAK | SCIENCE EXHIBITION) Tj ET
+q 0.86 0.92 0.98 rg 46 785 520 18 re f Q
+BT /F2 11.2 Tf 0.04 0.31 0.62 rg 50 790 Td (FINAL DEMO CHECKLIST) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 767 Td (Before judges arrive, test the camera, network connection, backend status, supported) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 754.5 Td (labels, and screen visibility. Keep a backup slide ready. Never invent accuracy) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 742 Td (statistics. If you do not know an answer, say: We have not measured that yet, and it is) Tj ET
+BT /F1 9.3 Tf 0.13 0.16 0.20 rg 50 729.5 Td (one of our planned tests.) Tj ET
+q 0.76 0.80 0.85 RG 48 42 m 564 42 l S Q
+BT /F1 8 Tf 0.35 0.39 0.44 rg 48 27 Td (HIMANGHSU GHIRME | SAHAYAK Presentation Guide) Tj ET
+BT /F1 8 Tf 0.35 0.39 0.44 rg 530 27 Td (3 / 3) Tj ET
+
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 9 0 R >>
 endobj
 xref
-0 8
+0 11
 0000000000 65535 f 
-0000000009 00000 n 
-0000000058 00000 n 
-0000000121 00000 n 
-0000000191 00000 n 
-0000003475 00000 n 
-0000003601 00000 n 
-0000004661 00000 n 
+0000000024 00000 n 
+0000000073 00000 n 
+0000000143 00000 n 
+0000000213 00000 n 
+0000000288 00000 n 
+0000005051 00000 n 
+0000005187 00000 n 
+0000011519 00000 n 
+0000011655 00000 n 
+0000012598 00000 n 
 trailer
-<< /Size 8 /Root 1 0 R >>
+<< /Size 11 /Root 1 0 R >>
 startxref
-4787
+12735
 %%EOF
