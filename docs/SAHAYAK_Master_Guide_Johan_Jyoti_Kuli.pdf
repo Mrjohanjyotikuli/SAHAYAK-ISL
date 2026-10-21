@@ -4,7 +4,7 @@
 << /Type /Catalog /Pages 2 0 R >>
 endobj
 2 0 obj
-<< /Type /Pages /Kids [6 0 R 8 0 R 10 0 R 12 0 R 14 0 R] /Count 5 >>
+<< /Type /Pages /Kids [6 0 R 8 0 R 10 0 R 12 0 R] /Count 4 >>
 endobj
 3 0 obj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
@@ -273,40 +273,26 @@ BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 42 27 Tm (SAHAYAK Master Guide Johan Jyoti
 BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 510 27 Tm (4 / 5) Tj ET
 endstream
 endobj
-14 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 15 0 R >>
-endobj
-15 0 obj
-<< /Length 385 >>
-stream
-q 0.04 0.16 0.32 rg 0 808 595 34 re f Q
-BT /F2 8 Tf 1 1 1 rg 1 0 0 1 42 820 Tm (SAHAYAK | SIMPLE LANGUAGE GUIDE) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 780.00 Tm (honestly.) Tj ET
-q 0.78 0.82 0.87 RG 42 44 m 553 44 l S Q
-BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 42 27 Tm (SAHAYAK Master Guide Johan Jyoti Kuli) Tj ET
-BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 510 27 Tm (5 / 5) Tj ET
-endstream
-endobj
 xref
 0 16
 0000000000 65535 f 
 0000000025 00000 n 
 0000000074 00000 n 
-0000000158 00000 n 
-0000000228 00000 n 
-0000000303 00000 n 
-0000000371 00000 n 
-0000000517 00000 n 
-0000007290 00000 n 
-0000007436 00000 n 
-0000014116 00000 n 
-0000014264 00000 n 
-0000021171 00000 n 
-0000021319 00000 n 
-0000028584 00000 n 
-0000028732 00000 n 
+0000000151 00000 n 
+0000000221 00000 n 
+0000000296 00000 n 
+0000000364 00000 n 
+0000000510 00000 n 
+0000007283 00000 n 
+0000007429 00000 n 
+0000014109 00000 n 
+0000014257 00000 n 
+0000021164 00000 n 
+0000021312 00000 n 
+0000000000 00000 f 
+0000000000 00000 f 
 trailer
 << /Size 16 /Root 1 0 R >>
 startxref
-29169
+28577
 %%EOF
