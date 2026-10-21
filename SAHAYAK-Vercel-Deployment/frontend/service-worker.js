@@ -1,6 +1,6 @@
 
-const CACHE = 'sahayak-shell-v21-team-roles';
-const SHELL = ['/', '/index.html', '/studio.html', '/config.js'];
+const CACHE = 'sahayak-shell-v22-legang-ai';
+const SHELL = ['/', '/index.html', '/studio.html', '/config.js', '/legang-ai.js', '/legang-ai.css', '/assets/legang-ai-avatar.webp'];
 
 self.addEventListener('install', event => {
   event.waitUntil(

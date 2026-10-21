@@ -6,7 +6,7 @@ os.environ.setdefault("OMP_NUM_THREADS", "1")
 os.environ.setdefault("OPENBLAS_NUM_THREADS", "1")
 os.environ.setdefault("MKL_NUM_THREADS", "1")
 os.environ.setdefault("NUMEXPR_NUM_THREADS", "1")
-import base64, json, urllib.parse, urllib.request, urllib.error, threading, time, logging
+import base64, json, sqlite3, urllib.parse, urllib.request, urllib.error, threading, time, logging
 from collections import deque
 from io import BytesIO
 from gtts import gTTS
@@ -309,6 +309,97 @@ def export_sequence_samples():
         return jsonify(load_sequence_samples())
     except Exception as exc:
         return jsonify({"error": "Could not export continuous-sign samples: " + str(exc)}), 500
+
+@app.get("/api/legang/sign-library")
+def legang_sign_library():
+    """Expose verified model labels and a bounded, read-only set of saved landmark frames for LEGANG AI."""
+    static_labels = []
+    continuous_labels = []
+    model_errors = []
+    try:
+        clf = get_model()
+        if clf is not None:
+            static_labels = sorted({str(label) for label in clf.classes_})
+    except Exception as exc:
+        app.logger.exception("LEGANG sign-library static model read failed")
+        model_errors.append("Static model labels are unavailable.")
+    try:
+        clf = get_sequence_model()
+        if clf is not None:
+            continuous_labels = sorted({str(label) for label in clf.classes_})
+    except Exception as exc:
+        app.logger.exception("LEGANG sign-library continuous model read failed")
+        model_errors.append("Continuous model labels are unavailable.")
+
+    examples = []
+    database_error = None
+    # Only one sample per label and up to twelve real saved frames per sample are returned.
+    # The stored values are normalized model features, not original camera photographs or video.
+    max_labels = 60
+    max_frames = 12
+    try:
+        if SEQUENCE_DB_PATH.exists():
+            with sqlite3.connect(str(SEQUENCE_DB_PATH), timeout=5) as con:
+                con.row_factory = sqlite3.Row
+                rows = con.execute(
+                    "SELECT id, label, frames_json, frame_count FROM sequence_samples "
+                    "WHERE id IN (SELECT MAX(id) FROM sequence_samples GROUP BY label) "
+                    "ORDER BY label LIMIT ?",
+                    (max_labels,)
+                ).fetchall()
+            for row in rows:
+                try:
+                    raw_frames = json.loads(row["frames_json"])
+                    if not isinstance(raw_frames, list):
+                        continue
+                    valid_frames = []
+                    for source_index, raw_frame in enumerate(raw_frames):
+                        if not isinstance(raw_frame, list) or len(raw_frame) != SEQUENCE_FRAME_FEATURES:
+                            continue
+                        values = [float(value) for value in raw_frame]
+                        arr = np.asarray(values, dtype=np.float64)
+                        if not np.isfinite(arr).all():
+                            continue
+                        valid_frames.append((source_index, [round(value, 5) for value in values]))
+                    if not valid_frames:
+                        continue
+                    total_valid = len(valid_frames)
+                    if total_valid > max_frames:
+                        pick_positions = [
+                            round(i * (total_valid - 1) / (max_frames - 1))
+                            for i in range(max_frames)
+                        ]
+                        selected = [valid_frames[index] for index in pick_positions]
+                    else:
+                        selected = valid_frames
+                    examples.append({
+                        "sample_id": int(row["id"]),
+                        "label": str(row["label"]),
+                        "recorded_frame_count": int(row["frame_count"] or len(raw_frames)),
+                        "valid_frame_count": total_valid,
+                        "frame_indices": [int(item[0]) for item in selected],
+                        "frames": [item[1] for item in selected],
+                        "feature_layout": "63 left-hand pose values, 63 right-hand pose values, and 6 wrist-position values"
+                    })
+                except (TypeError, ValueError, OverflowError, json.JSONDecodeError):
+                    app.logger.warning("Skipping invalid LEGANG sequence sample id=%s", row["id"])
+        else:
+            database_error = "Continuous-sign database is not present on this backend."
+    except Exception:
+        app.logger.exception("LEGANG sign-library database read failed")
+        database_error = "Saved landmark examples could not be read from the current database."
+
+    return jsonify({
+        "project": "SAHAYAK",
+        "static_labels": static_labels,
+        "continuous_labels": continuous_labels,
+        "continuous_examples": examples,
+        "static_pose_examples_available": False,
+        "database_error": database_error,
+        "model_errors": model_errors,
+        "data_note": "Continuous examples contain normalized landmark feature frames from the database, not original camera RGB images or video. Static labels come from the deployed model; no static pose-example table is exposed by this backend.",
+        "limits": {"max_samples": max_labels, "max_frames_per_sample": max_frames}
+    }), 200
 
 @app.post("/api/sequence/predict")
 def predict_sequence():
