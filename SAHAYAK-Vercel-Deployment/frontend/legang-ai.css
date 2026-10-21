@@ -46,6 +46,21 @@
   transition: box-shadow .18s ease, border-color .18s ease, transform .18s ease;
 }
 #legang-ai-root .lg-launcher:hover { box-shadow: 0 0 0 5px rgba(40,216,255,.12), 0 0 34px rgba(40,216,255,.42), 0 8px 28px rgba(0,0,0,.5); }
+#legang-ai-root[data-state="idle"] .lg-launcher { animation: lg-launcher-breathe 4.8s ease-in-out infinite; }
+#legang-ai-root[data-state="thinking"] .lg-launcher { animation: lg-launcher-think 1.05s ease-in-out infinite alternate; }
+#legang-ai-root[data-state="speaking"] .lg-launcher { animation: lg-launcher-speak .62s ease-in-out infinite alternate; }
+@keyframes lg-launcher-breathe {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(40,216,255,.08), 0 0 22px rgba(40,216,255,.18), 0 8px 28px rgba(0,0,0,.5); }
+  50% { box-shadow: 0 0 0 5px rgba(40,216,255,.14), 0 0 32px rgba(40,216,255,.38), 0 8px 28px rgba(0,0,0,.5); }
+}
+@keyframes lg-launcher-think {
+  from { box-shadow: 0 0 0 4px rgba(40,216,255,.08), 0 0 20px rgba(40,216,255,.22), 0 8px 28px rgba(0,0,0,.5); }
+  to { box-shadow: 0 0 0 6px rgba(40,216,255,.16), 0 0 36px rgba(40,216,255,.46), 0 8px 28px rgba(0,0,0,.5); }
+}
+@keyframes lg-launcher-speak {
+  from { box-shadow: 0 0 0 4px rgba(40,216,255,.1), 0 0 24px rgba(40,216,255,.25), 0 8px 28px rgba(0,0,0,.5); }
+  to { box-shadow: 0 0 0 6px rgba(40,216,255,.16), 0 0 38px rgba(40,216,255,.48), 0 8px 28px rgba(0,0,0,.5); }
+}
 #legang-ai-root .lg-launcher-art {
   width: 100%; height: 100%; overflow: hidden; border-radius: 50%;
   display: grid; place-items: center; background: #02050c;
