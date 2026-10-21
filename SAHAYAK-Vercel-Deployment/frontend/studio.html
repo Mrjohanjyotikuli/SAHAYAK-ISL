@@ -150,7 +150,7 @@ const $=id=>document.getElementById(id);
 let practiceSignTarget = "";
 let practiceSignMode = "static";
 const practiceParams = new URLSearchParams(window.location.search);
-function readablePracticeLabel(value){return String(value||"").trim().toUpperCase().replace(/\\s+/g,"_").slice(0,60);}
+function readablePracticeLabel(value){return String(value||"").trim().toUpperCase().replace(/\s+/g,"_").slice(0,60);}
 practiceSignTarget = readablePracticeLabel(practiceParams.get("testSign"));
 practiceSignMode = practiceParams.get("signMode")==="continuous" ? "continuous" : "static";
 if(practiceSignTarget && $("selectedSignGuide")){
