@@ -14,7 +14,7 @@ import cv2, numpy as np, joblib, mediapipe as mp
 cv2.setNumThreads(1)
 from flask import Flask, jsonify, request, send_from_directory
 from flask_cors import CORS
-from features import two_hand_features, two_hand_sequence_features, landmarks_for_preview, TOTAL_FEATURES
+from features import two_hand_features, two_hand_sequence_features, landmarks_for_preview, TOTAL_FEATURES, SEQUENCE_FRAME_FEATURES
 from sequence_features import summarize_sequence, MIN_SEQUENCE_FRAMES, SEQUENCE_FEATURES
 from sequence_db import DB_PATH as SEQUENCE_DB_PATH, add_sample as add_sequence_sample, summary as sequence_db_summary, load_samples as load_sequence_samples, init_db as init_sequence_db
 ROOT = Path(__file__).resolve().parent
