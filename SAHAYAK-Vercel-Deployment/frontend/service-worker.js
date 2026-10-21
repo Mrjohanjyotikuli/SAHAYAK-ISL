@@ -1,5 +1,5 @@
 
-const CACHE = 'sahayak-shell-v30-draggable-legang';
+const CACHE = 'sahayak-shell-v31-role-swap';
 const SHELL = ['/', '/index.html', '/studio.html', '/config.js', '/legang-ai.js', '/legang-ai.css', '/assets/legang-ai-avatar.webp'];
 
 self.addEventListener('install', event => {
