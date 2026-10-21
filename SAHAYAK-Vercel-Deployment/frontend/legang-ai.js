@@ -29,6 +29,9 @@
           '<button class="lg-chip" type="button" data-lg-ask="How do I use SAHAYAK?">How do I use SAHAYAK?</button>' +
           '<button class="lg-chip" type="button" data-lg-ask="Why was SAHAYAK built?">Why was SAHAYAK built?</button>' +
           '<button class="lg-chip" type="button" data-lg-ask="What signs are supported?">What signs are supported?</button>' +
+          '<button class="lg-chip" type="button" data-lg-ask="What is the difference between static and continuous signs?">Static vs continuous</button>' +
+          '<button class="lg-chip" type="button" data-lg-ask="My camera is not working. What should I do?">Camera help</button>' +
+          '<button class="lg-chip" type="button" data-lg-ask="Tell me about the team members and their roles.">Meet the team</button>' +
           '<button class="lg-chip" type="button" data-lg-ask="How can I contact Johan?">Contact Johan</button>' +
         '</div>' +
       '</div>' +
@@ -227,6 +230,44 @@
     if (/why|purpose|built|build|problem|communication gap/.test(q) && /sahayak|build|purpose|problem|gap|why/.test(q)) {
       return { text: "SAHAYAK was built as a real-time Indian Sign Language recognition project to explore a more accessible bridge between sign gestures and on-screen text. It supports static two-hand poses and continuous/moving signs through separate trained models. It is a development project, so recognition can be uncertain and should not be treated as a certified interpreter." };
     }
+    // Verified role descriptions copied from the Team section in frontend/index.html.
+    if (/shyamantika|pegu/.test(q)) {
+      return { text: "Shyamantika Pegu’s role on the SAHAYAK website is listed as “Introduction, Problem & Project Purpose.” Her part of the presentation introduces the communication challenge and explains the project context and purpose. I’ll stick to the role published on the project page rather than guess at unlisted individual coding tasks." };
+    }
+    if (/barakha|doley/.test(q)) {
+      return { text: "Barakha Doley’s role on the SAHAYAK website is listed as “System Design, Technology & Workflow.” Her part covers the system design, the main technology concepts, and how the project workflow fits together. The website does not publish a more detailed individual task log, so I won’t invent one." };
+    }
+    if (/himanxhu|ghimire/.test(q)) {
+      return { text: "Himanxhu V Ghimire’s role on the SAHAYAK website is listed as “Live Demo, Testing & Conclusion.” His part covers demonstrating the system, discussing testing, and presenting the conclusion. I won’t claim specific test results that aren’t published on the website." };
+    }
+    if (/(team|members|who are|everyone|teammates|group)/.test(q) && /(role|work|member|team|who|responsib|contribut)/.test(q)) {
+      return { text: "The project page lists the core team roles as:\\n\\n• Johan Jyoti Kuli — Lead Developer & Project Head; Full-System Design & Integration.\\n• Shyamantika Pegu — Introduction, Problem & Project Purpose.\\n• Barakha Doley — System Design, Technology & Workflow.\\n• Himanxhu V Ghimire — Live Demo, Testing & Conclusion.\\n\\nThese descriptions reflect the roles published on the website. For unlisted individual task details, it’s best to ask the team directly." };
+    }
+    if (/static.*continuous|continuous.*static|moving sign|motion sign|difference.*sign/.test(q)) {
+      return { text: "Static-sign recognition is intended for a held pose; continuous-sign recognition processes a sequence of frames for a moving sign. Choose the matching mode in Live Studio and follow the pose or movement used by the sign you are testing. A label must be present in the deployed model to be recognized." };
+    }
+    if (/camera.*(not working|doesn't work|doesnt work|problem|fail|black|blocked)|camera help|no camera|webcam|permission/.test(q)) {
+      return { text: "Try these steps: (1) Open Live Studio over HTTPS. (2) Tap Allow when the browser requests camera permission. (3) Check that another app isn’t using the camera. (4) Select the correct camera if the page offers a camera selector. (5) Improve lighting and keep the signing hands visible. On a phone, check the browser’s site-permission settings. LEGANG AI itself does not open your camera." , actions: [{ label: "Open Live Studio", href: "./studio.html" }] };
+    }
+    if (/why.*not.*recogn|wrong prediction|wrong result|low confidence|confidence|accuracy|accurate|mistake|miss.*sign/.test(q)) {
+      return { text: "Predictions can vary with lighting, camera angle, hand visibility, signing speed, and how closely two signs resemble one another. Keep your signing hands in frame, use the correct static or continuous mode, and repeat the sign steadily. For a fair assessment, evaluate with held-out examples that were not used for training. I do not have a verified current accuracy score to quote." };
+    }
+    if (/what is a landmark|landmark.*mean|hand landmark|pose points|skeleton/.test(q)) {
+      return { text: "Hand landmarks are points used to describe hand shape and position. SAHAYAK’s saved continuous sequences store numeric landmark features; LEGANG AI does not expose the original camera video in this chat. A feature-based preview is a reconstruction of those coordinates, not the original RGB frame." };
+    }
+    if (/data privacy|private|what happens.*camera|store.*video|record.*camera|are you watching|watching me|microphone|mic/.test(q)) {
+      return { text: "LEGANG AI’s FAQ does not access your camera or microphone, and it does not send your chat text to a generative AI provider. Live Studio is separate: it asks for camera permission and sends frames to SAHAYAK’s recognition backend for prediction. Only enable the camera when you choose to test recognition; this assistant never activates it automatically." };
+    }
+    if (/train|training|add.*new sign|new sign|update.*model|custom sign|my own sign/.test(q)) {
+      return { text: "A new sign is not available just because it was collected locally. The dataset must be labelled and prepared in the format expected by the appropriate model, the model must be trained and tested, and the trained artifact must be deployed with the backend. After deployment, only labels exposed by the active model are available to the live recognizer. Keep a separate test set to check whether the new sign generalizes." };
+    }
+    if (/developer|project head|johan|who made|creator|who.*built/.test(q)) {
+      return { text: "Johan Jyoti Kuli is listed as SAHAYAK’s Lead Developer & Project Head, with the role “Full-System Design & Integration.” You can reach him through the links below.", actions: [
+        { label: "Instagram @stk_jubin", href: "https://www.instagram.com/stk_jubin/" },
+        { label: "Email Johan", href: "mailto:jubinkuli72@gmail.com" },
+        { label: "Call 9678613150", href: "tel:9678613150" }
+      ] };
+    }
     if (/how.*use|use.*sahayak|start|camera|recogniz|recognise|live studio/.test(q) && !/what signs|labels|pose|frame/.test(q)) {
       return { text: "To try SAHAYAK: open Live Studio, choose static or continuous recognition, allow camera access only when the browser asks, and keep your hands visible inside the camera view. For a static sign, hold the pose steadily; for a continuous sign, perform the full movement. Read the result and confidence, and repeat if the system says it is uncertain. The camera belongs to the recognizer, not to this FAQ chat.", actions: [{ label: "Open Live Studio", href: "./studio.html" }] };
     }
@@ -240,7 +281,7 @@
       if (!libraryData) return { text: "I couldn't reach the deployed SAHAYAK backend just now, so I can't verify the current model labels. Please try again when the backend is online." };
       return { text: "The active static model labels (" + libraryData.static_labels.length + "): " + formatLabels(libraryData.static_labels, 70) + "\n\nThe active continuous model labels (" + libraryData.continuous_labels.length + "): " + formatLabels(libraryData.continuous_labels, 70) + "\n\nThese names are read from the deployed models. Open Live Studio to test the recognizer.", actions: [{ label: "Open Live Studio", href: "./studio.html" }] };
     }
-    if (/who.*developer|developer|project head|johan|who made|creator/.test(q)) {
+    if (/who.*developer|project head|johan|who made|creator/.test(q)) {
       return { text: "SAHAYAK lists Johan Jyoti Kuli as Lead Developer & Project Head. You can contact him using the links below.", actions: [
         { label: "Instagram @stk_jubin", href: "https://www.instagram.com/stk_jubin/" },
         { label: "Email Johan", href: "mailto:jubinkuli72@gmail.com" },
@@ -253,6 +294,15 @@
         { label: "jubinkuli72@gmail.com", href: "mailto:jubinkuli72@gmail.com" },
         { label: "Call 9678613150", href: "tel:9678613150" }
       ] };
+    }
+    if (/voice|speak|audio|talk.*answer|read.*aloud/.test(q)) {
+      return { text: "Open Ask LEGANG AI and tap “Voice off” to enable browser speech. Each answer can then show a Speak button; tap it when you want audio. Voices depend on your browser and device. No audio plays automatically, and you can turn voice off or stop speech by closing the assistant." };
+    }
+    if (/how.*hide|hide.*legang|remove.*assistant|close.*assistant|too much|distract/.test(q)) {
+      return { text: "Tap the “Hide AI” control in the chat header to hide the assistant and greeting bubble. A small “Show AI” control remains so you can bring it back whenever you want. The assistant never controls or blocks your page scrolling." };
+    }
+    if (/internet.*need|need.*internet|works offline|offline mode/.test(q)) {
+      return { text: "The FAQ responses work locally in the page. Live recognition, current model labels, and backend-powered predictions need a connection to the SAHAYAK backend. The phrasebook may have offline support on the installed website, but don’t assume the complete live recognizer works offline." };
     }
     if (/offline|internet|online/.test(q)) {
       return { text: "SAHAYAK includes an offline phrasebook on supported browsers once its content is available locally. Live model status, recognition API requests, and the sign-library database require a connection to the deployed backend. LEGANG AI's predefined FAQ matching itself runs in this page, but live sign labels and pose records need the backend." };

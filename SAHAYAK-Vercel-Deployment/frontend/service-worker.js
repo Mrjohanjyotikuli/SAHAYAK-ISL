@@ -1,5 +1,5 @@
 
-const CACHE = 'sahayak-shell-v28-periodic-legang-greetings';
+const CACHE = 'sahayak-shell-v29-team-faq'
 const SHELL = ['/', '/index.html', '/studio.html', '/config.js', '/legang-ai.js', '/legang-ai.css', '/assets/legang-ai-avatar.webp'];
 
 self.addEventListener('install', event => {
