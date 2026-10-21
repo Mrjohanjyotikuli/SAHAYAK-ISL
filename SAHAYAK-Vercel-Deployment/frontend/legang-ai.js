@@ -9,6 +9,7 @@
   root.id = "legang-ai-root";
   root.dataset.state = "idle";
   root.innerHTML =
+    '<button class="lg-restore" type="button" data-lg-restore aria-label="Show LEGANG AI again" title="Show LEGANG AI again" hidden>Show AI</button>' +
     '<button class="lg-launcher" type="button" aria-label="Open Ask LEGANG AI" aria-controls="legang-ai-panel" aria-expanded="false" data-lg-launcher>' +
       '<span class="lg-launcher-art"><img class="lg-avatar-img" src="assets/legang-ai-avatar.webp" alt="" aria-hidden="true" loading="lazy"></span>' +
       '<span class="lg-launcher-dot" aria-hidden="true"></span>' +
@@ -18,6 +19,7 @@
       '<header class="lg-panel-header">' +
         '<div class="lg-header-copy"><div class="lg-title">LEGANG AI</div><div class="lg-subtitle">SAHAYAK companion · local FAQ</div><div class="lg-state-label" data-lg-state-label>Ready to help</div><span class="lg-state-meter" aria-hidden="true"><i></i><i></i><i></i><span>Speaking</span></span></div>' +
         '<button class="lg-icon-btn" type="button" data-lg-voice aria-pressed="false" aria-label="Enable spoken answers" title="Enable spoken answers">Voice off</button>' +
+        '<button class="lg-icon-btn lg-hide-btn" type="button" data-lg-hide aria-label="Hide LEGANG AI from the page" title="Hide LEGANG AI">Hide AI</button>' +
         '<button class="lg-icon-btn" type="button" data-lg-close aria-label="Minimize LEGANG AI" title="Minimize">×</button>' +
       '</header>' +
       '<div class="lg-chat-view" id="legang-ai-chat" role="tabpanel" data-lg-view="chat">' +
@@ -41,6 +43,7 @@
   const $ = (selector) => root.querySelector(selector);
   const $$ = (selector) => Array.from(root.querySelectorAll(selector));
   const launcher = $("[data-lg-launcher]");
+  const restoreButton = $("[data-lg-restore]");
   const panel = $(".lg-panel");
   const greeting = $("[data-lg-greeting]");
   const greetingText = $("[data-lg-greeting-text]");
@@ -56,6 +59,8 @@
   let libraryError = "";
   let currentSection = "SAHAYAK";
   let greetingShown = false;
+  let assistantHidden = false;
+  let greetingTimer = null;
   let playbackTimer = null;
   let isThinking = false;
   const speechAvailable = "speechSynthesis" in window && "SpeechSynthesisUtterance" in window;
@@ -84,6 +89,24 @@
     launcher.dataset.active = "false";
     stopPlayback();
     stopSpeech();
+    setState("idle");
+  }
+  function hideAssistant() {
+    panel.hidden = true;
+    greeting.hidden = true;
+    launcher.hidden = true;
+    launcher.setAttribute("aria-expanded", "false");
+    launcher.dataset.active = "false";
+    assistantHidden = true;
+    restoreButton.hidden = false;
+    stopPlayback();
+    stopSpeech();
+    setState("idle");
+  }
+  function restoreAssistant() {
+    assistantHidden = false;
+    restoreButton.hidden = true;
+    launcher.hidden = false;
     setState("idle");
   }
   function openPanel() {
@@ -264,16 +287,39 @@
       }
     }, 170);
   }
+  function dismissGreeting() {
+    if (greeting.hidden) return;
+    if (greetingTimer !== null) {
+      window.clearTimeout(greetingTimer);
+      timers.delete(greetingTimer);
+      greetingTimer = null;
+    }
+    greeting.classList.add("is-closing");
+    later(() => {
+      greeting.hidden = true;
+      greeting.classList.remove("is-closing");
+    }, reducedMotion ? 0 : 220);
+  }
   function showGreeting(text) {
-    if (greetingShown || reducedMotion || !panel.hidden) return;
+    if (greetingShown || assistantHidden || !panel.hidden) return;
     greetingShown = true;
     greetingText.textContent = text;
+    greeting.classList.remove("is-closing");
     greeting.hidden = false;
-    later(() => { greeting.hidden = true; }, 7000);
+    if (greetingTimer !== null) {
+      window.clearTimeout(greetingTimer);
+      timers.delete(greetingTimer);
+    }
+    greetingTimer = later(() => {
+      greetingTimer = null;
+      dismissGreeting();
+    }, 6200);
   }
   launcher.addEventListener("click", togglePanel);
+  restoreButton.addEventListener("click", restoreAssistant);
   $("[data-lg-close]").addEventListener("click", closePanel);
-  $("[data-lg-greeting-close]").addEventListener("click", () => { greeting.hidden = true; });
+  $("[data-lg-hide]").addEventListener("click", hideAssistant);
+  $("[data-lg-greeting-close]").addEventListener("click", dismissGreeting);
   $$("[data-lg-ask]").forEach((button) => button.addEventListener("click", () => sendQuestion(button.dataset.lgAsk)));
   $("[data-lg-form]").addEventListener("submit", (event) => {
     event.preventDefault();
@@ -356,4 +402,5 @@
     timers.clear();
   }, { once: true });
   addMessage("Hi! I’m LEGANG AI. Ask me how to use SAHAYAK, why it was built, which signs the live models support, or how to contact Johan.", "bot", [{ label: "Contact Johan", href: "mailto:jubinkuli72@gmail.com" }]);
+  later(() => showGreeting("Hello, I’m LEGANG AI. How can I help you?"), 900);
 })();
