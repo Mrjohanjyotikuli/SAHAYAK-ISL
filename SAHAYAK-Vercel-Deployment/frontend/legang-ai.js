@@ -402,5 +402,5 @@
     timers.clear();
   }, { once: true });
   addMessage("Hi! I’m LEGANG AI. Ask me how to use SAHAYAK, why it was built, which signs the live models support, or how to contact Johan.", "bot", [{ label: "Contact Johan", href: "mailto:jubinkuli72@gmail.com" }]);
-  later(() => showGreeting("Hello, I’m LEGANG AI. How can I help you?"), 900);
+  showGreeting("Hello, I’m LEGANG AI. How can I help you?");
 })();

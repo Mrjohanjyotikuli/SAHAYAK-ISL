@@ -1,5 +1,5 @@
 
-const CACHE = 'sahayak-shell-v26-greeting-hide-ai';
+const CACHE = 'sahayak-shell-v27-greeting-hide-ai';
 const SHELL = ['/', '/index.html', '/studio.html', '/config.js', '/legang-ai.js', '/legang-ai.css', '/assets/legang-ai-avatar.webp'];
 
 self.addEventListener('install', event => {
