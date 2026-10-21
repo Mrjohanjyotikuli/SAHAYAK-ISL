@@ -55,6 +55,123 @@
   const sendButton = $("[data-lg-send]");
   const voiceButton = $("[data-lg-voice]");
   const stateLabel = $("[data-lg-state-label]");
+  const dragSurface = $(".lg-panel-header");
+  const DRAG_STORAGE_KEY = "sahayak-legang-position-v1";
+  let dragOffset = { x: 0, y: 0 };
+  let activeDrag = null;
+  let suppressClickUntil = 0;
+
+  // Remember the user's preferred floating position without affecting recognition.
+  try {
+    const savedPosition = JSON.parse(window.localStorage.getItem(DRAG_STORAGE_KEY) || "null");
+    if (savedPosition && Number.isFinite(savedPosition.x) && Number.isFinite(savedPosition.y)) {
+      dragOffset = { x: savedPosition.x, y: savedPosition.y };
+    }
+  } catch (_) {
+    // Storage may be unavailable in private browsing; dragging still works for this visit.
+  }
+
+  function applyDragOffset() {
+    root.style.transform = "translate3d(" + dragOffset.x + "px, " + dragOffset.y + "px, 0)";
+  }
+  function visibleWidgetBounds() {
+    const elements = [launcher, restoreButton, greeting, panel].filter((element) =>
+      element && !element.hidden && element.getClientRects().length
+    );
+    if (!elements.length) return null;
+    const rects = elements.map((element) => element.getBoundingClientRect());
+    return {
+      left: Math.min(...rects.map((rect) => rect.left)),
+      top: Math.min(...rects.map((rect) => rect.top)),
+      right: Math.max(...rects.map((rect) => rect.right)),
+      bottom: Math.max(...rects.map((rect) => rect.bottom))
+    };
+  }
+  function saveDragOffset() {
+    try { window.localStorage.setItem(DRAG_STORAGE_KEY, JSON.stringify(dragOffset)); } catch (_) {}
+  }
+  function keepWidgetInViewport() {
+    const bounds = visibleWidgetBounds();
+    if (!bounds) return;
+    const margin = 8;
+    let correctionX = 0;
+    let correctionY = 0;
+    if (bounds.left < margin) correctionX = margin - bounds.left;
+    else if (bounds.right > window.innerWidth - margin) correctionX = window.innerWidth - margin - bounds.right;
+    if (bounds.top < margin) correctionY = margin - bounds.top;
+    else if (bounds.bottom > window.innerHeight - margin) correctionY = window.innerHeight - margin - bounds.bottom;
+    if (correctionX || correctionY) {
+      dragOffset.x += correctionX;
+      dragOffset.y += correctionY;
+      applyDragOffset();
+      saveDragOffset();
+    }
+  }
+  function beginDrag(event) {
+    if (event.pointerType === "mouse" && event.button !== 0) return;
+    // Header buttons must keep their normal click behaviour.
+    if (event.currentTarget === dragSurface && event.target.closest("button, a, input, select, textarea")) return;
+    activeDrag = {
+      pointerId: event.pointerId,
+      startX: event.clientX,
+      startY: event.clientY,
+      startOffset: { x: dragOffset.x, y: dragOffset.y },
+      startBounds: visibleWidgetBounds(),
+      moved: false,
+      surface: event.currentTarget
+    };
+    try { event.currentTarget.setPointerCapture(event.pointerId); } catch (_) {}
+  }
+  function moveDrag(event) {
+    if (!activeDrag || event.pointerId !== activeDrag.pointerId || !activeDrag.startBounds) return;
+    const rawX = event.clientX - activeDrag.startX;
+    const rawY = event.clientY - activeDrag.startY;
+    if (!activeDrag.moved && Math.hypot(rawX, rawY) < 6) return;
+    activeDrag.moved = true;
+    event.preventDefault();
+    root.dataset.dragging = "true";
+    const bounds = activeDrag.startBounds;
+    const margin = 8;
+    const minX = margin - bounds.left;
+    const maxX = window.innerWidth - margin - bounds.right;
+    const minY = margin - bounds.top;
+    const maxY = window.innerHeight - margin - bounds.bottom;
+    const dx = minX <= maxX ? Math.min(maxX, Math.max(minX, rawX)) : minX;
+    const dy = minY <= maxY ? Math.min(maxY, Math.max(minY, rawY)) : minY;
+    dragOffset = {
+      x: activeDrag.startOffset.x + dx,
+      y: activeDrag.startOffset.y + dy
+    };
+    applyDragOffset();
+  }
+  function endDrag(event) {
+    if (!activeDrag || (event && event.pointerId !== activeDrag.pointerId)) return;
+    const didMove = activeDrag.moved;
+    try {
+      if (activeDrag.surface.hasPointerCapture(activeDrag.pointerId)) {
+        activeDrag.surface.releasePointerCapture(activeDrag.pointerId);
+      }
+    } catch (_) {}
+    activeDrag = null;
+    delete root.dataset.dragging;
+    if (didMove) {
+      suppressClickUntil = Date.now() + 350;
+      saveDragOffset();
+      keepWidgetInViewport();
+    }
+  }
+
+  applyDragOffset();
+  launcher.title = "Drag to move LEGANG AI · click to open";
+  restoreButton.title = "Drag to move LEGANG AI · click to show";
+  dragSurface.title = "Drag this header to move LEGANG AI";
+  launcher.addEventListener("pointerdown", beginDrag);
+  restoreButton.addEventListener("pointerdown", beginDrag);
+  dragSurface.addEventListener("pointerdown", beginDrag);
+  document.addEventListener("pointermove", moveDrag, { passive: false });
+  document.addEventListener("pointerup", endDrag);
+  document.addEventListener("pointercancel", endDrag);
+  window.addEventListener("resize", keepWidgetInViewport);
   const timers = new Set();
   let voiceEnabled = false;
   let libraryData = null;
@@ -394,8 +511,14 @@
     }, delayMs);
   }
 
-  launcher.addEventListener("click", togglePanel);
-  restoreButton.addEventListener("click", restoreAssistant);
+  launcher.addEventListener("click", (event) => {
+    if (Date.now() < suppressClickUntil) { event.preventDefault(); return; }
+    togglePanel();
+  });
+  restoreButton.addEventListener("click", (event) => {
+    if (Date.now() < suppressClickUntil) { event.preventDefault(); return; }
+    restoreAssistant();
+  });
   $("[data-lg-close]").addEventListener("click", closePanel);
   $("[data-lg-hide]").addEventListener("click", hideAssistant);
   $("[data-lg-greeting-close]").addEventListener("click", dismissGreeting);
@@ -482,6 +605,7 @@
   }, { once: true });
   addMessage("Hi! I’m LEGANG AI. Ask me how to use SAHAYAK, why it was built, which signs the live models support, or how to contact Johan.", "bot", [{ label: "Contact Johan", href: "mailto:jubinkuli72@gmail.com" }]);
   showGreeting("Hello, I’m LEGANG AI. How can I help you?");
+  window.requestAnimationFrame(keepWidgetInViewport);
   // First rotating message appears after 45 seconds; further prompts are at least 70 seconds apart.
   scheduleNudge(45000);
 })();
