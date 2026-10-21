@@ -16,7 +16,6 @@
     '<div class="lg-greeting" data-lg-greeting hidden><span data-lg-greeting-text></span><button type="button" aria-label="Dismiss greeting" data-lg-greeting-close>×</button></div>' +
     '<section class="lg-panel" id="legang-ai-panel" aria-label="Ask LEGANG AI assistant" hidden>' +
       '<header class="lg-panel-header">' +
-        '<div class="lg-header-avatar"><img class="lg-avatar-img" src="assets/legang-ai-avatar.webp" alt="" aria-hidden="true" loading="lazy"></div>' +
         '<div class="lg-header-copy"><div class="lg-title">LEGANG AI</div><div class="lg-subtitle">SAHAYAK companion · local FAQ</div><div class="lg-state-label" data-lg-state-label>Ready to help</div><span class="lg-state-meter" aria-hidden="true"><i></i><i></i><i></i><span>Speaking</span></span></div>' +
         '<button class="lg-icon-btn" type="button" data-lg-voice aria-pressed="false" aria-label="Enable spoken answers" title="Enable spoken answers">Voice off</button>' +
         '<button class="lg-icon-btn" type="button" data-lg-close aria-label="Minimize LEGANG AI" title="Minimize">×</button>' +
@@ -37,8 +36,8 @@
         '</div>' +
       '</div>' +
       '<div class="lg-library-view" id="legang-ai-library" role="tabpanel" data-lg-view="library" hidden>' +
-        '<div class="lg-library-header"><h3 class="lg-library-title">SAHAYAK sign library</h3><p class="lg-library-copy">Labels come from the deployed models. Pose previews use real saved normalized landmark feature frames when available. The current database does not store original RGB camera photos or video.</p><input class="lg-search" type="search" placeholder="Search sign labels…" aria-label="Search sign labels" data-lg-search></div>' +
-        '<div class="lg-library-status" data-lg-library-status>Loading live labels and database examples…</div>' +
+        '<div class="lg-library-header"><h3 class="lg-library-title">SAHAYAK sign library</h3><p class="lg-library-copy">Choose any label supported by the installed models. Recorded continuous-sign examples play through their saved landmark frames. Static labels are all listed too; if a static recording is not in the deployed data, LEGANG AI will say so rather than invent a pose.</p></div>' +
+        '<div class="lg-library-status" data-lg-library-status>Loading every live model label and recording index…</div>' +
         '<div data-lg-library-content></div><div data-lg-pose-detail></div>' +
       '</div>' +
       '<form class="lg-chat-form" data-lg-form>' +
@@ -63,7 +62,6 @@
   const libraryStatus = $("[data-lg-library-status]");
   const libraryContent = $("[data-lg-library-content]");
   const poseDetail = $("[data-lg-pose-detail]");
-  const searchInput = $("[data-lg-search]");
   const timers = new Set();
   let voiceEnabled = false;
   let libraryData = null;
@@ -222,122 +220,238 @@
       .finally(() => { libraryPromise = null; });
     return libraryPromise;
   }
+  function testSignHref(label, category) {
+    return "./studio.html?testSign=" + encodeURIComponent(label) + "&signMode=" + encodeURIComponent(category);
+  }
+  function createTestLink(label, category) {
+    const link = document.createElement("a");
+    link.className = "lg-sign-btn lg-sign-btn-primary";
+    link.href = testSignHref(label, category);
+    link.textContent = "Test this sign";
+    link.setAttribute("aria-label", "Test " + label + " in SAHAYAK Live Studio");
+    return link;
+  }
   function addLibrarySection(parent, title, labels, category) {
     const section = document.createElement("section");
     section.className = "lg-library-section";
     const h = document.createElement("h4");
     h.textContent = title + " (" + labels.length + ")";
-    const list = document.createElement("div");
-    list.className = "lg-label-list";
+    const grid = document.createElement("div");
+    grid.className = "lg-sign-grid";
     labels.forEach((label) => {
-      const button = document.createElement("button");
-      button.type = "button";
-      button.className = "lg-label-chip" + (libraryData.examplesByLabel[label] ? " has-example" : "");
-      button.dataset.lgLabel = label;
-      button.dataset.lgCategory = category;
-      button.textContent = label;
-      button.addEventListener("click", () => openPoseForLabel(label, category));
-      list.appendChild(button);
+      const card = document.createElement("article");
+      card.className = "lg-sign-card";
+      const top = document.createElement("div");
+      top.className = "lg-sign-card-top";
+      const name = document.createElement("strong");
+      name.className = "lg-sign-name";
+      name.textContent = label;
+      const categoryPill = document.createElement("span");
+      categoryPill.className = "lg-sign-kind";
+      categoryPill.textContent = category === "static" ? "STATIC" : "CONTINUOUS";
+      top.append(name, categoryPill);
+      const summary = document.createElement("p");
+      summary.className = "lg-sign-summary";
+      const recordInfo = (libraryData.continuous_recordings_by_label || {})[label];
+      const inModel = category === "static"
+        ? libraryData.static_labels.includes(label)
+        : libraryData.continuous_labels.includes(label);
+      if (recordInfo && Number(recordInfo.sample_count) > 0) {
+        summary.textContent = category === "static"
+          ? "A continuous recording for this label is saved (" + recordInfo.sample_count + " recording(s), " + recordInfo.total_recorded_frames + " frames). It is a sequence example, not a static-training capture."
+          : recordInfo.sample_count + " saved recording(s) · " + recordInfo.total_recorded_frames + " recorded frames available to play.";
+      } else if (category === "static") {
+        summary.textContent = "Available in the static model. No original static landmark recording is included in the deployed repository yet.";
+      } else if (!inModel) {
+        summary.textContent = "Saved in the sequence database, but not listed in the currently installed continuous model. Test results may not recognize this label.";
+      } else {
+        summary.textContent = "Available in the continuous model, but no saved database recording is currently available for playback.";
+      }
+      const actions = document.createElement("div");
+      actions.className = "lg-sign-actions";
+      if (recordInfo && Number(recordInfo.sample_count) > 0) {
+        const view = document.createElement("button");
+        view.type = "button";
+        view.className = "lg-sign-btn";
+        view.textContent = category === "static" ? "View sequence example" : "View recorded frames";
+        view.addEventListener("click", () => openPoseForLabel(label, "continuous"));
+        actions.appendChild(view);
+      } else if (category === "continuous") {
+        const unavailable = document.createElement("span");
+        unavailable.className = "lg-sign-recording-unavailable";
+        unavailable.textContent = "No recording";
+        actions.appendChild(unavailable);
+      } else {
+        const unavailable = document.createElement("span");
+        unavailable.className = "lg-sign-recording-unavailable";
+        unavailable.textContent = "Static recording not deployed";
+        actions.appendChild(unavailable);
+      }
+      actions.appendChild(createTestLink(label, category));
+      card.append(top, summary, actions);
+      grid.appendChild(card);
     });
-    section.append(h, list);
+    section.append(h, grid);
     parent.appendChild(section);
   }
   function renderLibrary() {
     if (!libraryData) return;
+    const counts = libraryData.continuous_recordings_by_label || {};
     libraryData.examplesByLabel = {};
     (libraryData.continuous_examples || []).forEach((item) => {
       if (item && item.label && !libraryData.examplesByLabel[item.label]) libraryData.examplesByLabel[item.label] = item;
     });
+    const totalSamples = Object.values(counts).reduce((sum, item) => sum + Number(item.sample_count || 0), 0);
+    const totalFrames = Object.values(counts).reduce((sum, item) => sum + Number(item.total_recorded_frames || 0), 0);
     libraryStatus.textContent = "Loaded " + libraryData.static_labels.length + " static model labels, " +
-      libraryData.continuous_labels.length + " continuous model labels, and " +
-      (libraryData.continuous_examples || []).length + " saved sequence previews.";
+      libraryData.continuous_labels.length + " continuous model labels, plus " + totalSamples +
+      " saved sequence recording(s) containing " + totalFrames + " recorded frames.";
     libraryContent.replaceChildren();
     const staticLabels = libraryData.static_labels.slice().sort();
-    const sequenceLabels = libraryData.continuous_labels.slice().sort();
+    const sequenceLabels = Array.from(new Set([
+      ...libraryData.continuous_labels,
+      ...Object.keys(counts)
+    ])).sort();
     addLibrarySection(libraryContent, "Static signs", staticLabels, "static");
-    addLibrarySection(libraryContent, "Continuous / moving signs", sequenceLabels, "continuous");
-    const sampleLabels = (libraryData.continuous_examples || []).map((sample) => sample.label);
-    if (sampleLabels.length) addLibrarySection(libraryContent, "Recorded database samples", sampleLabels, "recorded");
-    else {
+    addLibrarySection(libraryContent, "Continuous / moving signs and saved recordings", sequenceLabels, "continuous");
+    if (!staticLabels.length && !sequenceLabels.length) {
       const empty = document.createElement("p");
       empty.className = "lg-library-status";
-      empty.textContent = "No valid saved continuous landmark samples were returned by the current database.";
+      empty.textContent = "The backend did not return any trained labels. Check the deployed models.";
       libraryContent.appendChild(empty);
     }
-    filterLabels(searchInput.value);
   }
-  function filterLabels(term) {
-    const needle = String(term || "").trim().toLowerCase();
-    $$(".lg-label-chip").forEach((button) => {
-      button.hidden = !!needle && !button.textContent.toLowerCase().includes(needle);
-    });
-  }
-  function openPoseForLabel(label, category) {
+  async function openPoseForLabel(label, category) {
     stopPlayback();
     poseDetail.replaceChildren();
-    const sample = libraryData && libraryData.examplesByLabel ? libraryData.examplesByLabel[label] : null;
-    if (!sample || !Array.isArray(sample.frames) || !sample.frames.length) {
-      const note = document.createElement("div");
-      note.className = "lg-pose-card";
-      const h = document.createElement("h4");
-      h.textContent = label;
-      const p = document.createElement("p");
-      p.textContent = category === "static"
-        ? "This label is present in the deployed static model, but the current backend does not provide a saved static landmark example for it. LEGANG AI will not invent a pose."
-        : "This label has no valid representative recorded sequence in the backend database yet. The label itself is read from the deployed model.";
-      note.append(h, p);
-      poseDetail.appendChild(note);
-      return;
-    }
-    activeSample = sample;
-    activeFramePos = 0;
     const card = document.createElement("section");
     card.className = "lg-pose-card";
-    const h = document.createElement("h4");
-    h.textContent = label + " · recorded landmark preview";
+    const title = document.createElement("h4");
+    title.textContent = label + " · recorded frame viewer";
     const note = document.createElement("p");
-    note.textContent = "Using stored normalized feature frame(s) from the continuous-sign database. This is a reconstructed landmark skeleton, not the original camera image or video; static pose examples are not stored in the current backend.";
+    const testLink = createTestLink(label, category === "static" ? "static" : "continuous");
+    if (category === "static") {
+      note.textContent = "This is a static model label. The deployed repository does not currently include saved static training-frame recordings, so no static pose is fabricated. You can still test this label in Live Studio." +
+        (((libraryData.continuous_recordings_by_label || {})[label]) ? " A separate continuous-sign recording exists for this label; use the continuous-sign card to view that sequence." : "");
+      card.append(title, note, testLink);
+      poseDetail.appendChild(card);
+      card.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "nearest" });
+      return;
+    }
+    note.textContent = "Loading the complete saved landmark recordings for this sign. Each frame is reconstructed from the stored 132 numeric features; it is not the original camera photo or video.";
+    const loading = document.createElement("p");
+    loading.className = "lg-library-status";
+    loading.textContent = "Loading recorded frames…";
+    card.append(title, note, loading, testLink);
+    poseDetail.appendChild(card);
+    card.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "nearest" });
+    let data;
+    try {
+      const response = await fetch(API_BASE + "/api/legang/sign-library/continuous/" + encodeURIComponent(label), {
+        method: "GET", cache: "no-store", headers: { Accept: "application/json" }
+      });
+      if (!response.ok) throw new Error("Backend returned HTTP " + response.status + ".");
+      data = await response.json();
+    } catch (error) {
+      loading.textContent = "Could not load recorded frames right now. " + (error && error.message ? error.message : "The backend is unavailable.");
+      return;
+    }
+    if (!data || !Array.isArray(data.samples) || !data.samples.length) {
+      loading.textContent = "No recorded landmark frames are currently stored for " + label + ". The label remains selectable for a Live Studio test.";
+      return;
+    }
+    card.replaceChildren(title, note);
+    const selectorLabel = document.createElement("label");
+    selectorLabel.className = "lg-recording-select-label";
+    selectorLabel.textContent = "Recorded sample";
+    let activeSampleIndex = 0;
+    const sampleSelect = document.createElement("select");
+    sampleSelect.className = "lg-recording-select";
+    sampleSelect.setAttribute("aria-label", "Choose a saved recording for " + label);
+    data.samples.forEach((sample, index) => {
+      const option = document.createElement("option");
+      const dateText = sample.created_at ? " · " + new Date(sample.created_at).toLocaleDateString() : "";
+      option.value = String(index);
+      option.textContent = "Sample #" + sample.sample_id + " · " + (sample.valid_frame_count || (sample.frames || []).length) + " frames" + dateText;
+      sampleSelect.appendChild(option);
+    });
+    selectorLabel.appendChild(sampleSelect);
     const canvas = document.createElement("canvas");
     canvas.className = "lg-pose-canvas";
     canvas.width = 640;
     canvas.height = 480;
     canvas.setAttribute("role", "img");
-    canvas.setAttribute("aria-label", "Reconstructed hand landmark pose from a saved SAHAYAK sequence frame");
+    canvas.setAttribute("aria-label", "Reconstructed hand-landmark skeleton from actual saved SAHAYAK recording frames");
     const controls = document.createElement("div");
     controls.className = "lg-frame-controls";
     const prev = document.createElement("button");
     prev.type = "button"; prev.textContent = "← Prev"; prev.setAttribute("aria-label", "Previous recorded frame");
-    const pos = document.createElement("div");
-    pos.className = "lg-frame-position";
-    pos.setAttribute("aria-live", "polite");
+    const position = document.createElement("div");
+    position.className = "lg-frame-position";
+    position.setAttribute("aria-live", "polite");
     const next = document.createElement("button");
     next.type = "button"; next.textContent = "Next →"; next.setAttribute("aria-label", "Next recorded frame");
     const play = document.createElement("button");
-    play.type = "button"; play.textContent = "▶ Play frames"; play.dataset.lgPlay = "true";
-    controls.append(prev, pos, next, play);
-    card.append(h, note, canvas, controls);
-    poseDetail.appendChild(card);
+    play.type = "button"; play.textContent = "▶ Play all frames"; play.dataset.lgPlay = "true";
+    controls.append(prev, position, next, play);
+    card.append(selectorLabel, canvas, controls, testLink);
+    function sampleNow() { return data.samples[activeSampleIndex]; }
+    function sampleFrames() { const sample = sampleNow(); return Array.isArray(sample.frames) ? sample.frames : []; }
     function updateFrame() {
+      const sample = sampleNow();
+      const frames = sampleFrames();
+      if (!frames.length) {
+        position.textContent = "No valid frames";
+        drawPose(canvas, []);
+        prev.disabled = true;
+        next.disabled = true;
+        play.disabled = true;
+        return;
+      }
       const originalIndex = Array.isArray(sample.frame_indices) ? sample.frame_indices[activeFramePos] : activeFramePos;
-      pos.textContent = "Frame " + (activeFramePos + 1) + "/" + sample.frames.length + " · DB frame " + (Number(originalIndex) + 1) + "/" + sample.recorded_frame_count;
-      drawPose(canvas, sample.frames[activeFramePos]);
+      position.textContent = "Frame " + (activeFramePos + 1) + "/" + frames.length +
+        " · recorded frame " + (Number(originalIndex) + 1) + "/" + sample.recorded_frame_count;
+      drawPose(canvas, frames[activeFramePos]);
       prev.disabled = activeFramePos <= 0;
-      next.disabled = activeFramePos >= sample.frames.length - 1;
-      play.textContent = playbackTimer === null ? "▶ Play frames" : "Ⅱ Pause";
+      next.disabled = activeFramePos >= frames.length - 1;
+      play.textContent = playbackTimer === null ? "▶ Play all frames" : "Ⅱ Pause";
+      play.disabled = frames.length < 2;
     }
-    prev.addEventListener("click", () => { stopPlayback(); activeFramePos = Math.max(0, activeFramePos - 1); updateFrame(); });
-    next.addEventListener("click", () => { stopPlayback(); activeFramePos = Math.min(sample.frames.length - 1, activeFramePos + 1); updateFrame(); });
-    play.addEventListener("click", () => {
-      if (playbackTimer !== null) { stopPlayback(); updateFrame(); return; }
-      if (reducedMotion) { libraryStatus.textContent = "Reduced motion is enabled. Use Next to step through recorded frames one at a time."; return; }
-      if (sample.frames.length < 2) { libraryStatus.textContent = "This saved sample contains only one valid frame."; return; }
-      playbackTimer = window.setInterval(() => {
-        if (document.hidden || panel.hidden) { stopPlayback(); updateFrame(); return; }
-        activeFramePos = (activeFramePos + 1) % sample.frames.length;
-        updateFrame();
-      }, 850);
+    prev.addEventListener("click", () => {
+      stopPlayback();
+      activeFramePos = Math.max(0, activeFramePos - 1);
       updateFrame();
     });
+    next.addEventListener("click", () => {
+      stopPlayback();
+      activeFramePos = Math.min(sampleFrames().length - 1, activeFramePos + 1);
+      updateFrame();
+    });
+    sampleSelect.addEventListener("change", () => {
+      stopPlayback();
+      activeSampleIndex = Number(sampleSelect.value) || 0;
+      activeFramePos = 0;
+      updateFrame();
+    });
+    play.addEventListener("click", () => {
+      if (playbackTimer !== null) { stopPlayback(); updateFrame(); return; }
+      if (reducedMotion) {
+        libraryStatus.textContent = "Reduced motion is enabled. Use Next to step through the real recorded frames.";
+        return;
+      }
+      if (sampleFrames().length < 2) {
+        libraryStatus.textContent = "This recording contains only one valid frame.";
+        return;
+      }
+      playbackTimer = window.setInterval(() => {
+        if (document.hidden || panel.hidden) { stopPlayback(); updateFrame(); return; }
+        const frames = sampleFrames();
+        activeFramePos = (activeFramePos + 1) % frames.length;
+        updateFrame();
+      }, 110);
+      updateFrame();
+    });
+    sampleSelect.dispatchEvent(new Event("change"));
     updateFrame();
   }
   const CONNECTIONS = [[0,1],[1,2],[2,3],[3,4],[0,5],[5,6],[6,7],[7,8],[0,9],[9,10],[10,11],[11,12],[0,13],[13,14],[14,15],[15,16],[0,17],[17,18],[18,19],[19,20],[5,9],[9,13],[13,17]];
@@ -504,7 +618,6 @@
     chatInput.value = "";
     sendQuestion(value);
   });
-  searchInput.addEventListener("input", () => filterLabels(searchInput.value));
   voiceButton.addEventListener("click", () => {
     if (!speechAvailable) {
       voiceButton.textContent = "Voice unavailable";

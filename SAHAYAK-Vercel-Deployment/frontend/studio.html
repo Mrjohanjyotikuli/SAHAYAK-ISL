@@ -67,7 +67,12 @@ html.scroll-motion-ready .scroll-reveal.is-visible{opacity:1;transform:translate
 <body>
 <main>
 <a class="site-return" href="./index.html"><span aria-hidden="true">←</span> SAHAYAK Home</a>
-<header class="top"><img class="brand-logo" src="assets/sahayak-logo.png" alt="SAHAYAK — A Real-Time Sign Language Recognition System"><div class="tag">LIVE CAMERA DEMO</div></header>
+ <header class="top"><img class="brand-logo" src="assets/sahayak-logo.png" alt="SAHAYAK — A Real-Time Sign Language Recognition System"><div class="tag">LIVE CAMERA DEMO</div></header>
+<section class="panel" id="selectedSignGuide" hidden style="margin-bottom:20px;border-color:var(--cyan)">
+  <h2 id="selectedSignTitle">Practice selected sign</h2>
+  <p class="status" id="selectedSignCopy">Your selected sign will appear here.</p>
+  <button id="clearSelectedSign" class="secondary" type="button">Close practice guide</button>
+</section>
 <section class="panel" style="margin-bottom:20px" aria-label="Smart Communication mode">
 <h2>Smart Communication</h2>
 <div class="status" id="modeStatus">Single and motion-based signs are combined automatically. Hold a static sign briefly, or perform a moving sign naturally; recognized words are added to the same message.</div>
@@ -142,6 +147,25 @@ const startBtn=document.getElementById('start'), stopBtn=document.getElementById
 const signEl=document.getElementById('sign'), confidenceEl=document.getElementById('confidence'), outputEl=document.getElementById('output'), stateEl=document.getElementById('state'), placeholder=document.getElementById('placeholder');
 const phrase=document.getElementById('phrase'), speechStatus=document.getElementById('speechStatus');
 const $=id=>document.getElementById(id);
+let practiceSignTarget = "";
+let practiceSignMode = "static";
+const practiceParams = new URLSearchParams(window.location.search);
+function readablePracticeLabel(value){return String(value||"").trim().toUpperCase().replace(/\\s+/g,"_").slice(0,60);}
+practiceSignTarget = readablePracticeLabel(practiceParams.get("testSign"));
+practiceSignMode = practiceParams.get("signMode")==="continuous" ? "continuous" : "static";
+if(practiceSignTarget && $("selectedSignGuide")){
+  $("selectedSignGuide").hidden=false;
+  $("selectedSignTitle").textContent="Practice sign: "+practiceSignTarget.replace(/_/g," ");
+  $("selectedSignCopy").textContent="Selected from LEGANG AI ("+(practiceSignMode==="continuous"?"continuous / moving":"static pose")+" sign). Start your camera below when ready, perform the sign, and compare the result. Camera access is not started automatically. Smart Communication still uses the existing recognition workflow.";
+  $("clearSelectedSign").addEventListener("click",()=>{
+    $("selectedSignGuide").hidden=true;
+    practiceSignTarget="";
+    const cleanUrl=new URL(window.location.href);
+    cleanUrl.searchParams.delete("testSign");
+    cleanUrl.searchParams.delete("signMode");
+    window.history.replaceState({}, "", cleanUrl.pathname+cleanUrl.search+cleanUrl.hash);
+  });
+}
 let stream=null, loopHandle=null, busy=false, stopped=true, lastSign='', lastRecognizedText='', lastAcceptedAt=0, facingMode='user', cameraGeneration=0, activeController=null;
 let browserHands=null, browserHandsPromise=null, classifierBusy=false;
 let lastAutoSpokenSign='', lastAutoSpokenAt=0;
@@ -526,6 +550,12 @@ function emitSmartToken(label,text,confidence,source){
   signEl.textContent=readable;
   confidenceEl.textContent=(source==='sequence'?'Motion-sign confidence: ':'Confidence: ')+(confidence==null?'not provided':confidence+'%');
   stateEl.textContent=source==='sequence'?'Motion sign recognized':'Static sign recognized';
+  if(practiceSignTarget){
+    const matched=normalized===practiceSignTarget;
+    $("selectedSignCopy").textContent=matched
+      ? "✓ SAHAYAK recognized the selected sign "+practiceSignTarget+". Confidence: "+(confidence==null?"not provided":confidence+"%")+". You can try it again to compare consistency."
+      : "Selected target: "+practiceSignTarget+". Latest detected sign: "+normalized+". Keep practising the selected sign, then compare the recognized label. This guide does not filter or change the live model.";
+  }
   phrase.value+=(phrase.value.trim()?' ':'')+readable;
   phrase.dispatchEvent(new Event('input'));
   $('manualText').value=phrase.value;

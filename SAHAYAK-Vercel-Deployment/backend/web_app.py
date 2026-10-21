@@ -312,7 +312,7 @@ def export_sequence_samples():
 
 @app.get("/api/legang/sign-library")
 def legang_sign_library():
-    """Expose verified model labels and a bounded, read-only set of saved landmark frames for LEGANG AI."""
+    """Return trained sign labels and a compact index of real continuous-sign recordings."""
     static_labels = []
     continuous_labels = []
     model_errors = []
@@ -320,33 +320,40 @@ def legang_sign_library():
         clf = get_model()
         if clf is not None:
             static_labels = sorted({str(label) for label in clf.classes_})
-    except Exception as exc:
+    except Exception:
         app.logger.exception("LEGANG sign-library static model read failed")
         model_errors.append("Static model labels are unavailable.")
     try:
         clf = get_sequence_model()
         if clf is not None:
             continuous_labels = sorted({str(label) for label in clf.classes_})
-    except Exception as exc:
+    except Exception:
         app.logger.exception("LEGANG sign-library continuous model read failed")
         model_errors.append("Continuous model labels are unavailable.")
 
+    recordings_by_label = {}
     examples = []
     database_error = None
-    # Only one sample per label and up to twelve real saved frames per sample are returned.
-    # The stored values are normalized model features, not original camera photographs or video.
-    max_labels = 60
-    max_frames = 12
+    max_preview_frames = 12
     try:
         if SEQUENCE_DB_PATH.exists():
             with sqlite3.connect(str(SEQUENCE_DB_PATH), timeout=5) as con:
                 con.row_factory = sqlite3.Row
-                rows = con.execute(
-                    "SELECT id, label, frames_json, frame_count FROM sequence_samples "
-                    "WHERE id IN (SELECT MAX(id) FROM sequence_samples GROUP BY label) "
-                    "ORDER BY label LIMIT ?",
-                    (max_labels,)
+                counts = con.execute(
+                    "SELECT label, COUNT(*) AS sample_count, COALESCE(SUM(frame_count), 0) AS total_recorded_frames "
+                    "FROM sequence_samples GROUP BY label ORDER BY label"
                 ).fetchall()
+                rows = con.execute(
+                    "SELECT id, label, frames_json, frame_count, created_at FROM sequence_samples "
+                    "WHERE id IN (SELECT MAX(id) FROM sequence_samples GROUP BY label) ORDER BY label LIMIT 200"
+                ).fetchall()
+            for row in counts:
+                recordings_by_label[str(row["label"])] = {
+                    "sample_count": int(row["sample_count"]),
+                    "total_recorded_frames": int(row["total_recorded_frames"] or 0)
+                }
+            # Keep a small preview for compatibility with an older cached assistant bundle.
+            # The full recording is retrieved only when a visitor selects its sign.
             for row in rows:
                 try:
                     raw_frames = json.loads(row["frames_json"])
@@ -363,43 +370,107 @@ def legang_sign_library():
                         valid_frames.append((source_index, [round(value, 5) for value in values]))
                     if not valid_frames:
                         continue
-                    total_valid = len(valid_frames)
-                    if total_valid > max_frames:
-                        pick_positions = [
-                            round(i * (total_valid - 1) / (max_frames - 1))
-                            for i in range(max_frames)
+                    selected = valid_frames
+                    if len(selected) > max_preview_frames:
+                        positions = [
+                            round(i * (len(selected) - 1) / (max_preview_frames - 1))
+                            for i in range(max_preview_frames)
                         ]
-                        selected = [valid_frames[index] for index in pick_positions]
-                    else:
-                        selected = valid_frames
+                        selected = [valid_frames[index] for index in positions]
                     examples.append({
                         "sample_id": int(row["id"]),
                         "label": str(row["label"]),
                         "recorded_frame_count": int(row["frame_count"] or len(raw_frames)),
-                        "valid_frame_count": total_valid,
+                        "valid_frame_count": len(valid_frames),
                         "frame_indices": [int(item[0]) for item in selected],
                         "frames": [item[1] for item in selected],
                         "feature_layout": "63 left-hand pose values, 63 right-hand pose values, and 6 wrist-position values"
                     })
                 except (TypeError, ValueError, OverflowError, json.JSONDecodeError):
-                    app.logger.warning("Skipping invalid LEGANG sequence sample id=%s", row["id"])
+                    app.logger.warning("Skipping invalid LEGANG sequence preview id=%s", row["id"])
         else:
             database_error = "Continuous-sign database is not present on this backend."
     except Exception:
-        app.logger.exception("LEGANG sign-library database read failed")
-        database_error = "Saved landmark examples could not be read from the current database."
+        app.logger.exception("LEGANG sign-library database index read failed")
+        database_error = "Saved landmark recording index could not be read."
 
+    total_samples = sum(item["sample_count"] for item in recordings_by_label.values())
+    total_frames = sum(item["total_recorded_frames"] for item in recordings_by_label.values())
     return jsonify({
         "project": "SAHAYAK",
         "static_labels": static_labels,
         "continuous_labels": continuous_labels,
         "continuous_examples": examples,
+        "continuous_recordings_by_label": recordings_by_label,
         "static_pose_examples_available": False,
         "database_error": database_error,
         "model_errors": model_errors,
-        "data_note": "Continuous examples contain normalized landmark feature frames from the database, not original camera RGB images or video. Static labels come from the deployed model; no static pose-example table is exposed by this backend.",
-        "limits": {"max_samples": max_labels, "max_frames_per_sample": max_frames}
+        "data_note": "The committed continuous-sign database stores normalized landmark feature frames, not original camera photos or video. The repository does not currently contain deployed static-sign landmark recording rows, so the API does not fabricate static poses.",
+        "totals": {
+            "continuous_samples": total_samples,
+            "recorded_frames": total_frames
+        }
     }), 200
+
+
+@app.get("/api/legang/sign-library/continuous/<label>")
+def legang_sign_recordings(label):
+    """Return every valid saved frame for every stored sequence matching the selected label."""
+    clean_label = "_".join(str(label or "").strip().upper().split())[:60]
+    if not clean_label or any(ch not in "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-" for ch in clean_label):
+        return jsonify({"error": "Invalid sign label."}), 400
+    samples = []
+    try:
+        if SEQUENCE_DB_PATH.exists():
+            with sqlite3.connect(str(SEQUENCE_DB_PATH), timeout=5) as con:
+                con.row_factory = sqlite3.Row
+                rows = con.execute(
+                    "SELECT id, label, frames_json, frame_count, created_at "
+                    "FROM sequence_samples WHERE label = ? ORDER BY id DESC",
+                    (clean_label,)
+                ).fetchall()
+        else:
+            rows = []
+        for row in rows:
+            try:
+                raw_frames = json.loads(row["frames_json"])
+                if not isinstance(raw_frames, list):
+                    continue
+                valid_indices = []
+                frames = []
+                for frame_index, raw_frame in enumerate(raw_frames):
+                    if not isinstance(raw_frame, list) or len(raw_frame) != SEQUENCE_FRAME_FEATURES:
+                        continue
+                    values = [float(value) for value in raw_frame]
+                    if not np.isfinite(np.asarray(values, dtype=np.float64)).all():
+                        continue
+                    valid_indices.append(frame_index)
+                    frames.append([round(value, 5) for value in values])
+                if not frames:
+                    continue
+                samples.append({
+                    "sample_id": int(row["id"]),
+                    "label": str(row["label"]),
+                    "created_at": str(row["created_at"]),
+                    "recorded_frame_count": int(row["frame_count"] or len(raw_frames)),
+                    "valid_frame_count": len(frames),
+                    "frame_indices": valid_indices,
+                    "frames": frames
+                })
+            except (TypeError, ValueError, OverflowError, json.JSONDecodeError):
+                app.logger.warning("Skipping invalid LEGANG sequence recording id=%s", row["id"])
+    except Exception:
+        app.logger.exception("LEGANG sign-library full recording read failed")
+        return jsonify({"error": "Saved landmark recordings could not be read right now."}), 500
+
+    return jsonify({
+        "label": clean_label,
+        "samples": samples,
+        "total_samples": len(samples),
+        "total_frames": sum(sample["valid_frame_count"] for sample in samples),
+        "data_note": "These are the complete valid numeric landmark frames stored in the continuous-sign database, reconstructed for display as a hand skeleton. They are not original RGB camera photos or video."
+    }), 200
+
 
 @app.post("/api/sequence/predict")
 def predict_sequence():

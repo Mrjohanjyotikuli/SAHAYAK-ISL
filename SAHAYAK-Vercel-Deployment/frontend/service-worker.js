@@ -1,5 +1,5 @@
 
-const CACHE = 'sahayak-shell-v23-legang-ai-motion';
+const CACHE = 'sahayak-shell-v24-legang-sign-practice';
 const SHELL = ['/', '/index.html', '/studio.html', '/config.js', '/legang-ai.js', '/legang-ai.css', '/assets/legang-ai-avatar.webp'];
 
 self.addEventListener('install', event => {

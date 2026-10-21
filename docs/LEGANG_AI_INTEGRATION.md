@@ -22,3 +22,11 @@ The current continuous-sign database stores normalized landmark feature vectors 
 
 ## Upgrade to generative AI or full facial animation
 This version intentionally has no model API key or third-party network chat call. To enable generative answers later, add a server-side Flask route and store provider credentials in Render environment variables—never in frontend JavaScript. The supplied picture is a flat image, not a rigged face. It uses subtle shell animation and truthful speaking/listening indicators, not fake eye or phoneme movements. Realistic face animation and phoneme-level lip sync require a properly rigged 2D/3D avatar or a compatible animation service and its required assets/credentials.
+
+
+## Sign library update
+- The assistant panel header is text-only; the floating launcher keeps the supplied character artwork.
+- The sign library shows every static label returned by the active static model and every continuous label returned by the active continuous model, including additional labels found in saved sequence recordings. There is no search box.
+- Each label links to Live Studio with a practice prompt. Starting the camera remains a manual, permission-controlled action; the normal Smart Communication recognizer is unchanged.
+- Selecting a continuous sign fetches all complete valid stored frames for all database samples under that label. Users can choose a recording, play it frame by frame or automatically, and then test the label in Live Studio.
+- **Static recording availability:** the current Git repository does not contain a deployed static-sign frame database or training CSV. Static model labels are all listed and testable, but a genuine static recorded pose cannot be displayed until those existing static landmark records are added to the repository/backend. No pose is fabricated. Where the same label also has a continuous recording, the UI labels it clearly as a sequence example.

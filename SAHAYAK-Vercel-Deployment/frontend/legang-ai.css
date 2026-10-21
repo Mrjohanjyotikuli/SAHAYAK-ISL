@@ -102,12 +102,8 @@
   padding: 12px; border-bottom: 1px solid rgba(168,184,206,.16);
   background: rgba(6,14,27,.86);
 }
-#legang-ai-root .lg-header-avatar {
-  flex: 0 0 45px; width: 45px; height: 45px; overflow: hidden; border-radius: 50%;
-  background: #02050c; border: 1px solid var(--lg-cyan); box-shadow: 0 0 14px rgba(40,216,255,.15);
-}
 #legang-ai-root .lg-header-copy { min-width: 0; flex: 1; }
-#legang-ai-root .lg-title { font-weight: 800; font-size: 15px; letter-spacing: .02em; }
+#legang-ai-root .lg-title { font-weight: 800; font-size: 16px; letter-spacing: .02em; white-space: nowrap; }
 #legang-ai-root .lg-subtitle { margin-top: 2px; font-size: 10px; color: var(--lg-muted); letter-spacing: .08em; text-transform: uppercase; }
 #legang-ai-root .lg-state-label { display: inline-flex; align-items: center; gap: 5px; margin-top: 4px; color: #7dd3fc; font-size: 10px; }
 #legang-ai-root .lg-state-label::before { content: ""; width: 6px; height: 6px; background: #22c55e; border-radius: 50%; }
@@ -189,10 +185,6 @@
 #legang-ai-root .lg-library-header { display: flex; flex-direction: column; gap: 9px; }
 #legang-ai-root .lg-library-title { margin: 0; font-size: 14px; font-weight: 800; }
 #legang-ai-root .lg-library-copy { color: var(--lg-muted); font-size: 11px; line-height: 1.55; margin: 0; }
-#legang-ai-root .lg-search {
-  width: 100%; min-width: 0; border: 1px solid #304662; border-radius: 10px;
-  padding: 10px 11px; background: #071120; color: var(--lg-text); font-size: 12px;
-}
 #legang-ai-root .lg-library-section { margin-top: 15px; }
 #legang-ai-root .lg-library-section h4 { margin: 0 0 7px; color: #d6e4f7; font-size: 11px; text-transform: uppercase; letter-spacing: .075em; }
 #legang-ai-root .lg-label-list { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -203,6 +195,40 @@
 #legang-ai-root .lg-label-chip.has-example { border-color: rgba(40,216,255,.42); }
 #legang-ai-root .lg-label-chip:hover { border-color: var(--lg-cyan); background: #1a2e49; }
 #legang-ai-root .lg-library-status { font-size: 11px; color: var(--lg-muted); margin: 12px 0 0; line-height: 1.55; }
+
+#legang-ai-root .lg-sign-grid {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px;
+}
+#legang-ai-root .lg-sign-card {
+  min-width: 0; display: flex; flex-direction: column; gap: 8px;
+  padding: 10px; border-radius: 13px; border: 1px solid rgba(168,184,206,.18);
+  background: linear-gradient(155deg, rgba(20,34,57,.95), rgba(8,17,31,.95));
+}
+#legang-ai-root .lg-sign-card-top { display: flex; align-items: flex-start; gap: 6px; justify-content: space-between; }
+#legang-ai-root .lg-sign-name { min-width: 0; font-size: 12px; line-height: 1.45; overflow-wrap: anywhere; color: #f3f8ff; }
+#legang-ai-root .lg-sign-kind {
+  flex: 0 0 auto; font-size: 8px; letter-spacing: .05em; font-weight: 900;
+  padding: 4px 5px; border-radius: 6px; color: #b7f2ff; background: rgba(40,216,255,.1);
+  border: 1px solid rgba(40,216,255,.18);
+}
+#legang-ai-root .lg-sign-summary { margin: 0; color: var(--lg-muted); font-size: 10px; line-height: 1.5; }
+#legang-ai-root .lg-sign-actions { display: flex; flex-direction: column; gap: 6px; margin-top: auto; }
+#legang-ai-root .lg-sign-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 34px; width: 100%; padding: 7px 8px; text-align: center; text-decoration: none;
+  border-radius: 9px; border: 1px solid rgba(40,216,255,.28); background: rgba(40,216,255,.06);
+  color: #c5f4ff; font-size: 10px; font-weight: 800; overflow-wrap: anywhere;
+}
+#legang-ai-root .lg-sign-btn:hover { background: rgba(40,216,255,.14); border-color: var(--lg-cyan); }
+#legang-ai-root .lg-sign-btn-primary { background: linear-gradient(115deg, #0ba7d4, #27d0e8); color: #04111d; border-color: transparent; }
+#legang-ai-root .lg-sign-btn-primary:hover { background: linear-gradient(115deg, #1ab8e4, #68eaff); color: #04111d; }
+#legang-ai-root .lg-sign-recording-unavailable { color: #8d9eb4; font-size: 9px; padding: 2px 1px; }
+#legang-ai-root .lg-recording-select-label { display: flex; flex-direction: column; gap: 5px; margin: 7px 0; color: #c0d1e7; font-size: 10px; font-weight: 700; }
+#legang-ai-root .lg-recording-select {
+  min-width: 0; width: 100%; padding: 9px; border-radius: 9px; color: var(--lg-text);
+  background: #071120; border: 1px solid #304662; font-size: 11px;
+}
+
 #legang-ai-root .lg-pose-card {
   margin-top: 13px; padding: 10px; border-radius: 14px;
   border: 1px solid rgba(40,216,255,.28); background: rgba(3,10,20,.65);
@@ -219,7 +245,6 @@
 #legang-ai-root[data-state="speaking"] .lg-state-meter i:nth-child(1) { animation: lg-meter .55s ease-in-out infinite alternate; }
 #legang-ai-root[data-state="speaking"] .lg-state-meter i:nth-child(2) { animation: lg-meter .4s ease-in-out infinite alternate-reverse; }
 #legang-ai-root[data-state="speaking"] .lg-state-meter i:nth-child(3) { animation: lg-meter .62s ease-in-out infinite alternate; }
-#legang-ai-root[data-state="thinking"] .lg-header-avatar { box-shadow: 0 0 0 4px rgba(40,216,255,.07), 0 0 18px rgba(40,216,255,.35); }
 #legang-ai-root .lg-launcher[data-active="true"] .lg-launcher-art { box-shadow: inset 0 0 12px rgba(40,216,255,.28); }
 @keyframes lg-meter { from { height: 4px; } to { height: 14px; } }
 
@@ -233,6 +258,7 @@
     border-radius: 17px;
   }
   #legang-ai-root .lg-pose-canvas { height: 220px; }
+  #legang-ai-root .lg-sign-grid { grid-template-columns: minmax(0, 1fr); }
   #legang-ai-root .lg-greeting { bottom: 72px; }
 }
 @media (prefers-reduced-motion: reduce) {
