@@ -61,7 +61,23 @@
   let greetingShown = false;
   let assistantHidden = false;
   let greetingTimer = null;
+  let nextNudgeTimer = null;
+  let nudgeIndex = 0;
   let playbackTimer = null;
+  const nudgeLines = [
+    "Kya hua bhai, kuch questions hain toh pooch lo 😄",
+    "Itna mat dekho yaar, jaake Live Studio try karo! 😉",
+    "Bhai, main yahin hoon—question poochne ka charge nahi hai 😂",
+    "Scrolling Olympics chal raha hai kya? SAHAYAK bhi try kar lo 😅",
+    "Main chai nahi bana sakta, but SAHAYAK samjha zaroor sakta hoon ☕",
+    "Arre bhai, doubt hai toh pooch lo. Main judge nahi karta 😎",
+    "Need a quick start? Ask me how to use SAHAYAK.",
+    "Tip: keep your hands clearly inside the camera frame for better tracking.",
+    "Curious about the project? Ask me why SAHAYAK was built.",
+    "A prediction looks wrong? Check the lighting and hand visibility first.",
+    "Ready to practise? Open Live Studio whenever you're ready.",
+    "Want to contact the developer? I can help you reach Johan."
+  ];
   let isThinking = false;
   const speechAvailable = "speechSynthesis" in window && "SpeechSynthesisUtterance" in window;
 
@@ -301,7 +317,7 @@
     }, reducedMotion ? 0 : 220);
   }
   function showGreeting(text) {
-    if (greetingShown || assistantHidden || !panel.hidden) return;
+    if (assistantHidden || document.hidden || !panel.hidden || !greeting.hidden) return;
     greetingShown = true;
     greetingText.textContent = text;
     greeting.classList.remove("is-closing");
@@ -315,6 +331,19 @@
       dismissGreeting();
     }, 6200);
   }
+  function scheduleNudge(delayMs) {
+    nextNudgeTimer = later(() => {
+      nextNudgeTimer = null;
+      // Never interrupt an open chat or show popups in a hidden tab / hidden assistant.
+      if (!document.hidden && !assistantHidden && panel.hidden && greeting.hidden) {
+        const message = nudgeLines[nudgeIndex % nudgeLines.length];
+        nudgeIndex += 1;
+        showGreeting(message);
+      }
+      scheduleNudge(70000);
+    }, delayMs);
+  }
+
   launcher.addEventListener("click", togglePanel);
   restoreButton.addEventListener("click", restoreAssistant);
   $("[data-lg-close]").addEventListener("click", closePanel);
@@ -403,4 +432,6 @@
   }, { once: true });
   addMessage("Hi! I’m LEGANG AI. Ask me how to use SAHAYAK, why it was built, which signs the live models support, or how to contact Johan.", "bot", [{ label: "Contact Johan", href: "mailto:jubinkuli72@gmail.com" }]);
   showGreeting("Hello, I’m LEGANG AI. How can I help you?");
+  // First rotating message appears after 45 seconds; further prompts are at least 70 seconds apart.
+  scheduleNudge(45000);
 })();
