@@ -24,7 +24,7 @@ stream
 q 0.04 0.16 0.32 rg 0 808 595 34 re f Q
 BT /F2 8 Tf 1 1 1 rg 1 0 0 1 42 820 Tm (SAHAYAK | SIMPLE LANGUAGE GUIDE) Tj ET
 BT /F2 18 Tf 0.04 0.16 0.32 rg 1 0 0 1 42 777.00 Tm (SAHAYAK Presentation Script) Tj ET
-BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 747.00 Tm (Three speakers: Shyamantika, Barakha and Himanxhu) Tj ET
+BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 747.00 Tm (Three speakers: Barakha, Shyamantika and Himanxhu) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 726.00 Tm (Project: SAHAYAK - A Real-Time Indian Sign Language Recognition System) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 712.90 Tm (Lead developer and project head: Johan Jyoti Kuli) Tj ET
 BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 690.80 Tm (How to use this script) Tj ET
@@ -41,7 +41,7 @@ BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 545.00 Tm (    time steps, making 1,3
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 532.90 Tm (    response before presenting. A label in a file alone does not prove the model recognizes it) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 520.80 Tm (    well.) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 503.70 Tm (Say "prototype" and "supported signs." Do not say "complete ISL translator.") Tj ET
-BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 481.60 Tm (Speaker 1 - Shyamantika Pegu) Tj ET
+BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 481.60 Tm (Speaker 1 - Barakha Doley) Tj ET
 BT /F2 10 Tf 0.08 0.23 0.38 rg 1 0 0 1 42 461.60 Tm (Role: Introduction, Problem and Project Purpose) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 449.60 Tm (Suggested time: 1 minute 30 seconds) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 432.50 Tm (Say:) Tj ET
@@ -58,9 +58,9 @@ BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 295.50 Tm (    label as text. The web
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 278.40 Tm (We will explain how it works, show the prototype and talk about its limits and future) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 266.30 Tm (    improvements.) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 249.20 Tm (Show: the homepage and project title.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 236.10 Tm (Handover: I have explained why we chose this problem. Barakha will now explain the system and how) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 224.00 Tm (    the recognition steps work.) Tj ET
-BT /F2 10 Tf 0.08 0.23 0.38 rg 1 0 0 1 42 203.90 Tm (Simple notes for Shyamantika) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 236.10 Tm (Handover: I have explained why we chose this problem. Shyamantika will now explain the system and) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 224.00 Tm (    how the recognition steps work.) Tj ET
+BT /F2 10 Tf 0.08 0.23 0.38 rg 1 0 0 1 42 203.90 Tm (Simple notes for Barakha) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 191.90 Tm (Computer vision means software that looks for useful information in images or video. A landmark is) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 179.80 Tm (    a key point on a hand, such as a fingertip or joint. A feature is a number that describes the) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 167.70 Tm (    hand.) Tj ET
@@ -68,7 +68,7 @@ BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 150.60 Tm (If asked why this project 
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 138.50 Tm (    a possible accessibility tool.) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 125.40 Tm (Do not say it recognizes every ISL sentence, that it is fully offline, or that it replaces an) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 113.30 Tm (    interpreter. Do not guess an accuracy percentage.) Tj ET
-BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 91.20 Tm (Speaker 2 - Barakha Doley) Tj ET
+BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 91.20 Tm (Speaker 2 - Shyamantika Pegu) Tj ET
 BT /F2 10 Tf 0.08 0.23 0.38 rg 1 0 0 1 42 71.20 Tm (Role: System Design, Technology and Workflow) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 59.20 Tm (Suggested time: about 2 minutes) Tj ET
 q 0.78 0.82 0.87 RG 42 44 m 553 44 l S Q
@@ -80,12 +80,12 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 9 0 R >>
 endobj
 9 0 obj
-<< /Length 6793 >>
+<< /Length 6765 >>
 stream
 q 0.04 0.16 0.32 rg 0 808 595 34 re f Q
 BT /F2 8 Tf 1 1 1 rg 1 0 0 1 42 820 Tm (SAHAYAK | SIMPLE LANGUAGE GUIDE) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 780.00 Tm (Say:) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 766.90 Tm (Thank you, Shyamantika. I will explain how SAHAYAK works.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 766.90 Tm (Thank you, Barakha. I will explain how SAHAYAK works.) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 749.80 Tm (First, the user opens the website and allows camera access. The browser uses MediaPipe Hands to) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 737.70 Tm (    find key points on the visible hands. The website turns those points into numbers and sends) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 725.60 Tm (    the numbers to the Python Flask backend. The trained model predicts a label, and the website) Tj ET
@@ -95,7 +95,7 @@ BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 684.30 Tm (    21 x 3 = 126 values fo
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 667.20 Tm (Some signs use movement over time. For those, each frame has 132 values, including hand points and) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 655.10 Tm (    wrist positions. The system arranges the movement into 10 time steps, so the sequence model) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 643.00 Tm (    receives 1,320 values.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 625.90 Tm (The website handles the camera preview and the drawing of hand points. The backend runs the model) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 625.90 Tm (The website handles the camera preview and drawing of hand points. The backend runs the model) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 613.80 Tm (    prediction. The current backend uses Python, Flask and scikit-learn-compatible model files) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 601.70 Tm (    saved with Joblib. The frontend is hosted on Vercel, and the backend is hosted on Render.) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 584.60 Tm (The website can also have translation or speech features. Those features are separate from) Tj ET
@@ -104,11 +104,11 @@ BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 555.40 Tm (Show: a simple diagram or 
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 543.30 Tm (    live demo for Himanxhu.) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 530.20 Tm (Handover: That is the path from the camera to the predicted label. Himanxhu will now demonstrate) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 518.10 Tm (    the website and explain how to test it.) Tj ET
-BT /F2 10 Tf 0.08 0.23 0.38 rg 1 0 0 1 42 498.00 Tm (Simple notes for Barakha) Tj ET
+BT /F2 10 Tf 0.08 0.23 0.38 rg 1 0 0 1 42 498.00 Tm (Simple notes for Shyamantika) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 486.00 Tm (Static model: uses one pose input with 126 values.) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 472.90 Tm (Continuous model: uses a movement represented by 1,320 values.) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 459.80 Tm (A label file names possible classes but does not teach the model a new sign.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 446.70 Tm (Do not say the project uses TensorFlow or a CNN unless the actual code and model have been) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 446.70 Tm (Do not claim the project uses TensorFlow or a CNN unless the actual code and model have been) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 434.60 Tm (    checked.) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 421.50 Tm (A confidence score is not a guarantee that the result is correct.) Tj ET
 BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 399.40 Tm (Speaker 3 - Himanxhu V Ghimire) Tj ET
@@ -132,8 +132,8 @@ BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 159.90 Tm (    clearer privacy inform
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 142.80 Tm (Thank you for listening. We welcome your questions.) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 125.70 Tm (Show: Live Studio, camera permission, hand points, one supported sign and the predicted label. If) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 113.60 Tm (    possible, try an older sign too.) Tj ET
-BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 91.50 Tm (Demo checklist - before the judges arrive) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 74.50 Tm (About 10 minutes before:) Tj ET
+BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 91.50 Tm (Demo checklist) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 74.50 Tm (Before the judges arrive:) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 61.40 Tm (- Open the homepage and Live Studio on the device you will use.) Tj ET
 q 0.78 0.82 0.87 RG 42 44 m 553 44 l S Q
 BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 42 27 Tm (Three Member Presentation Script) Tj ET
@@ -144,13 +144,13 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 11 0 R >>
 endobj
 11 0 obj
-<< /Length 5886 >>
+<< /Length 5870 >>
 stream
 q 0.04 0.16 0.32 rg 0 808 595 34 re f Q
 BT /F2 8 Tf 1 1 1 rg 1 0 0 1 42 820 Tm (SAHAYAK | SIMPLE LANGUAGE GUIDE) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 780.00 Tm (- Check internet and camera permission.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 766.90 Tm (- Check the backend health and status addresses.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 753.80 Tm (- Confirm the active model labels and choose a sign on that list.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 766.90 Tm (- Check backend health and status.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 753.80 Tm (- Confirm active model labels and select a sign from that list.) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 740.70 Tm (- Test one or two signs.) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 727.60 Tm (- Use good lighting and keep the hands fully inside the camera view.) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 714.50 Tm (- Keep a backup diagram or screenshot ready.) Tj ET
@@ -207,7 +207,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 13 0 R >>
 endobj
 13 0 obj
-<< /Length 3134 >>
+<< /Length 3114 >>
 stream
 q 0.04 0.16 0.32 rg 0 808 595 34 re f Q
 BT /F2 8 Tf 1 1 1 rg 1 0 0 1 42 820 Tm (SAHAYAK | SIMPLE LANGUAGE GUIDE) Tj ET
@@ -227,10 +227,10 @@ BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 604.80 Tm (    before saving training
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 587.70 Tm (Q19. What will you improve next?) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 574.60 Tm (A: Collect more balanced examples, test more people and settings, publish clear results and) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 562.50 Tm (    improve weak signs.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 545.40 Tm (Q20. Why call this a science project?) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 545.40 Tm (Q20. Why is this a science project?) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 532.30 Tm (A: It has a clear problem, a method that can be tested, results to check, limits to explain and a) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 520.20 Tm (    plan for improvement.) Tj ET
-BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 498.10 Tm (Closing reminder for every speaker) Tj ET
+BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 498.10 Tm (Closing reminder) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 481.10 Tm (Be clear, use simple words and be honest. If a number has not been measured, say so. If a feature) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 469.00 Tm (    fails during the demo, explain the problem and the intended steps. Each person should speak) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 456.90 Tm (    about their own role and give credit for work done by the whole team.) Tj ET
@@ -251,12 +251,12 @@ xref
 0000000510 00000 n 
 0000006842 00000 n 
 0000006988 00000 n 
-0000013833 00000 n 
-0000013981 00000 n 
-0000019920 00000 n 
-0000020068 00000 n 
+0000013805 00000 n 
+0000013953 00000 n 
+0000019876 00000 n 
+0000020024 00000 n 
 trailer
 << /Size 14 /Root 1 0 R >>
 startxref
-23255
+23191
 %%EOF
