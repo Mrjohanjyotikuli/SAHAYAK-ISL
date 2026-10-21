@@ -1,0 +1,339 @@
+%PDF-1.4
+%SAHAYAK ASCII PDF
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [ 6 0 R 8 0 R 10 0 R 12 0 R 14 0 R 16 0 R 18 0 R ] /Count 7 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 7 0 R >>
+endobj
+7 0 obj
+<< /Length 2800 >>
+stream
+q 0.035 0.42 0.48 rg 0 824 595 18 re f Q
+0.035 0.42 0.48 rg BT /F2 9 Tf 190 778 Td (SAHAYAK | COPY-PASTE FIELD GUIDE) Tj ET
+0.075 0.13 0.22 rg BT /F2 22 Tf 142 716 Td (After Training, Testing) Tj ET
+0.075 0.13 0.22 rg BT /F2 22 Tf 138 685 Td (and Collecting New Signs) Tj ET
+0.32 0.38 0.45 rg BT /F1 10 Tf 74 655 Td (Publish verified static and continuous sign models to the live website) Tj ET
+q 0.83 0.60 0.16 rg 150 632 295 2 re f Q
+0.075 0.13 0.22 rg BT /F1 8.4 Tf 52 596 Td (SAHAYAK | COPY-PASTE FIELD GUIDE) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.4 Tf 52 580.7 Td (Publish your verified static and continuous sign models to the live website.) Tj ET
+q 0.95 0.97 0.97 rg 48 529.4000000000001 499 36 re f Q
+q 0.035 0.42 0.48 rg 48 529.4000000000001 3 36 re f Q
+0.075 0.13 0.22 rg BT /F2 8 Tf 58 552.4000000000001 Td (PURPOSE: use this guide after new signs have been collected, trained, tested and promoted locally. It) Tj ET
+0.075 0.13 0.22 rg BT /F2 8 Tf 58 541.4000000000001 Td (takes you from the active local model files to GitHub, Render and final live-camera testing.) Tj ET
+0.035 0.42 0.48 rg BT /F2 12 Tf 52 516.4000000000001 Td (Your verified folder setup) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.1 Tf 61 498.4000000000001 Td (- Training project: C:\\Users\\user\\Videos\\SAHAYAK) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.1 Tf 61 486.9000000000001 Td (- GitHub clone: C:\\Users\\user\\Documents\\GitHub\\SAHAYAK-ISL) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.1 Tf 61 475.4000000000001 Td (- Static model: model\\sahayak_twohand.joblib - 126 input features.) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.1 Tf 61 463.9000000000001 Td (- Continuous model: model\\sahayak_sequence.joblib - 1,320 input features.) Tj ET
+0.035 0.42 0.48 rg BT /F2 12 Tf 52 448.4000000000001 Td (Safe publishing rules) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.1 Tf 61 430.4000000000001 Td (- Publish only promoted active .joblib model files, never candidate models.) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.1 Tf 61 418.9000000000001 Td (- Do not publish raw CSV files, raw sequence samples, or the training database.) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.1 Tf 61 407.4000000000001 Td (- Do not change recognition code, API routes, camera logic, Render settings or Vercel settings for a) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.1 Tf 61 396.9000000000001 Td (model-only update.) Tj ET
+q 0.95 0.97 0.97 rg 48 360.4000000000001 499 25 re f Q
+q 0.035 0.42 0.48 rg 48 360.4000000000001 3 25 re f Q
+0.075 0.13 0.22 rg BT /F2 8 Tf 58 372.4000000000001 Td (The static and continuous classifiers are separate. Never copy one model over the other.) Tj ET
+q 0.78 0.83 0.86 rg 52 28 491 0.5 re f Q
+0.32 0.38 0.45 rg BT /F1 6.6 Tf 52 17 Td (Use after local collection, training, testing and promotion are complete.) Tj ET
+0.32 0.38 0.45 rg BT /F1 6.6 Tf 515 17 Td (Page 1 of 7) Tj ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 9 0 R >>
+endobj
+9 0 obj
+<< /Length 3323 >>
+stream
+q 0.035 0.42 0.48 rg 0 824 595 18 re f Q
+0.075 0.13 0.22 rg BT /F2 7 Tf 52 812 Td (SAHAYAK | MODEL PUBLISHING GUIDE) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.4 Tf 52 788 Td (Run in VS Code PowerShell. Use the same terminal through this workflow. If you moved either folder,) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.4 Tf 52 776.7 Td (edit its path before running.) Tj ET
+q 0.95 0.965 0.97 rg 46 607.5000000000001 503 153.9 re f Q
+q 0.035 0.42 0.48 rg 46 607.5000000000001 3 153.9 re f Q
+0.035 0.42 0.48 rg BT /F2 7.1 Tf 54 750.4000000000001 Td (CHECK PROJECT AND UPDATE MAIN) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 739.4000000000001 Td ($ErrorActionPreference = "Stop") Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 731.7 Td ($TrainingRoot = "C:\\Users\\user\\Videos\\SAHAYAK") Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 724 Td ($RepoRoot = "C:\\Users\\user\\Documents\\GitHub\\SAHAYAK-ISL") Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 716.3 Td ($TrainingPython = Join-Path $TrainingRoot ".venv\\Scripts\\python.exe") Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 708.5999999999999 Td (if \(-not \(Test-Path $TrainingPython\)\) { throw "Training venv not found." }) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 700.8999999999999 Td (if \(-not \(Test-Path \(Join-Path $RepoRoot ".git"\)\)\) { throw "Git clone not found." }) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 693.1999999999998 Td (Set-Location $RepoRoot) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 685.4999999999998 Td ($Remote = \(git remote get-url origin\).Trim\(\)) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 677.7999999999997 Td (if \($Remote -notmatch 'github\\.com[:/]Mrjohanjyotikuli/SAHAYAK-ISL\(\\.git\)?$'\) {) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 670.0999999999997 Td (    throw "This is not the expected SAHAYAK-ISL clone.") Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 662.3999999999996 Td (}) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 654.6999999999996 Td (if \(@\(git status --porcelain\).Count -gt 0\) {) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 646.9999999999995 Td (    throw "Repository is not clean. Review changes before continuing.") Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 639.2999999999995 Td (}) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 631.5999999999995 Td (git pull --ff-only origin main) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 623.8999999999994 Td (if \($LASTEXITCODE -ne 0\) { throw "Could not update main." }) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 616.1999999999994 Td (Write-Host "Project and GitHub remote verified.") Tj ET
+0.075 0.13 0.22 rg BT /F1 8.4 Tf 52 598.5000000000001 Td (If the clone is not clean, stop and review the existing changes instead of overwriting them.) Tj ET
+0.035 0.42 0.48 rg BT /F2 12 Tf 52 579.2000000000002 Td (2. Confirm that local collection, testing and promotion are complete) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.1 Tf 61 561.2000000000002 Td (- Check that you have finished testing the candidate and promoted the approved model.) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.1 Tf 61 549.7000000000002 Td (- Use the active filenames below, not files ending in _candidate.joblib.) Tj ET
+q 0.78 0.83 0.86 rg 52 28 491 0.5 re f Q
+0.32 0.38 0.45 rg BT /F1 6.6 Tf 52 17 Td (Use after local collection, training, testing and promotion are complete.) Tj ET
+0.32 0.38 0.45 rg BT /F1 6.6 Tf 515 17 Td (Page 2 of 7) Tj ET
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 11 0 R >>
+endobj
+11 0 obj
+<< /Length 3601 >>
+stream
+q 0.035 0.42 0.48 rg 0 824 595 18 re f Q
+0.075 0.13 0.22 rg BT /F2 7 Tf 52 812 Td (SAHAYAK | MODEL PUBLISHING GUIDE) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.4 Tf 52 788 Td (This check loads the active models with your training virtual environment and prints every model) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.4 Tf 52 776.7 Td (label. Stop if a feature count is wrong or any expected class is missing.) Tj ET
+q 0.95 0.965 0.97 rg 46 553.6000000000001 503 207.8 re f Q
+q 0.035 0.42 0.48 rg 46 553.6000000000001 3 207.8 re f Q
+0.035 0.42 0.48 rg BT /F2 7.1 Tf 54 750.4000000000001 Td (CHECK FEATURES AND LABELS) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 739.4000000000001 Td ($TrainingRoot = "C:\\Users\\user\\Videos\\SAHAYAK") Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 731.7 Td ($TrainingPython = Join-Path $TrainingRoot ".venv\\Scripts\\python.exe") Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 724 Td (@') Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 716.3 Td (import joblib) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 708.5999999999999 Td (from pathlib import Path) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 700.8999999999999 Td (root = Path\(r"C:\\Users\\user\\Videos\\SAHAYAK"\)) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 693.1999999999998 Td (checks = [) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 685.4999999999998 Td (    \("STATIC", root / "model" / "sahayak_twohand.joblib", 126\),) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 677.7999999999997 Td (    \("CONTINUOUS", root / "model" / "sahayak_sequence.joblib", 1320\),) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 670.0999999999997 Td (]) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 662.3999999999996 Td (for name, path, expected in checks:) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 654.6999999999996 Td (    if not path.is_file\(\):) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 646.9999999999995 Td (        raise SystemExit\(f"Missing active model: {path}"\)) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 639.2999999999995 Td (    model = joblib.load\(path\)) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 631.5999999999995 Td (    features = getattr\(model, "n_features_in_", None\)) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 623.8999999999994 Td (    labels = sorted\(str\(x\) for x in model.classes_\)) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 616.1999999999994 Td (    print\(f"\\n{name}: {path.name}"\)) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 608.4999999999993 Td (    print\("Features:", features\)) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 600.7999999999993 Td (    print\("Label count:", len\(labels\)\)) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 593.0999999999992 Td (    print\("Labels:", labels\)) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 585.3999999999992 Td (    if features != expected:) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 577.6999999999991 Td (        raise SystemExit\(f"Wrong feature count for {name}"\)) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 569.9999999999991 Td ('@ | & $TrainingPython -) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 562.299999999999 Td (if \($LASTEXITCODE -ne 0\) { throw "Local model verification failed." }) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.4 Tf 52 544.6000000000001 Td (Expected dimensions: 126 for static signs and 1,320 for continuous signs. Check the printed labels) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.4 Tf 52 533.3000000000002 Td (before copying anything.) Tj ET
+q 0.78 0.83 0.86 rg 52 28 491 0.5 re f Q
+0.32 0.38 0.45 rg BT /F1 6.6 Tf 52 17 Td (Use after local collection, training, testing and promotion are complete.) Tj ET
+0.32 0.38 0.45 rg BT /F1 6.6 Tf 515 17 Td (Page 3 of 7) Tj ET
+endstream
+endobj
+12 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 13 0 R >>
+endobj
+13 0 obj
+<< /Length 4339 >>
+stream
+q 0.035 0.42 0.48 rg 0 824 595 18 re f Q
+0.075 0.13 0.22 rg BT /F2 7 Tf 52 812 Td (SAHAYAK | MODEL PUBLISHING GUIDE) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.4 Tf 52 788 Td (This block backs up the old deployment copies outside the GitHub clone, copies the active models) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.4 Tf 52 776.7 Td (and verifies SHA-256 hashes.) Tj ET
+q 0.95 0.965 0.97 rg 46 515.1000000000001 503 246.3 re f Q
+q 0.035 0.42 0.48 rg 46 515.1000000000001 3 246.3 re f Q
+0.035 0.42 0.48 rg BT /F2 7.1 Tf 54 750.4000000000001 Td (BACK UP, COPY AND VERIFY) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 739.4000000000001 Td ($ErrorActionPreference = "Stop") Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 731.7 Td ($TrainingRoot = "C:\\Users\\user\\Videos\\SAHAYAK") Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 724 Td ($RepoRoot = "C:\\Users\\user\\Documents\\GitHub\\SAHAYAK-ISL") Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 716.3 Td ($SourceDir = Join-Path $TrainingRoot "model") Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 708.5999999999999 Td ($TargetDir = Join-Path $RepoRoot "SAHAYAK-Vercel-Deployment\\backend\\model") Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 700.8999999999999 Td ($Names = @\("sahayak_twohand.joblib", "sahayak_sequence.joblib"\)) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 693.1999999999998 Td (foreach \($Name in $Names\) {) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 685.4999999999998 Td (    if \(-not \(Test-Path \(Join-Path $SourceDir $Name\)\)\) { throw "Missing $Name" }) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 677.7999999999997 Td (}) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 670.0999999999997 Td (if \(-not \(Test-Path $TargetDir\)\) { throw "Deployment model folder missing." }) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 662.3999999999996 Td ($Stamp = Get-Date -Format "yyyyMMdd_HHmmss") Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 654.6999999999996 Td ($BackupDir = Join-Path $TrainingRoot "backups\\deployment_models_$Stamp") Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 646.9999999999995 Td (New-Item -ItemType Directory -Force $BackupDir | Out-Null) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 639.2999999999995 Td (foreach \($Name in $Names\) {) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 631.5999999999995 Td (    $Target = Join-Path $TargetDir $Name) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 623.8999999999994 Td (    if \(Test-Path $Target\) { Copy-Item $Target $BackupDir -Force }) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 616.1999999999994 Td (}) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 608.4999999999993 Td (Write-Host "Backup saved to $BackupDir") Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 600.7999999999993 Td (foreach \($Name in $Names\) {) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 593.0999999999992 Td (    $Source = Join-Path $SourceDir $Name) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 585.3999999999992 Td (    $Target = Join-Path $TargetDir $Name) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 577.6999999999991 Td (    Copy-Item $Source $Target -Force) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 569.9999999999991 Td (    $A = \(Get-FileHash $Source -Algorithm SHA256\).Hash) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 562.299999999999 Td (    $B = \(Get-FileHash $Target -Algorithm SHA256\).Hash) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 554.599999999999 Td (    if \($A -ne $B\) { throw "Hash mismatch: $Name" }) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 546.899999999999 Td (    Write-Host "Verified copy: $Name" -ForegroundColor Green) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 539.1999999999989 Td (}) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 531.4999999999989 Td (Set-Location $RepoRoot) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 523.7999999999988 Td (git status --short) Tj ET
+q 0.95 0.97 0.97 rg 48 470.10000000000014 499 36 re f Q
+q 0.035 0.42 0.48 rg 48 470.10000000000014 3 36 re f Q
+0.075 0.13 0.22 rg BT /F2 8 Tf 58 493.10000000000014 Td (Only these active models should be copied: sahayak_twohand.joblib and sahayak_sequence.joblib. Never) Tj ET
+0.075 0.13 0.22 rg BT /F2 8 Tf 58 482.10000000000014 Td (copy candidate model files.) Tj ET
+q 0.78 0.83 0.86 rg 52 28 491 0.5 re f Q
+0.32 0.38 0.45 rg BT /F1 6.6 Tf 52 17 Td (Use after local collection, training, testing and promotion are complete.) Tj ET
+0.32 0.38 0.45 rg BT /F1 6.6 Tf 515 17 Td (Page 4 of 7) Tj ET
+endstream
+endobj
+14 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 15 0 R >>
+endobj
+15 0 obj
+<< /Length 4558 >>
+stream
+q 0.035 0.42 0.48 rg 0 824 595 18 re f Q
+0.075 0.13 0.22 rg BT /F2 7 Tf 52 812 Td (SAHAYAK | MODEL PUBLISHING GUIDE) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.4 Tf 52 788 Td (This guarded block permits one or both models to have changed, but refuses to continue if unrelated) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.4 Tf 52 776.7 Td (files are modified or already staged.) Tj ET
+q 0.95 0.965 0.97 rg 46 499.70000000000005 503 261.70000000000005 re f Q
+q 0.035 0.42 0.48 rg 46 499.70000000000005 3 261.70000000000005 re f Q
+0.035 0.42 0.48 rg BT /F2 7.1 Tf 54 750.4000000000001 Td (SAFE MODEL-ONLY COMMIT AND PUSH) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 739.4000000000001 Td ($ErrorActionPreference = "Stop") Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 731.7 Td ($RepoRoot = "C:\\Users\\user\\Documents\\GitHub\\SAHAYAK-ISL") Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 724 Td (Set-Location $RepoRoot) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 716.3 Td ($Allowed = @\() Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 708.5999999999999 Td (    "SAHAYAK-Vercel-Deployment/backend/model/sahayak_twohand.joblib",) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 700.8999999999999 Td (    "SAHAYAK-Vercel-Deployment/backend/model/sahayak_sequence.joblib") Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 693.1999999999998 Td (\)) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 685.4999999999998 Td (if \(\(git branch --show-current\).Trim\(\) -ne "main"\) { throw "Not on main." }) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 677.7999999999997 Td (if \(@\(git diff --cached --name-only\).Count -gt 0\) {) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 670.0999999999997 Td (    throw "Something is already staged. Review it first.") Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 662.3999999999996 Td (}) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 654.6999999999996 Td ($Status = @\(git status --porcelain\)) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 646.9999999999995 Td ($Unexpected = @\($Status | Where-Object { $_.Substring\(3\).Trim\('"'\) -notin $Allowed }\)) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 639.2999999999995 Td (if \($Unexpected.Count -gt 0\) {) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 631.5999999999995 Td (    $Unexpected | ForEach-Object { Write-Host $_ -ForegroundColor Red }) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 623.8999999999994 Td (    throw "Unrelated changes found. Stop and review.") Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 616.1999999999994 Td (}) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 608.4999999999993 Td (if \($Status.Count -eq 0\) { throw "No model changes detected." }) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 600.7999999999993 Td (git add -- $Allowed) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 593.0999999999992 Td (if \($LASTEXITCODE -ne 0\) { throw "git add failed." }) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 585.3999999999992 Td ($Staged = @\(git diff --cached --name-only\)) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 577.6999999999991 Td ($Bad = @\($Staged | Where-Object { $_ -notin $Allowed }\)) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 569.9999999999991 Td (if \($Staged.Count -eq 0 -or $Bad.Count -gt 0\) { throw "Unexpected staged files." }) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 562.299999999999 Td ($Staged) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 554.599999999999 Td (git diff --cached --stat) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 546.899999999999 Td (git commit -m "Update static and continuous sign models") Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 539.1999999999989 Td (if \($LASTEXITCODE -ne 0\) { throw "Commit failed." }) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 531.4999999999989 Td (git push origin main) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 523.7999999999988 Td (if \($LASTEXITCODE -ne 0\) { throw "Push failed." }) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 516.0999999999988 Td (git log -1 --oneline) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 508.3999999999988 Td (Write-Host "Models pushed to GitHub." -ForegroundColor Green) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.4 Tf 52 490.70000000000005 Td (If Git says Author identity unknown, configure user.name and user.email for this repository only.) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.4 Tf 52 479.40000000000003 Td (Use the email configured in GitHub Settings > Emails; do not put a password or token in a command.) Tj ET
+q 0.78 0.83 0.86 rg 52 28 491 0.5 re f Q
+0.32 0.38 0.45 rg BT /F1 6.6 Tf 52 17 Td (Use after local collection, training, testing and promotion are complete.) Tj ET
+0.32 0.38 0.45 rg BT /F1 6.6 Tf 515 17 Td (Page 5 of 7) Tj ET
+endstream
+endobj
+16 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 17 0 R >>
+endobj
+17 0 obj
+<< /Length 2798 >>
+stream
+q 0.035 0.42 0.48 rg 0 824 595 18 re f Q
+0.075 0.13 0.22 rg BT /F2 7 Tf 52 812 Td (SAHAYAK | MODEL PUBLISHING GUIDE) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.4 Tf 52 788 Td (Your Render backend deploys from main when a new commit is pushed. Open the Render dashboard and) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.4 Tf 52 776.7 Td (wait for the latest deployment to show Live before running the status check.) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.4 Tf 52 761.4000000000001 Td (Render dashboard: https://dashboard.render.com/web/srv-dbaof849v7es739am2j0) Tj ET
+q 0.95 0.965 0.97 rg 46 646.1000000000001 503 100 re f Q
+q 0.035 0.42 0.48 rg 46 646.1000000000001 3 100 re f Q
+0.035 0.42 0.48 rg BT /F2 7.1 Tf 54 735.1000000000001 Td (CHECK LIVE MODEL STATUS) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 724.1000000000001 Td ($ErrorActionPreference = "Stop") Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 716.4000000000001 Td ($Status = Invoke-RestMethod "https://sahayak-backend-krh1.onrender.com/api/status") Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 708.7 Td (Write-Host "Static model ready:" $Status.model_ready) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 701 Td (Write-Host "Static class count:" $Status.single_sign_label_count) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 693.3 Td (Write-Host "Static labels:") Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 685.5999999999999 Td ($Status.single_sign_labels) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 677.8999999999999 Td (Write-Host "Continuous model ready:" $Status.sequence_model_ready) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 670.1999999999998 Td (Write-Host "Continuous class count:" $Status.sequence_sign_label_count) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 662.4999999999998 Td (Write-Host "Continuous labels:") Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 654.7999999999997 Td ($Status.sequence_sign_labels) Tj ET
+0.035 0.42 0.48 rg BT /F2 12 Tf 52 633.1000000000001 Td (Success checks) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.1 Tf 61 615.1000000000001 Td (- model_ready is True.) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.1 Tf 61 603.6000000000001 Td (- sequence_model_ready is True.) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.1 Tf 61 592.1000000000001 Td (- Both label lists contain every expected retained and newly trained sign.) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.4 Tf 52 580.6000000000001 Td (A previously verified build reported 8 static labels and 6 continuous labels. Future updates may) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.4 Tf 52 569.3000000000002 Td (change the totals, so always inspect the label names rather than relying on counts alone.) Tj ET
+q 0.78 0.83 0.86 rg 52 28 491 0.5 re f Q
+0.32 0.38 0.45 rg BT /F1 6.6 Tf 52 17 Td (Use after local collection, training, testing and promotion are complete.) Tj ET
+0.32 0.38 0.45 rg BT /F1 6.6 Tf 515 17 Td (Page 6 of 7) Tj ET
+endstream
+endobj
+18 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 19 0 R >>
+endobj
+19 0 obj
+<< /Length 2820 >>
+stream
+q 0.035 0.42 0.48 rg 0 824 595 18 re f Q
+0.075 0.13 0.22 rg BT /F2 7 Tf 52 812 Td (SAHAYAK | MODEL PUBLISHING GUIDE) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.4 Tf 52 788 Td (Live website: https://sahayak-eight-lac.vercel.app/) Tj ET
+0.035 0.42 0.48 rg BT /F2 12 Tf 52 768.7 Td (Camera smoke-test checklist) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.1 Tf 61 750.7 Td (- Hard-refresh with Ctrl + Shift + R, allow camera access and choose the correct camera.) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.1 Tf 61 739.2 Td (- Test every new static sign with the intended hand pose.) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.1 Tf 61 727.7 Td (- Test every new continuous sign using the full movement, not a still frame.) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.1 Tf 61 716.2 Td (- Test several old signs to confirm retained classes still work.) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.1 Tf 61 704.7 Td (- Check the recognized label, landmarks/annotation and prediction stability.) Tj ET
+0.035 0.42 0.48 rg BT /F2 12 Tf 52 689.2 Td (If something fails) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.1 Tf 61 671.2 Td (- If Render is still deploying, wait until Live and rerun the status check.) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.1 Tf 61 659.7 Td (- If a label is missing, compare local active labels and confirm you promoted the intended model) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.1 Tf 61 649.2 Td (before copying.) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.1 Tf 61 637.7 Td (- If Git push is rejected, do not force-push. Review git status --short and the full error.) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.1 Tf 61 626.2 Td (- If backend readiness is False, inspect the latest Render deployment logs before testing the camera.) Tj ET
+0.035 0.42 0.48 rg BT /F2 12 Tf 52 610.7 Td (Repeatable workflow) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.1 Tf 61 592.7 Td (- Collect varied samples; train a candidate; test with fresh examples; inspect all labels; promote) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.1 Tf 61 582.2 Td (only after passing checks.) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.1 Tf 61 570.7 Td (- Copy active model file\(s\); back up old deployment copies; stage only model files; push main; wait) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.1 Tf 61 560.2 Td (for Render Live; check API status and test the live camera.) Tj ET
+q 0.95 0.97 0.97 rg 48 512.7 499 36 re f Q
+q 0.035 0.42 0.48 rg 48 512.7 3 36 re f Q
+0.075 0.13 0.22 rg BT /F2 8 Tf 58 535.7 Td (This guide covers publish-and-verify steps after local collection, training, testing and promotion. It) Tj ET
+0.075 0.13 0.22 rg BT /F2 8 Tf 58 524.7 Td (does not require a frontend redeploy when only backend model files changed.) Tj ET
+q 0.78 0.83 0.86 rg 52 28 491 0.5 re f Q
+0.32 0.38 0.45 rg BT /F1 6.6 Tf 52 17 Td (Use after local collection, training, testing and promotion are complete.) Tj ET
+0.32 0.38 0.45 rg BT /F1 6.6 Tf 515 17 Td (Page 7 of 7) Tj ET
+endstream
+endobj
+20 0 obj
+<< /Title (SAHAYAK After Training, Testing and New Sign Deployment Guide) /Author (SAHAYAK - Johan Jyoti Kuli) /Subject (Copy-paste commands to publish static and continuous sign models) >>
+endobj
+xref
+0 21
+0000000000 65535 f 
+0000000028 00000 n 
+0000000077 00000 n 
+0000000177 00000 n 
+0000000247 00000 n 
+0000000322 00000 n 
+0000000390 00000 n 
+0000000536 00000 n 
+0000003387 00000 n 
+0000003533 00000 n 
+0000006907 00000 n 
+0000007055 00000 n 
+0000010708 00000 n 
+0000010856 00000 n 
+0000015247 00000 n 
+0000015395 00000 n 
+0000020005 00000 n 
+0000020153 00000 n 
+0000023003 00000 n 
+0000023151 00000 n 
+0000026023 00000 n 
+trailer
+<< /Size 21 /Root 1 0 R /Info 20 0 R >>
+startxref
+26229
+%%EOF
