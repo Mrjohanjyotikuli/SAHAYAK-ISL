@@ -349,16 +349,16 @@
     }
     // Verified role descriptions copied from the Team section in frontend/index.html.
     if (/shyamantika|pegu/.test(q)) {
-      return { text: "Shyamantika Pegu’s role on the SAHAYAK website is listed as “Introduction, Problem & Project Purpose.” Her part of the presentation introduces the communication challenge and explains the project context and purpose. I’ll stick to the role published on the project page rather than guess at unlisted individual coding tasks." };
+      return { text: "Shyamantika Pegu’s role on the SAHAYAK website is listed as “System Design, Technology & Workflow.” Her part explains how camera input becomes hand points and numbers, how the backend model makes a prediction, and how the website displays the result. I’ll stick to the role published on the project page rather than guess at unlisted individual coding tasks." };
     }
     if (/barakha|doley/.test(q)) {
-      return { text: "Barakha Doley’s role on the SAHAYAK website is listed as “System Design, Technology & Workflow.” Her part covers the system design, the main technology concepts, and how the project workflow fits together. The website does not publish a more detailed individual task log, so I won’t invent one." };
+      return { text: "Barakha Doley’s role on the SAHAYAK website is listed as “Introduction, Problem & Project Purpose.” Her part introduces the communication challenge, explains why the project was chosen, and describes the project goal and limits. The website does not publish a more detailed individual task log, so I won’t invent one." };
     }
     if (/himanxhu|ghimire/.test(q)) {
       return { text: "Himanxhu V Ghimire’s role on the SAHAYAK website is listed as “Live Demo, Testing & Conclusion.” His part covers demonstrating the system, discussing testing, and presenting the conclusion. I won’t claim specific test results that aren’t published on the website." };
     }
     if (/(team|members|who are|everyone|teammates|group)/.test(q) && /(role|work|member|team|who|responsib|contribut)/.test(q)) {
-      return { text: "The project page lists the core team roles as:\\n\\n• Johan Jyoti Kuli — Lead Developer & Project Head; Full-System Design & Integration.\\n• Shyamantika Pegu — Introduction, Problem & Project Purpose.\\n• Barakha Doley — System Design, Technology & Workflow.\\n• Himanxhu V Ghimire — Live Demo, Testing & Conclusion.\\n\\nThese descriptions reflect the roles published on the website. For unlisted individual task details, it’s best to ask the team directly." };
+      return { text: "The project page lists the core team roles as:\\n\\n• Johan Jyoti Kuli — Lead Developer & Project Head; Full-System Design & Integration.\\n• Shyamantika Pegu — System Design, Technology & Workflow.\\n• Barakha Doley — Introduction, Problem & Project Purpose.\\n• Himanxhu V Ghimire — Live Demo, Testing & Conclusion.\\n\\nThese descriptions reflect the roles published on the website. For unlisted individual task details, it’s best to ask the team directly." };
     }
     if (/static.*continuous|continuous.*static|moving sign|motion sign|difference.*sign/.test(q)) {
       return { text: "Static-sign recognition is intended for a held pose; continuous-sign recognition processes a sequence of frames for a moving sign. Choose the matching mode in Live Studio and follow the pose or movement used by the sign you are testing. A label must be present in the deployed model to be recognized." };
