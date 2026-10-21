@@ -403,6 +403,9 @@
     if (/^(hi|hello|hey|namaste)\b/.test(q)) {
       return { text: "Hello! I’m LEGANG AI, the SAHAYAK website companion. I can guide you through using the recognizer, explain the project, show model labels, and browse recorded landmark examples." };
     }
+    if (/what is (sahayak|this project)|tell me about sahayak|project overview|explain sahayak/.test(q)) {
+      return { text: "SAHAYAK is a real-time Indian Sign Language recognition website. It contains a camera-based Live Studio, a static two-hand pose model, a continuous/moving-sign model, a phrasebook, and project documentation. Recognition may be uncertain and this development project is not a certified sign-language interpreter." };
+    }
     if (/why|purpose|built|build|problem|communication gap/.test(q) && /sahayak|build|purpose|problem|gap|why/.test(q)) {
       return { text: "SAHAYAK was built as a real-time Indian Sign Language recognition project to explore a more accessible bridge between sign gestures and on-screen text. It supports static two-hand poses and continuous/moving signs through separate trained models. It is a development project, so recognition can be uncertain and should not be treated as a certified interpreter." };
     }
