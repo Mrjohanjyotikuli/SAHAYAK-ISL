@@ -1,5 +1,5 @@
 
-const CACHE = 'sahayak-shell-v24-legang-sign-practice';
+const CACHE = 'sahayak-shell-v25-chat-only';
 const SHELL = ['/', '/index.html', '/studio.html', '/config.js', '/legang-ai.js', '/legang-ai.css', '/assets/legang-ai-avatar.webp'];
 
 self.addEventListener('install', event => {
