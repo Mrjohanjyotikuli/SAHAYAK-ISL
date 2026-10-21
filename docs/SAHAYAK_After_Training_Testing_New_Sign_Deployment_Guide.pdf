@@ -318,19 +318,19 @@ q 0.035 0.42 0.48 rg 0 824 595 18 re f Q
 0.075 0.13 0.22 rg BT /F1 8.4 Tf 52 765 Td (Run this only if git commit reports Author identity unknown. These settings apply to this repository) Tj ET
 0.075 0.13 0.22 rg BT /F1 8.4 Tf 52 753 Td (only.) Tj ET
 0.075 0.13 0.22 rg BT /F1 8.4 Tf 52 739 Td (The block asks for your verified GitHub email or noreply address; it never asks for a password.) Tj ET
-q 0.95 0.965 0.97 rg 46 669 503 84.6 re f Q
-q 0.035 0.42 0.48 rg 46 669 3 84.6 re f Q
-0.035 0.42 0.48 rg BT /F2 7.1 Tf 54 742.6 Td (REPOSITORY-ONLY GIT IDENTITY) Tj ET
-0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 731.6 Td ($RepoRoot = "C:\\Users\\user\\Documents\\GitHub\\SAHAYAK-ISL") Tj ET
-0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 723.9 Td (Set-Location $RepoRoot) Tj ET
-0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 716.1999999999999 Td ($GitEmail = Read-Host "GitHub email or verified noreply address") Tj ET
-0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 708.4999999999999 Td (if \([string]::IsNullOrWhiteSpace\($GitEmail\)\) { throw "Email cannot be blank." }) Tj ET
-0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 700.7999999999998 Td (git config user.name "Johan Jyoti Kuli") Tj ET
-0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 693.0999999999998 Td (git config user.email $GitEmail) Tj ET
-0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 685.3999999999997 Td (git config user.name) Tj ET
-0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 677.6999999999997 Td (git config user.email) Tj ET
-0.075 0.13 0.22 rg BT /F1 8.4 Tf 52 647 Td (After configuring this, rerun the model-only commit and push block in Section 5. Do not enter a password) Tj ET
-0.075 0.13 0.22 rg BT /F1 8.4 Tf 52 635 Td (or access token.) Tj ET
+q 0.95 0.965 0.97 rg 46 635 503 84.6 re f Q
+q 0.035 0.42 0.48 rg 46 635 3 84.6 re f Q
+0.035 0.42 0.48 rg BT /F2 7.1 Tf 54 708.6 Td (REPOSITORY-ONLY GIT IDENTITY) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 697.6 Td ($RepoRoot = "C:\\Users\\user\\Documents\\GitHub\\SAHAYAK-ISL") Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 689.9 Td (Set-Location $RepoRoot) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 682.1999999999999 Td ($GitEmail = Read-Host "GitHub email or verified noreply address") Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 674.4999999999999 Td (if \([string]::IsNullOrWhiteSpace\($GitEmail\)\) { throw "Email cannot be blank." }) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 666.7999999999998 Td (git config user.name "Johan Jyoti Kuli") Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 659.0999999999998 Td (git config user.email $GitEmail) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 651.3999999999997 Td (git config user.name) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 643.6999999999997 Td (git config user.email) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.4 Tf 52 613 Td (After configuring this, rerun the model-only commit and push block in Section 5. Do not enter a password) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.4 Tf 52 601 Td (or access token.) Tj ET
 q 0.78 0.83 0.86 RG 52 28 m 543 28 l S Q
 0.32 0.38 0.45 rg BT /F1 6.6 Tf 52 17 Td (Use after local collection, training, testing and promotion are complete.) Tj ET
 0.32 0.38 0.45 rg BT /F1 6.6 Tf 515 17 Td (Page 8 of 8) Tj ET
