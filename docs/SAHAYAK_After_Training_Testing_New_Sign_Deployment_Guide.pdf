@@ -4,7 +4,7 @@
 << /Type /Catalog /Pages 2 0 R >>
 endobj
 2 0 obj
-<< /Type /Pages /Kids [ 6 0 R 8 0 R 10 0 R 12 0 R 14 0 R 16 0 R 18 0 R ] /Count 7 >>
+<< /Type /Pages /Kids [ 6 0 R 8 0 R 10 0 R 12 0 R 14 0 R 16 0 R 18 0 R 20 0 R ] /Count 8 >>
 endobj
 3 0 obj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
@@ -307,33 +307,65 @@ q 0.78 0.83 0.86 rg 52 28 491 0.5 re f Q
 endstream
 endobj
 20 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 21 0 R >>
+endobj
+21 0 obj
+<< /Length 2034 >>
+stream
+q 0.035 0.42 0.48 rg 0 824 595 18 re f Q
+0.075 0.13 0.22 rg BT /F2 7 Tf 52 812 Td (SAHAYAK | MODEL PUBLISHING GUIDE) Tj ET
+0.035 0.42 0.48 rg BT /F2 16 Tf 52 788 Td (Optional: Fix Git Author Identity) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.4 Tf 52 765 Td (Run this only if git commit reports Author identity unknown. These settings apply to this repository) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.4 Tf 52 753 Td (only.) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.4 Tf 52 739 Td (The block asks for your verified GitHub email or noreply address; it never asks for a password.) Tj ET
+q 0.95 0.965 0.97 rg 46 669 503 84.6 re f Q
+q 0.035 0.42 0.48 rg 46 669 3 84.6 re f Q
+0.035 0.42 0.48 rg BT /F2 7.1 Tf 54 742.6 Td (REPOSITORY-ONLY GIT IDENTITY) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 731.6 Td ($RepoRoot = "C:\\Users\\user\\Documents\\GitHub\\SAHAYAK-ISL") Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 723.9 Td (Set-Location $RepoRoot) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 716.1999999999999 Td ($GitEmail = Read-Host "GitHub email or verified noreply address") Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 708.4999999999999 Td (if \([string]::IsNullOrWhiteSpace\($GitEmail\)\) { throw "Email cannot be blank." }) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 700.7999999999998 Td (git config user.name "Johan Jyoti Kuli") Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 693.0999999999998 Td (git config user.email $GitEmail) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 685.3999999999997 Td (git config user.name) Tj ET
+0.075 0.13 0.22 rg BT /F3 6.15 Tf 54 677.6999999999997 Td (git config user.email) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.4 Tf 52 647 Td (After configuring this, rerun the model-only commit and push block in Section 5. Do not enter a password) Tj ET
+0.075 0.13 0.22 rg BT /F1 8.4 Tf 52 635 Td (or access token.) Tj ET
+q 0.78 0.83 0.86 RG 52 28 m 543 28 l S Q
+0.32 0.38 0.45 rg BT /F1 6.6 Tf 52 17 Td (Use after local collection, training, testing and promotion are complete.) Tj ET
+0.32 0.38 0.45 rg BT /F1 6.6 Tf 515 17 Td (Page 8 of 8) Tj ET
+endstream
+endobj
+22 0 obj
 << /Title (SAHAYAK After Training, Testing and New Sign Deployment Guide) /Author (SAHAYAK - Johan Jyoti Kuli) /Subject (Copy-paste commands to publish static and continuous sign models) >>
 endobj
 xref
-0 21
+0 23
 0000000000 65535 f 
 0000000028 00000 n 
 0000000077 00000 n 
-0000000177 00000 n 
-0000000247 00000 n 
-0000000322 00000 n 
-0000000390 00000 n 
-0000000536 00000 n 
-0000003387 00000 n 
-0000003533 00000 n 
-0000006907 00000 n 
-0000007055 00000 n 
-0000010708 00000 n 
-0000010856 00000 n 
-0000015247 00000 n 
-0000015395 00000 n 
-0000020005 00000 n 
-0000020153 00000 n 
-0000023003 00000 n 
-0000023151 00000 n 
-0000026023 00000 n 
+0000000184 00000 n 
+0000000254 00000 n 
+0000000329 00000 n 
+0000000397 00000 n 
+0000000543 00000 n 
+0000003394 00000 n 
+0000003540 00000 n 
+0000006914 00000 n 
+0000007062 00000 n 
+0000010715 00000 n 
+0000010863 00000 n 
+0000015254 00000 n 
+0000015402 00000 n 
+0000020012 00000 n 
+0000020160 00000 n 
+0000023010 00000 n 
+0000023158 00000 n 
+0000026030 00000 n 
+0000026178 00000 n 
+0000028264 00000 n 
 trailer
-<< /Size 21 /Root 1 0 R /Info 20 0 R >>
+<< /Size 23 /Root 1 0 R /Info 22 0 R >>
 startxref
-26229
+28470
 %%EOF
