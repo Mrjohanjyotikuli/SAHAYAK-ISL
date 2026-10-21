@@ -17,6 +17,32 @@
   color: var(--lg-text);
   line-height: 1.4;
   font-size: 14px;
+  will-change: transform;
+}
+#legang-ai-root[data-dragging="true"] {
+  user-select: none;
+  -webkit-user-select: none;
+}
+#legang-ai-root .lg-launcher,
+#legang-ai-root .lg-restore {
+  touch-action: none;
+  cursor: grab;
+}
+#legang-ai-root .lg-panel-header {
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+#legang-ai-root .lg-panel-header button {
+  cursor: pointer;
+  user-select: auto;
+  -webkit-user-select: auto;
+}
+#legang-ai-root[data-dragging="true"] .lg-launcher,
+#legang-ai-root[data-dragging="true"] .lg-restore,
+#legang-ai-root[data-dragging="true"] .lg-panel-header {
+  cursor: grabbing;
 }
 #legang-ai-root *,
 #legang-ai-root *::before,
