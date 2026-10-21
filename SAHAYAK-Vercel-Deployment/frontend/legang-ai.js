@@ -323,6 +323,8 @@
   }
   async function openPoseForLabel(label, category) {
     stopPlayback();
+    activeFramePos = 0;
+    activeSample = null;
     poseDetail.replaceChildren();
     const card = document.createElement("section");
     card.className = "lg-pose-card";
