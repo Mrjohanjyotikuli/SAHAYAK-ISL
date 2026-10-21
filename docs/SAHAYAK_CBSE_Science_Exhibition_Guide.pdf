@@ -1,1397 +1,308 @@
 %PDF-1.4
+%SAHAYAK-SIMPLE
 1 0 obj
 << /Type /Catalog /Pages 2 0 R >>
 endobj
 2 0 obj
-<< /Type /Pages /Count 25 /Kids [6 0 R 8 0 R 10 0 R 12 0 R 14 0 R 16 0 R 18 0 R 20 0 R 22 0 R 24 0 R 26 0 R 28 0 R 30 0 R 32 0 R 34 0 R 36 0 R 38 0 R 40 0 R 42 0 R 44 0 R 46 0 R 48 0 R 50 0 R 52 0 R 54 0 R] >>
+<< /Type /Pages /Kids [6 0 R 8 0 R 10 0 R 12 0 R 14 0 R] /Count 5 >>
 endobj
 3 0 obj
-<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
 endobj
 4 0 obj
-<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
 endobj
 5 0 obj
-<< /Length 1887 >>
-stream
-0.055 0.09 0.16 rg 0 0 612 792 re f
-0.76 0.08 0.19 rg 0 778 612 14 re f
-0.92 0.6 0.12 rg 0 773 612 5 re f
-0.09 0.14 0.23 rg 0 0 612 182 re f
-0.09 0.14 0.23 rg 0.08 0.62 0.7 RG 2 w 410 562 144 144 re B
-0.09 0.14 0.23 rg 0.92 0.6 0.12 RG 1.5 w 430 582 104 104 re B
-1 1 1 RG 1.7 w 452 659 m 452 608 l S
-1 1 1 RG 1.7 w 452 608 m 512 608 l S
-1 1 1 RG 1.7 w 512 608 m 512 659 l S
-1 1 1 RG 1.7 w 512 659 m 452 659 l S
-0.08 0.62 0.7 RG 2 w 467 646 m 498 622 l S
-0.08 0.62 0.7 RG 2 w 498 622 m 515 639 l S
-0.92 0.6 0.12 rg BT /F2 10 Tf 1 0 0 1 50 713 Tm (CBSE SCIENCE EXHIBITION) Tj ET
-1 1 1 rg BT /F2 37 Tf 1 0 0 1 50 643 Tm (SAHAYAK) Tj ET
-1 1 1 rg BT /F2 16 Tf 1 0 0 1 50 616 Tm (REAL-TIME INDIAN SIGN LANGUAGE) Tj ET
-1 1 1 rg BT /F2 16 Tf 1 0 0 1 50 593 Tm (RECOGNITION SYSTEM) Tj ET
-0.08 0.62 0.7 RG 2 w 50 573 m 350 573 l S
-0.9 0.92 0.96 rg BT /F1 11 Tf 1 0 0 1 50 535 Tm (Complete explanation from zero) Tj ET
-0.9 0.92 0.96 rg BT /F1 11 Tf 1 0 0 1 50 512 Tm (Architecture, diagrams, code and data flow) Tj ET
-0.9 0.92 0.96 rg BT /F1 11 Tf 1 0 0 1 50 489 Tm (How to add signs and train with GitHub) Tj ET
-0.9 0.92 0.96 rg BT /F1 11 Tf 1 0 0 1 50 466 Tm (Demo script, roles and judge Q&A) Tj ET
-1 1 1 rg BT /F2 11 Tf 1 0 0 1 50 401 Tm (Prepared for the CBSE Science Exhibition) Tj ET
-0.92 0.6 0.12 rg BT /F1 10 Tf 1 0 0 1 50 373 Tm (Developer: Mr. Johan Jyoti Kuli) Tj ET
-1 1 1 rg BT /F1 8.3 Tf 1 0 0 1 50 350.7 Tm (Team: Shyamantika Pegu | Barakha Doley | Himanxhu V Ghimire) Tj ET
-1 1 1 rg BT /F2 9.5 Tf 1 0 0 1 50 121.5 Tm (Study guide + presentation notes + viva preparation) Tj ET
-1 1 1 rg BT /F1 8.8 Tf 1 0 0 1 50 99.2 Tm (Repository: Mrjohanjyotikuli/SAHAYAK-ISL) Tj ET
-0.78 0.83 0.9 rg BT /F1 8 Tf 1 0 0 1 50 77 Tm (Prepared 19 October 2026) Tj ET
-0.86 0.9 0.94 rg BT /F1 7.5 Tf 1 0 0 1 50 31.5 Tm (Honest scope: limited trained-sign prototype, not a complete ISL translator.) Tj ET
-endstream
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
 endobj
 6 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 5 0 R >>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 7 0 R >>
 endobj
 7 0 obj
-<< /Length 4387 >>
+<< /Length 6241 >>
 stream
-0.055 0.09 0.16 rg 0 737 612 55 re f
-0.76 0.08 0.19 rg 0 734 612 3 re f
-1 1 1 rg BT /F2 8 Tf 1 0 0 1 44 767 Tm (SAHAYAK | CBSE SCIENCE EXHIBITION STUDY GUIDE) Tj ET
-0.055 0.09 0.16 rg BT /F2 17 Tf 1 0 0 1 44 701 Tm (How to use this guide) Tj ET
-0.94 0.96 0.98 RG 1 w 44 693 m 568 693 l S
-0.5 0.54 0.6 rg BT /F1 6.8 Tf 1 0 0 1 44 18.2 Tm (Based on SAHAYAK-ISL code/deployment notes | October 2026) Tj ET
-0.5 0.54 0.6 rg BT /F2 6.8 Tf 1 0 0 1 544 18.2 Tm (2) Tj ET
-0.11 0.14 0.19 rg BT /F1 9.2 Tf 1 0 0 1 44 669.8 Tm (This guide reflects the SAHAYAK-ISL repository and deployment configuration checked in October 2026. Read the) Tj ET
-0.11 0.14 0.19 rg BT /F1 9.2 Tf 1 0 0 1 44 657.9 Tm (architecture and sign-training chapters before rehearsing the demonstration.) Tj ET
-0.12 0.4 0.7 rg BT /F2 11 Tf 1 0 0 1 44 640.2 Tm (Three rules for the exhibition) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 625.7 Tm (- Describe SAHAYAK as a prototype that recognizes a limited set of trained signs, not a complete ISL sentence translator.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 612.1 Tm (- Use verified figures only. The repo does not include a held-out accuracy report or original single-sign training-row count.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 598.5 Tm (- Clearly separate existing features from planned work; reusable collection and training scripts are missing in this repo) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 586.9 Tm (snapshot.) Tj ET
-0.12 0.4 0.7 rg BT /F2 11 Tf 1 0 0 1 44 570.8 Tm (Quick facts) Tj ET
-0.055 0.09 0.16 rg 44 540.8 520 24 re f
-1 1 1 rg BT /F2 7.7 Tf 1 0 0 1 48 551.1 Tm (Area) Tj ET
-1 1 1 rg BT /F2 7.7 Tf 1 0 0 1 168 551.1 Tm (Verified fact) Tj ET
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 519.8 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 529.3 Tm (Frontend) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 168.5 529.3 Tm (Static HTML/CSS/JavaScript site on Vercel.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 164 540.8 m 164 519.8 l S
-1 1 1 rg 0.83 0.86 0.89 RG 0.4 w 44 498.8 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 508.3 Tm (Live Studio) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 168.5 508.3 Tm (Browser camera, MediaPipe Hands JS, local landmark drawing, static/motion prediction.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 164 519.8 m 164 498.8 l S
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 477.8 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 487.3 Tm (Backend) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 168.5 487.3 Tm (Python Flask API hosted on Render; Joblib loads model artifacts.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 164 498.8 m 164 477.8 l S
-1 1 1 rg 0.83 0.86 0.89 RG 0.4 w 44 456.8 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 466.3 Tm (Static features) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 168.5 466.3 Tm (126 numeric values; 63 values per hand slot.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 164 477.8 m 164 456.8 l S
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 435.8 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 445.3 Tm (Sequence features) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 168.5 445.3 Tm (132 values per frame; ten time bins form a 1,320-value vector.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 164 456.8 m 164 435.8 l S
-1 1 1 rg 0.83 0.86 0.89 RG 0.4 w 44 414.8 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 424.3 Tm (Configured labels) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 168.5 424.3 Tm (HELLO, I_LOVE_YOU, NO, THANK_YOU, YES; /api/status loaded labels are authoritative.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 164 435.8 m 164 414.8 l S
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 393.8 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 403.3 Tm (Training) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 168.5 403.3 Tm (Dedicated static capture and reusable model trainers are not included in current repo snapshot.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 164 414.8 m 164 393.8 l S
-1 0.96 0.87 rg 0.92 0.6 0.12 RG 0.8 w 44 337.4 524 48.4 re B
-0.92 0.6 0.12 rg BT /F2 8.6 Tf 1 0 0 1 54 370.2 Tm (Safe description) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.1 Tf 1 0 0 1 54 357.7 Tm (The project demonstrates hand-landmark tracking, trained sign classification, text output and optional speech/translation.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.1 Tf 1 0 0 1 54 347.5 Tm (It does not claim perfect recognition, full ISL understanding or benchmarked accuracy.) Tj ET
+q 0.04 0.16 0.32 rg 0 808 595 34 re f Q
+BT /F2 8 Tf 1 1 1 rg 1 0 0 1 42 820 Tm (SAHAYAK | SIMPLE LANGUAGE GUIDE) Tj ET
+BT /F2 18 Tf 0.04 0.16 0.32 rg 1 0 0 1 42 777.00 Tm (SAHAYAK - CBSE Science Exhibition Guide) Tj ET
+BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 747.00 Tm (Simple system explanation, team roles and judge questions) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 726.00 Tm (Developer and project head: Johan Jyoti Kuli) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 712.90 Tm (Presenters: Shyamantika Pegu, Barakha Doley, Himanxhu V Ghimire) Tj ET
+BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 690.80 Tm (1. What SAHAYAK is) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 673.80 Tm (SAHAYAK is a website project that tries to recognize a limited set of Indian Sign Language \(ISL\)) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 661.70 Tm (    signs. A camera shows the hands. The website finds key points on the hands. A trained model) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 649.60 Tm (    uses those points to guess a sign label. The website shows the result as text. Some extra) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 637.50 Tm (    features can translate text or speak it aloud.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 620.40 Tm (SAHAYAK is a prototype, which means an early version used to test an idea. It is not a complete) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 608.30 Tm (    ISL translator. It does not understand every signed sentence and must not be presented as a) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 596.20 Tm (    replacement for an interpreter.) Tj ET
+BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 574.10 Tm (2. Why we built it) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 557.10 Tm (People who use sign language may meet people who do not understand their signs. This can make) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 545.00 Tm (    daily conversations harder. A tool that recognizes some trained signs may help in limited) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 532.90 Tm (    situations. It should be tested with the people who may use it, and its limits must be) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 520.80 Tm (    explained.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 503.70 Tm (The 2011 Census of India counted 5,071,007 people in its hearing-disability category. This is a) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 491.60 Tm (    historical figure, not a count of ISL users and not a current estimate. Hearing loss and using) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 479.50 Tm (    sign language are not the same thing.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 466.40 Tm (Sources:) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 453.30 Tm (https://censusindia.gov.in/nada/index.php/catalog/43369/) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 440.20 Tm (https://www.who.int/news-room/fact-sheets/detail/deafness-and-hearing-loss) Tj ET
+BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 418.10 Tm (3. What this project shows) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 401.10 Tm (- A camera can help find hand key points without special gloves.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 388.00 Tm (- The points can be changed into numbers.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 374.90 Tm (- A trained model can compare the numbers with patterns it learned from labelled examples.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 361.80 Tm (- The website can show the predicted label.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 348.70 Tm (- A held pose and a moving sign need separate input paths.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 335.60 Tm (- A website and a Python server can work together.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 322.50 Tm (- Testing should report mistakes as well as successful examples.) Tj ET
+BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 300.40 Tm (4. The system in simple words) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 283.40 Tm (Frontend: the pages and buttons a person sees in a browser. Vercel hosts the frontend.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 270.30 Tm (Backend: the Python server that receives numbers and asks the trained model to predict. Render) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 258.20 Tm (    hosts the backend.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 245.10 Tm (MediaPipe Hands: software that finds key points on visible hands. In the current Live Studio, it) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 233.00 Tm (    runs in the browser.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 219.90 Tm (Model: a saved file containing patterns learned from labelled examples. SAHAYAK uses) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 207.80 Tm (    scikit-learn-compatible models saved with Joblib.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 194.70 Tm (API: a web address that lets the website send data to the server and receive a result.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 181.60 Tm (Database: a file that can store movement samples. Saving a sample is not the same as training a) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 169.50 Tm (    model.) Tj ET
+BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 147.40 Tm (5. Full live-recognition workflow) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 130.40 Tm (1. The user opens Live Studio.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 117.30 Tm (2. The browser asks for camera permission.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 104.20 Tm (3. The camera provides video frames.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 91.10 Tm (4. MediaPipe Hands finds up to 21 key points per hand.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 78.00 Tm (5. The website draws the points on a canvas so the user can see tracking.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 64.90 Tm (6. The website prepares number values from the points.) Tj ET
+q 0.78 0.82 0.87 RG 42 44 m 553 44 l S Q
+BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 42 27 Tm (SAHAYAK CBSE Science Exhibition Guide) Tj ET
+BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 510 27 Tm (1 / 5) Tj ET
 endstream
 endobj
 8 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 7 0 R >>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 9 0 R >>
 endobj
 9 0 obj
-<< /Length 3848 >>
+<< /Length 6385 >>
 stream
-0.055 0.09 0.16 rg 0 737 612 55 re f
-0.76 0.08 0.19 rg 0 734 612 3 re f
-1 1 1 rg BT /F2 8 Tf 1 0 0 1 44 767 Tm (SAHAYAK | CBSE SCIENCE EXHIBITION STUDY GUIDE) Tj ET
-0.055 0.09 0.16 rg BT /F2 17 Tf 1 0 0 1 44 701 Tm (1. The problem and why it matters) Tj ET
-0.94 0.96 0.98 RG 1 w 44 693 m 568 693 l S
-0.5 0.54 0.6 rg BT /F1 6.8 Tf 1 0 0 1 44 18.2 Tm (Based on SAHAYAK-ISL code/deployment notes | October 2026) Tj ET
-0.5 0.54 0.6 rg BT /F2 6.8 Tf 1 0 0 1 544 18.2 Tm (3) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.7 Tf 1 0 0 1 44 670.3 Tm (Spoken communication is not accessible to everyone. Deaf and hard-of-hearing people may use sign languages, writing,) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.7 Tf 1 0 0 1 44 658.4 Tm (interpreters and other methods. SAHAYAK demonstrates one technical pathway: recognize a limited set of trained signs and) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.7 Tf 1 0 0 1 44 646.5 Tm (make the labels available as text or speech.) Tj ET
-0.12 0.4 0.7 rg BT /F2 11 Tf 1 0 0 1 44 628.3 Tm (Published context - not ISL-user counts) Tj ET
-0.055 0.09 0.16 rg 44 598.3 520 24 re f
-1 1 1 rg BT /F2 7.7 Tf 1 0 0 1 48 608.6 Tm (Figure) Tj ET
-1 1 1 rg BT /F2 7.7 Tf 1 0 0 1 153 608.6 Tm (What it measures) Tj ET
-1 1 1 rg BT /F2 7.7 Tf 1 0 0 1 413 608.6 Tm (Source) Tj ET
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 573.7 520 24.6 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 586.8 Tm (5,071,007) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 153.5 586.8 Tm (India Census 2011 count in the 'disability in hearing' category.) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 153.5 578 Tm (Historical, not current estimate or ISL-signer count.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 149 598.3 m 149 573.7 l S
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 413.5 586.8 Tm (Census C-20, 2011.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 409 598.3 m 409 573.7 l S
-1 1 1 rg 0.83 0.86 0.89 RG 0.4 w 44 549.1 520 24.6 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 562.2 Tm (430 million) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 153.5 562.2 Tm (People worldwide requiring rehabilitation for disabling hearing loss,) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 153.5 553.4 Tm (including children.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 149 573.7 m 149 549.1 l S
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 413.5 562.2 Tm (WHO, 3 Mar 2026.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 409 573.7 m 409 549.1 l S
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 528.1 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 537.6 Tm (95.1 million) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 153.5 537.6 Tm (Children aged 5-19 living with hearing loss worldwide.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 149 549.1 m 149 528.1 l S
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 413.5 537.6 Tm (WHO, 3 Mar 2026.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 409 549.1 m 409 528.1 l S
-1 1 1 rg 0.83 0.86 0.89 RG 0.4 w 44 507.1 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 516.6 Tm (2.5 billion by 2050) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 153.5 516.6 Tm (WHO projection for people with some degree of hearing loss.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 149 528.1 m 149 507.1 l S
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 413.5 516.6 Tm (WHO, 3 Mar 2026.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 409 528.1 m 409 507.1 l S
-1 0.96 0.87 rg 0.92 0.6 0.12 RG 0.8 w 44 460.9 524 38.2 re B
-0.92 0.6 0.12 rg BT /F2 8.6 Tf 1 0 0 1 54 483.5 Tm (Important wording) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.1 Tf 1 0 0 1 54 471 Tm (Hearing loss is not the same as using sign language. These figures describe hearing loss, not the number of ISL users.) Tj ET
-0.37 0.41 0.47 rg BT /F1 7 Tf 1 0 0 1 44 445.9 Tm (Census of India, Table C-20: https://censusindia.gov.in/nada/index.php/catalog/43369/) Tj ET
-0.37 0.41 0.47 rg BT /F1 7 Tf 1 0 0 1 44 434.7 Tm (WHO, Deafness and hearing loss: https://www.who.int/news-room/fact-sheets/detail/deafness-and-hearing-loss) Tj ET
+q 0.04 0.16 0.32 rg 0 808 595 34 re f Q
+BT /F2 8 Tf 1 1 1 rg 1 0 0 1 42 820 Tm (SAHAYAK | SIMPLE LANGUAGE GUIDE) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 780.00 Tm (7. It sends the numbers to a Flask API on Render.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 766.90 Tm (8. The backend checks the input and sends it to the correct trained model.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 753.80 Tm (9. The model returns a predicted label and, when available, a confidence score.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 740.70 Tm (10. The website displays the result and may add it to the message history.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 727.60 Tm (11. Translation or speech may run as a separate feature and may need internet access.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 710.50 Tm (The landmark drawing is only a visual guide. It is not the model's answer. Well-placed dots do not) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 698.40 Tm (    guarantee a correct prediction.) Tj ET
+BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 676.30 Tm (6. Static signs: why 126 numbers?) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 659.30 Tm (A static sign is a pose that can be described by one frame.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 646.20 Tm (- Each hand has 21 key points.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 633.10 Tm (- Each key point has three numbers: x, y and z.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 620.00 Tm (- One hand: 21 x 3 = 63 numbers.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 606.90 Tm (- Two hands: 63 x 2 = 126 numbers.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 589.80 Tm (The static model expects 126 input values. This does not mean there are 126 signs or training) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 577.70 Tm (    examples. Check the live /api/status response for the real current label list.) Tj ET
+BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 555.60 Tm (7. Moving signs: why 1,320 numbers?) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 538.60 Tm (Some signs depend on movement, so one still picture is not enough.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 525.50 Tm (- Each frame has 132 numbers: 126 hand-point values plus six wrist-position values.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 512.40 Tm (- The system arranges the movement into 10 time steps.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 499.30 Tm (- 132 x 10 = 1,320 numbers for the sequence model.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 486.20 Tm (- These numbers go to a separate model for continuous signs.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 469.10 Tm (This format describes movement. It does not prove every movement is recognized correctly.) Tj ET
+BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 447.00 Tm (8. Main software and files) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 430.00 Tm (- frontend/index.html and frontend/studio.html: website pages.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 416.90 Tm (- frontend/studio.html: Live Studio camera and recognition workflow.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 403.80 Tm (- frontend/config.js: the backend address used by the website.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 390.70 Tm (- backend/web_app.py: the Flask API and its routes.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 377.60 Tm (- backend/features.py: prepares static hand features.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 364.50 Tm (- backend/model/sahayak_twohand.joblib: active static model.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 351.40 Tm (- backend/model/sahayak_sequence.joblib: active continuous model.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 338.30 Tm (- continuous_gesture_db.db and sequence_db.py: store and read movement samples in the) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 326.20 Tm (      training project where included.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 313.10 Tm (- Vercel hosts website files; Render runs the backend and loads the models.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 296.00 Tm (Some training scripts are in the separate local training project and may not be in the) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 283.90 Tm (    deployment-only folder. Before running a training command, check that the script exists in) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 271.80 Tm (    your local project.) Tj ET
+BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 249.70 Tm (9. Important API addresses) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 232.70 Tm (- /api/health: checks whether the server responds. It does not measure accuracy.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 219.60 Tm (- /api/status: shows model status and current model labels.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 206.50 Tm (- /api/predict-features: receives static numeric features from the current Live Studio) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 194.40 Tm (      workflow.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 181.30 Tm (- /api/predict: an older or alternate image route. Check the current frontend before saying) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 169.20 Tm (      it is used.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 156.10 Tm (- /api/sequence/predict: receives continuous-sequence features.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 143.00 Tm (- /api/sequence/samples and /api/sequence/export: support movement-sample access as) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 130.90 Tm (      implemented by the backend.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 117.80 Tm (- /api/translate and /api/speech: support translation or speech. Online services may need) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 105.70 Tm (      internet.) Tj ET
+BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 83.60 Tm (10. What the system can and cannot do) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 66.60 Tm (It can try to recognize signs in its active trained models and show a label. It can demonstrate) Tj ET
+q 0.78 0.82 0.87 RG 42 44 m 553 44 l S Q
+BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 42 27 Tm (SAHAYAK CBSE Science Exhibition Guide) Tj ET
+BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 510 27 Tm (2 / 5) Tj ET
 endstream
 endobj
 10 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 9 0 R >>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 11 0 R >>
 endobj
 11 0 obj
-<< /Length 2702 >>
+<< /Length 6689 >>
 stream
-0.055 0.09 0.16 rg 0 737 612 55 re f
-0.76 0.08 0.19 rg 0 734 612 3 re f
-1 1 1 rg BT /F2 8 Tf 1 0 0 1 44 767 Tm (SAHAYAK | CBSE SCIENCE EXHIBITION STUDY GUIDE) Tj ET
-0.055 0.09 0.16 rg BT /F2 17 Tf 1 0 0 1 44 701 Tm (2. Objectives, scope and limitations) Tj ET
-0.94 0.96 0.98 RG 1 w 44 693 m 568 693 l S
-0.5 0.54 0.6 rg BT /F1 6.8 Tf 1 0 0 1 44 18.2 Tm (Based on SAHAYAK-ISL code/deployment notes | October 2026) Tj ET
-0.5 0.54 0.6 rg BT /F2 6.8 Tf 1 0 0 1 544 18.2 Tm (4) Tj ET
-0.12 0.4 0.7 rg BT /F2 11 Tf 1 0 0 1 44 668 Tm (Objectives) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 653.5 Tm (- Demonstrate camera-based hand tracking without special sensor gloves.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 639.9 Tm (- Show separate classification paths for static poses and motion sequences.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 626.3 Tm (- Overlay landmarks and display recognized labels.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 612.7 Tm (- Allow the message to be translated online and spoken through device/server speech.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 599.1 Tm (- Host a website that opens on a phone or computer.) Tj ET
-0.12 0.4 0.7 rg BT /F2 11 Tf 1 0 0 1 44 583 Tm (Current limitations) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 568.5 Tm (- The model recognizes only classes in its trained artifact; a phrasebook card does not train the model.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 554.9 Tm (- It does not fully interpret ISL grammar, facial expressions, spatial grammar or spontaneous sentences.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 541.3 Tm (- No held-out accuracy report or original static training-row total is stored in the repo.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 527.7 Tm (- The reusable train_twohand_model.py and train_sequence_model.py scripts and a static capture utility are absent.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 514.1 Tm (- SQLite sample writes on a service filesystem are not guaranteed durable across instance replacement.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 500.5 Tm (- MediaPipe loads from a CDN; classification, general translation and gTTS speech use remote services.) Tj ET
-0.9 0.95 0.99 rg 0.12 0.4 0.7 RG 0.8 w 44 447 524 48.4 re B
-0.12 0.4 0.7 rg BT /F2 8.6 Tf 1 0 0 1 54 479.8 Tm (Opening line) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.1 Tf 1 0 0 1 54 467.3 Tm (SAHAYAK is a real-time sign-recognition prototype that converts a limited set of trained hand poses or movements into) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.1 Tf 1 0 0 1 54 457.1 Tm (labels, text and optional speech. It is not a replacement for fluent ISL users or interpreters.) Tj ET
+q 0.04 0.16 0.32 rg 0 808 595 34 re f Q
+BT /F2 8 Tf 1 1 1 rg 1 0 0 1 42 820 Tm (SAHAYAK | SIMPLE LANGUAGE GUIDE) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 780.00 Tm (    one possible approach to accessibility.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 766.90 Tm (It cannot understand every ISL sentence, every regional difference, facial expression, body) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 754.80 Tm (    posture, grammar or context. It can make mistakes. Lighting, camera angle, covered hands,) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 742.70 Tm (    movement speed and differences between signers can change the result.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 725.60 Tm (Do not claim perfect accuracy or full offline operation. Some drawing can happen in the browser,) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 713.50 Tm (    but live model prediction uses the hosted backend.) Tj ET
+BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 691.40 Tm (11. Add a static sign) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 674.40 Tm (1. Back up the dataset, active model and label file.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 661.30 Tm (2. Use the approved collector to add the pose to data/landmarks_2hand.csv.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 648.20 Tm (3. Check that the file has the new label and all old labels. Each row needs the label and) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 636.10 Tm (    values v0 through v125.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 623.00 Tm (4. Train a candidate with train_model.py. It is a trial model, not the active one.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 609.90 Tm (5. Check that it has 126 features and all expected labels.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 596.80 Tm (6. Run python -m unittest test_sahayak.py.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 583.70 Tm (7. Test fresh examples that were not used for training.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 570.60 Tm (8. If the results are acceptable, run python train_model.py --promote.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 557.50 Tm (9. Test new and old signs locally.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 544.40 Tm (10. Back up and copy only the approved static model into the deployment backend.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 531.30 Tm (11. Push the intended model file, wait for Render, check /api/status, and test the live) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 519.20 Tm (    website.) Tj ET
+BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 497.10 Tm (12. Add a continuous sign) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 480.10 Tm (1. Back up continuous_gesture_db.db and the active sequence model.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 467.00 Tm (2. Use collect_sequences.py to save the full movement under one stable label.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 453.90 Tm (3. Check label spelling and sample counts.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 440.80 Tm (4. Train a candidate using python train_sequence_model.py --db.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 427.70 Tm (5. Check that it has 1,320 features and all expected labels.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 414.60 Tm (6. Record a fresh test set after training. Aim for at least five fresh examples per) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 402.50 Tm (    label.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 389.40 Tm (7. Test the candidate on those fresh examples before using them for training.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 376.30 Tm (8. If the results are acceptable, run python train_sequence_model.py --db --promote.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 363.20 Tm (9. Run python -m unittest test_sahayak.py test_sequence.py test_sequence_db.py.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 350.10 Tm (10. Test old and new signs locally.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 337.00 Tm (11. Copy only sahayak_sequence.joblib to the deployment backend.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 323.90 Tm (12. Push the file, wait for Render, check sequence_model_ready and sequence_sign_labels,) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 311.80 Tm (    and test the live website.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 294.70 Tm (Do not replace the static model during a continuous-only update. Do not publish raw sample) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 282.60 Tm (    databases or training rows by mistake.) Tj ET
+BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 260.50 Tm (13. Fair testing) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 243.50 Tm (Keep some labelled examples separate from training. Do not test only on the examples the model) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 231.40 Tm (    learned. If possible, use different people or recording sessions for the test.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 218.30 Tm (Record how many examples were tested and how many were correct for each sign. Note which signs are) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 206.20 Tm (    mixed up, and test different lighting, distances, camera angles and movement speeds. Report an) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 194.10 Tm (    accuracy percentage only when a saved test report supports it. A feature count or fast) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 182.00 Tm (    response is not an accuracy score.) Tj ET
+BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 159.90 Tm (14. Privacy and safe use) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 142.90 Tm (Ask for camera permission. Get permission from anyone whose signs are recorded for training.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 130.80 Tm (    Explain if a frame or number is sent to a server. Keep training files safe and avoid storing) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 118.70 Tm (    identifiable video without a clear need. Do not use the prototype as a guaranteed tool for) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 106.60 Tm (    emergencies or other high-risk situations.) Tj ET
+BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 84.50 Tm (15. Team roles) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 67.50 Tm (Johan Jyoti Kuli - Lead Developer and Project Head. Full-system design and integration. He) Tj ET
+q 0.78 0.82 0.87 RG 42 44 m 553 44 l S Q
+BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 42 27 Tm (SAHAYAK CBSE Science Exhibition Guide) Tj ET
+BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 510 27 Tm (3 / 5) Tj ET
 endstream
 endobj
 12 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 11 0 R >>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 13 0 R >>
 endobj
 13 0 obj
-<< /Length 3202 >>
+<< /Length 6550 >>
 stream
-0.055 0.09 0.16 rg 0 737 612 55 re f
-0.76 0.08 0.19 rg 0 734 612 3 re f
-1 1 1 rg BT /F2 8 Tf 1 0 0 1 44 767 Tm (SAHAYAK | CBSE SCIENCE EXHIBITION STUDY GUIDE) Tj ET
-0.055 0.09 0.16 rg BT /F2 17 Tf 1 0 0 1 44 701 Tm (3. System architecture diagram) Tj ET
-0.94 0.96 0.98 RG 1 w 44 693 m 568 693 l S
-0.5 0.54 0.6 rg BT /F1 6.8 Tf 1 0 0 1 44 18.2 Tm (Based on SAHAYAK-ISL code/deployment notes | October 2026) Tj ET
-0.5 0.54 0.6 rg BT /F2 6.8 Tf 1 0 0 1 544 18.2 Tm (5) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.7 Tf 1 0 0 1 44 670.3 Tm (In current Live Studio, MediaPipe tracking runs in the browser. Numeric feature vectors are sent to the Flask classifier) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.7 Tf 1 0 0 1 44 658.4 Tm (route.) Tj ET
-0.9 0.95 0.99 rg 0.12 0.4 0.7 RG 0.9 w 94 613.2 424 38 re B
-0.11 0.14 0.19 rg BT /F2 7.7 Tf 1 0 0 1 206.208 628.35 Tm (User opens Vercel website and grants camera permission) Tj ET
-0.12 0.4 0.7 RG 1 w 306 613.2 m 306 609.2 l S
-0.12 0.4 0.7 RG 1 w 306 609.2 m 302.5 614.2 l S
-0.12 0.4 0.7 RG 1 w 306 609.2 m 309.5 614.2 l S
-0.9 0.97 0.94 rg 0.08 0.5 0.36 RG 0.9 w 94 566.2 424 38 re B
-0.11 0.14 0.19 rg BT /F2 7.7 Tf 1 0 0 1 193.272 581.35 Tm (Browser video -> MediaPipe Hands JavaScript -> hand landmarks) Tj ET
-0.08 0.5 0.36 RG 1 w 306 566.2 m 306 562.2 l S
-0.08 0.5 0.36 RG 1 w 306 562.2 m 302.5 567.2 l S
-0.08 0.5 0.36 RG 1 w 306 562.2 m 309.5 567.2 l S
-1 0.96 0.87 rg 0.92 0.6 0.12 RG 0.9 w 94 519.2 424 38 re B
-0.11 0.14 0.19 rg BT /F2 7.7 Tf 1 0 0 1 182.184 534.35 Tm (Feature encoder: 126-value static pose or 132-value sequence frames) Tj ET
-0.92 0.6 0.12 RG 1 w 306 519.2 m 306 515.2 l S
-0.92 0.6 0.12 RG 1 w 306 515.2 m 302.5 520.2 l S
-0.92 0.6 0.12 RG 1 w 306 515.2 m 309.5 520.2 l S
-0.9 0.95 0.99 rg 0.12 0.4 0.7 RG 0.9 w 94 472.2 424 38 re B
-0.11 0.14 0.19 rg BT /F2 7.7 Tf 1 0 0 1 219.144 487.35 Tm (POST feature data to Flask API hosted on Render) Tj ET
-0.12 0.4 0.7 RG 1 w 306 472.2 m 306 468.2 l S
-0.12 0.4 0.7 RG 1 w 306 468.2 m 302.5 473.2 l S
-0.12 0.4 0.7 RG 1 w 306 468.2 m 309.5 473.2 l S
-0.99 0.93 0.93 rg 0.76 0.08 0.19 RG 0.9 w 94 425.2 424 38 re B
-0.11 0.14 0.19 rg BT /F2 7.7 Tf 1 0 0 1 184.032 440.35 Tm (Joblib classifier predicts one trained label and probability score) Tj ET
-0.76 0.08 0.19 RG 1 w 306 425.2 m 306 421.2 l S
-0.76 0.08 0.19 RG 1 w 306 421.2 m 302.5 426.2 l S
-0.76 0.08 0.19 RG 1 w 306 421.2 m 309.5 426.2 l S
-0.9 0.97 0.94 rg 0.08 0.5 0.36 RG 0.9 w 94 378.2 424 38 re B
-0.11 0.14 0.19 rg BT /F2 7.7 Tf 1 0 0 1 184.032 393.35 Tm (Browser displays result; appends text; optional translation/speech) Tj ET
-0.12 0.4 0.7 rg BT /F2 11 Tf 1 0 0 1 44 359.2 Tm (Hosting) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 344.7 Tm (- Vercel serves the static frontend and deploys connected GitHub commits.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 331.1 Tm (- Render serves the Python Flask backend and loads model artifacts.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 317.5 Tm (- Frontend changes normally deploy on Vercel; backend/model changes deploy on Render.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 303.9 Tm (- A legacy /api/predict image endpoint exists; current Studio primarily uses /api/predict-features.) Tj ET
+q 0.04 0.16 0.32 rg 0 808 595 34 re f Q
+BT /F2 8 Tf 1 1 1 rg 1 0 0 1 42 820 Tm (SAHAYAK | SIMPLE LANGUAGE GUIDE) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 780.00 Tm (    explains how the website, camera, API, models and deployment fit together.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 766.90 Tm (Shyamantika Pegu - Introduction, Problem and Project Purpose. She explains the communication) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 754.80 Tm (    challenge, why the project was chosen, its goal and its limits.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 741.70 Tm (Barakha Doley - System Design, Technology and Workflow. She explains the camera-to-model steps,) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 729.60 Tm (    hand points, feature counts, backend and the two model paths.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 716.50 Tm (Himanxhu V Ghimire - Live Demo, Testing and Conclusion. He demonstrates the site, explains fair) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 704.40 Tm (    testing, discusses limits and future work, and closes the talk.) Tj ET
+BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 682.30 Tm (16. Suggested live demonstration) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 665.30 Tm (1. Show the homepage and explain the goal.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 652.20 Tm (2. Open Live Studio and allow camera access.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 639.10 Tm (3. Show the hand points.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 626.00 Tm (4. Try one sign confirmed by the current model label list.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 612.90 Tm (5. Explain the predicted label and confidence carefully.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 599.80 Tm (6. If possible, try another sign and an older sign.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 586.70 Tm (7. Explain that one success is not proof of overall accuracy.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 573.60 Tm (8. If the demo fails, show the system steps and explain the problem honestly.) Tj ET
+BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 551.50 Tm (17. If the live demo fails) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 534.50 Tm (Say: "The live result depends on camera detection and the hosted backend. We have a prototype, and) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 522.40 Tm (    this is a useful example of why reliability tests matter. I will explain the workflow and show) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 510.30 Tm (    the parts that are available while we check the connection.") Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 497.20 Tm (Do not say a sign was recognized if no result appeared.) Tj ET
+BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 475.10 Tm (18. Questions judges may ask) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 458.10 Tm (Q: What is SAHAYAK? A: A website prototype that recognizes a limited set of trained signs.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 445.00 Tm (Q: Does it translate every ISL sentence? A: No. It predicts a label from a limited set.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 431.90 Tm (Q: What is a landmark? A: A key point on the hand, such as a fingertip or joint.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 418.80 Tm (Q: Why 126 values? A: Two hands x 21 points x three coordinates.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 405.70 Tm (Q: Why 1,320 values? A: 132 values per frame arranged into 10 time steps.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 392.60 Tm (Q: Does adding a label train the model? A: No. Labelled examples, training, testing and deployment) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 380.50 Tm (    are needed.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 367.40 Tm (Q: Where does the camera run? A: In the browser. The backend makes the model prediction.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 354.30 Tm (Q: Does it work offline? A: Not fully. Live prediction and some extra features need internet.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 341.20 Tm (Q: What is the accuracy? A: Give a number only if a fair test report supports it.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 328.10 Tm (Q: What if it predicts the wrong sign? A: Record the mistake and check the camera conditions and) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 316.00 Tm (    model.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 302.90 Tm (Q: Can it replace an interpreter? A: No. It is a prototype, not a guaranteed communication) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 290.80 Tm (    service.) Tj ET
+BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 268.70 Tm (19. Simple word list) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 251.70 Tm (Frontend: the part of the website a user sees.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 238.60 Tm (Backend: the server that handles requests.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 225.50 Tm (Landmark: a key point on the hand.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 212.40 Tm (Feature: a number made from hand points.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 199.30 Tm (Dataset: labelled examples used for training or testing.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 186.20 Tm (Model: the saved result of training.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 173.10 Tm (Prediction: the model's best guess.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 160.00 Tm (API: a web address used by the website and server to exchange information.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 146.90 Tm (Candidate model: a trial model that is not active yet.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 133.80 Tm (Promote: approve a trial model and make it active.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 120.70 Tm (Deploy: publish files to the hosted website or server.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 107.60 Tm (Confidence: how strongly the model favours a label; not a promise that it is right.) Tj ET
+BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 85.50 Tm (Final checklist) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 68.50 Tm ([ ] Each speaker knows their role. [ ] Current model labels checked. [ ] Camera and internet) Tj ET
+q 0.78 0.82 0.87 RG 42 44 m 553 44 l S Q
+BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 42 27 Tm (SAHAYAK CBSE Science Exhibition Guide) Tj ET
+BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 510 27 Tm (4 / 5) Tj ET
 endstream
 endobj
 14 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 13 0 R >>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 15 0 R >>
 endobj
 15 0 obj
-<< /Length 3572 >>
+<< /Length 611 >>
 stream
-0.055 0.09 0.16 rg 0 737 612 55 re f
-0.76 0.08 0.19 rg 0 734 612 3 re f
-1 1 1 rg BT /F2 8 Tf 1 0 0 1 44 767 Tm (SAHAYAK | CBSE SCIENCE EXHIBITION STUDY GUIDE) Tj ET
-0.055 0.09 0.16 rg BT /F2 17 Tf 1 0 0 1 44 701 Tm (4. Live Studio runtime) Tj ET
-0.94 0.96 0.98 RG 1 w 44 693 m 568 693 l S
-0.5 0.54 0.6 rg BT /F1 6.8 Tf 1 0 0 1 44 18.2 Tm (Based on SAHAYAK-ISL code/deployment notes | October 2026) Tj ET
-0.5 0.54 0.6 rg BT /F2 6.8 Tf 1 0 0 1 544 18.2 Tm (6) Tj ET
-0.9 0.95 0.99 rg 0.12 0.4 0.7 RG 0.9 w 94 647 424 32 re B
-0.11 0.14 0.19 rg BT /F2 7.7 Tf 1 0 0 1 228.384 659.15 Tm (1. Open Studio and grant camera permission) Tj ET
-0.12 0.4 0.7 RG 1 w 306 647 m 306 645 l S
-0.12 0.4 0.7 RG 1 w 306 645 m 302.5 650 l S
-0.12 0.4 0.7 RG 1 w 306 645 m 309.5 650 l S
-0.9 0.97 0.94 rg 0.08 0.5 0.36 RG 0.9 w 94 608 424 32 re B
-0.11 0.14 0.19 rg BT /F2 7.7 Tf 1 0 0 1 187.728 620.15 Tm (2. MediaPipe Hands processes camera frames in browser JavaScript) Tj ET
-0.08 0.5 0.36 RG 1 w 306 608 m 306 606 l S
-0.08 0.5 0.36 RG 1 w 306 606 m 302.5 611 l S
-0.08 0.5 0.36 RG 1 w 306 606 m 309.5 611 l S
-0.9 0.97 0.94 rg 0.08 0.5 0.36 RG 0.9 w 94 569 424 32 re B
-0.11 0.14 0.19 rg BT /F2 7.7 Tf 1 0 0 1 208.056 581.15 Tm (3. Detect up to two hands; each hand has 21 landmarks) Tj ET
-0.08 0.5 0.36 RG 1 w 306 569 m 306 567 l S
-0.08 0.5 0.36 RG 1 w 306 567 m 302.5 572 l S
-0.08 0.5 0.36 RG 1 w 306 567 m 309.5 572 l S
-0.9 0.95 0.99 rg 0.12 0.4 0.7 RG 0.9 w 94 530 424 32 re B
-0.11 0.14 0.19 rg BT /F2 7.7 Tf 1 0 0 1 185.88 542.15 Tm (4. Draw landmarks/annotation on a canvas aligned with the preview) Tj ET
-0.12 0.4 0.7 RG 1 w 306 530 m 306 528 l S
-0.12 0.4 0.7 RG 1 w 306 528 m 302.5 533 l S
-0.12 0.4 0.7 RG 1 w 306 528 m 309.5 533 l S
-1 0.96 0.87 rg 0.92 0.6 0.12 RG 0.9 w 94 491 424 32 re B
-0.11 0.14 0.19 rg BT /F2 7.7 Tf 1 0 0 1 220.992 503.15 Tm (5. Normalize coordinates into numeric features) Tj ET
-0.92 0.6 0.12 RG 1 w 306 491 m 306 489 l S
-0.92 0.6 0.12 RG 1 w 306 489 m 302.5 494 l S
-0.92 0.6 0.12 RG 1 w 306 489 m 309.5 494 l S
-1 0.96 0.87 rg 0.92 0.6 0.12 RG 0.9 w 94 452 424 32 re B
-0.11 0.14 0.19 rg BT /F2 7.7 Tf 1 0 0 1 217.296 464.15 Tm (6. Send features to Render /api/predict-features) Tj ET
-0.92 0.6 0.12 RG 1 w 306 452 m 306 450 l S
-0.92 0.6 0.12 RG 1 w 306 450 m 302.5 455 l S
-0.92 0.6 0.12 RG 1 w 306 450 m 309.5 455 l S
-0.99 0.93 0.93 rg 0.76 0.08 0.19 RG 0.9 w 94 413 424 32 re B
-0.11 0.14 0.19 rg BT /F2 7.7 Tf 1 0 0 1 174.792 425.15 Tm (7. Flask validates input, predicts class probability and applies cutoff) Tj ET
-0.76 0.08 0.19 RG 1 w 306 413 m 306 411 l S
-0.76 0.08 0.19 RG 1 w 306 411 m 302.5 416 l S
-0.76 0.08 0.19 RG 1 w 306 411 m 309.5 416 l S
-0.9 0.95 0.99 rg 0.12 0.4 0.7 RG 0.9 w 94 374 424 32 re B
-0.11 0.14 0.19 rg BT /F2 7.7 Tf 1 0 0 1 195.12 386.15 Tm (8. Return label/confidence; update message and local history) Tj ET
-0.12 0.4 0.7 RG 1 w 306 374 m 306 372 l S
-0.12 0.4 0.7 RG 1 w 306 372 m 302.5 377 l S
-0.12 0.4 0.7 RG 1 w 306 372 m 309.5 377 l S
-0.9 0.97 0.94 rg 0.08 0.5 0.36 RG 0.9 w 94 335 424 32 re B
-0.11 0.14 0.19 rg BT /F2 7.7 Tf 1 0 0 1 202.512 347.15 Tm (9. Optional translation and speech run as separate steps) Tj ET
-1 0.96 0.87 rg 0.92 0.6 0.12 RG 0.8 w 44 278.6 524 48.4 re B
-0.92 0.6 0.12 rg BT /F2 8.6 Tf 1 0 0 1 54 311.4 Tm (Important distinction) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.1 Tf 1 0 0 1 54 298.9 Tm (The landmark overlay is a visualization, not the classifier. Recognition works on numeric features. Debug annotation and) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.1 Tf 1 0 0 1 54 288.7 Tm (classification as separate stages.) Tj ET
+q 0.04 0.16 0.32 rg 0 808 595 34 re f Q
+BT /F2 8 Tf 1 1 1 rg 1 0 0 1 42 820 Tm (SAHAYAK | SIMPLE LANGUAGE GUIDE) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 780.00 Tm (    tested. [ ] No unverified accuracy number used. [ ] Old and new signs tested. [ ] Backup) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 767.90 Tm (    explanation ready. [ ] Everyone explains that SAHAYAK is a limited prototype.) Tj ET
+q 0.78 0.82 0.87 RG 42 44 m 553 44 l S Q
+BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 42 27 Tm (SAHAYAK CBSE Science Exhibition Guide) Tj ET
+BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 510 27 Tm (5 / 5) Tj ET
 endstream
-endobj
-16 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 15 0 R >>
-endobj
-17 0 obj
-<< /Length 3310 >>
-stream
-0.055 0.09 0.16 rg 0 737 612 55 re f
-0.76 0.08 0.19 rg 0 734 612 3 re f
-1 1 1 rg BT /F2 8 Tf 1 0 0 1 44 767 Tm (SAHAYAK | CBSE SCIENCE EXHIBITION STUDY GUIDE) Tj ET
-0.055 0.09 0.16 rg BT /F2 17 Tf 1 0 0 1 44 701 Tm (5. Static-sign recognition) Tj ET
-0.94 0.96 0.98 RG 1 w 44 693 m 568 693 l S
-0.5 0.54 0.6 rg BT /F1 6.8 Tf 1 0 0 1 44 18.2 Tm (Based on SAHAYAK-ISL code/deployment notes | October 2026) Tj ET
-0.5 0.54 0.6 rg BT /F2 6.8 Tf 1 0 0 1 544 18.2 Tm (7) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.7 Tf 1 0 0 1 44 670.3 Tm (A static sign is represented by a stable pose. The repository label file lists HELLO, I_LOVE_YOU, NO, THANK_YOU and YES;) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.7 Tf 1 0 0 1 44 658.4 Tm (loaded classifier labels from /api/status are authoritative.) Tj ET
-0.9 0.95 0.99 rg 0.12 0.4 0.7 RG 0.9 w 104 615.2 404 36 re B
-0.11 0.14 0.19 rg BT /F2 7.7 Tf 1 0 0 1 230.232 629.35 Tm (Browser creates left and right hand slots) Tj ET
-0.12 0.4 0.7 RG 1 w 306 615.2 m 306 612.2 l S
-0.12 0.4 0.7 RG 1 w 306 612.2 m 302.5 617.2 l S
-0.12 0.4 0.7 RG 1 w 306 612.2 m 309.5 617.2 l S
-0.9 0.97 0.94 rg 0.08 0.5 0.36 RG 0.9 w 104 571.2 404 36 re B
-0.11 0.14 0.19 rg BT /F2 7.7 Tf 1 0 0 1 219.144 585.35 Tm (Each slot: 21 landmarks x \(x, y, z\) = 63 values) Tj ET
-0.08 0.5 0.36 RG 1 w 306 571.2 m 306 568.2 l S
-0.08 0.5 0.36 RG 1 w 306 568.2 m 302.5 573.2 l S
-0.08 0.5 0.36 RG 1 w 306 568.2 m 309.5 573.2 l S
-1 0.96 0.87 rg 0.92 0.6 0.12 RG 0.9 w 104 527.2 404 36 re B
-0.11 0.14 0.19 rg BT /F2 7.7 Tf 1 0 0 1 241.32 541.35 Tm (Combine slots: 63 + 63 = 126 values) Tj ET
-0.92 0.6 0.12 RG 1 w 306 527.2 m 306 524.2 l S
-0.92 0.6 0.12 RG 1 w 306 524.2 m 302.5 529.2 l S
-0.92 0.6 0.12 RG 1 w 306 524.2 m 309.5 529.2 l S
-0.9 0.95 0.99 rg 0.12 0.4 0.7 RG 0.9 w 104 483.2 404 36 re B
-0.11 0.14 0.19 rg BT /F2 7.7 Tf 1 0 0 1 235.776 497.35 Tm (POST features to /api/predict-features) Tj ET
-0.12 0.4 0.7 RG 1 w 306 483.2 m 306 480.2 l S
-0.12 0.4 0.7 RG 1 w 306 480.2 m 302.5 485.2 l S
-0.12 0.4 0.7 RG 1 w 306 480.2 m 309.5 485.2 l S
-0.99 0.93 0.93 rg 0.76 0.08 0.19 RG 0.9 w 104 439.2 404 36 re B
-0.11 0.14 0.19 rg BT /F2 7.7 Tf 1 0 0 1 202.512 453.35 Tm (Loaded classifier returns class probability distribution) Tj ET
-0.76 0.08 0.19 RG 1 w 306 439.2 m 306 436.2 l S
-0.76 0.08 0.19 RG 1 w 306 436.2 m 302.5 441.2 l S
-0.76 0.08 0.19 RG 1 w 306 436.2 m 309.5 441.2 l S
-0.9 0.97 0.94 rg 0.08 0.5 0.36 RG 0.9 w 104 395.2 404 36 re B
-0.11 0.14 0.19 rg BT /F2 7.7 Tf 1 0 0 1 189.576 409.35 Tm (Accept static label when top confidence >= 0.60; else uncertain) Tj ET
-0.12 0.4 0.7 rg BT /F2 11 Tf 1 0 0 1 44 376.2 Tm (Why normalize?) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.7 Tf 1 0 0 1 44 361.5 Tm (Wrist-relative normalization reduces sensitivity to translation and scale. It cannot eliminate every camera angle,) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.7 Tf 1 0 0 1 44 349.6 Tm (occlusion, lighting or signer-variation issue.) Tj ET
-0.9 0.95 0.99 rg 0.12 0.4 0.7 RG 0.8 w 44 294 524 48.4 re B
-0.12 0.4 0.7 rg BT /F2 8.6 Tf 1 0 0 1 54 326.8 Tm (Judge answer) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.1 Tf 1 0 0 1 54 314.3 Tm (The classifier maps a fixed 126-number vector to a class learned from labelled examples. Adding a label to JSON alone does) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.1 Tf 1 0 0 1 54 304.1 Tm (not make the model learn that class.) Tj ET
-endstream
-endobj
-18 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 17 0 R >>
-endobj
-19 0 obj
-<< /Length 2932 >>
-stream
-0.055 0.09 0.16 rg 0 737 612 55 re f
-0.76 0.08 0.19 rg 0 734 612 3 re f
-1 1 1 rg BT /F2 8 Tf 1 0 0 1 44 767 Tm (SAHAYAK | CBSE SCIENCE EXHIBITION STUDY GUIDE) Tj ET
-0.055 0.09 0.16 rg BT /F2 17 Tf 1 0 0 1 44 701 Tm (6. Continuous/moving-sign recognition) Tj ET
-0.94 0.96 0.98 RG 1 w 44 693 m 568 693 l S
-0.5 0.54 0.6 rg BT /F1 6.8 Tf 1 0 0 1 44 18.2 Tm (Based on SAHAYAK-ISL code/deployment notes | October 2026) Tj ET
-0.5 0.54 0.6 rg BT /F2 6.8 Tf 1 0 0 1 544 18.2 Tm (8) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.7 Tf 1 0 0 1 44 670.3 Tm (A moving sign depends on pose order over time. SAHAYAK has a separate sequence path and sequence model artifact.) Tj ET
-0.12 0.4 0.7 rg BT /F2 11 Tf 1 0 0 1 44 652.1 Tm (Per-frame representation) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.7 Tf 1 0 0 1 44 637.4 Tm (The 126 pose values are joined with 6 wrist-position values \(x, y, z for both slots\), creating 132 values per frame.) Tj ET
-0.9 0.95 0.99 rg 0.12 0.4 0.7 RG 0.9 w 104 593.2 404 37 re B
-0.11 0.14 0.19 rg BT /F2 7.7 Tf 1 0 0 1 232.08 607.85 Tm (Capture a whole labelled motion sequence) Tj ET
-0.12 0.4 0.7 RG 1 w 306 593.2 m 306 589.2 l S
-0.12 0.4 0.7 RG 1 w 306 589.2 m 302.5 594.2 l S
-0.12 0.4 0.7 RG 1 w 306 589.2 m 309.5 594.2 l S
-0.9 0.97 0.94 rg 0.08 0.5 0.36 RG 0.9 w 104 547.2 404 37 re B
-0.11 0.14 0.19 rg BT /F2 7.7 Tf 1 0 0 1 224.688 561.85 Tm (Each valid frame stores 132 numeric features) Tj ET
-0.08 0.5 0.36 RG 1 w 306 547.2 m 306 543.2 l S
-0.08 0.5 0.36 RG 1 w 306 543.2 m 302.5 548.2 l S
-0.08 0.5 0.36 RG 1 w 306 543.2 m 309.5 548.2 l S
-1 0.96 0.87 rg 0.92 0.6 0.12 RG 0.9 w 104 501.2 404 37 re B
-0.11 0.14 0.19 rg BT /F2 7.7 Tf 1 0 0 1 235.776 515.85 Tm (Temporally resample to 10 ordered bins) Tj ET
-0.92 0.6 0.12 RG 1 w 306 501.2 m 306 497.2 l S
-0.92 0.6 0.12 RG 1 w 306 497.2 m 302.5 502.2 l S
-0.92 0.6 0.12 RG 1 w 306 497.2 m 309.5 502.2 l S
-0.9 0.95 0.99 rg 0.12 0.4 0.7 RG 0.9 w 104 455.2 404 37 re B
-0.11 0.14 0.19 rg BT /F2 7.7 Tf 1 0 0 1 230.232 469.85 Tm (10 bins x 132 values = 1,320-value vector) Tj ET
-0.12 0.4 0.7 RG 1 w 306 455.2 m 306 451.2 l S
-0.12 0.4 0.7 RG 1 w 306 451.2 m 302.5 456.2 l S
-0.12 0.4 0.7 RG 1 w 306 451.2 m 309.5 456.2 l S
-0.99 0.93 0.93 rg 0.76 0.08 0.19 RG 0.9 w 104 409.2 404 37 re B
-0.11 0.14 0.19 rg BT /F2 7.7 Tf 1 0 0 1 196.968 423.85 Tm (POST /api/sequence/predict -> sequence classifier -> result) Tj ET
-0.12 0.4 0.7 rg BT /F2 11 Tf 1 0 0 1 44 390.2 Tm (Current segmenter settings) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 375.7 Tm (- Minimum segment before classifying: 15 frames.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 362.1 Tm (- Maximum retained segment: 90 frames.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 348.5 Tm (- Uses movement and brief stillness \(3 still frames\) to decide when to send a segment.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 334.9 Tm (- A moving sign needs full ordered examples; a still image cannot teach motion.) Tj ET
-endstream
-endobj
-20 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 19 0 R >>
-endobj
-21 0 obj
-<< /Length 4157 >>
-stream
-0.055 0.09 0.16 rg 0 737 612 55 re f
-0.76 0.08 0.19 rg 0 734 612 3 re f
-1 1 1 rg BT /F2 8 Tf 1 0 0 1 44 767 Tm (SAHAYAK | CBSE SCIENCE EXHIBITION STUDY GUIDE) Tj ET
-0.055 0.09 0.16 rg BT /F2 17 Tf 1 0 0 1 44 701 Tm (7. Feature maths and terminology) Tj ET
-0.94 0.96 0.98 RG 1 w 44 693 m 568 693 l S
-0.5 0.54 0.6 rg BT /F1 6.8 Tf 1 0 0 1 44 18.2 Tm (Based on SAHAYAK-ISL code/deployment notes | October 2026) Tj ET
-0.5 0.54 0.6 rg BT /F2 6.8 Tf 1 0 0 1 544 18.2 Tm (9) Tj ET
-0.055 0.09 0.16 rg 44 655 520 24 re f
-1 1 1 rg BT /F2 7.7 Tf 1 0 0 1 48 665.3 Tm (Value) Tj ET
-1 1 1 rg BT /F2 7.7 Tf 1 0 0 1 180 665.3 Tm (Meaning) Tj ET
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 634 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 643.5 Tm (21 landmarks) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 180.5 643.5 Tm (Hand tracker output per hand.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 176 655 m 176 634 l S
-1 1 1 rg 0.83 0.86 0.89 RG 0.4 w 44 613 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 622.5 Tm (3 coordinates) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 180.5 622.5 Tm (Each point contains x, y and z.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 176 634 m 176 613 l S
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 592 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 601.5 Tm (21 x 3 = 63) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 180.5 601.5 Tm (Values per hand slot.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 176 613 m 176 592 l S
-1 1 1 rg 0.83 0.86 0.89 RG 0.4 w 44 571 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 580.5 Tm (2 x 63 = 126) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 180.5 580.5 Tm (Static vector combining left/right slots.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 176 592 m 176 571 l S
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 550 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 559.5 Tm (126 + 6 = 132) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 180.5 559.5 Tm (Continuous frame, adding wrist-position values.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 176 571 m 176 550 l S
-1 1 1 rg 0.83 0.86 0.89 RG 0.4 w 44 529 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 538.5 Tm (10 x 132 = 1,320) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 180.5 538.5 Tm (Sequence vector after resampling.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 176 550 m 176 529 l S
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 508 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 517.5 Tm (0.60 \(60%\)) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 180.5 517.5 Tm (Current acceptance threshold when probabilities exist.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 176 529 m 176 508 l S
-1 1 1 rg 0.83 0.86 0.89 RG 0.4 w 44 487 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 496.5 Tm (Confidence) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 180.5 496.5 Tm (Top-class score, not demonstrated real-world accuracy.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 176 508 m 176 487 l S
-0.12 0.4 0.7 rg BT /F2 11 Tf 1 0 0 1 44 468 Tm (Definitions) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 453.5 Tm (- Feature: numeric description supplied to a classifier.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 439.9 Tm (- Class/label: category learned during training.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 426.3 Tm (- Training set: examples used to fit a model.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 412.7 Tm (- Test set: examples held aside to estimate performance.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 399.1 Tm (- Confusion matrix: true class versus predicted class counts.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 385.5 Tm (- Overfitting: good training performance, poor generalization.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 371.9 Tm (- Temporal resampling: map variable duration to fixed time points.) Tj ET
-0.9 0.95 0.99 rg 0.12 0.4 0.7 RG 0.8 w 44 318.4 524 48.4 re B
-0.12 0.4 0.7 rg BT /F2 8.6 Tf 1 0 0 1 54 351.2 Tm (Avoid this mistake) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.1 Tf 1 0 0 1 54 338.7 Tm (A 92% confidence score is not proof that the model is 92% accurate. Accuracy requires a labelled evaluation set separate) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.1 Tf 1 0 0 1 54 328.5 Tm (from training.) Tj ET
-endstream
-endobj
-22 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 21 0 R >>
-endobj
-23 0 obj
-<< /Length 4295 >>
-stream
-0.055 0.09 0.16 rg 0 737 612 55 re f
-0.76 0.08 0.19 rg 0 734 612 3 re f
-1 1 1 rg BT /F2 8 Tf 1 0 0 1 44 767 Tm (SAHAYAK | CBSE SCIENCE EXHIBITION STUDY GUIDE) Tj ET
-0.055 0.09 0.16 rg BT /F2 17 Tf 1 0 0 1 44 701 Tm (8. Backend API map) Tj ET
-0.94 0.96 0.98 RG 1 w 44 693 m 568 693 l S
-0.5 0.54 0.6 rg BT /F1 6.8 Tf 1 0 0 1 44 18.2 Tm (Based on SAHAYAK-ISL code/deployment notes | October 2026) Tj ET
-0.5 0.54 0.6 rg BT /F2 6.8 Tf 1 0 0 1 544 18.2 Tm (10) Tj ET
-0.055 0.09 0.16 rg 44 655 520 24 re f
-1 1 1 rg BT /F2 7.7 Tf 1 0 0 1 48 665.3 Tm (Route) Tj ET
-1 1 1 rg BT /F2 7.7 Tf 1 0 0 1 228 665.3 Tm (Purpose) Tj ET
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 634 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 643.5 Tm (GET /api/health) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 228.5 643.5 Tm (Checks whether Flask responds; not an accuracy test.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 224 655 m 224 634 l S
-1 1 1 rg 0.83 0.86 0.89 RG 0.4 w 44 613 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 622.5 Tm (GET /api/status) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 228.5 622.5 Tm (Model readiness, labels, sequence DB summary, API timings.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 224 634 m 224 613 l S
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 592 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 601.5 Tm (POST /api/predict-features) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 228.5 601.5 Tm (Current static route using 126-value browser-computed features.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 224 613 m 224 592 l S
-1 1 1 rg 0.83 0.86 0.89 RG 0.4 w 44 571 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 580.5 Tm (POST /api/predict) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 228.5 580.5 Tm (Legacy image route; server decodes image and runs MediaPipe.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 224 592 m 224 571 l S
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 550 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 559.5 Tm (GET /api/sequence/samples) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 228.5 559.5 Tm (Returns continuous sample counts.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 224 571 m 224 550 l S
-1 1 1 rg 0.83 0.86 0.89 RG 0.4 w 44 529 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 538.5 Tm (POST /api/sequence/samples) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 228.5 538.5 Tm (Validates/saves a labelled sequence in SQLite.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 224 550 m 224 529 l S
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 508 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 517.5 Tm (GET /api/sequence/export) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 228.5 517.5 Tm (Exports sequence samples; protect the data.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 224 529 m 224 508 l S
-1 1 1 rg 0.83 0.86 0.89 RG 0.4 w 44 487 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 496.5 Tm (POST /api/sequence/predict) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 228.5 496.5 Tm (Runs the continuous classifier.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 224 508 m 224 487 l S
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 466 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 475.5 Tm (POST /api/translate) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 228.5 475.5 Tm (Online translation providers/fallback; language support varies.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 224 487 m 224 466 l S
-1 1 1 rg 0.83 0.86 0.89 RG 0.4 w 44 445 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 454.5 Tm (POST /api/speech) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 228.5 454.5 Tm (gTTS speech endpoint; internet/provider needed.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 224 466 m 224 445 l S
-0.12 0.4 0.7 rg BT /F2 11 Tf 1 0 0 1 44 426 Tm (API timing) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.7 Tf 1 0 0 1 44 411.3 Tm (The backend records successful prediction-route durations in a process-local rolling window up to 200 timings per route.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.7 Tf 1 0 0 1 44 399.4 Tm (This measures server handling, not total user-perceived response time.) Tj ET
-0.37 0.41 0.47 rg BT /F1 8.3 Tf 1 0 0 1 44 383.9 Tm (Historical Render logs from 19 October 2026: static API mean 35.3 ms over 50 requests; sequence API mean 113.2 ms over 44) Tj ET
-0.37 0.41 0.47 rg BT /F1 8.3 Tf 1 0 0 1 44 372 Tm (requests. These are historical measurements, not guarantees.) Tj ET
-endstream
-endobj
-24 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 23 0 R >>
-endobj
-25 0 obj
-<< /Length 2424 >>
-stream
-0.055 0.09 0.16 rg 0 737 612 55 re f
-0.76 0.08 0.19 rg 0 734 612 3 re f
-1 1 1 rg BT /F2 8 Tf 1 0 0 1 44 767 Tm (SAHAYAK | CBSE SCIENCE EXHIBITION STUDY GUIDE) Tj ET
-0.055 0.09 0.16 rg BT /F2 17 Tf 1 0 0 1 44 701 Tm (9. Data storage, privacy and offline behavior) Tj ET
-0.94 0.96 0.98 RG 1 w 44 693 m 568 693 l S
-0.5 0.54 0.6 rg BT /F1 6.8 Tf 1 0 0 1 44 18.2 Tm (Based on SAHAYAK-ISL code/deployment notes | October 2026) Tj ET
-0.5 0.54 0.6 rg BT /F2 6.8 Tf 1 0 0 1 544 18.2 Tm (11) Tj ET
-0.12 0.4 0.7 rg BT /F2 11 Tf 1 0 0 1 44 668 Tm (Where data lives) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 653.5 Tm (- Models: backend/model/sahayak_twohand.joblib and sahayak_sequence.joblib.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 639.9 Tm (- Label metadata: backend/labels_twohand.json; metadata does not train the classifier.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 626.3 Tm (- Sequence samples: backend/continuous_gesture_db.db, SQLite on service filesystem.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 612.7 Tm (- Preferences/custom phrases/history: browser localStorage.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 599.1 Tm (- Code versions: GitHub; Vercel and Render deploy connected commits.) Tj ET
-0.12 0.4 0.7 rg BT /F2 11 Tf 1 0 0 1 44 583 Tm (Privacy) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 568.5 Tm (- Current Studio sends numeric features to /api/predict-features, not raw video; a legacy image endpoint exists.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 554.9 Tm (- Landmark sequences can be sensitive: obtain consent, limit export and keep identifiable data out of public repos.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 541.3 Tm (- localStorage is not backup and can be cleared.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 527.7 Tm (- SQLite on ephemeral storage may not survive instance replacement; use persistent storage for important records.) Tj ET
-0.12 0.4 0.7 rg BT /F2 11 Tf 1 0 0 1 44 511.6 Tm (Offline) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 497.1 Tm (- MediaPipe loads from CDN; the classifier is a remote Render API.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 483.5 Tm (- General translation and gTTS speech use online services.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 469.9 Tm (- A few bundled English/Hindi/Assamese/Bengali phrases may work offline after load; that is not full offline recognition.) Tj ET
-endstream
-endobj
-26 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 25 0 R >>
-endobj
-27 0 obj
-<< /Length 2359 >>
-stream
-0.055 0.09 0.16 rg 0 737 612 55 re f
-0.76 0.08 0.19 rg 0 734 612 3 re f
-1 1 1 rg BT /F2 8 Tf 1 0 0 1 44 767 Tm (SAHAYAK | CBSE SCIENCE EXHIBITION STUDY GUIDE) Tj ET
-0.055 0.09 0.16 rg BT /F2 17 Tf 1 0 0 1 44 701 Tm (10. Verified repository state) Tj ET
-0.94 0.96 0.98 RG 1 w 44 693 m 568 693 l S
-0.5 0.54 0.6 rg BT /F1 6.8 Tf 1 0 0 1 44 18.2 Tm (Based on SAHAYAK-ISL code/deployment notes | October 2026) Tj ET
-0.5 0.54 0.6 rg BT /F2 6.8 Tf 1 0 0 1 544 18.2 Tm (12) Tj ET
-0.12 0.4 0.7 rg BT /F2 11 Tf 1 0 0 1 44 668 Tm (Known implementation facts) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 653.5 Tm (- Repo: Mrjohanjyotikuli/SAHAYAK-ISL, main branch.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 639.9 Tm (- Frontend: frontend/index.html and frontend/studio.html.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 626.3 Tm (- Backend: Python Flask in backend/web_app.py.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 612.7 Tm (- Requirements include Flask, Flask-CORS, NumPy, OpenCV, scikit-learn, Joblib, MediaPipe, Gunicorn, gTTS.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 599.1 Tm (- Configured labels: HELLO, I_LOVE_YOU, NO, THANK_YOU, YES; /api/status loaded model labels are authoritative.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 585.5 Tm (- Static 126 values; sequence frame 132 values; sequence input 1,320 values.) Tj ET
-0.12 0.4 0.7 rg BT /F2 11 Tf 1 0 0 1 44 569.4 Tm (Important gaps) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 554.9 Tm (- Dedicated static webcam capture utility is absent.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 541.3 Tm (- Reusable train_twohand_model.py and train_sequence_model.py scripts are absent.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 527.7 Tm (- No saved held-out accuracy report.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 514.1 Tm (- Sequence DB/API samples alone do not prove those samples trained the deployed classifier.) Tj ET
-0.9 0.95 0.99 rg 0.12 0.4 0.7 RG 0.8 w 44 460.6 524 48.4 re B
-0.12 0.4 0.7 rg BT /F2 8.6 Tf 1 0 0 1 54 493.4 Tm (Say this honestly) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.1 Tf 1 0 0 1 54 480.9 Tm (The live recognition path is deployed. A repeatable collection, training, evaluation and promotion workflow is still needed) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.1 Tf 1 0 0 1 54 470.7 Tm (before adding signs becomes routine.) Tj ET
-endstream
-endobj
-28 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 27 0 R >>
-endobj
-29 0 obj
-<< /Length 3434 >>
-stream
-0.055 0.09 0.16 rg 0 737 612 55 re f
-0.76 0.08 0.19 rg 0 734 612 3 re f
-1 1 1 rg BT /F2 8 Tf 1 0 0 1 44 767 Tm (SAHAYAK | CBSE SCIENCE EXHIBITION STUDY GUIDE) Tj ET
-0.055 0.09 0.16 rg BT /F2 17 Tf 1 0 0 1 44 701 Tm (11. Add a new STATIC sign) Tj ET
-0.94 0.96 0.98 RG 1 w 44 693 m 568 693 l S
-0.5 0.54 0.6 rg BT /F1 6.8 Tf 1 0 0 1 44 18.2 Tm (Based on SAHAYAK-ISL code/deployment notes | October 2026) Tj ET
-0.5 0.54 0.6 rg BT /F2 6.8 Tf 1 0 0 1 544 18.2 Tm (13) Tj ET
-0.12 0.4 0.7 rg BT /F2 11 Tf 1 0 0 1 44 668 Tm (A. Define and collect) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 653.5 Tm (- Choose a unique label \(example HELP\) and define exactly what pose it represents.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 639.9 Tm (- Use a capture tool to collect normalized 126-value rows and pair each row with a label.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 626.3 Tm (- Collect repeated takes with variation in signer, lighting, distance, background and camera angle.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 612.7 Tm (- Include old classes in the training set or the model may forget existing signs.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 599.1 Tm (- Reject missing hands, invalid values and wrong labels; keep private data private.) Tj ET
-0.12 0.4 0.7 rg BT /F2 11 Tf 1 0 0 1 44 583 Tm (B. Train and evaluate) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 568.5 Tm (- Use scikit-learn with the same feature order/normalization as runtime.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 554.9 Tm (- Split by session or signer before training, not adjacent frames from one burst.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 541.3 Tm (- Report counts, confusion matrix, precision, recall, F1 and held-out accuracy.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 527.7 Tm (- Compare candidate against a fixed regression set of existing classes.) Tj ET
-0.12 0.4 0.7 rg BT /F2 11 Tf 1 0 0 1 44 511.6 Tm (C. Promote safely) Tj ET
-0.9 0.95 0.99 rg 0.12 0.4 0.7 RG 0.9 w 92 474.6 428 31 re B
-0.11 0.14 0.19 rg BT /F2 7.7 Tf 1 0 0 1 217.296 486.25 Tm (Private labelled dataset + manifest/count report) Tj ET
-0.12 0.4 0.7 RG 1 w 306 474.6 m 306 472.6 l S
-0.12 0.4 0.7 RG 1 w 306 472.6 m 302.5 477.6 l S
-0.12 0.4 0.7 RG 1 w 306 472.6 m 309.5 477.6 l S
-0.9 0.97 0.94 rg 0.08 0.5 0.36 RG 0.9 w 92 436.6 428 31 re B
-0.11 0.14 0.19 rg BT /F2 7.7 Tf 1 0 0 1 230.232 448.25 Tm (Train candidate model and save separately) Tj ET
-0.08 0.5 0.36 RG 1 w 306 436.6 m 306 434.6 l S
-0.08 0.5 0.36 RG 1 w 306 434.6 m 302.5 439.6 l S
-0.08 0.5 0.36 RG 1 w 306 434.6 m 309.5 439.6 l S
-1 0.96 0.87 rg 0.92 0.6 0.12 RG 0.9 w 92 398.6 428 31 re B
-0.11 0.14 0.19 rg BT /F2 7.7 Tf 1 0 0 1 219.144 410.25 Tm (Evaluate unseen sessions/signers and old labels) Tj ET
-0.92 0.6 0.12 RG 1 w 306 398.6 m 306 396.6 l S
-0.92 0.6 0.12 RG 1 w 306 396.6 m 302.5 401.6 l S
-0.92 0.6 0.12 RG 1 w 306 396.6 m 309.5 401.6 l S
-0.99 0.93 0.93 rg 0.76 0.08 0.19 RG 0.9 w 92 360.6 428 31 re B
-0.11 0.14 0.19 rg BT /F2 7.7 Tf 1 0 0 1 215.448 372.25 Tm (After passing: update model artifact and metadata) Tj ET
-0.76 0.08 0.19 RG 1 w 306 360.6 m 306 358.6 l S
-0.76 0.08 0.19 RG 1 w 306 358.6 m 302.5 363.6 l S
-0.76 0.08 0.19 RG 1 w 306 358.6 m 309.5 363.6 l S
-0.9 0.95 0.99 rg 0.12 0.4 0.7 RG 0.9 w 92 322.6 428 31 re B
-0.11 0.14 0.19 rg BT /F2 7.7 Tf 1 0 0 1 220.992 334.25 Tm (Commit to GitHub -> Render deploy -> live test) Tj ET
-endstream
-endobj
-30 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 29 0 R >>
-endobj
-31 0 obj
-<< /Length 2514 >>
-stream
-0.055 0.09 0.16 rg 0 737 612 55 re f
-0.76 0.08 0.19 rg 0 734 612 3 re f
-1 1 1 rg BT /F2 8 Tf 1 0 0 1 44 767 Tm (SAHAYAK | CBSE SCIENCE EXHIBITION STUDY GUIDE) Tj ET
-0.055 0.09 0.16 rg BT /F2 17 Tf 1 0 0 1 44 701 Tm (12. Add a new CONTINUOUS sign) Tj ET
-0.94 0.96 0.98 RG 1 w 44 693 m 568 693 l S
-0.5 0.54 0.6 rg BT /F1 6.8 Tf 1 0 0 1 44 18.2 Tm (Based on SAHAYAK-ISL code/deployment notes | October 2026) Tj ET
-0.5 0.54 0.6 rg BT /F2 6.8 Tf 1 0 0 1 544 18.2 Tm (14) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.7 Tf 1 0 0 1 44 670.3 Tm (A moving sign depends on pose order over time. The project stores sequences of 132-feature frames and resamples to a) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.7 Tf 1 0 0 1 44 658.4 Tm (1,320-value input.) Tj ET
-0.12 0.4 0.7 rg BT /F2 11 Tf 1 0 0 1 44 640.2 Tm (Collect) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 625.7 Tm (- Define the label and a consistent start/end boundary.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 612.1 Tm (- Record full ordered performances; include varied repeated takes.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 598.5 Tm (- Store labelled feature frames and session metadata without exposing identities.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 584.9 Tm (- POST /api/sequence/samples exists, but the visible Studio collector is hidden and SQLite is not a durable shared dataset) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 573.3 Tm (service.) Tj ET
-0.12 0.4 0.7 rg BT /F2 11 Tf 1 0 0 1 44 557.2 Tm (Train and publish) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 542.7 Tm (- Create train_sequence_model.py \(missing\) to load DB/export, call summarize_sequence\(\), fit classifier and output metrics.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 529.1 Tm (- Split by signer/session; review confusion between similar movements.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 515.5 Tm (- Test segmenter settings: minimum 15 frames, max 90 frames, brief stillness detector.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 501.9 Tm (- Promote only after held-out evaluation and regression tests.) Tj ET
-0.9 0.95 0.99 rg 0.12 0.4 0.7 RG 0.8 w 44 448.4 524 48.4 re B
-0.12 0.4 0.7 rg BT /F2 8.6 Tf 1 0 0 1 54 481.2 Tm (Current blocker) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.1 Tf 1 0 0 1 54 468.7 Tm (The repository has sequence features, database and inference route, but no reusable sequence-training script. Do not say) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.1 Tf 1 0 0 1 54 458.5 Tm (end-to-end browser training already works.) Tj ET
-endstream
-endobj
-32 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 31 0 R >>
-endobj
-33 0 obj
-<< /Length 5148 >>
-stream
-0.055 0.09 0.16 rg 0 737 612 55 re f
-0.76 0.08 0.19 rg 0 734 612 3 re f
-1 1 1 rg BT /F2 8 Tf 1 0 0 1 44 767 Tm (SAHAYAK | CBSE SCIENCE EXHIBITION STUDY GUIDE) Tj ET
-0.055 0.09 0.16 rg BT /F2 17 Tf 1 0 0 1 44 701 Tm (13. Can collection and training happen in GitHub?) Tj ET
-0.94 0.96 0.98 RG 1 w 44 693 m 568 693 l S
-0.5 0.54 0.6 rg BT /F1 6.8 Tf 1 0 0 1 44 18.2 Tm (Based on SAHAYAK-ISL code/deployment notes | October 2026) Tj ET
-0.5 0.54 0.6 rg BT /F2 6.8 Tf 1 0 0 1 544 18.2 Tm (15) Tj ET
-0.055 0.09 0.16 rg 44 655 520 24 re f
-1 1 1 rg BT /F2 7.7 Tf 1 0 0 1 48 665.3 Tm (Method) Tj ET
-1 1 1 rg BT /F2 7.7 Tf 1 0 0 1 147 665.3 Tm (Collect webcam?) Tj ET
-1 1 1 rg BT /F2 7.7 Tf 1 0 0 1 284 665.3 Tm (Train?) Tj ET
-1 1 1 rg BT /F2 7.7 Tf 1 0 0 1 406 665.3 Tm (Best use) Tj ET
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 630.4 520 24.6 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 643.5 Tm (GitHub editor) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 147.5 643.5 Tm (No built-in webcam UI.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 143 655 m 143 630.4 l S
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 284.5 643.5 Tm (No; editing labels is not) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 284.5 634.7 Tm (training.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 280 655 m 280 630.4 l S
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 406.5 643.5 Tm (Edit code/docs.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 402 655 m 402 630.4 l S
-1 1 1 rg 0.83 0.86 0.89 RG 0.4 w 44 609.4 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 618.9 Tm (Upload files) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 147.5 618.9 Tm (Only files collected elsewhere.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 143 630.4 m 143 609.4 l S
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 284.5 618.9 Tm (Not automatically.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 280 630.4 m 280 609.4 l S
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 406.5 618.9 Tm (Upload approved data/artifacts.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 402 630.4 m 402 609.4 l S
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 584.8 520 24.6 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 597.9 Tm (Codespaces) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 147.5 597.9 Tm (Only with a designed/tested browser) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 147.5 589.1 Tm (capture workflow.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 143 609.4 m 143 584.8 l S
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 284.5 597.9 Tm (Yes after scripts/dependencies) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 284.5 589.1 Tm (exist.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 280 609.4 m 280 584.8 l S
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 406.5 597.9 Tm (Cloud development.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 402 609.4 m 402 584.8 l S
-1 1 1 rg 0.83 0.86 0.89 RG 0.4 w 44 560.2 520 24.6 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 573.3 Tm (GitHub Actions) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 147.5 573.3 Tm (Not interactive camera collection by) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 147.5 564.5 Tm (default.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 143 584.8 m 143 560.2 l S
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 284.5 573.3 Tm (Yes once workflow/data/trainer) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 284.5 564.5 Tm (exist.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 280 584.8 m 280 560.2 l S
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 406.5 573.3 Tm (Repeatable CI training.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 402 584.8 m 402 560.2 l S
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 539.2 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 548.7 Tm (Local .venv) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 147.5 548.7 Tm (Yes, with capture tool.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 143 560.2 m 143 539.2 l S
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 284.5 548.7 Tm (Yes once scripts exist.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 280 560.2 m 280 539.2 l S
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 406.5 548.7 Tm (Best first step for current repo.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 402 560.2 m 402 539.2 l S
-0.12 0.4 0.7 rg BT /F2 11 Tf 1 0 0 1 44 520.2 Tm (What Actions needs) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 505.7 Tm (- Workflow under .github/workflows/ plus tested capture, training and evaluation scripts.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 492.1 Tm (- Secure data source; don't put identifiable recordings in public repository.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 478.5 Tm (- Train candidate, print counts/metrics, run regression checks, store candidate artifact.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 464.9 Tm (- Use a promotion gate so failed candidates cannot overwrite the current model.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 451.3 Tm (- After approval, publish artifact, trigger Render and check /api/status plus live recognition.) Tj ET
-0.9 0.95 0.99 rg 0.12 0.4 0.7 RG 0.8 w 44 397.8 524 48.4 re B
-0.12 0.4 0.7 rg BT /F2 8.6 Tf 1 0 0 1 54 430.6 Tm (Recommended path) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.1 Tf 1 0 0 1 54 418.1 Tm (First make a local Dataset Lab and trainers work, then automate the same checks with GitHub Actions. The normal GitHub) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.1 Tf 1 0 0 1 54 407.9 Tm (editor cannot collect webcam data by itself.) Tj ET
-endstream
-endobj
-34 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 33 0 R >>
-endobj
-35 0 obj
-<< /Length 4804 >>
-stream
-0.055 0.09 0.16 rg 0 737 612 55 re f
-0.76 0.08 0.19 rg 0 734 612 3 re f
-1 1 1 rg BT /F2 8 Tf 1 0 0 1 44 767 Tm (SAHAYAK | CBSE SCIENCE EXHIBITION STUDY GUIDE) Tj ET
-0.055 0.09 0.16 rg BT /F2 17 Tf 1 0 0 1 44 701 Tm (14. Change website content without retraining) Tj ET
-0.94 0.96 0.98 RG 1 w 44 693 m 568 693 l S
-0.5 0.54 0.6 rg BT /F1 6.8 Tf 1 0 0 1 44 18.2 Tm (Based on SAHAYAK-ISL code/deployment notes | October 2026) Tj ET
-0.5 0.54 0.6 rg BT /F2 6.8 Tf 1 0 0 1 544 18.2 Tm (16) Tj ET
-0.055 0.09 0.16 rg 44 655 520 24 re f
-1 1 1 rg BT /F2 7.7 Tf 1 0 0 1 48 665.3 Tm (Task) Tj ET
-1 1 1 rg BT /F2 7.7 Tf 1 0 0 1 193 665.3 Tm (File / location) Tj ET
-1 1 1 rg BT /F2 7.7 Tf 1 0 0 1 466 665.3 Tm (Hosting) Tj ET
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 634 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 643.5 Tm (Homepage text/layout) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 193.5 643.5 Tm (frontend/index.html) Tj ET
-0.83 0.86 0.89 RG 0.4 w 189 655 m 189 634 l S
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 466.5 643.5 Tm (Vercel) Tj ET
-0.83 0.86 0.89 RG 0.4 w 462 655 m 462 634 l S
-1 1 1 rg 0.83 0.86 0.89 RG 0.4 w 44 613 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 622.5 Tm (Live Studio UI) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 193.5 622.5 Tm (frontend/studio.html) Tj ET
-0.83 0.86 0.89 RG 0.4 w 189 634 m 189 613 l S
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 466.5 622.5 Tm (Vercel) Tj ET
-0.83 0.86 0.89 RG 0.4 w 462 634 m 462 613 l S
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 592 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 601.5 Tm (Logo) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 193.5 601.5 Tm (frontend/assets/ + HTML path) Tj ET
-0.83 0.86 0.89 RG 0.4 w 189 613 m 189 592 l S
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 466.5 601.5 Tm (Vercel) Tj ET
-0.83 0.86 0.89 RG 0.4 w 462 613 m 462 592 l S
-1 1 1 rg 0.83 0.86 0.89 RG 0.4 w 44 571 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 580.5 Tm (Names/roles/photos) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 193.5 580.5 Tm (MODULE 10 in index.html; upload consented assets) Tj ET
-0.83 0.86 0.89 RG 0.4 w 189 592 m 189 571 l S
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 466.5 580.5 Tm (Vercel) Tj ET
-0.83 0.86 0.89 RG 0.4 w 462 592 m 462 571 l S
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 550 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 559.5 Tm (Phrasebook cards) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 193.5 559.5 Tm (phrasesData in index.html) Tj ET
-0.83 0.86 0.89 RG 0.4 w 189 571 m 189 550 l S
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 466.5 559.5 Tm (Vercel) Tj ET
-0.83 0.86 0.89 RG 0.4 w 462 571 m 462 550 l S
-1 1 1 rg 0.83 0.86 0.89 RG 0.4 w 44 529 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 538.5 Tm (Recognized signs) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 193.5 538.5 Tm (Train appropriate model + metadata) Tj ET
-0.83 0.86 0.89 RG 0.4 w 189 550 m 189 529 l S
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 466.5 538.5 Tm (Render) Tj ET
-0.83 0.86 0.89 RG 0.4 w 462 550 m 462 529 l S
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 508 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 517.5 Tm (Backend APIs) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 193.5 517.5 Tm (backend/web_app.py + requirements.txt) Tj ET
-0.83 0.86 0.89 RG 0.4 w 189 529 m 189 508 l S
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 466.5 517.5 Tm (Render) Tj ET
-0.83 0.86 0.89 RG 0.4 w 462 529 m 462 508 l S
-1 1 1 rg 0.83 0.86 0.89 RG 0.4 w 44 487 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 496.5 Tm (Model artifact) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 193.5 496.5 Tm (backend/model/*.joblib after testing) Tj ET
-0.83 0.86 0.89 RG 0.4 w 189 508 m 189 487 l S
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 466.5 496.5 Tm (Render) Tj ET
-0.83 0.86 0.89 RG 0.4 w 462 508 m 462 487 l S
-0.12 0.4 0.7 rg BT /F2 11 Tf 1 0 0 1 44 468 Tm (Logo and member edits) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 453.5 Tm (- If replacing only the small emblem, preserve the SAHAYAK wordmark/subtitle.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 439.9 Tm (- Check asset name/case/path. Uploading a PNG does not replace embedded SVG unless HTML points to it.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 426.3 Tm (- Commit to main; wait for Vercel success; refresh phone after cache change.) Tj ET
-0.12 0.4 0.7 rg BT /F2 11 Tf 1 0 0 1 44 410.2 Tm (Keep counts separate) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 395.7 Tm (- Phrasebook card count is not the model class count.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 382.1 Tm (- Loaded classifier classes indicate what the camera model can predict.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 368.5 Tm (- Training count must come from the labelled dataset, not labels JSON.) Tj ET
-endstream
-endobj
-36 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 35 0 R >>
-endobj
-37 0 obj
-<< /Length 5469 >>
-stream
-0.055 0.09 0.16 rg 0 737 612 55 re f
-0.76 0.08 0.19 rg 0 734 612 3 re f
-1 1 1 rg BT /F2 8 Tf 1 0 0 1 44 767 Tm (SAHAYAK | CBSE SCIENCE EXHIBITION STUDY GUIDE) Tj ET
-0.055 0.09 0.16 rg BT /F2 17 Tf 1 0 0 1 44 701 Tm (15. Code map and deployment pipeline) Tj ET
-0.94 0.96 0.98 RG 1 w 44 693 m 568 693 l S
-0.5 0.54 0.6 rg BT /F1 6.8 Tf 1 0 0 1 44 18.2 Tm (Based on SAHAYAK-ISL code/deployment notes | October 2026) Tj ET
-0.5 0.54 0.6 rg BT /F2 6.8 Tf 1 0 0 1 544 18.2 Tm (17) Tj ET
-0.055 0.09 0.16 rg 44 655 520 24 re f
-1 1 1 rg BT /F2 7.7 Tf 1 0 0 1 48 665.3 Tm (File/folder) Tj ET
-1 1 1 rg BT /F2 7.7 Tf 1 0 0 1 268 665.3 Tm (Responsibility) Tj ET
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 634 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 643.5 Tm (frontend/index.html) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 268.5 643.5 Tm (Homepage, menu, phrasebook, demographic counters, team and dataset UI.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 264 655 m 264 634 l S
-1 1 1 rg 0.83 0.86 0.89 RG 0.4 w 44 609.4 520 24.6 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 622.5 Tm (frontend/studio.html) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 268.5 622.5 Tm (Camera, MediaPipe JS, landmarks, static calls, motion segmentation,) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 268.5 613.7 Tm (translation/speech.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 264 634 m 264 609.4 l S
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 588.4 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 597.9 Tm (frontend/config.js) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 268.5 597.9 Tm (Render API base URL.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 264 609.4 m 264 588.4 l S
-1 1 1 rg 0.83 0.86 0.89 RG 0.4 w 44 567.4 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 576.9 Tm (frontend/service-worker.js) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 268.5 576.9 Tm (Static shell cache; bump version on frontend update.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 264 588.4 m 264 567.4 l S
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 546.4 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 555.9 Tm (backend/web_app.py) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 268.5 555.9 Tm (Flask routes, validation, model loading, prediction, translation/speech.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 264 567.4 m 264 546.4 l S
-1 1 1 rg 0.83 0.86 0.89 RG 0.4 w 44 525.4 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 534.9 Tm (backend/features.py) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 268.5 534.9 Tm (126 static values and 132 sequence-frame values.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 264 546.4 m 264 525.4 l S
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 504.4 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 513.9 Tm (backend/sequence_features.py) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 268.5 513.9 Tm (Resample variable sequence length to 1,320 vector.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 264 525.4 m 264 504.4 l S
-1 1 1 rg 0.83 0.86 0.89 RG 0.4 w 44 483.4 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 492.9 Tm (backend/sequence_db.py) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 268.5 492.9 Tm (SQLite sample add/load/summary helpers.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 264 504.4 m 264 483.4 l S
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 462.4 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 471.9 Tm (backend/labels_twohand.json) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 268.5 471.9 Tm (Label metadata; not a trainer.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 264 483.4 m 264 462.4 l S
-1 1 1 rg 0.83 0.86 0.89 RG 0.4 w 44 441.4 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 450.9 Tm (backend/model/*.joblib) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 268.5 450.9 Tm (Serialized classifiers loaded by backend.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 264 462.4 m 264 441.4 l S
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 420.4 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 429.9 Tm (backend/requirements.txt) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 268.5 429.9 Tm (Python dependencies.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 264 441.4 m 264 420.4 l S
-0.9 0.95 0.99 rg 0.12 0.4 0.7 RG 0.9 w 94 381.4 424 31 re B
-0.11 0.14 0.19 rg BT /F2 7.7 Tf 1 0 0 1 245.016 393.05 Tm (Edit/review source in GitHub main) Tj ET
-0.12 0.4 0.7 RG 1 w 306 381.4 m 306 379.4 l S
-0.12 0.4 0.7 RG 1 w 306 379.4 m 302.5 384.4 l S
-0.12 0.4 0.7 RG 1 w 306 379.4 m 309.5 384.4 l S
-0.9 0.97 0.94 rg 0.08 0.5 0.36 RG 0.9 w 94 343.4 424 31 re B
-0.11 0.14 0.19 rg BT /F2 7.7 Tf 1 0 0 1 250.56 355.05 Tm (Vercel builds frontend changes) Tj ET
-0.08 0.5 0.36 RG 1 w 306 343.4 m 306 341.4 l S
-0.08 0.5 0.36 RG 1 w 306 341.4 m 302.5 346.4 l S
-0.08 0.5 0.36 RG 1 w 306 341.4 m 309.5 346.4 l S
-1 0.96 0.87 rg 0.92 0.6 0.12 RG 0.9 w 94 305.4 424 31 re B
-0.11 0.14 0.19 rg BT /F2 7.7 Tf 1 0 0 1 241.32 317.05 Tm (Render builds backend/model changes) Tj ET
-0.92 0.6 0.12 RG 1 w 306 305.4 m 306 303.4 l S
-0.92 0.6 0.12 RG 1 w 306 303.4 m 302.5 308.4 l S
-0.92 0.6 0.12 RG 1 w 306 303.4 m 309.5 308.4 l S
-0.9 0.95 0.99 rg 0.12 0.4 0.7 RG 0.9 w 94 267.4 424 31 re B
-0.11 0.14 0.19 rg BT /F2 7.7 Tf 1 0 0 1 245.016 279.05 Tm (Check /api/health and /api/status) Tj ET
-0.12 0.4 0.7 RG 1 w 306 267.4 m 306 265.4 l S
-0.12 0.4 0.7 RG 1 w 306 265.4 m 302.5 270.4 l S
-0.12 0.4 0.7 RG 1 w 306 265.4 m 309.5 270.4 l S
-0.99 0.93 0.93 rg 0.76 0.08 0.19 RG 0.9 w 94 229.4 424 31 re B
-0.11 0.14 0.19 rg BT /F2 7.7 Tf 1 0 0 1 200.664 241.05 Tm (Test old/new signs, translation, speech and sample counts) Tj ET
-endstream
-endobj
-38 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 37 0 R >>
-endobj
-39 0 obj
-<< /Length 5557 >>
-stream
-0.055 0.09 0.16 rg 0 737 612 55 re f
-0.76 0.08 0.19 rg 0 734 612 3 re f
-1 1 1 rg BT /F2 8 Tf 1 0 0 1 44 767 Tm (SAHAYAK | CBSE SCIENCE EXHIBITION STUDY GUIDE) Tj ET
-0.055 0.09 0.16 rg BT /F2 17 Tf 1 0 0 1 44 701 Tm (16. Test plan and evidence) Tj ET
-0.94 0.96 0.98 RG 1 w 44 693 m 568 693 l S
-0.5 0.54 0.6 rg BT /F1 6.8 Tf 1 0 0 1 44 18.2 Tm (Based on SAHAYAK-ISL code/deployment notes | October 2026) Tj ET
-0.5 0.54 0.6 rg BT /F2 6.8 Tf 1 0 0 1 544 18.2 Tm (18) Tj ET
-0.055 0.09 0.16 rg 44 655 520 24 re f
-1 1 1 rg BT /F2 7.7 Tf 1 0 0 1 48 665.3 Tm (Test) Tj ET
-1 1 1 rg BT /F2 7.7 Tf 1 0 0 1 130 665.3 Tm (Procedure) Tj ET
-1 1 1 rg BT /F2 7.7 Tf 1 0 0 1 359 665.3 Tm (Evidence) Tj ET
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 634 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 643.5 Tm (Camera) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 130.5 643.5 Tm (Start/stop, switch cameras and grant permission.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 126 655 m 126 634 l S
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 359.5 643.5 Tm (Video + status.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 355 655 m 355 634 l S
-1 1 1 rg 0.83 0.86 0.89 RG 0.4 w 44 613 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 622.5 Tm (Static signs) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 130.5 622.5 Tm (Repeat each active class; compare actual/predicted label.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 126 634 m 126 613 l S
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 359.5 622.5 Tm (Outcomes for every class.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 355 634 m 355 613 l S
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 592 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 601.5 Tm (Unknown pose) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 130.5 601.5 Tm (Show an untrained pose.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 126 613 m 126 592 l S
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 359.5 601.5 Tm (Inspect uncertainty behavior.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 355 613 m 355 592 l S
-1 1 1 rg 0.83 0.86 0.89 RG 0.4 w 44 571 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 580.5 Tm (Motion) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 130.5 580.5 Tm (Perform a supported moving sign.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 126 592 m 126 571 l S
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 359.5 580.5 Tm (Actual label vs prediction.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 355 592 m 355 571 l S
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 550 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 559.5 Tm (Overlay) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 130.5 559.5 Tm (Move hand across frame.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 126 571 m 126 550 l S
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 359.5 559.5 Tm (Points align with hand.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 355 571 m 355 550 l S
-1 1 1 rg 0.83 0.86 0.89 RG 0.4 w 44 529 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 538.5 Tm (Translation) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 130.5 538.5 Tm (Translate supported phrase.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 126 550 m 126 529 l S
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 359.5 538.5 Tm (Languages/provider status.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 355 550 m 355 529 l S
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 508 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 517.5 Tm (Speech) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 130.5 517.5 Tm (Speak original/translated text.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 126 529 m 126 508 l S
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 359.5 517.5 Tm (Audio or device limitations.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 355 529 m 355 508 l S
-1 1 1 rg 0.83 0.86 0.89 RG 0.4 w 44 487 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 496.5 Tm (Offline) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 130.5 496.5 Tm (Test phrase fallback and recognition separately.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 126 508 m 126 487 l S
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 359.5 496.5 Tm (Bundled text may work; full recognition may not.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 355 508 m 355 487 l S
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 466 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 475.5 Tm (Performance) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 130.5 475.5 Tm (Measure server and end-to-end separately.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 126 487 m 126 466 l S
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 359.5 475.5 Tm (Counts, mean/min/max and conditions.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 355 487 m 355 466 l S
-0.12 0.4 0.7 rg BT /F2 11 Tf 1 0 0 1 44 447 Tm (Evaluation essentials) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 432.5 Tm (- Split by signer/session, not adjacent frames.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 418.9 Tm (- Report class counts, precision, recall, F1 and confusion matrix.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 405.3 Tm (- Test occlusion, distance, backgrounds, lighting and new signers.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 391.7 Tm (- Keep fixed regression set for old classes before/after a new sign.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 378.1 Tm (- Record dataset version, model hash, test date, device/browser and protocol.) Tj ET
-1 0.96 0.87 rg 0.92 0.6 0.12 RG 0.8 w 44 324.6 524 48.4 re B
-0.92 0.6 0.12 rg BT /F2 8.6 Tf 1 0 0 1 54 357.4 Tm (If asked for accuracy) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.1 Tf 1 0 0 1 54 344.9 Tm (This repository does not include a verified held-out report, so we do not claim a percentage. The next step is a labelled) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.1 Tf 1 0 0 1 54 334.7 Tm (test set split by signer/session and per-class metrics.) Tj ET
-endstream
-endobj
-40 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 39 0 R >>
-endobj
-41 0 obj
-<< /Length 2854 >>
-stream
-0.055 0.09 0.16 rg 0 737 612 55 re f
-0.76 0.08 0.19 rg 0 734 612 3 re f
-1 1 1 rg BT /F2 8 Tf 1 0 0 1 44 767 Tm (SAHAYAK | CBSE SCIENCE EXHIBITION STUDY GUIDE) Tj ET
-0.055 0.09 0.16 rg BT /F2 17 Tf 1 0 0 1 44 701 Tm (17. Presentation script \(4-6 minutes\)) Tj ET
-0.94 0.96 0.98 RG 1 w 44 693 m 568 693 l S
-0.5 0.54 0.6 rg BT /F1 6.8 Tf 1 0 0 1 44 18.2 Tm (Based on SAHAYAK-ISL code/deployment notes | October 2026) Tj ET
-0.5 0.54 0.6 rg BT /F2 6.8 Tf 1 0 0 1 544 18.2 Tm (19) Tj ET
-0.12 0.4 0.7 rg BT /F2 11 Tf 1 0 0 1 44 668 Tm (Opening) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.7 Tf 1 0 0 1 44 653.3 Tm (Good morning respected judges. Our project is SAHAYAK, a real-time Indian Sign Language recognition prototype. It) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.7 Tf 1 0 0 1 44 641.4 Tm (demonstrates how a browser camera and hand-landmark features can support communication by recognizing a limited set of) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.7 Tf 1 0 0 1 44 629.5 Tm (trained signs, showing labels and optionally speaking text. It is not a complete ISL translator; we will explain how it) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.7 Tf 1 0 0 1 44 617.6 Tm (works and its limitations.) Tj ET
-0.12 0.4 0.7 rg BT /F2 11 Tf 1 0 0 1 44 599.4 Tm (Demo order) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 584.9 Tm (- Show homepage and explain demographic sources versus live project-specific counts.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 571.3 Tm (- Open three-dot menu -> Live Studio.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 557.7 Tm (- Grant camera permission and show landmarks; MediaPipe runs in browser.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 544.1 Tm (- Perform supported signs. Explain confidence is not test accuracy.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 530.5 Tm (- Show moving sign only if sequence model is ready; explain 132/frame and 1,320-vector.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 516.9 Tm (- Type a message, translate and speak; explain internet dependencies.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 503.3 Tm (- Open Dataset Specs and show loaded labels, sample counts and API timing definitions.) Tj ET
-0.12 0.4 0.7 rg BT /F2 11 Tf 1 0 0 1 44 487.2 Tm (Closing) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.7 Tf 1 0 0 1 44 472.5 Tm (SAHAYAK connects browser-based hand tracking, feature extraction, trained classification, text and speech. Next steps are) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.7 Tf 1 0 0 1 44 460.6 Tm (safe data collection, repeatable training, held-out evaluation and durable storage.) Tj ET
-0.9 0.95 0.99 rg 0.12 0.4 0.7 RG 0.8 w 44 415.2 524 38.2 re B
-0.12 0.4 0.7 rg BT /F2 8.6 Tf 1 0 0 1 54 437.8 Tm (Backup) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.1 Tf 1 0 0 1 54 425.3 Tm (Keep screenshots or a short recording if Wi-Fi or hosting fails; call it recorded evidence, not live recognition.) Tj ET
-endstream
-endobj
-42 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 41 0 R >>
-endobj
-43 0 obj
-<< /Length 3632 >>
-stream
-0.055 0.09 0.16 rg 0 737 612 55 re f
-0.76 0.08 0.19 rg 0 734 612 3 re f
-1 1 1 rg BT /F2 8 Tf 1 0 0 1 44 767 Tm (SAHAYAK | CBSE SCIENCE EXHIBITION STUDY GUIDE) Tj ET
-0.055 0.09 0.16 rg BT /F2 17 Tf 1 0 0 1 44 701 Tm (18. Three-member speaking roles) Tj ET
-0.94 0.96 0.98 RG 1 w 44 693 m 568 693 l S
-0.5 0.54 0.6 rg BT /F1 6.8 Tf 1 0 0 1 44 18.2 Tm (Based on SAHAYAK-ISL code/deployment notes | October 2026) Tj ET
-0.5 0.54 0.6 rg BT /F2 6.8 Tf 1 0 0 1 544 18.2 Tm (20) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.7 Tf 1 0 0 1 44 670.3 Tm (The website names these three members. The split below is a suggested presentation plan; adjust it to reflect each) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.7 Tf 1 0 0 1 44 658.4 Tm (person's real contribution. Do not claim someone implemented a module unless it is accurate.) Tj ET
-0.055 0.09 0.16 rg 44 627.2 520 24 re f
-1 1 1 rg BT /F2 7.7 Tf 1 0 0 1 48 637.5 Tm (Presenter) Tj ET
-1 1 1 rg BT /F2 7.7 Tf 1 0 0 1 173 637.5 Tm (Suggested focus) Tj ET
-1 1 1 rg BT /F2 7.7 Tf 1 0 0 1 342 637.5 Tm (Talking points) Tj ET
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 606.2 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 615.7 Tm (Shyamantika Pegu) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 173.5 615.7 Tm (Problem/access context) Tj ET
-0.83 0.86 0.89 RG 0.4 w 169 627.2 m 169 606.2 l S
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 342.5 615.7 Tm (Need, goals, sources, intended users, limitations.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 338 627.2 m 338 606.2 l S
-1 1 1 rg 0.83 0.86 0.89 RG 0.4 w 44 585.2 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 594.7 Tm (Barakha Doley) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 173.5 594.7 Tm (Frontend/demo) Tj ET
-0.83 0.86 0.89 RG 0.4 w 169 606.2 m 169 585.2 l S
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 342.5 594.7 Tm (Navigation, Live Studio, phrasebook, translation/speech, UX.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 338 606.2 m 338 585.2 l S
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 564.2 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 573.7 Tm (Himanxhu V Ghimire) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 173.5 573.7 Tm (Workflow/testing) Tj ET
-0.83 0.86 0.89 RG 0.4 w 169 585.2 m 169 564.2 l S
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 342.5 573.7 Tm (Camera, landmarks, feature dimensions, API, model, storage.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 338 585.2 m 338 564.2 l S
-1 1 1 rg 0.83 0.86 0.89 RG 0.4 w 44 543.2 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 552.7 Tm (Johan Jyoti Kuli) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 173.5 552.7 Tm (Developer/integration) Tj ET
-0.83 0.86 0.89 RG 0.4 w 169 564.2 m 169 543.2 l S
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 342.5 552.7 Tm (Repository, hosting, model artifacts, training roadmap.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 338 564.2 m 338 543.2 l S
-0.12 0.4 0.7 rg BT /F2 11 Tf 1 0 0 1 44 524.2 Tm (Handoffs) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 509.7 Tm (- Speaker 1 explains the need to turn hand movement into machine-readable features.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 496.1 Tm (- Speaker 2 demonstrates website use.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 482.5 Tm (- Speaker 3 explains features, classifier and testing.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 468.9 Tm (- Developer explains deployment and the need to train/evaluate new signs.) Tj ET
-0.9 0.95 0.99 rg 0.12 0.4 0.7 RG 0.8 w 44 425.6 524 38.2 re B
-0.12 0.4 0.7 rg BT /F2 8.6 Tf 1 0 0 1 54 448.2 Tm (Team tip) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.1 Tf 1 0 0 1 54 435.7 Tm (All members should know the entire workflow; judges can ask any question to any presenter.) Tj ET
-endstream
-endobj
-44 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 43 0 R >>
-endobj
-45 0 obj
-<< /Length 2882 >>
-stream
-0.055 0.09 0.16 rg 0 737 612 55 re f
-0.76 0.08 0.19 rg 0 734 612 3 re f
-1 1 1 rg BT /F2 8 Tf 1 0 0 1 44 767 Tm (SAHAYAK | CBSE SCIENCE EXHIBITION STUDY GUIDE) Tj ET
-0.055 0.09 0.16 rg BT /F2 17 Tf 1 0 0 1 44 701 Tm (Judge Q&A bank \(1/3\)) Tj ET
-0.94 0.96 0.98 RG 1 w 44 693 m 568 693 l S
-0.5 0.54 0.6 rg BT /F1 6.8 Tf 1 0 0 1 44 18.2 Tm (Based on SAHAYAK-ISL code/deployment notes | October 2026) Tj ET
-0.5 0.54 0.6 rg BT /F2 6.8 Tf 1 0 0 1 544 18.2 Tm (21) Tj ET
-0.37 0.41 0.47 rg BT /F1 8.7 Tf 1 0 0 1 44 670.3 Tm (Purpose/features/maths.) Tj ET
-0.12 0.4 0.7 rg BT /F2 9 Tf 1 0 0 1 44 654.1 Tm (Q1. What is SAHAYAK?) Tj ET
-0.11 0.14 0.19 rg BT /F1 8 Tf 1 0 0 1 44 640.1 Tm (A prototype recognizing a limited trained set of hand signs from camera landmarks; it can show and speak output.) Tj ET
-0.12 0.4 0.7 rg BT /F2 9 Tf 1 0 0 1 44 625.8 Tm (Q2. What problem does it address?) Tj ET
-0.11 0.14 0.19 rg BT /F1 8 Tf 1 0 0 1 44 611.8 Tm (It demonstrates a low-friction technical aid for interactions where sign-based and spoken/written communication need support.) Tj ET
-0.12 0.4 0.7 rg BT /F2 9 Tf 1 0 0 1 44 597.5 Tm (Q3. Is it a complete ISL translator?) Tj ET
-0.11 0.14 0.19 rg BT /F1 8 Tf 1 0 0 1 44 583.5 Tm (No. It classifies known labels and does not fully interpret grammar, facial expression, spatial information or spontaneous) Tj ET
-0.11 0.14 0.19 rg BT /F1 8 Tf 1 0 0 1 44 573.2 Tm (conversation.) Tj ET
-0.12 0.4 0.7 rg BT /F2 9 Tf 1 0 0 1 44 558.9 Tm (Q4. What does real time mean?) Tj ET
-0.11 0.14 0.19 rg BT /F1 8 Tf 1 0 0 1 44 544.9 Tm (The browser processes frames continually and requests predictions; total speed depends on device, network and server.) Tj ET
-0.12 0.4 0.7 rg BT /F2 9 Tf 1 0 0 1 44 530.6 Tm (Q5. What is a landmark?) Tj ET
-0.11 0.14 0.19 rg BT /F1 8 Tf 1 0 0 1 44 516.6 Tm (A tracked key point represented by numeric coordinates.) Tj ET
-0.12 0.4 0.7 rg BT /F2 9 Tf 1 0 0 1 44 502.3 Tm (Q6. How many hand landmarks?) Tj ET
-0.11 0.14 0.19 rg BT /F1 8 Tf 1 0 0 1 44 488.3 Tm (21 per hand in the MediaPipe Hands representation.) Tj ET
-0.12 0.4 0.7 rg BT /F2 9 Tf 1 0 0 1 44 474 Tm (Q7. Why normalize coordinates?) Tj ET
-0.11 0.14 0.19 rg BT /F1 8 Tf 1 0 0 1 44 460 Tm (To reduce sensitivity to translation and scale, not eliminate all viewpoint/occlusion issues.) Tj ET
-0.12 0.4 0.7 rg BT /F2 9 Tf 1 0 0 1 44 445.7 Tm (Q8. Why 126 static features?) Tj ET
-0.11 0.14 0.19 rg BT /F1 8 Tf 1 0 0 1 44 431.7 Tm (2 hand slots x 21 landmarks x 3 coordinates = 126.) Tj ET
-0.12 0.4 0.7 rg BT /F2 9 Tf 1 0 0 1 44 417.4 Tm (Q9. Why 132 sequence values per frame?) Tj ET
-0.11 0.14 0.19 rg BT /F1 8 Tf 1 0 0 1 44 403.4 Tm (126 pose values plus 6 wrist-position values.) Tj ET
-0.12 0.4 0.7 rg BT /F2 9 Tf 1 0 0 1 44 389.1 Tm (Q10. Why 1,320 sequence features?) Tj ET
-0.11 0.14 0.19 rg BT /F1 8 Tf 1 0 0 1 44 375.1 Tm (Ten resampled time bins x 132 = 1,320.) Tj ET
-endstream
-endobj
-46 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 45 0 R >>
-endobj
-47 0 obj
-<< /Length 3043 >>
-stream
-0.055 0.09 0.16 rg 0 737 612 55 re f
-0.76 0.08 0.19 rg 0 734 612 3 re f
-1 1 1 rg BT /F2 8 Tf 1 0 0 1 44 767 Tm (SAHAYAK | CBSE SCIENCE EXHIBITION STUDY GUIDE) Tj ET
-0.055 0.09 0.16 rg BT /F2 17 Tf 1 0 0 1 44 701 Tm (Judge Q&A bank \(2/3\)) Tj ET
-0.94 0.96 0.98 RG 1 w 44 693 m 568 693 l S
-0.5 0.54 0.6 rg BT /F1 6.8 Tf 1 0 0 1 44 18.2 Tm (Based on SAHAYAK-ISL code/deployment notes | October 2026) Tj ET
-0.5 0.54 0.6 rg BT /F2 6.8 Tf 1 0 0 1 544 18.2 Tm (22) Tj ET
-0.37 0.41 0.47 rg BT /F1 8.7 Tf 1 0 0 1 44 670.3 Tm (Model, data collection and evaluation.) Tj ET
-0.12 0.4 0.7 rg BT /F2 9 Tf 1 0 0 1 44 654.1 Tm (Q11. Which algorithm is used?) Tj ET
-0.11 0.14 0.19 rg BT /F1 8 Tf 1 0 0 1 44 640.1 Tm (The backend loads scikit-learn-compatible classifiers with Joblib; inspect artifact to confirm exact estimator because trainer) Tj ET
-0.11 0.14 0.19 rg BT /F1 8 Tf 1 0 0 1 44 629.8 Tm (scripts are missing.) Tj ET
-0.12 0.4 0.7 rg BT /F2 9 Tf 1 0 0 1 44 615.5 Tm (Q12. Does adding a label train the model?) Tj ET
-0.11 0.14 0.19 rg BT /F1 8 Tf 1 0 0 1 44 601.5 Tm (No. Train a model on labelled examples and save a new artifact.) Tj ET
-0.12 0.4 0.7 rg BT /F2 9 Tf 1 0 0 1 44 587.2 Tm (Q13. How add a static sign?) Tj ET
-0.11 0.14 0.19 rg BT /F1 8 Tf 1 0 0 1 44 573.2 Tm (Collect 126-feature rows, train, test on held-out sessions/signers, regression-test old labels, then promote.) Tj ET
-0.12 0.4 0.7 rg BT /F2 9 Tf 1 0 0 1 44 558.9 Tm (Q14. How add a moving sign?) Tj ET
-0.11 0.14 0.19 rg BT /F1 8 Tf 1 0 0 1 44 544.9 Tm (Collect 132-value frames in order, resample to 1,320, train/evaluate a separate classifier, then promote.) Tj ET
-0.12 0.4 0.7 rg BT /F2 9 Tf 1 0 0 1 44 530.6 Tm (Q15. How many samples are enough?) Tj ET
-0.11 0.14 0.19 rg BT /F1 8 Tf 1 0 0 1 44 516.6 Tm (No universal number. Use a balanced varied collection and report actual counts and held-out results.) Tj ET
-0.12 0.4 0.7 rg BT /F2 9 Tf 1 0 0 1 44 502.3 Tm (Q16. What is confidence?) Tj ET
-0.11 0.14 0.19 rg BT /F1 8 Tf 1 0 0 1 44 488.3 Tm (Top-class probability if supported, not a guarantee.) Tj ET
-0.12 0.4 0.7 rg BT /F2 9 Tf 1 0 0 1 44 474 Tm (Q17. What is the 60% threshold?) Tj ET
-0.11 0.14 0.19 rg BT /F1 8 Tf 1 0 0 1 44 460 Tm (Current code accepts static predictions at >=0.60 and sequence when probabilities exist; it is not accuracy.) Tj ET
-0.12 0.4 0.7 rg BT /F2 9 Tf 1 0 0 1 44 445.7 Tm (Q18. How measure accuracy?) Tj ET
-0.11 0.14 0.19 rg BT /F1 8 Tf 1 0 0 1 44 431.7 Tm (Use unseen labelled examples, confusion matrix, accuracy and per-class precision/recall/F1.) Tj ET
-0.12 0.4 0.7 rg BT /F2 9 Tf 1 0 0 1 44 417.4 Tm (Q19. How avoid overfitting?) Tj ET
-0.11 0.14 0.19 rg BT /F1 8 Tf 1 0 0 1 44 403.4 Tm (Split by signer/session, vary conditions, balance labels, test new examples.) Tj ET
-0.12 0.4 0.7 rg BT /F2 9 Tf 1 0 0 1 44 389.1 Tm (Q20. Can GitHub train it?) Tj ET
-0.11 0.14 0.19 rg BT /F1 8 Tf 1 0 0 1 44 375.1 Tm (Yes through configured Codespaces/Actions after scripts and data inputs exist; normal editor cannot record webcam by itself.) Tj ET
-endstream
-endobj
-48 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 47 0 R >>
-endobj
-49 0 obj
-<< /Length 2884 >>
-stream
-0.055 0.09 0.16 rg 0 737 612 55 re f
-0.76 0.08 0.19 rg 0 734 612 3 re f
-1 1 1 rg BT /F2 8 Tf 1 0 0 1 44 767 Tm (SAHAYAK | CBSE SCIENCE EXHIBITION STUDY GUIDE) Tj ET
-0.055 0.09 0.16 rg BT /F2 17 Tf 1 0 0 1 44 701 Tm (Judge Q&A bank \(3/3\)) Tj ET
-0.94 0.96 0.98 RG 1 w 44 693 m 568 693 l S
-0.5 0.54 0.6 rg BT /F1 6.8 Tf 1 0 0 1 44 18.2 Tm (Based on SAHAYAK-ISL code/deployment notes | October 2026) Tj ET
-0.5 0.54 0.6 rg BT /F2 6.8 Tf 1 0 0 1 544 18.2 Tm (23) Tj ET
-0.37 0.41 0.47 rg BT /F1 8.7 Tf 1 0 0 1 44 670.3 Tm (Architecture, privacy, deployment and future improvements.) Tj ET
-0.12 0.4 0.7 rg BT /F2 9 Tf 1 0 0 1 44 654.1 Tm (Q21. Where does camera run?) Tj ET
-0.11 0.14 0.19 rg BT /F1 8 Tf 1 0 0 1 44 640.1 Tm (MediaPipe Hands runs in browser; numeric features go to Render classifier.) Tj ET
-0.12 0.4 0.7 rg BT /F2 9 Tf 1 0 0 1 44 625.8 Tm (Q22. Fully offline?) Tj ET
-0.11 0.14 0.19 rg BT /F1 8 Tf 1 0 0 1 44 611.8 Tm (No. CDN tracker, remote classifier, translation and gTTS require internet; some fixed translations may work offline.) Tj ET
-0.12 0.4 0.7 rg BT /F2 9 Tf 1 0 0 1 44 597.5 Tm (Q23. Important routes?) Tj ET
-0.11 0.14 0.19 rg BT /F1 8 Tf 1 0 0 1 44 583.5 Tm (/api/health, /api/status, /api/predict-features, /api/sequence/predict, /api/sequence/samples, /api/sequence/export, /api/translate,) Tj ET
-0.11 0.14 0.19 rg BT /F1 8 Tf 1 0 0 1 44 573.2 Tm (/api/speech.) Tj ET
-0.12 0.4 0.7 rg BT /F2 9 Tf 1 0 0 1 44 558.9 Tm (Q24. What does Vercel do?) Tj ET
-0.11 0.14 0.19 rg BT /F1 8 Tf 1 0 0 1 44 544.9 Tm (Hosts the static frontend and deploys GitHub-connected UI changes.) Tj ET
-0.12 0.4 0.7 rg BT /F2 9 Tf 1 0 0 1 44 530.6 Tm (Q25. What does Render do?) Tj ET
-0.11 0.14 0.19 rg BT /F1 8 Tf 1 0 0 1 44 516.6 Tm (Hosts Flask backend and model files.) Tj ET
-0.12 0.4 0.7 rg BT /F2 9 Tf 1 0 0 1 44 502.3 Tm (Q26. Where are sequences stored?) Tj ET
-0.11 0.14 0.19 rg BT /F1 8 Tf 1 0 0 1 44 488.3 Tm (continuous_gesture_db.db via sequence_db.py; ephemeral storage isn't guaranteed durable.) Tj ET
-0.12 0.4 0.7 rg BT /F2 9 Tf 1 0 0 1 44 474 Tm (Q27. Where is history?) Tj ET
-0.11 0.14 0.19 rg BT /F1 8 Tf 1 0 0 1 44 460 Tm (Browser localStorage.) Tj ET
-0.12 0.4 0.7 rg BT /F2 9 Tf 1 0 0 1 44 445.7 Tm (Q28. Is raw video always sent?) Tj ET
-0.11 0.14 0.19 rg BT /F1 8 Tf 1 0 0 1 44 431.7 Tm (Primary Studio path sends features; legacy /api/predict can accept images.) Tj ET
-0.12 0.4 0.7 rg BT /F2 9 Tf 1 0 0 1 44 417.4 Tm (Q29. Main limitations?) Tj ET
-0.11 0.14 0.19 rg BT /F1 8 Tf 1 0 0 1 44 403.4 Tm (Small label set, no held-out accuracy report, online dependencies, camera sensitivity and missing reusable trainer scripts.) Tj ET
-0.12 0.4 0.7 rg BT /F2 9 Tf 1 0 0 1 44 389.1 Tm (Q30. Next milestone?) Tj ET
-0.11 0.14 0.19 rg BT /F1 8 Tf 1 0 0 1 44 375.1 Tm (Private Dataset Lab, trainers, held-out evaluation, persistent storage and guarded model promotion.) Tj ET
-endstream
-endobj
-50 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 49 0 R >>
-endobj
-51 0 obj
-<< /Length 5156 >>
-stream
-0.055 0.09 0.16 rg 0 737 612 55 re f
-0.76 0.08 0.19 rg 0 734 612 3 re f
-1 1 1 rg BT /F2 8 Tf 1 0 0 1 44 767 Tm (SAHAYAK | CBSE SCIENCE EXHIBITION STUDY GUIDE) Tj ET
-0.055 0.09 0.16 rg BT /F2 17 Tf 1 0 0 1 44 701 Tm (22. Difficult follow-ups and troubleshooting) Tj ET
-0.94 0.96 0.98 RG 1 w 44 693 m 568 693 l S
-0.5 0.54 0.6 rg BT /F1 6.8 Tf 1 0 0 1 44 18.2 Tm (Based on SAHAYAK-ISL code/deployment notes | October 2026) Tj ET
-0.5 0.54 0.6 rg BT /F2 6.8 Tf 1 0 0 1 544 18.2 Tm (24) Tj ET
-0.12 0.4 0.7 rg BT /F2 11 Tf 1 0 0 1 44 668 Tm (Can you prove 98% accuracy?) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.7 Tf 1 0 0 1 44 653.3 Tm (No held-out report is stored, so do not claim it. Use unseen labelled data and per-class results.) Tj ET
-0.12 0.4 0.7 rg BT /F2 11 Tf 1 0 0 1 44 635.1 Tm (Why sometimes wrong?) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.7 Tf 1 0 0 1 44 620.4 Tm (Similar poses, limited/imbalanced samples, occlusion, lighting, camera angle, segmentation and training coverage can cause) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.7 Tf 1 0 0 1 44 608.5 Tm (errors.) Tj ET
-0.12 0.4 0.7 rg BT /F2 11 Tf 1 0 0 1 44 590.3 Tm (Does 60% confidence mean 60% accuracy?) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.7 Tf 1 0 0 1 44 575.6 Tm (No. It is a decision threshold on class probability, not test-set accuracy.) Tj ET
-0.12 0.4 0.7 rg BT /F2 11 Tf 1 0 0 1 44 557.4 Tm (What if internet fails?) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.7 Tf 1 0 0 1 44 542.7 Tm (Remote classification, CDN tracking, general translation and server speech may fail. Some fixed bundled phrases may still) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.7 Tf 1 0 0 1 44 530.8 Tm (work.) Tj ET
-0.12 0.4 0.7 rg BT /F2 11 Tf 1 0 0 1 44 512.6 Tm (How protect training contributors?) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.7 Tf 1 0 0 1 44 497.9 Tm (Obtain consent, restrict capture/export, avoid public identifiable data, limit retention, secure APIs and use durable) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.7 Tf 1 0 0 1 44 486 Tm (storage.) Tj ET
-0.12 0.4 0.7 rg BT /F2 11 Tf 1 0 0 1 44 467.8 Tm (Troubleshooting table) Tj ET
-0.055 0.09 0.16 rg 44 437.8 520 24 re f
-1 1 1 rg BT /F2 7.7 Tf 1 0 0 1 48 448.1 Tm (Symptom) Tj ET
-1 1 1 rg BT /F2 7.7 Tf 1 0 0 1 188 448.1 Tm (Checks) Tj ET
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 416.8 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 426.3 Tm (Camera fails) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 188.5 426.3 Tm (Permission, HTTPS, camera in use, selected camera and browser support.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 184 437.8 m 184 416.8 l S
-1 1 1 rg 0.83 0.86 0.89 RG 0.4 w 44 395.8 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 405.3 Tm (No label) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 188.5 405.3 Tm (/api/status, label set, visible landmarks, feature length, threshold, backend logs.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 184 416.8 m 184 395.8 l S
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 374.8 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 384.3 Tm (Overlay misaligned) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 188.5 384.3 Tm (Video/canvas scale and mirror transform; debug separately from classifier.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 184 395.8 m 184 374.8 l S
-1 1 1 rg 0.83 0.86 0.89 RG 0.4 w 44 353.8 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 363.3 Tm (New sign not recognized) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 188.5 363.3 Tm (Phrase card or JSON is not training; collect data and retrain.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 184 374.8 m 184 353.8 l S
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 332.8 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 342.3 Tm (Motion sign fails) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 188.5 342.3 Tm (Sequence model readiness, complete segment, 132 features/frame and class coverage.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 184 353.8 m 184 332.8 l S
-1 1 1 rg 0.83 0.86 0.89 RG 0.4 w 44 311.8 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 321.3 Tm (Translation fails) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 188.5 321.3 Tm (Provider/internet error; don't pretend translation succeeded.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 184 332.8 m 184 311.8 l S
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 290.8 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 300.3 Tm (Old page on phone) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 188.5 300.3 Tm (Wait for deploy, refresh/reopen and confirm cache version.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 184 311.8 m 184 290.8 l S
-1 1 1 rg 0.83 0.86 0.89 RG 0.4 w 44 269.8 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 279.3 Tm (Samples disappear) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 188.5 279.3 Tm (SQLite may be ephemeral; use persistent disk/DB and backups.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 184 290.8 m 184 269.8 l S
-0.9 0.95 0.99 rg 0.12 0.4 0.7 RG 0.8 w 44 213.4 524 48.4 re B
-0.12 0.4 0.7 rg BT /F2 8.6 Tf 1 0 0 1 54 246.2 Tm (Safe change rule) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.1 Tf 1 0 0 1 54 233.7 Tm (Never replace the live model until the candidate passes tests for the new sign and every old class. Keep a known-good) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.1 Tf 1 0 0 1 54 223.5 Tm (backup and rollback plan.) Tj ET
-endstream
-endobj
-52 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 51 0 R >>
-endobj
-53 0 obj
-<< /Length 6214 >>
-stream
-0.055 0.09 0.16 rg 0 737 612 55 re f
-0.76 0.08 0.19 rg 0 734 612 3 re f
-1 1 1 rg BT /F2 8 Tf 1 0 0 1 44 767 Tm (SAHAYAK | CBSE SCIENCE EXHIBITION STUDY GUIDE) Tj ET
-0.055 0.09 0.16 rg BT /F2 17 Tf 1 0 0 1 44 701 Tm (23. Glossary, sources and final checklist) Tj ET
-0.94 0.96 0.98 RG 1 w 44 693 m 568 693 l S
-0.5 0.54 0.6 rg BT /F1 6.8 Tf 1 0 0 1 44 18.2 Tm (Based on SAHAYAK-ISL code/deployment notes | October 2026) Tj ET
-0.5 0.54 0.6 rg BT /F2 6.8 Tf 1 0 0 1 544 18.2 Tm (25) Tj ET
-0.055 0.09 0.16 rg 44 655 520 24 re f
-1 1 1 rg BT /F2 7.7 Tf 1 0 0 1 48 665.3 Tm (Term) Tj ET
-1 1 1 rg BT /F2 7.7 Tf 1 0 0 1 190 665.3 Tm (Meaning) Tj ET
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 634 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 643.5 Tm (API) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 190.5 643.5 Tm (Defined route for requesting data or an action.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 186 655 m 186 634 l S
-1 1 1 rg 0.83 0.86 0.89 RG 0.4 w 44 613 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 622.5 Tm (Backend) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 190.5 622.5 Tm (Server code that validates, loads models and responds.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 186 634 m 186 613 l S
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 592 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 601.5 Tm (Classifier) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 190.5 601.5 Tm (Maps feature numbers to one trained label.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 186 613 m 186 592 l S
-1 1 1 rg 0.83 0.86 0.89 RG 0.4 w 44 571 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 580.5 Tm (Confidence) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 190.5 580.5 Tm (Top-class score/probability when available.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 186 592 m 186 571 l S
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 550 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 559.5 Tm (Dataset) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 190.5 559.5 Tm (Labelled examples and feature values.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 186 571 m 186 550 l S
-1 1 1 rg 0.83 0.86 0.89 RG 0.4 w 44 529 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 538.5 Tm (Feature vector) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 190.5 538.5 Tm (Fixed-length numeric input to a classifier.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 186 550 m 186 529 l S
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 508 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 517.5 Tm (Joblib) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 190.5 517.5 Tm (Python serialization for model objects.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 186 529 m 186 508 l S
-1 1 1 rg 0.83 0.86 0.89 RG 0.4 w 44 487 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 496.5 Tm (Landmark) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 190.5 496.5 Tm (Tracked key point on the hand.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 186 508 m 186 487 l S
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 466 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 475.5 Tm (MediaPipe Hands) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 190.5 475.5 Tm (Hand-tracking library used by browser and legacy image route.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 186 487 m 186 466 l S
-1 1 1 rg 0.83 0.86 0.89 RG 0.4 w 44 445 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 454.5 Tm (Overfitting) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 190.5 454.5 Tm (Fits training data, generalizes poorly.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 186 466 m 186 445 l S
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 424 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 433.5 Tm (SQLite) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 190.5 433.5 Tm (File-based database used for sequence samples.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 186 445 m 186 424 l S
-1 1 1 rg 0.83 0.86 0.89 RG 0.4 w 44 403 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 412.5 Tm (Temporal resampling) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 190.5 412.5 Tm (Map variable sequence duration to fixed time points.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 186 424 m 186 403 l S
-0.94 0.96 0.98 rg 0.83 0.86 0.89 RG 0.4 w 44 382 520 21 re B
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 48.5 391.5 Tm (Vercel/Render) Tj ET
-0.11 0.14 0.19 rg BT /F1 7.2 Tf 1 0 0 1 190.5 391.5 Tm (Frontend/backend hosting.) Tj ET
-0.83 0.86 0.89 RG 0.4 w 186 403 m 186 382 l S
-0.12 0.4 0.7 rg BT /F2 11 Tf 1 0 0 1 44 363 Tm (Primary sources) Tj ET
-0.37 0.41 0.47 rg BT /F1 7 Tf 1 0 0 1 44 350 Tm (Census of India 2011, Table C-20: https://censusindia.gov.in/nada/index.php/catalog/43369/) Tj ET
-0.37 0.41 0.47 rg BT /F1 7 Tf 1 0 0 1 44 338.8 Tm (WHO, Deafness and hearing loss \(3 Mar 2026\): https://www.who.int/news-room/fact-sheets/detail/deafness-and-hearing-loss) Tj ET
-0.37 0.41 0.47 rg BT /F1 7 Tf 1 0 0 1 44 327.6 Tm (SAHAYAK repository: https://github.com/Mrjohanjyotikuli/SAHAYAK-ISL) Tj ET
-0.37 0.41 0.47 rg BT /F1 7 Tf 1 0 0 1 44 316.4 Tm (Live Studio: https://github.com/Mrjohanjyotikuli/SAHAYAK-ISL/blob/main/SAHAYAK-Vercel-Deployment/frontend/studio.html) Tj ET
-0.37 0.41 0.47 rg BT /F1 7 Tf 1 0 0 1 44 305.2 Tm (Flask backend: https://github.com/Mrjohanjyotikuli/SAHAYAK-ISL/blob/main/SAHAYAK-Vercel-Deployment/backend/web_app.py) Tj ET
-0.12 0.4 0.7 rg BT /F2 11 Tf 1 0 0 1 44 290 Tm (Last-minute checklist) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 275.5 Tm (- Charge laptop/phone; test camera permission; prepare internet/hotspot backup.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 261.9 Tm (- Test every supported class; demo a moving sign only if sequence model is ready.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 248.3 Tm (- Never guess accuracy or dataset size; show live Dataset Specs and explain metrics.) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.5 Tf 1 0 0 1 51 234.7 Tm (- All team members should know the full pipeline and limitations.) Tj ET
-0.9 0.95 0.99 rg 0.12 0.4 0.7 RG 0.8 w 44 181.2 524 48.4 re B
-0.12 0.4 0.7 rg BT /F2 8.6 Tf 1 0 0 1 54 214 Tm (Final message) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.1 Tf 1 0 0 1 54 201.5 Tm (A strong science project explains what works, how it works, how it was tested, its limits and the evidence needed before) Tj ET
-0.11 0.14 0.19 rg BT /F1 8.1 Tf 1 0 0 1 54 191.3 Tm (expanding its claims.) Tj ET
-endstream
-endobj
-54 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 53 0 R >>
 endobj
 xref
-0 55
+0 16
 0000000000 65535 f 
-0000000009 00000 n 
-0000000058 00000 n 
-0000000283 00000 n 
-0000000380 00000 n 
-0000000482 00000 n 
-0000002420 00000 n 
-0000002556 00000 n 
-0000006994 00000 n 
-0000007130 00000 n 
-0000011029 00000 n 
-0000011166 00000 n 
-0000013920 00000 n 
-0000014058 00000 n 
-0000017312 00000 n 
-0000017450 00000 n 
-0000021074 00000 n 
-0000021212 00000 n 
-0000024574 00000 n 
-0000024712 00000 n 
-0000027696 00000 n 
-0000027834 00000 n 
-0000032043 00000 n 
-0000032181 00000 n 
-0000036528 00000 n 
-0000036666 00000 n 
-0000039142 00000 n 
-0000039280 00000 n 
-0000041691 00000 n 
-0000041829 00000 n 
-0000045315 00000 n 
-0000045453 00000 n 
-0000048019 00000 n 
-0000048157 00000 n 
-0000053357 00000 n 
-0000053495 00000 n 
-0000058351 00000 n 
-0000058489 00000 n 
-0000064010 00000 n 
-0000064148 00000 n 
-0000069757 00000 n 
-0000069895 00000 n 
-0000072801 00000 n 
-0000072939 00000 n 
-0000076623 00000 n 
-0000076761 00000 n 
-0000079695 00000 n 
-0000079833 00000 n 
-0000082928 00000 n 
-0000083066 00000 n 
-0000086002 00000 n 
-0000086140 00000 n 
-0000091348 00000 n 
-0000091486 00000 n 
-0000097752 00000 n 
+0000000025 00000 n 
+0000000074 00000 n 
+0000000158 00000 n 
+0000000228 00000 n 
+0000000303 00000 n 
+0000000371 00000 n 
+0000000517 00000 n 
+0000006810 00000 n 
+0000006956 00000 n 
+0000013393 00000 n 
+0000013541 00000 n 
+0000020283 00000 n 
+0000020431 00000 n 
+0000027034 00000 n 
+0000027182 00000 n 
 trailer
-<< /Size 55 /Root 1 0 R >>
+<< /Size 16 /Root 1 0 R >>
 startxref
-97890
+27845
 %%EOF
