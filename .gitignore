@@ -1,0 +1,27 @@
+﻿# Python environment and generated files
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.pyd
+
+# Local datasets, trained models, and collected samples
+data/
+model/
+*.db
+*.sqlite
+*.sqlite3
+
+# Local backups and preview copies
+backups/
+website_updated_preview_*/
+
+# Private settings
+.env
+.env.*
+!.env.example
+
+# Editor and operating system files
+.vscode/
+.DS_Store
+Thumbs.db

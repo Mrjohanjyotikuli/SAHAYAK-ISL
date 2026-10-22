@@ -1,0 +1,10 @@
+[build]
+  publish = "website"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Netlify hosts the frontend only. Deploy Flask/OpenCV separately as a Python service.
