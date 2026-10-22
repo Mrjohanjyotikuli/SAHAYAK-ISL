@@ -1,5 +1,5 @@
 
-const CACHE = 'sahayak-shell-v32-team-photo-frames';
+const CACHE = 'sahayak-shell-v33-team-photo-crop';
 const SHELL = ['/', '/index.html', '/studio.html', '/config.js', '/legang-ai.js', '/legang-ai.css', '/assets/legang-ai-avatar.webp'];
 
 self.addEventListener('install', event => {
