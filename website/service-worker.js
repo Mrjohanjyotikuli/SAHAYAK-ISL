@@ -1,5 +1,4 @@
-
-const CACHE = 'sahayak-shell-v22-team-roles';
+const CACHE = 'sahayak-shell-v25-local-team-photos';
 const SHELL = ['/', '/index.html', '/studio.html', '/config.js'];
 
 self.addEventListener('install', event => {
@@ -60,3 +59,5 @@ self.addEventListener('fetch', event => {
       .then(cached => cached || fetch(request))
   );
 });
+
+

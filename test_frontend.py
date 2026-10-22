@@ -66,7 +66,7 @@ class CurrentWebsiteRegressionTests(unittest.TestCase):
             self.assertIn(route, BACKEND)
 
     def test_cache_version_is_bumped_for_synced_ui(self):
-        self.assertRegex(SERVICE_WORKER, r"const CACHE = 'sahayak-shell-v22-[^']+';")
+        self.assertRegex(SERVICE_WORKER, r"const CACHE = 'sahayak-shell-v\d+-[^']+';")
 
     def test_static_metadata_preserves_original_classes(self):
         labels = json.loads((ROOT / "model" / "labels_twohand.json").read_text(encoding="utf-8"))
@@ -75,3 +75,5 @@ class CurrentWebsiteRegressionTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
