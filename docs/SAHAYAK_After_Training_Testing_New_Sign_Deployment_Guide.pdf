@@ -1,228 +1,143 @@
 %PDF-1.4
-%SAHAYAK-SIMPLE
+%“Œ‹ž ReportLab Generated PDF document (opensource)
 1 0 obj
-<< /Type /Catalog /Pages 2 0 R >>
+<<
+/F1 2 0 R /F2 3 0 R /F3 4 0 R /F4 5 0 R
+>>
 endobj
 2 0 obj
-<< /Type /Pages /Kids [6 0 R 8 0 R 10 0 R] /Count 3 >>
+<<
+/BaseFont /Helvetica /Encoding /WinAnsiEncoding /Name /F1 /Subtype /Type1 /Type /Font
+>>
 endobj
 3 0 obj
-<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+<<
+/BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding /Name /F2 /Subtype /Type1 /Type /Font
+>>
 endobj
 4 0 obj
-<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+<<
+/BaseFont /Symbol /Name /F3 /Subtype /Type1 /Type /Font
+>>
 endobj
 5 0 obj
-<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+<<
+/BaseFont /Courier /Encoding /WinAnsiEncoding /Name /F4 /Subtype /Type1 /Type /Font
+>>
 endobj
 6 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 7 0 R >>
+<<
+/Contents 13 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 12 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
+>>
 endobj
 7 0 obj
-<< /Length 6128 >>
-stream
-q 0.04 0.16 0.32 rg 0 808 595 34 re f Q
-BT /F2 8 Tf 1 1 1 rg 1 0 0 1 42 820 Tm (SAHAYAK | SIMPLE LANGUAGE GUIDE) Tj ET
-BT /F2 18 Tf 0.04 0.16 0.32 rg 1 0 0 1 42 777.00 Tm (SAHAYAK: Publish a Tested New Sign) Tj ET
-BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 747.00 Tm (Simple guide: from your computer to the live website) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 726.00 Tm (Use this guide after a new sign has been collected, trained and tested on your computer. It) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 713.90 Tm (    explains how to put the approved model on the live server and check that the website uses it.) Tj ET
-BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 691.80 Tm (The whole process) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 674.80 Tm (1. Keep a backup of the old model.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 661.70 Tm (2. Check the model and its sign names.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 648.60 Tm (3. Copy only the approved model file.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 635.50 Tm (4. Push the change to GitHub.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 622.40 Tm (5. Wait for Render to finish.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 609.30 Tm (6. Check the live model status.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 596.20 Tm (7. Test old and new signs in Live Studio.) Tj ET
-BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 574.10 Tm (There are two separate models) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 557.10 Tm (- Static model: recognizes a pose held still. File: model\\sahayak_twohand.joblib. It) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 545.00 Tm (      expects 126 numbers.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 531.90 Tm (- Continuous model: recognizes a movement over time. File: model\\sahayak_sequence.joblib.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 519.80 Tm (      It expects 1,320 numbers.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 506.70 Tm (Never copy one model over the other.) Tj ET
-BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 484.60 Tm (1. Set the folder paths) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 467.60 Tm (Open VS Code, then Terminal > New Terminal. Use PowerShell. Change RepoRoot to the folder where) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 455.50 Tm (    you cloned SAHAYAK-ISL. Do not run this block until both folders are correct.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 438.40 Tm (~~~powershell) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 425.30 Tm ($ErrorActionPreference = "Stop") Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 412.20 Tm ($TrainingRoot = "C:\\Users\\user\\3D Objects\\New folder\\SAHAYAK") Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 399.10 Tm ($RepoRoot = "C:\\PATH\\TO\\YOUR\\SAHAYAK-ISL") Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 386.00 Tm ($TrainingPython = Join-Path $TrainingRoot ".venv\\Scripts\\python.exe") Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 372.90 Tm (if \(-not \(Test-Path $TrainingPython\)\) { throw "Python environment not found. Check TrainingRoot.") Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 360.80 Tm (    }) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 347.70 Tm (if \(-not \(Test-Path \(Join-Path $RepoRoot ".git"\)\)\) { throw "GitHub clone not found. Check) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 335.60 Tm (    RepoRoot." }) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 322.50 Tm (Set-Location $RepoRoot) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 309.40 Tm ($Remote = \(git remote get-url origin\).Trim\(\)) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 296.30 Tm (if \($Remote -notmatch 'github\\.com[:/]Mrjohanjyotikuli/SAHAYAK-ISL\(\\.git\)?$'\) {) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 283.20 Tm (throw "This is not the expected SAHAYAK-ISL repository.") Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 270.10 Tm (}) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 257.00 Tm (if \(@\(git status --porcelain\).Count -gt 0\) {) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 243.90 Tm (throw "There are local changes. Review and save them before continuing.") Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 230.80 Tm (}) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 217.70 Tm (git pull --ff-only origin main) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 204.60 Tm (if \($LASTEXITCODE -ne 0\) { throw "Could not update main." }) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 191.50 Tm (Write-Host "Folders and GitHub remote checked.") Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 170.40 Tm (If a check fails, stop and correct the path. Do not delete other work to make the command pass.) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 157.20 Tm (## 2. Check the model and label names) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 148.00 Tm (Run this block to check the active files that exist on your computer. The feature count must match the model) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 138.80 Tm (    type. Check that the new sign is present and old signs are still listed.) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 125.60 Tm (~~~powershell) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 116.40 Tm ($TrainingRoot = "C:\\Users\\user\\3D Objects\\New folder\\SAHAYAK") Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 107.20 Tm ($TrainingPython = Join-Path $TrainingRoot ".venv\\Scripts\\python.exe") Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 98.00 Tm (@') Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 88.80 Tm (import joblib) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 79.60 Tm (from pathlib import Path) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 70.40 Tm (root = Path\(r"C:\\Users\\user\\3D Objects\\New folder\\SAHAYAK"\)) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 61.20 Tm (checks = [) Tj ET
-q 0.78 0.82 0.87 RG 42 44 m 553 44 l S Q
-BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 42 27 Tm (SAHAYAK After Training Testing New Sign Deployment Guide) Tj ET
-BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 510 27 Tm (1 / 3) Tj ET
-endstream
+<<
+/Contents 14 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 12 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
+>>
 endobj
 8 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 9 0 R >>
+<<
+/Contents 15 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 12 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
+>>
 endobj
 9 0 obj
-<< /Length 6792 >>
-stream
-q 0.04 0.16 0.32 rg 0 808 595 34 re f Q
-BT /F2 8 Tf 1 1 1 rg 1 0 0 1 42 820 Tm (SAHAYAK | SIMPLE LANGUAGE GUIDE) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 780.00 Tm (\("STATIC", root / "model" / "sahayak_twohand.joblib", 126\),) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 770.80 Tm (\("CONTINUOUS", root / "model" / "sahayak_sequence.joblib", 1320\),) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 761.60 Tm (]) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 752.40 Tm (for name, path, expected in checks:) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 743.20 Tm (if not path.is_file\(\):) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 734.00 Tm (print\(name, "model not found:", path\)) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 724.80 Tm (continue) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 715.60 Tm (model = joblib.load\(path\)) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 706.40 Tm (features = getattr\(model, "n_features_in_", None\)) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 697.20 Tm (labels = sorted\(str\(x\) for x in model.classes_\)) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 688.00 Tm (print\("\\n", name, path.name\)) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 678.80 Tm (print\("Features:", features\)) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 669.60 Tm (print\("Labels:", labels\)) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 660.40 Tm (if features != expected:) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 651.20 Tm (raise SystemExit\("Wrong feature count. Do not publish this model."\)) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 642.00 Tm ('@ | & $TrainingPython -) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 632.80 Tm (if \($LASTEXITCODE -ne 0\) { throw "Model check failed." }) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 615.60 Tm (If the new sign is missing or the feature count is wrong, stop. Do not publish that model.) Tj ET
-BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 593.50 Tm (3. Back up the current deployment models) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 576.50 Tm (The deployment copy is inside the GitHub clone. Check that the folder and source models exist) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 564.40 Tm (    before copying.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 547.30 Tm (~~~powershell) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 534.20 Tm ($TrainingRoot = "C:\\Users\\user\\3D Objects\\New folder\\SAHAYAK") Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 521.10 Tm ($RepoRoot = "C:\\PATH\\TO\\YOUR\\SAHAYAK-ISL") Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 508.00 Tm ($SourceDir = Join-Path $TrainingRoot "model") Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 494.90 Tm ($TargetDir = Join-Path $RepoRoot "SAHAYAK-Vercel-Deployment\\backend\\model") Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 481.80 Tm ($Names = @\("sahayak_twohand.joblib", "sahayak_sequence.joblib"\)) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 468.70 Tm (foreach \($Name in $Names\) {) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 455.60 Tm (if \(-not \(Test-Path \(Join-Path $SourceDir $Name\)\)\) { throw "Missing $Name" }) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 442.50 Tm (}) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 429.40 Tm (if \(-not \(Test-Path $TargetDir\)\) { throw "Deployment model folder missing." }) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 416.30 Tm ($Stamp = Get-Date -Format "yyyyMMdd_HHmmss") Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 403.20 Tm ($BackupDir = Join-Path $TrainingRoot "backups\\deployment_models_$Stamp") Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 390.10 Tm (New-Item -ItemType Directory -Force $BackupDir | Out-Null) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 377.00 Tm (foreach \($Name in $Names\) {) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 363.90 Tm ($Target = Join-Path $TargetDir $Name) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 350.80 Tm (if \(Test-Path $Target\) { Copy-Item $Target $BackupDir -Force }) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 337.70 Tm (}) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 324.60 Tm (Write-Host "Backup saved to $BackupDir") Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 303.50 Tm (## 4. Copy only the model you changed) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 294.30 Tm (For a static-sign change, copy sahayak_twohand.joblib. For a moving-sign change, copy sahayak_sequence.joblib.) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 285.10 Tm (    Leave the other model alone. Never copy a candidate file.) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 271.90 Tm (~~~powershell) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 262.70 Tm ($Name = "sahayak_twohand.joblib") Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 253.50 Tm (# Use "sahayak_sequence.joblib" for a continuous-only update.) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 244.30 Tm ($Source = Join-Path $SourceDir $Name) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 235.10 Tm ($Target = Join-Path $TargetDir $Name) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 225.90 Tm (Copy-Item $Source $Target -Force) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 216.70 Tm ($A = \(Get-FileHash $Source -Algorithm SHA256\).Hash) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 207.50 Tm ($B = \(Get-FileHash $Target -Algorithm SHA256\).Hash) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 198.30 Tm (if \($A -ne $B\) { throw "The files do not match. Stop." }) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 189.10 Tm (Write-Host "Verified copy: $Name") Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 171.90 Tm (Do not publish raw CSV files, continuous_gesture_db.db, raw samples, or candidate models. The) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 159.80 Tm (    public website needs the approved model, not your private training records.) Tj ET
-BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 137.70 Tm (5. Commit only the model file) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 120.70 Tm (First inspect the changes. If you see unrelated files, stop and review them. Do not reset your) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 108.60 Tm (    work.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 91.50 Tm (~~~powershell) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 78.40 Tm (Set-Location $RepoRoot) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 65.30 Tm (if \(\(git branch --show-current\).Trim\(\) -ne "main"\) { throw "Not on main." }) Tj ET
-q 0.78 0.82 0.87 RG 42 44 m 553 44 l S Q
-BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 42 27 Tm (SAHAYAK After Training Testing New Sign Deployment Guide) Tj ET
-BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 510 27 Tm (2 / 3) Tj ET
-endstream
+<<
+/Contents 16 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 12 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
+>>
 endobj
 10 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 11 0 R >>
+<<
+/PageMode /UseNone /Pages 12 0 R /Type /Catalog
+>>
 endobj
 11 0 obj
-<< /Length 5160 >>
+<<
+/Author (SAHAYAK project documentation) /CreationDate (D:20261022101649+00'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20261022101649+00'00') /Producer (ReportLab PDF Library - \(opensource\)) 
+  /Subject (Sign collection, testing, promotion and GitHub deployment workflow) /Title (SAHAYAK After-Training, Testing & New Sign Deployment Guide) /Trapped /False
+>>
+endobj
+12 0 obj
+<<
+/Count 4 /Kids [ 6 0 R 7 0 R 8 0 R 9 0 R ] /Type /Pages
+>>
+endobj
+13 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 2771
+>>
 stream
-q 0.04 0.16 0.32 rg 0 808 595 34 re f Q
-BT /F2 8 Tf 1 1 1 rg 1 0 0 1 42 820 Tm (SAHAYAK | SIMPLE LANGUAGE GUIDE) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 780.00 Tm (if \(@\(git diff --cached --name-only\).Count -gt 0\) { throw "Review already staged files first." }) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 766.90 Tm (git status --short) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 745.80 Tm (For a static-only change, stage and push only this file:) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 732.60 Tm (~~~powershell) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 723.40 Tm (git add -- "SAHAYAK-Vercel-Deployment/backend/model/sahayak_twohand.joblib") Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 714.20 Tm (git diff --cached --stat) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 705.00 Tm (git diff --cached --name-only) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 695.80 Tm (git commit -m "Update static sign model") Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 686.60 Tm (git push origin main) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 669.40 Tm (For a continuous-only change, use this path instead:) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 657.30 Tm (    SAHAYAK-Vercel-Deployment/backend/model/sahayak_sequence.joblib. Use a message such as Update) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 645.20 Tm (    continuous sign model.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 628.10 Tm (If Git reports a missing author name or email, set them for this repository using your verified) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 616.00 Tm (    GitHub email. Never put a password or access token in a command. If pushing fails, do not) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 603.90 Tm (    force-push.) Tj ET
-BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 581.80 Tm (6. Wait for Render and check the model) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 564.80 Tm (Open the Render service page and wait for the newest deployment to say Live:) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 551.70 Tm (https://dashboard.render.com/web/srv-dbaof849v7es739am2j0) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 534.60 Tm (Then run:) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 521.50 Tm (~~~powershell) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 508.40 Tm (Invoke-RestMethod "https://sahayak-backend-krh1.onrender.com/api/status" | ConvertTo-Json -Depth 5) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 487.30 Tm (For a static change, model_ready should be true and single_sign_labels should include the new sign. For a) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 478.10 Tm (    continuous change, sequence_model_ready should be true and sequence_sign_labels should include it. Check the) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 468.90 Tm (    actual names, not only the totals.) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 455.70 Tm (## 7. Test the live website) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 446.50 Tm (Open https://sahayak-eight-lac.vercel.app/ and choose Live Studio. Allow camera access, test the new sign in the) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 437.30 Tm (    correct mode, and test several old signs too. Check the label, landmarks, box and response. For a moving) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 428.10 Tm (    sign, perform the full movement.) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 414.90 Tm (## If something goes wrong) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 405.70 Tm (- New label missing: check the active model, copied file, commit and API status.) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 396.50 Tm (- Model is not ready: wait for Render and review its latest logs.) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 387.30 Tm (- Old signs fail: restore the backup and investigate.) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 378.10 Tm (- Camera works but prediction is wrong: hand tracking and model prediction are separate steps.) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 368.90 Tm (- Git push fails: read the error. Never force-push.) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 355.70 Tm (## Final checklist) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 346.50 Tm ([ ] Backup saved. [ ] Correct model type selected. [ ] Labels checked. [ ] Only approved model copied. [ ] File) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 337.30 Tm (    hashes match. [ ] Only intended model committed. [ ] Render says Live. [ ] API checked. [ ] Old and new) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 328.10 Tm (    signs tested.) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 314.90 Tm (This guide starts after training, testing and approving the new sign. A model-only update normally does not) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 305.70 Tm (    require changes to frontend code.) Tj ET
-q 0.78 0.82 0.87 RG 42 44 m 553 44 l S Q
-BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 42 27 Tm (SAHAYAK After Training Testing New Sign Deployment Guide) Tj ET
-BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 510 27 Tm (3 / 3) Tj ET
-endstream
+Gb!#\qet4K')k%D`?=@cdNW9KlJ9>ZQSr]E]s^KO+,U.'(pZQaC@nMS-hZ<Ps1ZC+BK:ngD]11P9eB!`LVnCbhi)BUn=M;Idh:Th(lmJ,?rIog^ikPBj7i%T]_?9(KK]iM%nIOkQ4j:UW96Y>q;#?\SkUd$p_4^?KUs#4_/imK]tpHF0))aJ5Y)EFE8l+kkW;%747]KbY<hA52RIP1^t(!(9rL^daMkj5,ojS#S(4H/GfSa>DQdY@I077%Qb:K+)\*\W%;RU5X=3Q]V/W#L5V;7cL[eF_^CZkFGG(1&I^HZ%75AL`%i0OZA!e!^eg^);Z,6ia\2iF3*4TT#9c:L(7F?_$YUNn46)ch]Kr_-UDWD@$6O-)*dk[<(fX%AAAJ+/M96uC4s7BNMi9=NjZ7>944E43^(\)PnA\X"QbN%(3Iin\(No7hNad`$DIduRlnbDJKj5l"Qe9QP]s'L6e,fGJ-rcmQ$J9WI$U6=4=So6g$f(0)%mY^gNe@Frf)A:6eJiitr-hr7.-@FRTO$eVHcqe>=UUO3U&_`%CJ`VT!<SIhYLF8rO5)@RsCVq1=3nB>2D3@tG2*ZaKiuS,L^VNE`"./hrl4&#X_O@3*Q)s9/h(m=/4Vkc6YnIU(hUU;&f_\hWONbOnc`CL\B94`JH<'%=K3@$IF].:',#qC26BuhOG:DHH>$(KH=YDdS4NAU%D-b_5C:?GgFk\[q[5=j<+bC^9?WANbRhOCRZ%AdfFk80sZHcPQZb0]D&9&4dZSnGXH?ko8&'d8N3$[0pdq>-dpd<e((.P'W_<?[c?BqX7^*,tJo?E<pCq^(/E0![PH9:*6]%QLsC.H2L6i)K5,r7HJY!s:u--N"bcFtl5Q#9Y(c`4I_[4,rla:Zhgj!V>UDB<foJ."rQ2W6r_cpaKP"`udq6l:=eJ^Y;M=mtqLF?)2jPHAo%APLG@Y&7=qULA#CVpbB@P$T^ZO?4MsF`*2YeFW@[m=go<73R]aLo&NVlU6&`#fN:SXA_.XW%CHH5@tqIh"Wt5b;/OHRO)<'7[-6$S`$7j0A?ta6!bT6#$qG#H'5g&9jWVj"4k<#S]K!u]:Zb.0W)25"bUnNN-B"o[AaLHZ.e!seQ]$!o3L>\!Sp@rT&Z4FQmGs^D)4i?*`?g..$6@_`NmJ$A.l_(=#WY@)VSc-".b;/%^akC=)"lj=9!tXFGl[,>gOoFJr9F^P_=c0)Us%_h$BNnJ>*[pSQe5P&g+8tZWpt6@55o!%#`WqE\dl@aGTZ'b.G<hPRn='L0VoJ!j*tAQ&E)Ro)C!#!NMs"&4A8b(h66TD2%2)\j]LOgoiRN5N&V7>#aqYOO[1X*L-ADOVE(&,[IYY*WaU<nK/=DnWpp%1OZ[o@i9(Zk1Z/M2OKA'?6o'$!qGGCSrWA,&FZY9E^/Qa%(&GO;KKO(e1M()0FWeQ=_tonkl2<=fH.p!GS3N$hYJ_72.^L-'X?*,!hrFgY`<8t/hqr$T:q6G.#;0lb/.(6>*a62?!,Na\Y=I69Ch(=(tMe1_$4b:[M=Z6Fco<IP"(cjXc#l-(WV`c>K1kB4LS0aQ)llpo7g7CX#gHcj(amhV4>?M2K(YUE:)c^=F1K6N%D&*:d`nA&C]_H<#X7lo(Gj[?G>]HI^s,\#*hc8::n;Da+>s@]BR<BY7a8^c%<s"5pIr@JhO^_)&>c:.ZIOhHB/po'6X?Jb;_sVBmC\.XL*!6SA=r"fEn1+>(24?'[Lp`^MdS3`%ef7eMRgc"30jc!migE+)/6!.hA(K\%nP(,@iBdH^Xu_1Q3rLD?2.Xj4?\0.VVpJT%$h_I-XJjoSF!t#NkZamS#P;Ybk7OUQLK1:2Njt!ca<!h*<08X4^4YHGFIiIO?0Wbe0Q>c%N38k]kZ43e+S,5!s9cmM'Ym'JW%D^LGk>>VXgN`*qPEeb*>bj9Y%VIU+/5-e01e&s6g/bn`m.'VL'9-<I(Z*B7f$YjW"k9".r7M#qi$%YraWC&'R#5m`?F(pFdIeu5Vn*R/*Z?on>l[5JkO)c5/ml0bcCPP9Pa<(,RYTQl2R>W2(%]L0Us&[X<>.sHOB'n/>oaKiqPBj#Jj#)-\geO]TF^X[V+;XN/VQP8"Q"6aN3b_`J]->JmT"N6hX=iX-rhr@_Si$9*Z2g.T^"mSg83Z))9_tgSWI9[PA&L)BhdKRPocU83bK'FHJJJe[E(H<)Kkh`C7g+,@\khD&lr-JB^3,MrN9[NCe&f&`i,b&\sP0af]4BWr1jD*-!e5G#PH<TD(:R+o&f/%\XrD7$c;S>a[21?T2L]7ib,,rTbS<N+P;aA&lPa5<-\Rib[)&_aI?eW/&UXL->M>dE:MI+78nSY,&?hSO6If_Q/i"+104kL'$LK!YscLm-ufSM*VT,2pZ$e9X+bc;.Nnft;HBnL58J4b&Si%k.C>6#>`AL*!J'/-Uo<[B%uCS^26iHJ/?R7NE^,f4T<k"3/$=NX_cD[;#LCZ%)c]<8_6;31W`hI301^0Rptn_SGA-S#n%@o3WWG!jc['(93$Q9A3TUOI!VhAEP@Q2NBIfG;'g@30BX%2t>;Il.Vd_%mg5be:,Be&,DTXhOKZYq3sXq6EJ;9f/sM>dYmF[.-%_=3MN*]H8oQKWU&]XT3[u%\B]"+8!8#eC[5:*1LX3]"5&3m`n3Kaoo:DnAW0<*2+@g=MBLh,^QXQ4;C4cS;GJURie'HlfS.p`gW:IeiY1d]9fgX;j"`RHN_e0p/Ra#"'J%WhJ`oO<?^:82!UQ4`!>/'1nWm^S_csif_YbP^d;<~>endstream
+endobj
+14 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 1579
+>>
+stream
+Gb!;bD/\/e&H;*)E@<Nn.;W%ZhD8\Ul6Mq0,"W_d_Z0cCA'p<78T[B^DQrNCmmt,oG%*9K[LR?i-R/$XSpPQ;=SQBqmo]kaAdklgCp5@Ik?tp?L%.5a*Hs\i8EeO<omh]mBK6ZdLjEqA+5V0s#O>+pSkUd$p_6'<,:MM;#+k,nlEuXM\EXnQ'EVa6KZ('b&1aut0EbiH!VOeSFn$T+@\Ir2.b'G"RhD4e0[?>8Fo::iDoY)[+)j,!I<Pa2Y=Bt<#;ElEnOmA<DtL0I*M8"V^>/qK*&W<%&<pT^;*1?kq@4(gNdM50GD"7bm!V`0QWTB.^3/'qZ$[B>R8b0WUA-]D`>V\M29B@5Q>e;(]XYQ7Bo7\1_So1L[A`!*X6kI9@enE[K1iZ25[+TaZ'CAZnibeMgHu81:0Wj7WF-Z=NNc-E9!1$b!,gj/8j`gfqPiC,J(_)c]eWrI*m:432V=uLqI!QUG?OFG-o.Y6O"XYP3[>&)?`#narsbsfmF75LD-Oq8r7.2C^2Cb,E>3.X^";($c!HPb7A8X7gn`%d+7>rGS%Eqh10?;SMcW^]?K,H>ORk=L<OsFj/=uLFR>?.b9!V[p^ckND>26DGT$HgUM4*A!PjV9V)Cm8KiMf44P,h/-A'7G>WhL#;S]jtY-(!*&5taM>nPk9t.QX)J:7lKjbb8&ar,X'ISFe-5LWr!?#6f:7Wc_L2Zt,InRH0:HOe_hTj=l*>aXqX`NtoonW\*mPhEBCtBrb6:WiJM^?"3am7T5jO%fY7j1#n/AETeI4^bNC%qNMbfl3V35R7P.s4B;;8)WCKc`9?<]]2J5df[X]Cd][+eTNe7MM+0fR](pHnR9C>mG*5Y5I5i$'a7PFQ&E<\lEZ+JrDJ>D*P%+LJX7>_)1kaiXq8qj]G^Kk5S:2:uAXsg8iOTf$mT+#Wf15qc#B_P;(d&`"TCDTX6YqfQY)NO!CISBbfR`JqL8%s@dH(XHRj$@DRb;^;@BBoQle#qY[R?]@o\TMQ-mklALAG*go,OX:^b'1>#N%>%&t)=8h@LN]*!*G[.g[t6jB1l@+2U^I.A*S'W.H=@*tSj"cVaiNBV;V1^F'?8$UPJTR1NXCs5,N)H2Q6XLiaa,@DiL+<DfWVIp1e6E(Q?+)dl^6R_]BLN4%"hDV.ghZA]M/ha7S,l<0=pjP\"[,uaWZf@13X3eY<l^3ScsK2nLNb#3fiC=KUWGu1eR/)n;EHIJ2r=O$HD@,I,p)Y]6,?Jp0VL"JZ4G4Z$5<-FI%+$[Rdi7!39AQN_R21c9^H7e&VND6X?.qE3.JeB1@_k&#?_0grp6RM5H`cG]\@0g\#h'p=]'&P;8SA86N9Tuep8o:tZ0O8&oOSB@pUt%SEBjE":+#)NA9^6h$e+MNU,Ctu/=J1Ct0bf#'Z5EmibCO+"pUoUp[#):`\Who=-)+;qoHkM4PtO;6jp@*jQRCJ*-..4^C1Bb<UKg!4oC^+tH\Zn(HLjob2LG>qYAQ8Cd/Uj^RlZP4gMsrVkA[B-X.Ag/ZSfN/8"5LQ=ZhETkMstcou6USJ%0lnTk\KTk2:Lm85"'N$IVJ0>R[1<!,W#URK~>endstream
+endobj
+15 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 2767
+>>
+stream
+Gau`UD,]K9&cU(Zkjg$"h@1ChrIraL!;;B]luM#YlDe+NN2<d2O>K#3f]UE=^Sb_aP%?n4G;m]R^t-"Qh:)>pe(qG53^*uJ5>2+'`\;^OJ76<>%Yd\o(gk/7n^28F`-4r%G(B@=Y?M$h^i\oCDVcHI#M)B_3!Rc)b;I,f*J+n^Uu9l`0qHTf!k1ZtLC##a8poVV8r2p"Npd')/C/E7Q"f8F!6%:[@r+lqkqPk@QnF=r(uCj53;rOB+7KNJ]6J\u#2Xj?Gk:VDN:10P>&N/3IE-<M-,(V\h&5'%[>#XY.C36Z/][Ni$]&X&Y)_)fSo7h&T@Kf5oY<rP_X)?8DmZ%#'n\@smcOm`it;8*B+\L;E6["9\6ZBc_*uh+cX@!SDRuB[FZ#O5dG82;_)5LPYW=`@Jt[#Ln?t6#Y(bgh*/&iuoKcp4_%mqW,k4?TQ9[E?BG7m.GfoPI4A.S//K#fjA$FoL/Er#mc1?Oj=L;_kSm@>Z4Peo$/'u\_BU=Yu_?V[8KHUBq>/W7G$T,LE(sH>/l#J^o[)B=(XYa6M2sOY0$N>?WYW4@7>#d,bV?K+,JYt=rba@DC2_F3D,7l+IEKr1nE!7lV#]=!qj!V@=BGH<lq:"H/TKuFf5j&k4+O8-"KiOWpUl.R.7<(`CCB_n,;2m&+<olp5ULCm9Q99f"TQ)kaH,L>YDa;cljm,B2b5MP,4N!_*?C+s:W3TkhK(Y:<TPbJ/_jt`a0=!d<-2XfV=ie2.UY0,j>*+0N^Uk_"3+cP;(bS2:#nY;L>hbI\@8#UA!DI\\ZrOPGd_D>qI;`9Ga`SjMDtD.>E&F;4]fg<PQM<abW>H;t`?4O\kRE;L.b4fEJ@C0\n-2&"&a*B=U>J;/VAN?!<:/+A`e;YGQ7uLJkSQ']_2MGgTQS4PJJFV!)Zjql\5]%9nmtqA3==4(^4\P&\13%RH<.0&LGCEj4_g0'8n]X@N%4s>&b**#7A]A/Vuoeu02A*76.^+4q0WMf!q<fIPa=%oL'Fo0Z>b`^24I=&Hk<mHJQ7!&%a=#,6$Vcf5)n2qTHCM+f8[e$R'lc5H\#]1,sq`i]#A85ld%;=9,?A7E(Y'mjA6C"'GlSe)(lm/+NFeEs#bfo'0Wu1OM#sT!',HYrYNeL$L.(n\B%_KSnU,Sc;tE?'u=9\<VaaMA=+2ZHl+5kY3R=$a!5`YTZthqRm.$?Y?4Y]\b<9r?tsU^N_]:PagQ""aObFO9',mS:2`$91-/>W]6X$TM'S1eWF5G!]"b#:;^W((ZsNt4<&R'=./emZP?@%EM7c##j#W?!B3Zt6RrOI"FPto)$Ne\Z6oLlt<a6M4?l/qs.a9MqTDetIiPb4Jpm`Q`57&HtC'ZW;fGRn'.n-4h7C#D+GELnn<jGCAAL6UO>K(Fk-h%VH%XhI7O!/.ia:>Il'9fQo_tB0?$r_Sn;VW#L=NHr2_-r@XW*GMbKPs#N><gJEkE;%u<:`'^(`V$#YGe[!@d1f(1)?cWkMRdWoim=*1rCM177ftXS-&E=+t921i_$a@/nGo4)6Xk"^B:?F4PrD0W_/8Y18H?LkX0j)heAN,X?=9I[cdQRVd.Fl8jlU_U)5o@$>`KaEtltQ4DF@)jtohn0t'1l+Lk+P$t=u-6YZj_!3okL.8&Q5&V$M[_%&jm2W@'@6ar;L//7sOqB3H'[_#T`^1[4[#b7T6U-j5K=!-]FU]MFN<b58eOYekM3p?08bVB90+4(30`a0N]f.UFM!iN5^NOSlI%7ah(%"n/8alH+:MK1JOnS'b`hSA=-*R5t@nqjKRF\O'b^7DGh[Hn+<P\Z.VlPm:[/oE<IHQu0GLWN@+E1IEX#W5=o4W/_0EMd(2'Fr2.Xp1(kiW9'n/HW_!#SYU<$VE"5;fQAOcNlGgUT<C7,9,ETYW'>#PBbT^7;TJ4d-g\dp6Bl047Ch+XlPpO/ob"JX4oboZ?+-O<RYc>W-Z;&VEIH=KoBHR?''LUH&]M)VTn:mKInk:"_(U7H5?aMN+W==65^)P4i0>4[NgMbJA7d&hm5q%,K<CDS\u3N2Y_?9'h-i3%r#45kg4cWAkKnR\ii]XYeF@#2XfJRhK"N$?(uQ(XL&5WmqL*Z`c[bc\StZ'h@]/>cs)@`L;D<M9VDQ.*Bin]Vh[*@&uR$2SL>toA?Ms'?)ffecG`9UK!E;X3BJ"?'4<&\3*Tcd9SWj3kb`XPK]h[rHH0jmnth2f[02UT8Sue+Bh0Qa;$=>0CW32UG0!;YZkg,4"D_(*E4j<G[N#6]3d;p**?>!h_cR?QrK@s>9>h[/n;V+q7Nu>E(6,,pUQR7oL>G_,[G\9Fh!nM[cb=EMKo"P+3-k.#)TD;.SgU<n"@i/1_[]6.;#`-,isr>[_Vg?jCBI8`Ynf<20!O@KnWASF*6'")QMC_KO>uW<Ye3/U%6BYJP<g_Gb6=d"9s*mGJkdir$m0<K0BM@!.)<&li]^-=Y"d[]"j"lRV?#?e?Q8nL'X/OAs$&@0[Ai$dFdr7m3--1#NIP"&8r.Uf:0o$,]cG4mZaU\5c/-7V+f%hik)1H#d:p,XZ`r"LC[iBq*U%,,,Z=mp3rHAfBD[OmO'.GKF7rceCtQN7"-;,!5GA=jq=r5<?[ZRA?&0^KJ#:pk'u+6=lH(Zg(BXdmE'14Ak"T=_f.mU.?$mO;bX4?6=3J^iS@g'8M;^EFA(jBl&ONakA5PsWqf6GoEY=\=ison&f^2^^_5>V=7'gBJE(O(]'CtP"*pNjIj))E0qF/'X7B89s(f(!/9TqsK2]Vc,`O39<~>endstream
+endobj
+16 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 1405
+>>
+stream
+Gau0ABlE#i&H2$(0j(eJ\qh5d\dS-t\l[A:G-d%;7=bL@,>jab'WEBmV[!"X4/@6P:=B;6I0o$nDr,gsU_)LSL>T!9piZ[NY:39PM[!i]&m2f!=,Ybp)(@>,-Rk.O/>BWW;R/,.iTe[HUi8OsOAZ^r3+GcQ.DZ`*oT1C+@Hh;n_Y#Iu@$$Q`U`e>C#`8+#/IEUWc<6$u=FpW$R&/\-[nmTT-mOsfYit',qY[ts?d@QGn*p25e[q1;k,4-(YJ,V--WiJA7mDiZ!^+b!Oo!`5nGU]T3/)a5]gj*@=cpZg&mAlZU/1>(M<Rs;=[Ji<_:Th&$U&=g"1M%@]f((oeG#?Ic^h*/]nK+-0?ePhUr5R=i-j^;74aqh23#BgM6c\\J4mTjOA%Q[5UlFhnh$_$MbtOaU'83Xs%%kM&g+q?M&X-48l*N"7c:$q?*f*uk^$7>:+P7^'*bUmWq"JYWjAh3:l@X)9rF9fn3'%H@kEb!#7/KYa[UqL75PWd;]\hnT9q<5`%]4r7R6Qm(5:4,pqbc`^ruH.hM',q"ShQ9Ldml*4"';dDYT0Tq%tQjL\YT!iq/$>ZjS,3a@ZN%G=[?E0*3e6=NB7?_DcG-f(r.cYCq$_#hS>[T!ciQp?T%@b?M^>GOo$Fh'#qm44@*%PmPBk9(utGkg%23T']Y7*DLic$[H4bY;_O)/CH)gNU<%s7e0b,mGfMPo1GrRh#-7o]1%3idb\<fj7h#]d$0e%7<ti8&0N^PZQp&5,7,qH#hC(C9?'"kJ^;G_oO'X>XIH;9I*@@U1[XP#Q#pK4M1B7G7WL0?4NE"A%?u2/]P.]cHTA>Zr!T-l!sm*>Q(o#NjB%f5n3X1Q1Hi6K5c'GP=L=[B:'k^`qa/l\=]h&V!3YUk:5O<'<!"-G_2X.DKaG+oeY7*==kQqJG&2(/5-C<%RX+K(V>5QO$BAsR\n13iP#l0G9I1t#FO7.j]$mHt]c7\Ths[oF/qQAu?&7Al3M3;n$3].!f7Nakr>.IAfonGFpqJ/(*oP,M<cS:Bb7up:e5H*K+`W=U[W&^XXV]+l\7hNi=uefboa6NV0!3tO:nOIVqS)QkBIaQca(]mbqM>phFsJG_3*`j4H`cK&A)M_QqWY`*kDN(1ML]5O<#3*dEQ;^:eaIg57)lAOL[K>^V=_=uIDiL[](0RXO!<anU40.DId#Z:5Dlk`;`*W#+''-t_gV&g=Q(Q`MAWTT=F#-!&b%ARj.5,]6>ILQ(3P^T22o]Gl;$W%95k)rns4+!`;Y)jG,$OWk70K.CMU3DNoOa')SK=_i<6g$LTnbn)`S\3F5H!\2?Y`l#RoLrVa8OWT0jp0#N1>5oF_t0/\>5b&9o_Di5=m^\?<m-GX!/\\i!_mX_.]ZTk=L+0kf;b!uhcoM.;%Nljq0lYo`~>endstream
 endobj
 xref
-0 12
+0 17
 0000000000 65535 f 
-0000000025 00000 n 
-0000000074 00000 n 
-0000000144 00000 n 
-0000000214 00000 n 
-0000000289 00000 n 
-0000000357 00000 n 
-0000000503 00000 n 
-0000006683 00000 n 
-0000006829 00000 n 
-0000013673 00000 n 
-0000013821 00000 n 
+0000000061 00000 n 
+0000000122 00000 n 
+0000000229 00000 n 
+0000000341 00000 n 
+0000000418 00000 n 
+0000000523 00000 n 
+0000000728 00000 n 
+0000000933 00000 n 
+0000001138 00000 n 
+0000001343 00000 n 
+0000001413 00000 n 
+0000001807 00000 n 
+0000001885 00000 n 
+0000004748 00000 n 
+0000006419 00000 n 
+0000009278 00000 n 
 trailer
-<< /Size 12 /Root 1 0 R >>
+<<
+/ID 
+[<67b8d720952e84ba224a99c9b5ae838b><67b8d720952e84ba224a99c9b5ae838b>]
+% ReportLab generated PDF document -- digest (opensource)
+
+/Info 11 0 R
+/Root 10 0 R
+/Size 17
+>>
 startxref
-19034
+10775
 %%EOF

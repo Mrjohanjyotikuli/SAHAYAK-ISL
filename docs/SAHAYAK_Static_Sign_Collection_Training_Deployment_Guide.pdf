@@ -1,209 +1,124 @@
 %PDF-1.4
-%SAHAYAK-SIMPLE
+%“Œ‹ž ReportLab Generated PDF document (opensource)
 1 0 obj
-<< /Type /Catalog /Pages 2 0 R >>
+<<
+/F1 2 0 R /F2 3 0 R /F3 4 0 R /F4 5 0 R
+>>
 endobj
 2 0 obj
-<< /Type /Pages /Kids [6 0 R 8 0 R 10 0 R] /Count 3 >>
+<<
+/BaseFont /Helvetica /Encoding /WinAnsiEncoding /Name /F1 /Subtype /Type1 /Type /Font
+>>
 endobj
 3 0 obj
-<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+<<
+/BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding /Name /F2 /Subtype /Type1 /Type /Font
+>>
 endobj
 4 0 obj
-<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+<<
+/BaseFont /Symbol /Name /F3 /Subtype /Type1 /Type /Font
+>>
 endobj
 5 0 obj
-<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+<<
+/BaseFont /Courier /Encoding /WinAnsiEncoding /Name /F4 /Subtype /Type1 /Type /Font
+>>
 endobj
 6 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 7 0 R >>
+<<
+/Contents 12 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 11 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
+>>
 endobj
 7 0 obj
-<< /Length 6253 >>
-stream
-q 0.04 0.16 0.32 rg 0 808 595 34 re f Q
-BT /F2 8 Tf 1 1 1 rg 1 0 0 1 42 820 Tm (SAHAYAK | SIMPLE LANGUAGE GUIDE) Tj ET
-BT /F2 18 Tf 0.04 0.16 0.32 rg 1 0 0 1 42 777.00 Tm (SAHAYAK: Add a Static Sign) Tj ET
-BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 747.00 Tm (Collect, train, test and publish a held pose) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 726.00 Tm (A static sign can be described by a pose in one frame. This guide explains how to add one while) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 713.90 Tm (    keeping the old signs.) Tj ET
-BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 691.80 Tm (The safe order) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 674.80 Tm (1. Back up the CSV, current model and label file.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 661.70 Tm (2. Collect samples of the new pose into the existing CSV.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 648.60 Tm (3. Check the spelling and counts of old and new labels.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 635.50 Tm (4. Train a trial model.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 622.40 Tm (5. Test with fresh examples.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 609.30 Tm (6. Make the model active only if it passes the checks.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 596.20 Tm (7. Test old and new signs locally.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 583.10 Tm (8. Publish only the approved static model.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 566.00 Tm (The static model expects 126 numbers: 2 hands x 21 key points x 3 coordinates.) Tj ET
-BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 543.90 Tm (Before starting) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 526.90 Tm (Open VS Code PowerShell. The example project path is:) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 513.80 Tm (C:\\Users\\user\\Videos\\SAHAYAK-Updated-UI-Local-Training) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 496.70 Tm (Change the first path if your project is in a different folder. Keep your current .venv if it) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 484.60 Tm (    works; do not reinstall packages without a reason.) Tj ET
-BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 462.50 Tm (Step 1. Open the project and back up the files) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 445.50 Tm (~~~powershell) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 432.40 Tm ($ProjectRoot = "C:\\Users\\user\\Videos\\SAHAYAK-Updated-UI-Local-Training") Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 419.30 Tm (if \(-not \(Test-Path $ProjectRoot\)\) { throw "Edit ProjectRoot to your real folder." }) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 406.20 Tm (Set-Location $ProjectRoot) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 393.10 Tm (if \(-not \(Test-Path ".\\.venv\\Scripts\\Activate.ps1"\)\) { throw ".venv is missing." }) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 380.00 Tm (.\\.venv\\Scripts\\Activate.ps1) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 366.90 Tm (python --version) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 353.80 Tm (python -c "import sys; print\(sys.executable\)") Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 340.70 Tm ($stamp = Get-Date -Format "yyyyMMdd_HHmmss") Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 327.60 Tm ($backup = ".\\backups\\static_$stamp") Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 314.50 Tm (New-Item -ItemType Directory -Force $backup | Out-Null) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 301.40 Tm (if \(-not \(Test-Path ".\\data\\landmarks_2hand.csv"\)\) { throw "Dataset CSV missing." }) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 288.30 Tm (Copy-Item ".\\data\\landmarks_2hand.csv" $backup -ErrorAction Stop) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 275.20 Tm (Copy-Item ".\\model\\sahayak_twohand.joblib" $backup -ErrorAction Stop) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 262.10 Tm (if \(Test-Path ".\\model\\labels_twohand.json"\) { Copy-Item ".\\model\\labels_twohand.json" $backup) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 250.00 Tm (    -Force }) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 236.90 Tm (Write-Host "Backup saved to $backup") Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 215.80 Tm (## Step 2. Check the current data) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 206.60 Tm (~~~powershell) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 197.40 Tm (@') Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 188.20 Tm (import csv) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 179.00 Tm (from collections import Counter) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 169.80 Tm (from pathlib import Path) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 160.60 Tm (path = Path\("data/landmarks_2hand.csv"\)) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 151.40 Tm (if not path.exists\(\):) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 142.20 Tm (raise SystemExit\("Dataset CSV not found; check the project folder."\)) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 133.00 Tm (with path.open\(newline="", encoding="utf-8-sig"\) as f:) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 123.80 Tm (rows = list\(csv.DictReader\(f\)\)) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 114.60 Tm (if not rows:) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 105.40 Tm (raise SystemExit\("Dataset is empty. Stop before training."\)) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 96.20 Tm (counts = Counter\(row["label"].strip\(\).upper\(\) for row in rows if row.get\("label", ""\).strip\(\)\)) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 87.00 Tm (print\("Rows:", len\(rows\)\)) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 77.80 Tm (for label, count in sorted\(counts.items\(\)\):) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 68.60 Tm (print\(f"{label}: {count}"\)) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 59.40 Tm (print\("All feature columns present:", all\(f"v{i}" in rows[0] for i in range\(126\)\)\)) Tj ET
-q 0.78 0.82 0.87 RG 42 44 m 553 44 l S Q
-BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 42 27 Tm (Static Sign Collection and Training) Tj ET
-BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 510 27 Tm (1 / 3) Tj ET
-endstream
+<<
+/Contents 13 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 11 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
+>>
 endobj
 8 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 9 0 R >>
+<<
+/Contents 14 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 11 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
+>>
 endobj
 9 0 obj
-<< /Length 6273 >>
-stream
-q 0.04 0.16 0.32 rg 0 808 595 34 re f Q
-BT /F2 8 Tf 1 1 1 rg 1 0 0 1 42 820 Tm (SAHAYAK | SIMPLE LANGUAGE GUIDE) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 780.00 Tm ('@ | python -) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 762.80 Tm (Every intended old label must still be present. The CSV needs one label column and feature columns) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 750.70 Tm (    v0 through v125. Stop if the file is empty or the columns are wrong.) Tj ET
-BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 728.60 Tm (Step 3. Collect the new pose) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 711.60 Tm (~~~powershell) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 698.50 Tm (python collect_data.py) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 681.40 Tm (Follow the collector's instructions. Use one label name and spell it the same way every time. Uppercase words) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 672.20 Tm (    with underscores are easier to check, for example PLEASE. Keep the complete hand pose visible. Capture) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 663.00 Tm (    varied attempts with natural changes in position and lighting. Do not save many copies of one identical) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 653.80 Tm (    frame.) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 640.60 Tm (Run the count check in Step 2 again. Check both the number of examples and label names before training.) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 627.40 Tm (## Step 4. Train a trial model) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 618.20 Tm (~~~powershell) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 609.00 Tm (python train_model.py) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 595.80 Tm (The candidate files should be:) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 582.70 Tm (- model\\sahayak_twohand_candidate.joblib) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 569.60 Tm (- model\\labels_twohand_candidate.json) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 552.50 Tm (Check the candidate:) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 539.40 Tm (~~~powershell) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 526.30 Tm (Get-Content .\\model\\labels_twohand_candidate.json) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 513.20 Tm (@') Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 500.10 Tm (import joblib) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 487.00 Tm (model = joblib.load\(r"model\\sahayak_twohand_candidate.joblib"\)) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 473.90 Tm (print\("Features:", model.n_features_in_\)) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 460.80 Tm (print\("Labels:", sorted\(str\(x\) for x in model.classes_\)\)) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 447.70 Tm ('@ | python -) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 434.60 Tm (python -m unittest test_sahayak.py) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 413.50 Tm (The candidate must have 126 features and all intended old labels plus the new label. Do not promote it if an old) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 404.30 Tm (    label is missing or an unexpected label appears. A high score on a random split does not guarantee good) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 395.10 Tm (    results with a real camera.) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 381.90 Tm (## Step 5. Test on fresh examples and promote) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 372.70 Tm (Try new examples that were not used for training. Test in different hand positions and lighting. If the result) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 363.50 Tm (    is poor, collect better examples and train a new candidate.) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 350.30 Tm (Only when the candidate labels and tests look acceptable, run:) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 341.10 Tm (~~~powershell) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 331.90 Tm (python train_model.py --promote) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 314.70 Tm (Check the active model and labels:) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 301.60 Tm (~~~powershell) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 288.50 Tm (Get-Content .\\model\\labels_twohand.json) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 275.40 Tm (@') Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 262.30 Tm (import joblib) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 249.20 Tm (model = joblib.load\(r"model\\sahayak_twohand.joblib"\)) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 236.10 Tm (print\("Features:", model.n_features_in_\)) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 223.00 Tm (print\("Labels:", sorted\(str\(x\) for x in model.classes_\)\)) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 209.90 Tm ('@ | python -) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 188.80 Tm (## Step 6. Test the local website) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 179.60 Tm (~~~powershell) Tj ET
-BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 170.40 Tm (python web_app.py) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 157.20 Tm (Keep this terminal open while testing. Open your local website and test the new sign and several) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 145.10 Tm (    old signs. Check the predicted label, hand landmarks, moving box and response. Stop the local) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 133.00 Tm (    server with Ctrl+C when finished.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 115.90 Tm (If an old sign now performs worse, restore the backup and investigate before publishing.) Tj ET
-BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 93.80 Tm (Step 7. Publish only the static model) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 76.80 Tm (Copy only model\\sahayak_twohand.joblib to:) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 63.70 Tm (deployment\\SAHAYAK-Vercel-Deployment\\backend\\model\\sahayak_twohand.joblib) Tj ET
-q 0.78 0.82 0.87 RG 42 44 m 553 44 l S Q
-BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 42 27 Tm (Static Sign Collection and Training) Tj ET
-BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 510 27 Tm (2 / 3) Tj ET
-endstream
+<<
+/PageMode /UseNone /Pages 11 0 R /Type /Catalog
+>>
 endobj
 10 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 11 0 R >>
+<<
+/Author (SAHAYAK project documentation) /CreationDate (D:20261022101649+00'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20261022101649+00'00') /Producer (ReportLab PDF Library - \(opensource\)) 
+  /Subject (Sign collection, testing, promotion and GitHub deployment workflow) /Title (SAHAYAK Static Sign Collection, Training & Deployment Guide) /Trapped /False
+>>
 endobj
 11 0 obj
-<< /Length 3229 >>
+<<
+/Count 3 /Kids [ 6 0 R 7 0 R 8 0 R ] /Type /Pages
+>>
+endobj
+12 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 2901
+>>
 stream
-q 0.04 0.16 0.32 rg 0 808 595 34 re f Q
-BT /F2 8 Tf 1 1 1 rg 1 0 0 1 42 820 Tm (SAHAYAK | SIMPLE LANGUAGE GUIDE) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 780.00 Tm (If labels_twohand.json is used as backend metadata in your setup, update that file too. Back up) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 767.90 Tm (    the deployment copy first. Never copy a candidate model.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 750.80 Tm (Commit only the model file or files that really changed. Push to the branch watched by Render,) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 738.70 Tm (    then wait until the deployment is Live.) Tj ET
-BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 716.60 Tm (Step 8. Check the live service) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 699.60 Tm (Open:) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 686.50 Tm (https://sahayak-backend-krh1.onrender.com/api/status) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 669.40 Tm (Confirm model_ready is true and single_sign_labels includes the new sign. Then open the live) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 657.30 Tm (    website and test the new sign and several old signs.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 640.20 Tm (Do not upload the raw CSV or training database to the public deployment repository. Do not replace) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 628.10 Tm (    the continuous model for a static-only update.) Tj ET
-BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 606.00 Tm (If something goes wrong) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 589.00 Tm (- Missing label: check CSV spelling, candidate labels and active labels.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 575.90 Tm (- Wrong feature count: stop before promotion.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 562.80 Tm (- Old signs become worse: restore the old model and review the samples.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 549.70 Tm (- Backend is not ready: wait for Render and check its latest logs.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 536.60 Tm (- Camera drawing looks right but prediction is wrong: check the model and feature input) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 524.50 Tm (      too.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 511.40 Tm (- Command fails: stop and save the complete error before changing files.) Tj ET
-BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 489.30 Tm (Final checklist) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 472.30 Tm ([ ] Backup made. [ ] New label spelled correctly. [ ] Old labels kept. [ ] Candidate has 126) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 460.20 Tm (    features. [ ] Tests and fresh examples checked. [ ] Model promoted only after review. [ ] Old) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 448.10 Tm (    and new signs tested locally. [ ] Only the static model published. [ ] Live API and website) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 436.00 Tm (    checked.) Tj ET
-q 0.78 0.82 0.87 RG 42 44 m 553 44 l S Q
-BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 42 27 Tm (Static Sign Collection and Training) Tj ET
-BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 510 27 Tm (3 / 3) Tj ET
-endstream
+GauHLD/\/u')q<+0edVQ-a79)q4==r3O'U&EFL:r0.7sY=HP+l1#KhojU0W:ml.RG;NtX]<@=o4Qm)3@G'9HiSllFpr*u_`;$QN)$qFqG=:E2*YT1Q3nHGGCpV-&5J]E/Y"X=9Tdgj2"RHoOql-3NEY%=!Ep))GR&\->ZJa59"EsJ=8\DD#!pM'>oTA6YV0CWd3*%U[*!2"_ufG7Gq1r*j#lka)j@>58p4jN!DF\sb]-'u#iqkCZkV8YUq!M>Q<0((#j(&+H6Sr5GEO,Und<!+qEpDh1[@/PTl+0NDH@=$o/!a#;#J2J25&Y7=1n6;B0Nu:t0U(>l14.CYrDb!l`:1uETTLV2b-TRF=G&nYB9Q3>Q?nANjKJ/U@fo&!lc)<e":<6B^`;9)iQ41QG=4t]r\=V[-7b,&rIqNNa$TPX[5!T&6p`1?jqob2P$b3i1rH(/NHhlWHbo:uD^Ylj[s!L>G&+7'sAZH:")oY7KX;QCms(nk7%=3C`c,\\2c/W5`@9Ti6c1uH%4Q#BbHsQK-c,`%m:?[n:1Ibf+4u,ghF9D08Ac']j*A[pbK]q6Wj0!0(-P9T2[lM)RdSrVW;WNTeY'?*Wq(;NNF6(/o.+;XnM7eR%9bN?h4M5C5*=OLUortQk46neT'F$FPGTLcIBi\3Kj-XZE+SBpCqdMD&^*%E&LTo]N&n;#eWTO=,CnZ%R=V6Sa&B_#o$ItZrrH9KZM0+"K1elZE3AhUu\l;Vt'#uOkXCm&dOpVM<!H4.t]U9\m?.4ALot@&765,"!_-")/#G9^M/_lG^<cGC^579Cl$1<XpA"._$MK8U11Fk<++CIEQ4ZnDFF?,5tN&PG[;LE=L*c3h:pY%6:[B?m`+Idu?_]Sp5BQFWpMmpLk="ZW!#WaO]SjM66!Y>8<U'/WGOmRGg0b^`5;Mh]@8R5<=mEr0/f8m65'p%dO'%De/BD+g\KXkFDZoJ[A%K<76<N[44l7#X;q4siEEhB_7>isF4`k<7/6r[]";BHK64CtOHW03Pq'HK2).*#D-*t"AfG?L7#;=8Ie0^qB=bZ23sD0$M6`?=F'gJ5;[n+UehC7>g\m4&sKK4]M[URB)C5h"rrV&d6,o=:H&GeVM4Aj4giq[SFFX_DVm,u-rZQ=c@X3ScIKZ4siE"@Z<>-u2@<T$U`c*u_F0>jZBA*@i)7%$;cC.O^d+ic`OZADY5BEsR%gX*,pa?4l*"ZkK9)/dtA<<BZS4.Z70`I//#)E]e]nh4]\lNOr.Nall/9^9"W'o;ApXVa]N.Xt"uAc?NWQp^6bJajAWi[@.c$b.[+Y7FG]pfT]_`n49M(0R3d^D2<L[J_hV'"8f9/:+!_J;9?qU_8g(qT>9QQI#22o#a,a59]'&O[,9ouQqWHma;<JC<Cod\O&7#Od-4"KHc:D00'bO#1`@O3-*Go[N02^]=1k+,:=W8/%?_tqb2pO3W,XRan[pV`h8pU*3l[!:iZ!1#;M+#9d'<(F/BYA.fZ4VaY;j@4dHZBPZo[/`SC%"WQkS39Xf-F026?-orjGFI!_\C_g`Zm_]P,_1EJ%`.&Wk4E=YpkLh\2ur>cS%MTi0C%848Q$#SI6rc<uc6Fi2Z?So.F@\H3;nB1kOC]r-\$3tWQ$>U[Z^GS4+kM;LbOeAFX+M_p9Vn>/G21j3m2/P5#qTP?=68=g9phFKEkJ`tO5ADeAfjG6hX6SX5elf7p(R)':X8nPkcIYUf;l6O7Qj]RH)BrV?VX4+Du:T'as^s,!e.^k16p>`4e\qo;[YGg'fRp#[9E4.ID1Z\o;);ZLTS.PLVcI<c:^Vlc=n)O3*r&i/u>d;AVenI@d01D%>Ud)KfHij2V!RG&llA_B`2%n#FoX5MQW8HWH.GuJFP_HCUg54P*ac&d++)oo_UCU(fp62-["HV\!3I"#9$3h:DCN@c\"70sfSGg?62c]1:XaJE\r9acI/Cj2^0hmkrK3_E9=\Z&Fas(20DXr2G*<%`2Ka=7YaA?#4>sO[(aq&e')ghR&5KE&=T<"b'U[nO1\_i9Raf/[KMjN8prU6CY'pf"\<:;orlCd=X`7fFf9!&L(F9Ns($r>&4r?*nE1ilYrU@G,4hrQ8ZNI:Tgi*'=#q#n!)0@Y<[nqQ6C5t;rHTs*K-ip:"*FS?(a'u<c#/;X=H9Y(th<`h+Un/XY'HNqh:m7F4MQ:11TV8V:.MGoY_(J00X(em:'Va#SujJ'ft\jja(b(YX?X='$c*-nTYiOYRX$;E@rCa#&R,LS5:7j/$d:@ITjG$neARVQa64\TZ2h:7J<2E@ts)-q/CcFf+0<KAr>jf^DBHMtIDf@ij0Xi/qfTq6dB[D)b/eGDuH*qXgs_0q++#e%snOUPKF:1[BLA->\MF,Z4/[sD"9f]lXYCY=9/CAC&@Sn!19Q#TrjI&SQ3FFg2())VgH,[CK'TXs;7IZbW/7$]9/dNI4N`k^a.du0,W5Z'=$5Q:0?k-rN@%r&1OBdj@dGqH$;%^!_);.0WElaADBHh[J>9<EOqNHb[%lMBYI2>!?97]NHoo)K,`<<L"4lO.M]3L0n7[GO3sVGCbk%5TQNj;\QJI"Xm7E;.s6QUF9+.q+:XDYW-4DmH@@\p23>Zj)Wu.`*5$_fD<_cr1sU/9mGQBc%=_R0ra&e>9.U\5KfO(_ARN,B4!'E]^IigSdWfl__PQPf>5eX?!\"Gn_YTF;<2-XuWd^PN4AK!2ZVP*CUr;OiI(aW(U<#h$TD2mt<+>O_03G&t%8$&WH?6d5Y%q4#iFLJ"\[EkQ6)%b5%&kT,&hbk">/6WSeL8DNW"NRUUu"g6F*j,GERA$H$CN0"eptpJ5)bJJh(QfYg*V-VdZX?tf*jhK1/I-LB_-X;9#%GFS+/ZS=3DR?)qUm10OYJu:]2=(oC"ft<&i^&J+_"Y"N~>endstream
+endobj
+13 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 2707
+>>
+stream
+Gb!SlrGUH3&cLO8`Sc85b!B3p'M1kK%%M)\GJ9lX02YR\<?\HcQ,T+tjcWZ'[f:^3/1HI^Xg?C0"\<M*K<*\]fpOefc-dpHhmW>$,Xd-NdIA0FCklUqZ<cG;llEd2*W>S#9RLL>H6aidM)C`bQo^g#V%5d3$'3Y-.=&A+S<<9e`:=$^>Y<(Y?/^%!TpS"bR6;N.$a[rCpmY!227C0>KS2K,4!(hN>RX<*\E,_oj6Ce0gC^mSdk%3la0VD`rc\"$r_7;`?ba4G+9-A,nbO!F51/_DZh.Sm4-#AL1%G%fXlJeFlaT[Lg?mJWOloO<&II'\qA-_f`tNZ-n+57QKf+"X2nOL0jU]76l;H"j/+/^C[`/pY)PplNeo[Ib<Uk(*iY[<.6WZQFNog&,F*2\G*+AZlh$pOKXWjZ!i>8<\M,4*bF%3SC#]QZCWJ.)i%44P8'985b##aJV8&B6m,9#R8:pg0"a>0gHV`!,3%!J-V3LfD`1)p/M\kpSO87Yl'n6-Uu85.(s:*qn0s.)+omnj4=(gEAD+2;g;kP-\2U'^;;s.Qn^@m<TVX=,OEpB(c.3*&<_AZ9Q3?PZd2\L^g%F@2&X2',tSS5.>E]\a*..?@u,L5@JLoYObi?\+Jho2i'i3\"3qM_%ro]W]a+$`!@fZr`O9iFJm^gYRHY[>q"]Sb=auUo*6F4.G_>E3`7gNc[;M@s)c'"m#t86WMA-bPA3aAjKIo,o_&'-I-muD6_IFHa14\EUP!&)"YlaV.PA*,'acsfVpgAR[q-EHSKkRgH;kNiQJm;&LA1;S,GcTW^P21Cqhd(pB-MG5Er3"V;W*;rJ[@E8&FtiWG;T;2AZj[OZiEoZ!e9s0Sr)!ZGd`R\GT5,K[.*81Mgpq3YkMXq8I`*WaNK=!oMb3Jj[W#,.C%;6^Ys)T,Ki'JnB^)kTpDJ9EZIe)H+,'1kh@Go_rT[qT34b.#]W$s'AQcKdtpcg[jOlg;8-G>\u*RD8D[]Y?eHBE;*=JK9DCmZnM_$q84"6`Z21GD=`,dCc[m."/e$/$QX.Hm:O9XnJ<rY#=UU9^;`sAj,CsUNfFQ3)/jRM[#e7>]%NPKbQJ+pb6gjl6;O=T`fsJ7?Bp*p9*Q$o;]?sY/?Q^;VG[X%q$;b[,oHhc+bPON!K`PH@VD-\nj3MB#*Bnc*uW+$EG8GTCJep][HqTFO-3%LO<"$QQ<FC8'"GN8@Jg*l]oaG]5_T:A!H$Bg&#O:p>ukd5`F6HcDCM#l'Ym_1Q:W.hMX[mP/*Ib`"e@O=[p5,:EOD^nGoW)gPd2!0aHVoA,61bqI5;k7DCaW\1oVm-,%*/I6?-KK#QnqR/G>E:S*5_-59tQ^-dV`%<GFjb/XJ""ZrF?4&Bb^Cf.dP3._%8m>96p:Yr[/u-=$9@!1L-Ch(DKjkH@VpQG^Z1CK*#^W(NhJ@q,SIcuLESjB[O"T'6>@AN(1s!I`C!H?]t9#X*%eME$f]^7HLIj(?b/\^!l-:tp(2!lk+'Eu/[cT32?j_)fn[RmeI/9iFrn<S,Q<948#?'#8b%.+RMO8QX?pd;0eF;(m[k^`;rp,',/]=U_f:78r6)SOr]*i9\cci#r7!<gCH)=qqkaW0]+T`9RS+!3O?>/61nr:/:mG*sV$T95iRj0V$^@]]Snf!k_Lg(mjN=q5XNJHX"(TL:L(C?^m'f4+"K*o:IC7CmNSYD]A-0D/6F[T1bA,5m7ClhNNucj6UT*Gu!O8mk6:Hc=X9ElKnmQ^%#[o_!fWIeQ(E?2)B3=5^#iq-tI+u=!DW1lE\f'QR;Vi\6V#B3>QamAJnC5m8.7dP:SCbOaoG05/RhG9Yj!f@MZQ]W[,tOhmYTrJ4Yi@=::nG*$E[#?\/ek;N8sg?>;3'Pa,*K0c@=?Z.Pk]D:3T,ceK%5E8YW.$;'OS7cTf9GWE8^j$s"Jq/O66^K$3W$+`$!X%"n)2nM\GRnA-4C.@7*s(Otq_dT)Yor[qb,Ia/3h<ORr`h\W9V`i_jfPofC%"^$%\6;]j*3QkS;>2iK!#rV0U&dKUkRW;-9iZ'pCauY>A[n\)=Ymq'<N_C.fa`k-4Qs5QXE2l*-F\Apd0'YNBi`R.5N8POlErmDKi)MR'[oEMd7Rm:6JY.HXhmSiYC#NFs5Yg!=/rPp5Eas>N./e\IL#i6nS=nlC&3aWXN#@aDAG"R^[0ZdU<p`_Gs8/`3gS*Y7Vf6;1`TcTr84ZHJ#cP.mPr*Q$;Em-%n6a!;MYEoaqkhq+AuYBe_]#mm2Ikp`a'P%8F$?rHtVf(ag]R,Qg&pAVhQ:D[6H2".\uN6AXT/1+5=:Ij!$&@'@3tcA!oj-)Vno"^I(Y9Stu^13Qm.ACPM51as"*TDj@+=Dq[co-Zhn6_]VTc39Jt>LgFjiet\SQH>\ea*%PobC;*q,_B,(!B18X*cZ)GpWs*\tS!sCC=rL]P>o&ti!I7r7:*\;rh4(?%*q&K(TL4'eBog"#S6%^]k#q2\FM@W=U>h@qr6MKJUK#5E3e2"&65YYZjX_3NV9p^U.aLi,DALWOcFIs;`;i&oXETjW1e=np;6?3OFpj&dkP>o'nq%<ES&k;NSZDFJhl<o0l*:@HY^P4^XTu4jN]$YR6d;fjlDBo61?,p-0!h'KW_e;WQF!<7YITKo%6ej7buKVhi+u:\#pu;m7RVI]T>Cl]_GUn=@aJu-no:IDR$/4F$bdso7l#c`1$(TV&fpoe<-'bZ~>endstream
+endobj
+14 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 2871
+>>
+stream
+GauHLD0+H$%fYm'JT5ulDJH?L:+8.#OP"huCWET[[*oo;pf?HJU.oZ2/nJ%(GQ7Vl?&G@%.ohb%g50YuG6'8ahuQ(JD#AJKcSu/S1PFUH#94P7'6&?]_se;q%ZgTK@f=Z5quBiKd'p[hY^mbg"1Wc/_ua$\'bE@KG.l7V^)\o_iBn*+mkZod/7idEUij0Y0s.7t_NbaG7s<8J"*;,r%8`>Uj2(er.@kGs;qH=8QT8ph_]2G>?@R4uqs0m55Oe+#mH$@@s)`8[p3RW?_!n09^"<+@iEjV%!Bj^-hCc3j3tN:9>H>F[m"ZW9h\h)*>44t0hfJKomJ>$Jpo'\+5*P*V._2P_/7eE5alEN,n69'AEhVD\/jsh@'3U'JXp`j$%Bf)QSU5K:\1Y,*_5;f'4r*!u%fCpPCemHY9i:+_GanaW5`n5Y$o[mVJKfpU#qZ7"a@XJ2DHXnScNKJtb[i@=:c5H*(il%#%+:l9qXOHir\,E],0ES3F&CF`=$g^?qn0JrL:N=7?YF>lms8M^LgSPi\PBq&A$L[6dm57HUWG_.;/1aKMPimH9OT-O6r^s["=d8@Q.E6E6Cc.aJ.a03GV'b;'`+'hPNQL('T<48mhEJT2I^R#X<CTJPk/WA)kHOB0Tmi3Fk)]EDGeRdY@m7r9ZB211s-,0<=a,iMhe.1e&Qa"p):_N(O)2ScL;Fc=Vf\R/5g_VKnL*#.7bgUTXg3e?D5?+&rW0V"P`D3'jcO>h8%%G7[TsWFoGbUURMWP&Vf3S4Qa5'%kRR1H6t;+Cb<uO68OP5G.ct&Q,4*>MLXD\@NqkCf8,n8FS$.a6q3Ng>aKp*3,ceQ;<SNmBEINf8Ei-#Np5j8Dhd=C3'M[H)LYNIO3qX$^IBI:*3R<r(L6ba(6,pqUW1X#c\1R6`)*sI;-M`_\Bk8.)1N8qTQN<XM+1Mn1HI3pMY\$e3Iq^gErGOpmAnf!N:uJR+u,jVThr.n/KLD[,h'X.]sds.:"/r`oK@W?^KV9M\D/3F<nF0oea)2:Cd)I9b^5sN,+WNbZkEDNEF[^4STX9AEgSA]/2`Vkh4AonB<nJb@bq*S:MNSFel@T'"Kj)'B/M6e5"qp:.W'8kW#"4$3m0OHWb"mOQBj,'FIEu,,=o8;F%<f$\t=ce`]S^?QS>Re&^MjY.8'-CW[L8W)E@fF/+gD]]6TeU=fh.'A@sW@&4>T$YH3CgB[Sqr+#%6o7;\UU;6\pAI":6'IU-5*M=ogpSh#MggOI&Z`(b+)q`X*U2-Y?8j4oqnW+`SDZfZLR?)#QM<fh<36ac(Q/WsK<isr8<M,C<P=_puK]7l56$;8OTeo5!>qZ`(WEklG7?XLa_U5d'%.H!sJFJo-:K`<-uEWkgGGEBc`.cJ0*-OTfCpGBVPBah3,CM'?&e-ZnYFug0#NFf`.Z*WO06,2b:Ee/"U7?MYdI78%06,6Nq`#OYGR:<_Tmd)Adj%KArNthc'-=IF*S>B`2YcSQ8=&Hp\Zd.;2p';Y48:!bB7O9i`-MhMG$=eFE6nG>q,SI6.<(KP)oUOb9H3uBa8h$09P%(u@"iCjkXu=h&,)R<d_!QNn<JLtU[h\nXq7h&<&VF<XP_oWIRHH"S2J%V<0hk^$qttU(ocfHN#Lm)#6+hB@YQ"HDfAAluVt_<*pcJA9F>BOq\:'j3C[,]=5@4?GoK+!$VM<-lrGm1H^qVr'mSKSF8X1qBoh9+J^-";[Lj;*MQF3fGk<`7Pbt9ufX'FhF,2XZ-V5i)aJqU/TFM2Q#q,fh;c]lLf^"kC/mPZHu.u3.\]&KhYU=*b,=H)@K82\G'?QL:iL:RQSCWK^-6C2if_I3T(ft)sUgDtW4h"/EY!o(N-^`N,L^W=n19k=G)AG_`sGQBn%h__L)oX5t?k77Whe;G`[hn7J8%co)YjSLHrlC5$tD%C`3SkDec)E!s9&YVXVoBK3/],IEKHKoP<4a'm!]Fst\QmLeAVMpmk!D/\BM;h)_n.o@el?(VXD#lm4\'U#'*;6g#/'SIlB8PHO85.(9"-s:X?]S+0"ZC<p64pd<gnuRsJ1?('g>Lb)W<.JP8-J0ffkH#aT[u+=g>mr)@nZiiJ[^&?&D>;-lT3rcbjCVqrUK?Z!cACRSN?6ADD?gAN@052+s#[8S^)2o'k4"1'f&O^@rCSNO#V)Ca[^n6T;o(_4d-0lY9oKgS#qEWXiG2=0Nh@YLE9]FRJ)T8j)*2fFI&3Ma`?R466Kn"Sp9VYOS:[fP)`+h6hKPopo(OjGrf\!lt%EnG<7MDKFNLjGgn>-`&3>[jEp5Wqb\%NO;CG''L:,GH5+g+m3nK`S1&+[;TH'7C1CB)1e5ojp_Pn3lfu:/;XfQu"k[t+V@@&aUm+ak?/XYVrKP=C*HJ0e:b5T9,OJS:a<or:$_:g5;[eqj?3bPr^m=R^+rlW3B%/$j$1\)-E8=p*:Yea3I^p8ul,MH`([6$B>8`KaBrT3^kWT.C4@pige[ZR6C.saA-PJuW4G$kDbS%Uf9J<E$=R7LehHm]HH2kRK6$+fH^AQuo%<0O1hP>6L8L#"4QSMf!KLh=cI^Pq4ABKWure]ZgY&GT$i\@F:`m@alP,M"7]U3JSPq^7f>]=.U3@mUD^o2%&-oo=\^b[8U`$>RQ"u"VKh0)`$1XWJ#XXuFee]$!bH7Q=\DN9u:45d6?j)pL\m/poubm@dTmB4AAbH[e`XDp74<\,e:k\(r6p$0dm=lF1MXi+i+:'b]C)k_s\1L$b;T&Y)F[R\Q=iFq)PX^6h2H_DF/cl;1\g=:m!TBgK5eJhW%l_##;24uhqO<Di1MkF8L(=apO/5A-Y>]V-YW1SJk'I2L4j.SPNg1$M>-_B>j:b?,iFdB]17d&;Cq.#2&i95YB2`.f~>endstream
 endobj
 xref
-0 12
+0 15
 0000000000 65535 f 
-0000000025 00000 n 
-0000000074 00000 n 
-0000000144 00000 n 
-0000000214 00000 n 
-0000000289 00000 n 
-0000000357 00000 n 
-0000000503 00000 n 
-0000006808 00000 n 
-0000006954 00000 n 
-0000013279 00000 n 
-0000013427 00000 n 
+0000000061 00000 n 
+0000000122 00000 n 
+0000000229 00000 n 
+0000000341 00000 n 
+0000000418 00000 n 
+0000000523 00000 n 
+0000000728 00000 n 
+0000000933 00000 n 
+0000001138 00000 n 
+0000001207 00000 n 
+0000001601 00000 n 
+0000001673 00000 n 
+0000004666 00000 n 
+0000007465 00000 n 
 trailer
-<< /Size 12 /Root 1 0 R >>
+<<
+/ID 
+[<5425747af0b53288a221e97097958c80><5425747af0b53288a221e97097958c80>]
+% ReportLab generated PDF document -- digest (opensource)
+
+/Info 10 0 R
+/Root 9 0 R
+/Size 15
+>>
 startxref
-16709
+10428
 %%EOF

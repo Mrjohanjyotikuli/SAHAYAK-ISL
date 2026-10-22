@@ -1,298 +1,143 @@
 %PDF-1.4
-%SAHAYAK-SIMPLE
+%“Œ‹ž ReportLab Generated PDF document (opensource)
 1 0 obj
-<< /Type /Catalog /Pages 2 0 R >>
+<<
+/F1 2 0 R /F2 3 0 R /F3 4 0 R /F4 5 0 R
+>>
 endobj
 2 0 obj
-<< /Type /Pages /Kids [6 0 R 8 0 R 10 0 R 12 0 R] /Count 4 >>
+<<
+/BaseFont /Helvetica /Encoding /WinAnsiEncoding /Name /F1 /Subtype /Type1 /Type /Font
+>>
 endobj
 3 0 obj
-<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+<<
+/BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding /Name /F2 /Subtype /Type1 /Type /Font
+>>
 endobj
 4 0 obj
-<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+<<
+/BaseFont /Symbol /Name /F3 /Subtype /Type1 /Type /Font
+>>
 endobj
 5 0 obj
-<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+<<
+/BaseFont /Courier /Encoding /WinAnsiEncoding /Name /F4 /Subtype /Type1 /Type /Font
+>>
 endobj
 6 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 7 0 R >>
+<<
+/Contents 13 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 12 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
+>>
 endobj
 7 0 obj
-<< /Length 6721 >>
-stream
-q 0.04 0.16 0.32 rg 0 808 595 34 re f Q
-BT /F2 8 Tf 1 1 1 rg 1 0 0 1 42 820 Tm (SAHAYAK | SIMPLE LANGUAGE GUIDE) Tj ET
-BT /F2 18 Tf 0.04 0.16 0.32 rg 1 0 0 1 42 777.00 Tm (SAHAYAK Master Guide) Tj ET
-BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 747.00 Tm (For Johan Jyoti Kuli - Lead Developer and Project Head) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 730.00 Tm (This guide explains the whole project in plain language. Use it to understand the system,) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 716.90 Tm (introduce the project, explain your own work honestly, and answer judge questions. You do not) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 703.80 Tm (need to memorise every line of code, but you should know what each part does and how the parts) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 690.70 Tm (fit together.) Tj ET
-BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 672.60 Tm (1. Opening speech) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 655.60 Tm (Good morning respected judges, teachers, and everyone here. My name is Johan Jyoti Kuli, and I am) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 642.50 Tm (the lead developer and project head of SAHAYAK. SAHAYAK is a real-time Indian Sign Language) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 629.40 Tm (recognition prototype. It uses a camera, hand-point detection, a trained model and a website) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 616.30 Tm (to predict a limited set of sign labels. I will explain how a hand becomes numbers, how the) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 603.20 Tm (model makes a guess, how the website and server share information, and how we test and improve) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 590.10 Tm (the system.) Tj ET
-BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 572.00 Tm (2. What problem are we exploring?) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 555.00 Tm (People who use sign language may meet someone who does not understand their signs. SAHAYAK) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 541.90 Tm (explores whether a computer can recognize some trained signs and show their labels. Indian) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 528.80 Tm (Sign Language is a full language with its own rules. Recognizing a small set of hand signs is) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 515.70 Tm (not the same as understanding a full conversation. SAHAYAK is not a universal translator and) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 502.60 Tm (is not a replacement for a trained interpreter.) Tj ET
-BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 484.50 Tm (3. Simple technical words) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 467.50 Tm (Computer vision: using software to find information in images or video.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 454.40 Tm (Landmark: a key point on the hand, such as a fingertip or joint.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 441.30 Tm (Feature: a number that describes something useful about the hand.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 428.20 Tm (Dataset: examples with the correct label written beside each one.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 415.10 Tm (Training: showing labelled examples to a program so it can learn patterns.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 402.00 Tm (Model: the saved result of training.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 388.90 Tm (Prediction: the model's best guess for a new example.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 375.80 Tm (Frontend: the website pages and controls that a user sees.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 362.70 Tm (Backend: the server that receives information and runs the prediction.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 349.60 Tm (API: a web address used by the website to send information to the server.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 336.50 Tm (Candidate model: a trial model that is not active yet.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 323.40 Tm (Promote: approve the trial model and make it active.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 310.30 Tm (Deploy: publish approved files to the hosted site or server.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 297.20 Tm (Confidence: a score showing how strongly the model favours a label. It is not a promise that the) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 284.10 Tm (answer is right.) Tj ET
-BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 266.00 Tm (4. Follow one prediction from start to end) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 249.00 Tm (1. Camera: the browser asks the user for camera permission and shows the video.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 235.90 Tm (2. Hand points: MediaPipe Hands finds key points on visible hands in the browser.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 222.80 Tm (3. Feature numbers: JavaScript prepares numbers that describe hand shape and position.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 209.70 Tm (4. API request: the browser sends those numbers to the backend.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 196.60 Tm (5. Model: the Python Flask backend loads the saved model and asks it to predict a label.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 183.50 Tm (6. Response: the backend sends the label and any available confidence information back.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 170.40 Tm (7. Display: the website shows the result. Translation or speech may happen separately.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 157.30 Tm (Remember the order: CAMERA -> HAND POINTS -> FEATURE NUMBERS -> BACKEND API -> MODEL -> PREDICTED) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 144.20 Tm (LABEL -> WEBSITE.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 131.10 Tm (If the points look correct but the label is wrong, that does not mean the same step failed. Hand) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 118.00 Tm (tracking and sign prediction are separate parts.) Tj ET
-BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 99.90 Tm (5. Why 126 static values?) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 82.90 Tm (A static sign is a pose that can be described in one frame. MediaPipe estimates 21 key points per) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 69.80 Tm (hand. Each point has x, y and z coordinates. One hand has 21 x 3 = 63 values. Two hand slots) Tj ET
-q 0.78 0.82 0.87 RG 42 44 m 553 44 l S Q
-BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 42 27 Tm (SAHAYAK Master Guide Johan Jyoti Kuli) Tj ET
-BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 510 27 Tm (1 / 5) Tj ET
-endstream
+<<
+/Contents 14 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 12 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
+>>
 endobj
 8 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 9 0 R >>
+<<
+/Contents 15 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 12 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
+>>
 endobj
 9 0 obj
-<< /Length 6628 >>
-stream
-q 0.04 0.16 0.32 rg 0 808 595 34 re f Q
-BT /F2 8 Tf 1 1 1 rg 1 0 0 1 42 820 Tm (SAHAYAK | SIMPLE LANGUAGE GUIDE) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 780.00 Tm (have 63 x 2 = 126 values. The model uses these values to choose a label. The number 126 is not) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 766.90 Tm (the number of signs, the number of samples or the accuracy.) Tj ET
-BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 748.80 Tm (6. Why 1,320 values for a moving sign?) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 731.80 Tm (A moving sign depends on how the hands change over time. Each sequence frame has 132 values: 126) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 718.70 Tm (hand-point values plus six wrist-position values. The system arranges the sequence into 10) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 705.60 Tm (time steps. 132 x 10 = 1,320 values for the sequence model. This describes the model input) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 692.50 Tm (format; it does not prove the model knows every moving sign.) Tj ET
-BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 674.40 Tm (7. What each part does) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 657.40 Tm (- HTML gives the website its page structure.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 644.30 Tm (- CSS controls its look and layout.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 631.20 Tm (- JavaScript handles buttons, camera preview, hand-point drawing, feature numbers and API) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 618.10 Tm (requests.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 605.00 Tm (- MediaPipe Hands finds hand points in browser frames.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 591.90 Tm (- Python and Flask run the backend API.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 578.80 Tm (- The scikit-learn-compatible model saved by Joblib predicts sign labels.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 565.70 Tm (- SQLite can save continuous-sign samples in the training project.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 552.60 Tm (- Vercel hosts the website frontend.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 539.50 Tm (- Render runs the backend and loads the saved models.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 526.40 Tm (- A service worker can save website files in the browser cache. This does not make live) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 513.30 Tm (backend predictions work fully offline.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 500.20 Tm (Do not describe the current backend as a TensorFlow or CNN system unless the code and model files) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 487.10 Tm (are changed and checked. Explain what is actually in the project.) Tj ET
-BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 469.00 Tm (8. Important API routes) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 452.00 Tm (/api/health - checks whether the backend responds. It does not measure accuracy.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 438.90 Tm (/api/status - shows model status and current model labels.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 425.80 Tm (/api/predict-features - receives static numeric features from the current Live Studio workflow.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 412.70 Tm (/api/predict - an older or alternate image route. Check the frontend before saying it is used in) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 399.60 Tm (the current workflow.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 386.50 Tm (/api/sequence/predict - receives continuous-sequence features.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 373.40 Tm (/api/sequence/samples and /api/sequence/export - support continuous sample access as coded.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 360.30 Tm (/api/translate and /api/speech - support translation or speech. Some services need internet) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 347.20 Tm (access.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 334.10 Tm (When explaining a route, know what the browser sends and what the backend returns. Check) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 321.00 Tm (frontend/studio.html and backend/web_app.py.) Tj ET
-BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 302.90 Tm (9. Add and train a static sign) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 285.90 Tm (1. Back up the current CSV, active model and label file.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 272.80 Tm (2. Collect correctly labelled poses in data/landmarks_2hand.csv.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 259.70 Tm (3. Check that old labels and the new label are still present. Rows use a label and values) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 246.60 Tm (v0 through v125.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 233.50 Tm (4. Train a trial model using train_model.py.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 220.40 Tm (5. Check that the candidate has 126 features and all expected labels.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 207.30 Tm (6. Run python -m unittest test_sahayak.py.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 194.20 Tm (7. Test with fresh examples that were not used for training.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 181.10 Tm (8. If the results are acceptable, run python train_model.py --promote.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 168.00 Tm (9. Test old and new signs in the local website.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 154.90 Tm (10. Back up the deployed copy and copy only the active static model.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 141.80 Tm (11. Commit only the intended model file, push it, wait for Render, check /api/status and) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 128.70 Tm (test the live site.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 115.60 Tm (Do not train on only the new sign if the model must keep recognizing old signs. The candidate) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 102.50 Tm (needs examples for every class that should remain.) Tj ET
-BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 84.40 Tm (10. Add and train a continuous sign) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 67.40 Tm (1. Back up continuous_gesture_db.db and the active sequence model.) Tj ET
-q 0.78 0.82 0.87 RG 42 44 m 553 44 l S Q
-BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 42 27 Tm (SAHAYAK Master Guide Johan Jyoti Kuli) Tj ET
-BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 510 27 Tm (2 / 5) Tj ET
-endstream
+<<
+/Contents 16 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 12 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
+>>
 endobj
 10 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 11 0 R >>
+<<
+/PageMode /UseNone /Pages 12 0 R /Type /Catalog
+>>
 endobj
 11 0 obj
-<< /Length 6854 >>
-stream
-q 0.04 0.16 0.32 rg 0 808 595 34 re f Q
-BT /F2 8 Tf 1 1 1 rg 1 0 0 1 42 820 Tm (SAHAYAK | SIMPLE LANGUAGE GUIDE) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 780.00 Tm (2. Use collect_sequences.py to save the full movement under one stable label.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 766.90 Tm (3. Check label spelling and sample counts.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 753.80 Tm (4. Train a trial model using python train_sequence_model.py --db.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 740.70 Tm (5. Check the 1,320-value input and expected labels.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 727.60 Tm (6. Record a fresh test set after training.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 714.50 Tm (7. Review the overall score and the score for each label.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 701.40 Tm (8. If acceptable, run python train_sequence_model.py --db --promote.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 688.30 Tm (9. Run python -m unittest test_sahayak.py test_sequence.py test_sequence_db.py.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 675.20 Tm (10. Test old and new signs locally.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 662.10 Tm (11. Copy only sahayak_sequence.joblib to the deployment project.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 649.00 Tm (12. Commit only the intended model file, wait for Render, check sequence_model_ready and) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 635.90 Tm (sequence_sign_labels, then test the live site.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 622.80 Tm (Do not replace the static model during a continuous-only update. Do not publish raw training) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 609.70 Tm (databases or samples by mistake.) Tj ET
-BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 591.60 Tm (11. How to test fairly) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 574.60 Tm (Keep test examples separate from training examples. Better still, use different recording sessions) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 561.50 Tm (or different signers for testing. Record how many examples were tested and how many were) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 548.40 Tm (correct for each sign. Check which signs are confused. Test different lighting, camera) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 535.30 Tm (distance, hand positions and movement speed. Quote an accuracy percentage only when a saved) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 522.20 Tm (test report supports it. A successful demo or fast response is not proof of accuracy.) Tj ET
-BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 504.10 Tm (12. Privacy and responsible use) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 487.10 Tm (The user should choose when to allow the camera. Explain when information is sent to the backend.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 474.00 Tm (Get permission from anyone who provides training examples. Keep training files safe. Do not) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 460.90 Tm (store identifiable video or images without a clear need. Do not call this a guaranteed tool or) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 447.80 Tm (recommend it for emergencies.) Tj ET
-BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 429.70 Tm (13. Deploying updates) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 412.70 Tm (- Website change: test the frontend, push the intended files and confirm the Vercel) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 399.60 Tm (deployment.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 386.50 Tm (- Backend code or model change: test what you can locally, push the intended files and) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 373.40 Tm (confirm the Render deployment.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 360.30 Tm (- Model-only change: normally does not require changing frontend code.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 347.20 Tm (- After a backend update, check /api/health and /api/status.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 334.10 Tm (- Open the live website and test old as well as new signs.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 321.00 Tm (If an update fails, check Git status, the browser console, the API response and the newest hosting) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 307.90 Tm (logs. Do not reset your work or force-push just to hide an error.) Tj ET
-BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 289.80 Tm (14. Quick troubleshooting) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 272.80 Tm (Camera does not open: check browser permission, camera selection and whether another app is using) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 259.70 Tm (it.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 246.60 Tm (Hand points do not line up: check mirroring and drawing coordinates.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 233.50 Tm (Points appear but the label is wrong: check feature order, hand slots, model version, lighting and) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 220.40 Tm (label similarity.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 207.30 Tm (New label is missing: check the active model, the deployed file, the Git commit and /api/status.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 194.20 Tm (Backend is unavailable: check internet, Render status and deployment logs.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 181.10 Tm (Website looks old: refresh after deployment; cached files may need a hard refresh.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 168.00 Tm (Old signs stop working: restore the previous model and test the candidate again.) Tj ET
-BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 149.90 Tm (15. Questions judges may ask) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 132.90 Tm (Q: What did you build? A: I led the design and integration of the website, camera and hand) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 119.80 Tm (tracking, model API, model files and deployment workflow. I should explain my real) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 106.70 Tm (contribution honestly.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 93.60 Tm (Q: Is it a complete ISL translator? A: No. It predicts a limited set of trained labels.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 80.50 Tm (Q: Why MediaPipe? A: It finds hand points that can be changed into numbers.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 67.40 Tm (Q: Why 126 values? A: Two hands x 21 key points x three coordinates.) Tj ET
-q 0.78 0.82 0.87 RG 42 44 m 553 44 l S Q
-BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 42 27 Tm (SAHAYAK Master Guide Johan Jyoti Kuli) Tj ET
-BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 510 27 Tm (3 / 5) Tj ET
-endstream
+<<
+/Author (SAHAYAK project documentation) /CreationDate (D:20261022101649+00'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20261022101649+00'00') /Producer (ReportLab PDF Library - \(opensource\)) 
+  /Subject (Sign collection, testing, promotion and GitHub deployment workflow) /Title (SAHAYAK Master Guide - Johan Jyoti Kuli) /Trapped /False
+>>
 endobj
 12 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 13 0 R >>
+<<
+/Count 4 /Kids [ 6 0 R 7 0 R 8 0 R 9 0 R ] /Type /Pages
+>>
 endobj
 13 0 obj
-<< /Length 7212 >>
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 2674
+>>
 stream
-q 0.04 0.16 0.32 rg 0 808 595 34 re f Q
-BT /F2 8 Tf 1 1 1 rg 1 0 0 1 42 820 Tm (SAHAYAK | SIMPLE LANGUAGE GUIDE) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 780.00 Tm (Q: Why 1,320 values? A: 132 values per frame across 10 time steps.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 766.90 Tm (Q: Does adding a label file teach the model? A: No. New labelled examples, training, testing and) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 753.80 Tm (deployment are needed.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 740.70 Tm (Q: How do you prove accuracy? A: Use a saved test report with examples kept separate from) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 727.60 Tm (training.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 714.50 Tm (Q: Why separate frontend and backend? A: The browser handles the camera and display; the server) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 701.40 Tm (loads the model and predicts.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 688.30 Tm (Q: Does it work offline? A: Not fully. Live prediction and some extra services need a connection.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 675.20 Tm (Q: Can it be used in emergencies? A: No. It is a limited prototype and can be wrong.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 662.10 Tm (Q: What is useful about the project? A: It joins hand tracking, a trained classifier and a website) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 649.00 Tm (into one system that can be tested.) Tj ET
-BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 630.90 Tm (16. Closing speech) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 613.90 Tm (SAHAYAK shows one way a camera, hand-point detection, a trained model and a website can work) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 600.80 Tm (together. The current model knows only a limited set of signs and can make mistakes. The next) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 587.70 Tm (steps are to collect more varied samples with permission, test fairly, improve weak labels and) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 574.60 Tm (share clear results. Thank you.) Tj ET
-BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 552.50 Tm (Extra workflow details to know) Tj ET
-BT /F2 10 Tf 0.08 0.23 0.38 rg 1 0 0 1 42 528.50 Tm (Change website content without retraining) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 516.50 Tm (For a text, layout or colour change, edit the frontend files, run the page locally, check that the) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 504.40 Tm (    links and controls still work, push only the intended frontend changes and verify the Vercel) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 492.30 Tm (    deployment. You normally do not retrain the model for a words-only change. A change to feature) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 480.20 Tm (    extraction or recognition code is different: it must still match the model input format and) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 468.10 Tm (    needs proper tests.) Tj ET
-BT /F2 10 Tf 0.08 0.23 0.38 rg 1 0 0 1 42 448.00 Tm (Can GitHub train a new model?) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 436.00 Tm (Not automatically. GitHub saves the source code. Training on a GitHub runner requires an actual) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 423.90 Tm (    automated workflow, the training scripts, required packages, access to the correct labelled) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 411.80 Tm (    data and enough computing power. Do not claim that training runs automatically unless you have) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 399.70 Tm (    checked the workflow logs. When unsure, use the local training scripts that are present and) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 387.60 Tm (    tested.) Tj ET
-BT /F2 10 Tf 0.08 0.23 0.38 rg 1 0 0 1 42 367.50 Tm (Confidence cutoff and sequence size) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 355.50 Tm (The current static code accepts the top prediction when its probability is at least 0.60, where) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 343.40 Tm (    that score is available. Below the cutoff, the app may show an uncertain result. The 0.60) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 331.30 Tm (    value is a program setting, not a statement that the model is 60 percent accurate. The) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 319.20 Tm (    continuous-sign segmenter currently uses segments of about 15 to 90 frames. Read the current) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 307.10 Tm (    code before giving these exact settings to a judge because they may change.) Tj ET
-BT /F2 10 Tf 0.08 0.23 0.38 rg 1 0 0 1 42 287.00 Tm (Saved samples and response timing) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 275.00 Tm (A local training database is different from the active model file. A server's local database may) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 262.90 Tm (    not be permanent unless its host has permanent storage configured. Do not promise that samples) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 250.80 Tm (    recorded on a hosted server will always remain available. Keep backups of important training) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 238.70 Tm (    data.) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 221.60 Tm (Recent API response times show server handling time for requests. They do not measure whether a) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 209.50 Tm (    sign prediction was correct, and the timing history can reset when the server restarts. A full) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 197.40 Tm (    camera-to-screen timing test measures more than the backend alone.) Tj ET
-BT /F2 10 Tf 0.08 0.23 0.38 rg 1 0 0 1 42 177.30 Tm (Keep proof of testing) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 165.30 Tm (For each version, record the model file or version, the labels tested, number of fresh examples) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 153.20 Tm (    per label, correct and incorrect results, lighting and camera conditions, and any changes made) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 141.10 Tm (    afterward. Test old labels after adding a new one. Never quote an accuracy number unless a) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 129.00 Tm (    saved test result supports it.) Tj ET
-BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 106.90 Tm (Final lead-developer checklist) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 89.90 Tm ([ ] I can explain the camera-to-result workflow. [ ] I know the static and continuous models. [ ]) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 76.80 Tm (I can explain the feature counts. [ ] I can find the main frontend and backend files. [ ] I) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 63.70 Tm (can check API status. [ ] I back up files before changing model. [ ] I can explain limits.) Tj ET
-q 0.78 0.82 0.87 RG 42 44 m 553 44 l S Q
-BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 42 27 Tm (SAHAYAK Master Guide Johan Jyoti Kuli) Tj ET
-BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 510 27 Tm (4 / 4) Tj ET
-endstream
+Gatm<=`<%c&q9SYW0[ZEJ^n3gDne;U-Bl@h4-=+j$O@:lW[6%>fc2&V"RM3,l>Bq>]S^+[TLj<.<EFTK?PP",pkPmL_Z\oX"@g.)TF</?TGFe?EX/3`(]R_OcXEtf"7^cb0RY'-ZRm8JI(i.fVSll>_n^AMB?RajfTnsnh0TjRpnAPm9'KY4S=$bF3@5;qqMsOneb(JW6GAU%BPh4ZKNZ7_/^upT?uR?rbqKN_P/F?AT9lg-L&]$)UN@Yc$[<Ah4<LbP*90E+i#sY&)9hmc-;Q>k+I2[Y0LcJkhcB4`X>nS`L@=>bG)';Vj>r5rcUT'p^Mdq3XnFohd^OUVTa)V&;nP_X13qXhG;01Nh^"/+-4KDkkHOl'@46ud,:Z$7M@aR`e#;oSY-je\<RaNTGu,4lq<Lr#^4X8sqN'tB>^qA<gcsSC\q>dY:Hu!0?QT1dDg=^BpFH5iH35G2J_0%/8U!G4PIO/K28/2-O,\$_DoKGXn#\U^iF*c^W9s#lVd3]WFof2"E"1PhQVl4C2BIWVpqYd.?0sTuTnRs5=SD]:02\.Tk:0YS(rB@Z%T<)5&S2+&W]3&t`#YTma6jmh@Q^XAKX8[S9!c?@fchj?!^t'"TSu8W`./%Dk!D2J;WLZW3><dR$3;59.+0kC.o@$X7&q$-.-#<3o&:9k&`Vqu&3a/5hM*57Gpl*f6HKVj[CU/a2[E8],W.rTMaZc/T;1t<C(?)&n/*Wd(s7tEERCLYZJ^H"d4u&oXlR!uRLF6GZgTI&5Qk6r5Z@[?<BID00s"#RN`#gXF3MV'G%QoBh'<@_+@f5JW)!iJA+-?L=RtEu1L0E\:rO^pr1AkEiGfP#XL2eH]98mSVG%=%J)#JMfu.\<kRk:FiLm0m)F%dS6n)S6`r$/5"'LRbe'MdeZf"t;2@3/PN):pZW"f'i3#Xi-]pHtc(!8gV*;sdC]U^h4WF,%1Csq=5Xi`NJV9V(F0G2XaVmH"HQ,P'Zce4'sn&g>TP,K@3<O"_XPc>T?<Q[.=Yi&eOIQ7OuL9N(K*D'?k((@iH!j`VMfem2HXlqJKhOR&:mCL2g<PQOqY-fBCH`us7mq.eu5g/!N9tgEPh:Xt<NpF!GFD#*qdO[AKm]<:]:gHqGj`F,QZ-H`&3[B]*UIof+1b->:1lSa8G`h5!@n+eKm?6Vs*7_<[B%4X]T&eP;C!3Z&!Af7\V2'"!5Bm_M-W.`h/?/%i86;'mqgS$2XO9Yed<L:[Sra/AXnKR_J)RXpliAF,3SEG@!g@b+^e2!<p^;\]Kn#_bYupRh/MeKOR?sAMGo#JH:=Qq&Y\7d#Q-7?PTnI&@Q18US9:?sb]d(Pudet-7gB>dl\'WXsIL\9De7l*\'1ehaJ(6tbo$EYO/`3`$mn-4Opd+-hNm:?K6-@pI?4FB"f)X;FH@V]Pq[fO[36sYK@8.2q2\nGrb#<FEUE-HZXm.$`NkY^:V0]&B,)\9IPV6Tt-S'&->G`OZn3OSHiH+1k5ol5"/ZO&Hk6cM,;G3,1Lsf0*@K?N'4nq?f7E[+A>&#4\4QN8k#V0VfJd:R+N1Le)a*b?qB8BgrO1%lY"4Lm++;H1Jd8,%X.+b>g?l5[-Rd+D=]1NbR#?"EpI(7BT6C0G.L9gK;7p%$&rX<3T'LgVj_G/e564r?W<aIY*5*OnJfnR9or_i6s[&@:7+&&Slb[SSf%MBO1.'EZsQ$2#+=p4/!'0OUf(:e846Ams_GoY(O2\ZL<*Z'SI'tpJhE357t*.LZ")fi>Cq"-A["!S;!I%rO!nD'6gYiJ)QjX7mhFPLA'2>o>*HF#bh*/a*g_XTf%03mUYe'Jm")O5*^c6O&`Q;3PqGlD;cgRW2+k8<-X?>n8Z1;hV*%[ep2"TQ1JhF?X6HjTFsf',0"^"mcU7[GGs_!P"RE+u2K$?SaQ#hkasK'qoQo;^W5^!U;5Ogb,^Hh)9)oQ.nQCS?P=8/S**T2)kC/;Z-4R'2*\U[#;s%0fDU*b;f@#dKV[(hS&"q-0MjF_d#>&#ob?l:V)`1[iT`mk(a8p5QiE73um&6BLq$[m4ss/MlVfoiri[hP=S'aF\G<e:cC.IuoG$ZoXF8r;Y5%[>Z]tHiq9B`i79CV#<2?*N)+]j4u@`cAqlborlE+@qUu.-"?Z^*Jjm1X*)r7_sj[@_6uS(Tg!W3asRrane:!qETARPg`>aD]&^H5RSNl4G[=(ALlm'G2/hG^0%]$F5PZff>7uG7C#'^d)uD18Yd`msXNN@LY"#0$et-VOE1@g%k>/D+504#u)>h0G/UdD*I(,q\gd"L+H9Fu2N9g_s!WO#_fLAYd49&"O=uH5)g,+er)OcY8F)45'iGH2G,[2U3>t1h0N=PR)08MVR8m@VTW*m["o8VQTYZprfl5cli<5j<FCDk#no'eYH;^0XpG&t2$I?6lB]t6))X;6rFj*?A8`c87G>-5skei!#m%RYh!6YUR&=dM^mpIVrfBW97($_(s%AOQf4idbgTWr9Bk@8eLjDq^Gb-OmK>_S];hoD[r]l?fhZ;"rSUc8=qHrkL2QpYL+iSO09=-`PJOF"H=uEliA+*0h@3P4H6(9Yk1=MHQL\=[DB4$n&G*Qi21XO>tiSQD5L;IC%!=AD">aY<S^#D!9UaXZY/sIP5&'2H`O^8r[(#BBf?0q68>i\#.1%@;@F^dLfa^%qJcY^&~>endstream
+endobj
+14 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 2934
+>>
+stream
+GauHMBlD`s')h6*;/ihF19fIX79pB)`3GkC-5/JGZGC"X&1Fhq0dbQn*`@Z^q="3\H&2#`N[>'A_\0Ra>ub1Nl`.Bb#(B;Fl%VSZ7We4L,h&L8N(dI.1jVf]UOtc@`1Uc9m4O73E+!dB,_f@O*n#gF#GOl7K8@+90W\$qU4L],TWfl@Y&+QIgR&?3k!7+oW%YN>J`p*#K[D`iK)l:be$ln"A_EFf;KBrrbYm!!*7GOteY>u4XdcZKBE($iNW,`?D_BpRd&W4G/hWdCkVJ3IdB%P,hb^u7'8%pP>q95WeV]jG0@[/4mW<f.?AF2N%XSDe\,-9>A+%e!Z@t$?+e."G=7N:24)$$UWKOkrTU+6I-U71O18ScoPf_0T"p$&&Mltio/Apa1p=5C8=i0A32[*GJ\!!i4K(j4q]qSm!eF.P<*j^b9?r-7Q#(p`X^n/J2Ng:h-Uh'qFadaV$5GDsH8Ug3Yb`?Z-?--d=-RoI7P\oWlTiks/^0q;JU"ReCOeJ3:*WcU.79IrkS&cXoKOkTReCMN*dd3;&6ZXeXf9'o`?*-/j/!3!C6N1tqaI,Xe-d/<0m3Ku.)"n>O3cZeN*a#!$4`a_9)ks]q9g*rq+iFW>-9!\q^K%G#q'r,Vo@*7)@k*[a4O3IS*d97#CAM)E).qaI--]EInU)5(LR"92@QYD6fFP1@`/g>cbg$'>P=Z@aAka)FZ8j2<gC$Q'bkf:LVHNfMalW_,XpP49STmolLj8SH;(DUeA`V!U-Y9lHge"G,),)eC\b3:S5&G%7#N)`[qg9O1Xu3R\376gb+ji%A4hIlu`R]Q;\i!_S<f]6S,Am+n)e3C3BMpa%[]t..5P1tOkk4=Tkj=Yspp0sU3XPj$U.>\[#JllI3JFe!$N--cJTC4TG>*eog>^i'MaDlTS4dk[\<>@#b%Wn@.,RCV`tIh'#<tg:-O;R/Pa6An,bUVS$$*/9GN8m`FM,"+)15>e3ur++f\MO/r#VNpC7pAF-Xl*=l+dYoapmDQC)ELr)B5u`^?Df2,/[RI5\RrfP5Kt$,(50q_bVAs,!Rk$di#Q-lF;&&a+YhlL#q;00iDe._T&#4deV-PO)*41F#s(&>GAp$ib@N[&k"2NroGV*l/qqK+&L8i2oTs$2/UI2p-k6\-+cj56^]#?eXS=JUCf@Y:gsQ%)6@5T,"iec<C1]"6H'$mkCJ4fSS2$A*n7C'=%a*_TLWIh[0AM;Gf:YJf;7WBUBeZ36LCpa$2a%e4m['Z[N>EaeF!ikU@r)6EI(*X!8eS`12=SR1?`\2TAP.m]ZKKk@@3p-KRV,WPk1VVPoganq"X^7"W\@3OOe!E:C?g]V*P%RRnSR45=_bVdY4=/74MG;af4@HHGG5adT)mHhrR.#1L\<am[V;!a6Y;\Np#G'rL2r3K5Wj^&:'t%Un:b14:4#Q*$.&\eknN>7HiiiS9Ruk9fK%nL][FD\[->E-J;:2DP,H9n@+VHbXg?MWJVa-=iG0qZR-\W)*ahpP!?ijfB87P[=4fB.rEVL')-5:(]@@?qNN,2gTOTacb@b*V\T$dGFVu#Sf:1[*q+5t2(5r+?8]REe'%.sN>2:V&GZA==lRF:M#<?)UnXN48LF_B`/2fS;_CqhBn_d2nUQ@QD4.uKKm-cLjquQtq#9>0Fnm%Ma6[LR5P;=']NTra/i=Z<+UJ.9$X"Hfi,VT<Xi!#pJl!2SUs;:6qT+F#N^qTp9NX]XVI)<>YE)P2X8IRn$rH9:#J'>$OT@Rcbf;JQlQrrd=63;F4sa!%V"fnn!6S'*jrnsa0<7Ea.AnV)-ij*%pUtuo["C!Lpc=G(VMUsM")0Lhfgn0jm_I4?I*T(M)b5oPpp>>7(Tk<LdcX-nUE@J_?3b'_2gDJc/Q$kXMIeV^*AO%I/SK?M$tm,n_ZBMu.*lMm5s+aX0cS5Gi(*@kd1Kd)8SNA%5UW:Z>F9%;+FqH`n.?JNRsdOVKn?uq@o-?I..JMn*K@3kB5^S^3adr7_,dl5X,l^=2b`Ccjg^RbO4&ZBoa\r$RuAX>s$"k^Gk<(W!XU.mA-HUs(^nft`lANK8'c0_<1Q<4X5?#@=OoM+\"'h5/#[!gF>uW6;O8@_5cAcFncSkn4f*2jjg`\6HSDo7r<?.8'76EjPB8nQXsnPRDTD$";K`.d45UCWkCDA>@5)c]&g&8Kdk1>V@M1<G3;upLU&QVm6'RNmc8Ln--ic+a(U[XJ@)BZ.GN[E/"->(@9m[Rt4^7OsGbg*Z]cA3arR+aIWA<Z8f[\P*Rb;P?*PuJR1kJU#@o='m%FQhRortMY8LgG'Si?VZjJk?%mUWpZhiL:\@?%eKj1TK36+K.4C4_uoAF[(fO02_?O@&/lj6`*>gbeVd;!/&P84FXqD]Amk+,=/c:1T7"*??*a$k*n8qm7mr&fJQ?a#$.2c:*\IDCnJ'(QQ:RkJoDL[t]jC>gbO7=2Q`=#VW.lat3'g<$>A$ncKW31C_Lh:mWE0'?\7mWtOpR2eomqcF(fr.1WP;1u(E^*hdn*?&/ZN1_6lY!eS?$)*s:n@];1>ZmH84'BBu]n5+7*3Q`?.FHkJW<_$H4;&*j1G$FN'"*YGe`V&=.#8[,_8mBbgNJ!sfO;2c+@LqR/PJnjB=61h^$=4g_<Qb[<&/?KB2\.<<j8.")iZct%C_*m14+hr65A_([CUDX0T8g:Fc.KT0D9qC&D]u:??1Rq/]ZO:g1TlrU?!a-e%)6T<f6!);lGMMqdJmkL%B-37gOM%Bh?t&;PhT'?-J404_qpHhnTp$s.rLQrY29rD?@ar3#2Hh-,t;m\?Q'mnblhl)CjaH%N<khG<cm?>rX&=E!([Pi%WH"iB/fg\Z./d]W)K?h!H<%,XR@K3;F"J0-OaRM&nni*/NZMSG15'nZ>/t0_K?qLLbB1fM-iRtZ`M!L0FW!6]F<iTD8&lZQaLr)5CX&p>Q~>endstream
+endobj
+15 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 3052
+>>
+stream
+Gau`TD0+Gi')q<+Z/bOiS=E1@9bc\a5<*Xhgr?H8/%rJ2c0-PgP$jK,$BW\Mmd@jI/jN=!D'_ePVfj&C+Fmba55X\!?#];bec.!W^l&fs?G#-A0UdP3fE$rf_5ku2+%LJgH@qk$Fu5-tIgGbplN]e%s5qDj_tp<^^2#g%+*nJYI2cf%O@)5<Cp2_6b2DDQbOAnICE\f\2F;4mi:NcMCtBbRI2(cH3%tIqV_r@ol;ir2frc...#4"Uo=*o_4T?;u$a23j]t8eR+"f3Q4bM-6N1T@;pM/S_g^ieN:N*_"[mR:W/e!]mXk%qcN'\WQ^`A.>C**kY^j#Nem00pS$rAj]rDG1*ehU8PK=-ebZV7Ij#ligO.b4s0`L=o<"j8Y@oK;n+.D^)<Y]HtM"OFEFE4@FV3hA.s3t$L)=10U`[8)A$8,'NAKE-;o+?)7kO9G,"/gRe4aWMt)%<$Le[[KN8;O0VV9Og2V"Y-+K;dfW3Aj##u,U1Rp,#p_9m:b*R/.>h=lY&5!d*S_^p)nqmodXq"Y]!#C%"6n%+s/B7-lL7#+$"X;UV94,U\4:`Cc<P*cpI_T/_Nh=4>'9m?H4fbZA/N,9r#b(CZP<iHR;$G%dht"!JGPV6^UBt0&M_#bR7b$h[<;uO)Y$fCcq]iQrN*cKpV>^^OT[h[k&tJj;57ZRE/8EYH`N2=R+uEpM;:]j)XZ9gK9e$n$ZHj)2q@m!]:mgN0l(H^$YUU-c$13^D1p.cZsduIR_*AT6:Tm3OppZ"bT6H0%F+.LEh^lC86i:=7TBCio5,+8q'iQ][tP`2V\XQGPkfp8+3RH*?A)sQ^%Wq;@=YkG2@F^;i2mZBrV4HL50CjY`tI]@`6&[1<#.A#K5PXJWPZq,r3+b(G(=ZQ`@Feb?S'bJ<i'^=e`tq\=Clj!BGIIl]GnOgf;N61+j4,(%^3J_3PQ5lPTV]ApqQhlU$BECQ0u,hVc`1<LR*0hr_IIB\r]F9[3:C_KPQr7!H%P1u;C0J.d=J^Y:!fm<cad`NXB>e\Ln75o:"ebm0^"lTiY&Tr+H=*t'(oSN"j>Yg]/rRIf'3^YL8iL8r+`9*PmY@G_qlc/h,XH'k'>P&bA+;n`a^)[$dL5k0-I:t58.q_t+39PU6ZqZJ@*laQ1^+c\rC#[01paatg_/0-r:q_X$"8cMRb=QJE=QGW:S\#(iQ"jn@u]0Z)''+#RH+I]lhecO2>O4C*u-5uN?;G:gP==P,g(6r*O>$!P#Zro.<*r50LIkWNN;tsFLSJo6<S]M!:nU`>KZ,r+<H5$mk8:+OnSr+?S-GGt6CZ;DE^(o+U:Hrp$/=s.@D>-ld,Jff=faQ2j`!E1RDi-MeRUc%ETr^gq3?3N&W)Xi\99tBZ_6ndbToKXnL+\7/!?l-HG+r)'+%-C*R?&"J4(0cco_iZ@I5rI`'Lg-%8g)(GP!ZIFo-Y,;&7QgYBjq>M47!N2If.d8&4BL%rrp?Fous$q%\HB"MZ$DW,%3>R4E3J2pMfmD`O(A%-P5tB5r%2`q05TB'DBFfJ4[Hg'i!!i,!=\c]oorMWf%*"#"-FH/imUG!W<D1T[5Im!QE6?k?;1Z&MCIO?@0B3("iLT%9Z)r=`n$0$q1"$$6iN_&,e@M"^WT,4Q16]BXV"ta_)Qm6j^eQS<7ekC)ETK($LMHQ5:iVPGPDY9n0Q=&`XN^IV-LZ%!UKk$WO$.#BNo6I#;",P"BCgkTO=^^0WNO8&>P*VcIUXUnhL_*+eSO[+9HBWu^*.55h.6%B7udLd-NI[dMnaZ*fLu*c*k'j;1_A+<0>c`XH(IGqAF6`7$.n;6//@cqNTS`Di!pd]&d4:Q[b;2BL`pZra?E<@5pa<NJs)PeLpAI"NGl@YnVAp'M[92N6!:OqHf.=l.Zj]$l`kVR5a[BuMNal]/K>N&>dUpBA!<`et$l#FO,(G!b5i>4mFU^MhMdEGUH\7[;U=R<4e(bkUEjk.;5FjX1^E5MTu$p#@u,ABs$YrB!!j-\"pS-ILQO<ss,IYlr%"Ft8.Vj3%/`Ctf*D8a&[S/6:bj@9QUk'e:(EL#]$dY*4`CV]+kr/mMTp;@Ct`F1gQsZd\ICX_j7b-&^6sK6I[QbLhK2`l++8&#[pFD">u%RRrS,oEC(>]=>cXqY?dPd[BoU,&&Fk9dJTBl(G>7!lUAi'@5a(-4jo@E]ZS&&<K\\f[!iB13Nm).SOGZjr+p'&o5:ZjHRMUa02TQX#R-s;=I-9Q)M/s@,Kj0^G[_sB!G<+nN2tN?KuX:`bJ(EV'_`J3kB<%Xnt]51r`l-&;_3L#Fi_RE09;md4FT:YgWirlMO\Z>[Snp`)@!k0g$@A:bk^!\XAnAbS2;`AnV@JHc-?b8$&T@d8fmXSYTFAWt;n+EbDo`aq.^r>RhdIZ.Y-n3b;>F/dbIE@eR\cR9V+KAG2iJ'XHdCf(FYC"J2cU9aQs?&M^m`5ua4KcGoEnNi&O<eKiTeEZCC>RP3rbAA`13FC!:3,Vf5-a\Q/n=AoC7ibZ:[4<")G;.0L]Pd"[m;c.bXl0="mcJT8?3W5L"nho)PZJiL<19uIf4$<9PZhFOUOq&c2.ta.:66A*k&hsMh*JCk(bVOAGGDn*_W?D+?XSIra(`0%';UZ1F,-$5YFD<cKP*af&dJ$EcKfl3:!p=).9XkhKFqm[LLcaXEM<<4_@&ZNY))c6PU'(>VLAUetqc\oK__0+EX6*YahE-?h!.Dhh)t>#]AbD"rhbrj?=P9J8'^o]iSe;Q:GO:Pf/"WSaNa++5Ocp%Le"*"TlO;(B0CbDjf$X.7-B?U&3,8O\b+n,4etTmGbZIQHYF=ri6G\P54J22',<aVSkVca3j1K:0$%q8AMR5.ohjtYeGJ0J)camH>.EYCo*?urjl'bK[o8Ta3:5S9#$Oq2-X]');g56CB!t0F87$i`jAsj#/Zol(OTn^R`XG,u?/Cr4K'fdNA7o)]03^o]nF7d+34.]=K.\"GQ%4":m1Q37$")+?m4NG!'#C&#QhI,NV.?^PW`0Aqd-=]0oTuHbCB@7F6L5>.ZVm.F,-t/EJ8kJ`jdGX6g0qNpn~>endstream
+endobj
+16 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 771
+>>
+stream
+GatUogQ'`:&;KZN'Q[E=f#3Siii_X)'e:[h#]UT5A=Ar]m,5B'/+N+fPA],D]*O6m8h+IcrbpqkE!Y[Ja*Z>;]ZK-_'aH?6?NZWg6@K</q<Z.\V6NR%">%gG+O#@I,*Egk\t6/4Fu'R>B7U=u!GN*"MNH1N,UF,Oa\`GHfr-&:@A?B9iWg&2,XIZl^j)6&Lno^"K+)SVF8-gLW5Af!,)3a_q.fGCnTF@3I_jRZjm<4VJ%iJ'Hia%eaBst(T;=aQ%qCnprp:<qE-)*COA+:3l7e+E3!:RR('d5\P>m;73GK^?O@dmof]T-H5O6M/+mb0$>IS37/UUF,2S0!UAqtQ;_7$1-+lG`L5Qi8pl0D;7#StA3@tA4E+NTb"O(@>q,M=k!ECffmLfV;QrD,<S+MEANOqR`%A:>ZmN5>0feHfI65LOsX3R3d$j[\EH@\Hlm]6HF&Uhh#6EVYNaBduHq(XnW\+74V0SZ8@Q"Kt=@n(9gD%f8+4VQaO+)I8l&[`-B<UPmon8h8^3(YH4Z^-h:FYo2-ECBjZ^#8"1:4/KDu4$9;%Rt')8iY_XO_Fl\p1Ug-]M_14s6FFYpY#U,O43(gtclOKS*1VMma5+],1deuS"*mM>C8Y[;<VgS5[m:kRcJR3n/UhYfmS&6I@Mp^K%TKe,%Du"Fe[kiS>u)1bKt9UdT,[GtN?OKVC$?r;V(LpNWG$l_!btYN4l;K2)plTU7]^;,V/C7&[BW4)Wo'3_gU#b*cA]a,?\S1(,5Yk?@J1X;6".b~>endstream
 endobj
 xref
-0 16
+0 17
 0000000000 65535 f 
-0000000025 00000 n 
-0000000074 00000 n 
-0000000151 00000 n 
-0000000221 00000 n 
-0000000296 00000 n 
-0000000364 00000 n 
-0000000510 00000 n 
-0000007283 00000 n 
-0000007429 00000 n 
-0000014109 00000 n 
-0000014257 00000 n 
-0000021164 00000 n 
-0000021312 00000 n 
-0000000000 00000 f 
-0000000000 00000 f 
+0000000061 00000 n 
+0000000122 00000 n 
+0000000229 00000 n 
+0000000341 00000 n 
+0000000418 00000 n 
+0000000523 00000 n 
+0000000728 00000 n 
+0000000933 00000 n 
+0000001138 00000 n 
+0000001343 00000 n 
+0000001413 00000 n 
+0000001787 00000 n 
+0000001865 00000 n 
+0000004631 00000 n 
+0000007657 00000 n 
+0000010801 00000 n 
 trailer
-<< /Size 16 /Root 1 0 R >>
+<<
+/ID 
+[<2716731dacddb429f1ea2eb874c84e0f><2716731dacddb429f1ea2eb874c84e0f>]
+% ReportLab generated PDF document -- digest (opensource)
+
+/Info 11 0 R
+/Root 10 0 R
+/Size 17
+>>
 startxref
-28577
+11663
 %%EOF
