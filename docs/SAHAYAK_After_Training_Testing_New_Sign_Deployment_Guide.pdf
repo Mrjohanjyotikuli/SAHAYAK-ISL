@@ -1,0 +1,228 @@
+%PDF-1.4
+%SAHAYAK-SIMPLE
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [6 0 R 8 0 R 10 0 R] /Count 3 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 7 0 R >>
+endobj
+7 0 obj
+<< /Length 6128 >>
+stream
+q 0.04 0.16 0.32 rg 0 808 595 34 re f Q
+BT /F2 8 Tf 1 1 1 rg 1 0 0 1 42 820 Tm (SAHAYAK | SIMPLE LANGUAGE GUIDE) Tj ET
+BT /F2 18 Tf 0.04 0.16 0.32 rg 1 0 0 1 42 777.00 Tm (SAHAYAK: Publish a Tested New Sign) Tj ET
+BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 747.00 Tm (Simple guide: from your computer to the live website) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 726.00 Tm (Use this guide after a new sign has been collected, trained and tested on your computer. It) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 713.90 Tm (    explains how to put the approved model on the live server and check that the website uses it.) Tj ET
+BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 691.80 Tm (The whole process) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 674.80 Tm (1. Keep a backup of the old model.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 661.70 Tm (2. Check the model and its sign names.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 648.60 Tm (3. Copy only the approved model file.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 635.50 Tm (4. Push the change to GitHub.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 622.40 Tm (5. Wait for Render to finish.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 609.30 Tm (6. Check the live model status.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 596.20 Tm (7. Test old and new signs in Live Studio.) Tj ET
+BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 574.10 Tm (There are two separate models) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 557.10 Tm (- Static model: recognizes a pose held still. File: model\\sahayak_twohand.joblib. It) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 545.00 Tm (      expects 126 numbers.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 531.90 Tm (- Continuous model: recognizes a movement over time. File: model\\sahayak_sequence.joblib.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 519.80 Tm (      It expects 1,320 numbers.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 506.70 Tm (Never copy one model over the other.) Tj ET
+BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 484.60 Tm (1. Set the folder paths) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 467.60 Tm (Open VS Code, then Terminal > New Terminal. Use PowerShell. Change RepoRoot to the folder where) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 455.50 Tm (    you cloned SAHAYAK-ISL. Do not run this block until both folders are correct.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 438.40 Tm (~~~powershell) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 425.30 Tm ($ErrorActionPreference = "Stop") Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 412.20 Tm ($TrainingRoot = "C:\\Users\\user\\3D Objects\\New folder\\SAHAYAK") Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 399.10 Tm ($RepoRoot = "C:\\PATH\\TO\\YOUR\\SAHAYAK-ISL") Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 386.00 Tm ($TrainingPython = Join-Path $TrainingRoot ".venv\\Scripts\\python.exe") Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 372.90 Tm (if \(-not \(Test-Path $TrainingPython\)\) { throw "Python environment not found. Check TrainingRoot.") Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 360.80 Tm (    }) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 347.70 Tm (if \(-not \(Test-Path \(Join-Path $RepoRoot ".git"\)\)\) { throw "GitHub clone not found. Check) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 335.60 Tm (    RepoRoot." }) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 322.50 Tm (Set-Location $RepoRoot) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 309.40 Tm ($Remote = \(git remote get-url origin\).Trim\(\)) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 296.30 Tm (if \($Remote -notmatch 'github\\.com[:/]Mrjohanjyotikuli/SAHAYAK-ISL\(\\.git\)?$'\) {) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 283.20 Tm (throw "This is not the expected SAHAYAK-ISL repository.") Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 270.10 Tm (}) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 257.00 Tm (if \(@\(git status --porcelain\).Count -gt 0\) {) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 243.90 Tm (throw "There are local changes. Review and save them before continuing.") Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 230.80 Tm (}) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 217.70 Tm (git pull --ff-only origin main) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 204.60 Tm (if \($LASTEXITCODE -ne 0\) { throw "Could not update main." }) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 191.50 Tm (Write-Host "Folders and GitHub remote checked.") Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 170.40 Tm (If a check fails, stop and correct the path. Do not delete other work to make the command pass.) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 157.20 Tm (## 2. Check the model and label names) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 148.00 Tm (Run this block to check the active files that exist on your computer. The feature count must match the model) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 138.80 Tm (    type. Check that the new sign is present and old signs are still listed.) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 125.60 Tm (~~~powershell) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 116.40 Tm ($TrainingRoot = "C:\\Users\\user\\3D Objects\\New folder\\SAHAYAK") Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 107.20 Tm ($TrainingPython = Join-Path $TrainingRoot ".venv\\Scripts\\python.exe") Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 98.00 Tm (@') Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 88.80 Tm (import joblib) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 79.60 Tm (from pathlib import Path) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 70.40 Tm (root = Path\(r"C:\\Users\\user\\3D Objects\\New folder\\SAHAYAK"\)) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 61.20 Tm (checks = [) Tj ET
+q 0.78 0.82 0.87 RG 42 44 m 553 44 l S Q
+BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 42 27 Tm (SAHAYAK After Training Testing New Sign Deployment Guide) Tj ET
+BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 510 27 Tm (1 / 3) Tj ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 9 0 R >>
+endobj
+9 0 obj
+<< /Length 6792 >>
+stream
+q 0.04 0.16 0.32 rg 0 808 595 34 re f Q
+BT /F2 8 Tf 1 1 1 rg 1 0 0 1 42 820 Tm (SAHAYAK | SIMPLE LANGUAGE GUIDE) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 780.00 Tm (\("STATIC", root / "model" / "sahayak_twohand.joblib", 126\),) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 770.80 Tm (\("CONTINUOUS", root / "model" / "sahayak_sequence.joblib", 1320\),) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 761.60 Tm (]) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 752.40 Tm (for name, path, expected in checks:) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 743.20 Tm (if not path.is_file\(\):) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 734.00 Tm (print\(name, "model not found:", path\)) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 724.80 Tm (continue) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 715.60 Tm (model = joblib.load\(path\)) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 706.40 Tm (features = getattr\(model, "n_features_in_", None\)) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 697.20 Tm (labels = sorted\(str\(x\) for x in model.classes_\)) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 688.00 Tm (print\("\\n", name, path.name\)) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 678.80 Tm (print\("Features:", features\)) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 669.60 Tm (print\("Labels:", labels\)) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 660.40 Tm (if features != expected:) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 651.20 Tm (raise SystemExit\("Wrong feature count. Do not publish this model."\)) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 642.00 Tm ('@ | & $TrainingPython -) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 632.80 Tm (if \($LASTEXITCODE -ne 0\) { throw "Model check failed." }) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 615.60 Tm (If the new sign is missing or the feature count is wrong, stop. Do not publish that model.) Tj ET
+BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 593.50 Tm (3. Back up the current deployment models) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 576.50 Tm (The deployment copy is inside the GitHub clone. Check that the folder and source models exist) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 564.40 Tm (    before copying.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 547.30 Tm (~~~powershell) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 534.20 Tm ($TrainingRoot = "C:\\Users\\user\\3D Objects\\New folder\\SAHAYAK") Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 521.10 Tm ($RepoRoot = "C:\\PATH\\TO\\YOUR\\SAHAYAK-ISL") Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 508.00 Tm ($SourceDir = Join-Path $TrainingRoot "model") Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 494.90 Tm ($TargetDir = Join-Path $RepoRoot "SAHAYAK-Vercel-Deployment\\backend\\model") Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 481.80 Tm ($Names = @\("sahayak_twohand.joblib", "sahayak_sequence.joblib"\)) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 468.70 Tm (foreach \($Name in $Names\) {) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 455.60 Tm (if \(-not \(Test-Path \(Join-Path $SourceDir $Name\)\)\) { throw "Missing $Name" }) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 442.50 Tm (}) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 429.40 Tm (if \(-not \(Test-Path $TargetDir\)\) { throw "Deployment model folder missing." }) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 416.30 Tm ($Stamp = Get-Date -Format "yyyyMMdd_HHmmss") Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 403.20 Tm ($BackupDir = Join-Path $TrainingRoot "backups\\deployment_models_$Stamp") Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 390.10 Tm (New-Item -ItemType Directory -Force $BackupDir | Out-Null) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 377.00 Tm (foreach \($Name in $Names\) {) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 363.90 Tm ($Target = Join-Path $TargetDir $Name) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 350.80 Tm (if \(Test-Path $Target\) { Copy-Item $Target $BackupDir -Force }) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 337.70 Tm (}) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 324.60 Tm (Write-Host "Backup saved to $BackupDir") Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 303.50 Tm (## 4. Copy only the model you changed) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 294.30 Tm (For a static-sign change, copy sahayak_twohand.joblib. For a moving-sign change, copy sahayak_sequence.joblib.) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 285.10 Tm (    Leave the other model alone. Never copy a candidate file.) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 271.90 Tm (~~~powershell) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 262.70 Tm ($Name = "sahayak_twohand.joblib") Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 253.50 Tm (# Use "sahayak_sequence.joblib" for a continuous-only update.) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 244.30 Tm ($Source = Join-Path $SourceDir $Name) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 235.10 Tm ($Target = Join-Path $TargetDir $Name) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 225.90 Tm (Copy-Item $Source $Target -Force) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 216.70 Tm ($A = \(Get-FileHash $Source -Algorithm SHA256\).Hash) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 207.50 Tm ($B = \(Get-FileHash $Target -Algorithm SHA256\).Hash) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 198.30 Tm (if \($A -ne $B\) { throw "The files do not match. Stop." }) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 189.10 Tm (Write-Host "Verified copy: $Name") Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 171.90 Tm (Do not publish raw CSV files, continuous_gesture_db.db, raw samples, or candidate models. The) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 159.80 Tm (    public website needs the approved model, not your private training records.) Tj ET
+BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 137.70 Tm (5. Commit only the model file) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 120.70 Tm (First inspect the changes. If you see unrelated files, stop and review them. Do not reset your) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 108.60 Tm (    work.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 91.50 Tm (~~~powershell) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 78.40 Tm (Set-Location $RepoRoot) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 65.30 Tm (if \(\(git branch --show-current\).Trim\(\) -ne "main"\) { throw "Not on main." }) Tj ET
+q 0.78 0.82 0.87 RG 42 44 m 553 44 l S Q
+BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 42 27 Tm (SAHAYAK After Training Testing New Sign Deployment Guide) Tj ET
+BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 510 27 Tm (2 / 3) Tj ET
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 11 0 R >>
+endobj
+11 0 obj
+<< /Length 5160 >>
+stream
+q 0.04 0.16 0.32 rg 0 808 595 34 re f Q
+BT /F2 8 Tf 1 1 1 rg 1 0 0 1 42 820 Tm (SAHAYAK | SIMPLE LANGUAGE GUIDE) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 780.00 Tm (if \(@\(git diff --cached --name-only\).Count -gt 0\) { throw "Review already staged files first." }) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 766.90 Tm (git status --short) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 745.80 Tm (For a static-only change, stage and push only this file:) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 732.60 Tm (~~~powershell) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 723.40 Tm (git add -- "SAHAYAK-Vercel-Deployment/backend/model/sahayak_twohand.joblib") Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 714.20 Tm (git diff --cached --stat) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 705.00 Tm (git diff --cached --name-only) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 695.80 Tm (git commit -m "Update static sign model") Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 686.60 Tm (git push origin main) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 669.40 Tm (For a continuous-only change, use this path instead:) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 657.30 Tm (    SAHAYAK-Vercel-Deployment/backend/model/sahayak_sequence.joblib. Use a message such as Update) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 645.20 Tm (    continuous sign model.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 628.10 Tm (If Git reports a missing author name or email, set them for this repository using your verified) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 616.00 Tm (    GitHub email. Never put a password or access token in a command. If pushing fails, do not) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 603.90 Tm (    force-push.) Tj ET
+BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 581.80 Tm (6. Wait for Render and check the model) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 564.80 Tm (Open the Render service page and wait for the newest deployment to say Live:) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 551.70 Tm (https://dashboard.render.com/web/srv-dbaof849v7es739am2j0) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 534.60 Tm (Then run:) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 521.50 Tm (~~~powershell) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 508.40 Tm (Invoke-RestMethod "https://sahayak-backend-krh1.onrender.com/api/status" | ConvertTo-Json -Depth 5) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 487.30 Tm (For a static change, model_ready should be true and single_sign_labels should include the new sign. For a) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 478.10 Tm (    continuous change, sequence_model_ready should be true and sequence_sign_labels should include it. Check the) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 468.90 Tm (    actual names, not only the totals.) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 455.70 Tm (## 7. Test the live website) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 446.50 Tm (Open https://sahayak-eight-lac.vercel.app/ and choose Live Studio. Allow camera access, test the new sign in the) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 437.30 Tm (    correct mode, and test several old signs too. Check the label, landmarks, box and response. For a moving) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 428.10 Tm (    sign, perform the full movement.) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 414.90 Tm (## If something goes wrong) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 405.70 Tm (- New label missing: check the active model, copied file, commit and API status.) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 396.50 Tm (- Model is not ready: wait for Render and review its latest logs.) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 387.30 Tm (- Old signs fail: restore the backup and investigate.) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 378.10 Tm (- Camera works but prediction is wrong: hand tracking and model prediction are separate steps.) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 368.90 Tm (- Git push fails: read the error. Never force-push.) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 355.70 Tm (## Final checklist) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 346.50 Tm ([ ] Backup saved. [ ] Correct model type selected. [ ] Labels checked. [ ] Only approved model copied. [ ] File) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 337.30 Tm (    hashes match. [ ] Only intended model committed. [ ] Render says Live. [ ] API checked. [ ] Old and new) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 328.10 Tm (    signs tested.) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 314.90 Tm (This guide starts after training, testing and approving the new sign. A model-only update normally does not) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 305.70 Tm (    require changes to frontend code.) Tj ET
+q 0.78 0.82 0.87 RG 42 44 m 553 44 l S Q
+BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 42 27 Tm (SAHAYAK After Training Testing New Sign Deployment Guide) Tj ET
+BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 510 27 Tm (3 / 3) Tj ET
+endstream
+endobj
+xref
+0 12
+0000000000 65535 f 
+0000000025 00000 n 
+0000000074 00000 n 
+0000000144 00000 n 
+0000000214 00000 n 
+0000000289 00000 n 
+0000000357 00000 n 
+0000000503 00000 n 
+0000006683 00000 n 
+0000006829 00000 n 
+0000013673 00000 n 
+0000013821 00000 n 
+trailer
+<< /Size 12 /Root 1 0 R >>
+startxref
+19034
+%%EOF

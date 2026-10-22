@@ -1,0 +1,209 @@
+%PDF-1.4
+%SAHAYAK-SIMPLE
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [6 0 R 8 0 R 10 0 R] /Count 3 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 7 0 R >>
+endobj
+7 0 obj
+<< /Length 6253 >>
+stream
+q 0.04 0.16 0.32 rg 0 808 595 34 re f Q
+BT /F2 8 Tf 1 1 1 rg 1 0 0 1 42 820 Tm (SAHAYAK | SIMPLE LANGUAGE GUIDE) Tj ET
+BT /F2 18 Tf 0.04 0.16 0.32 rg 1 0 0 1 42 777.00 Tm (SAHAYAK: Add a Static Sign) Tj ET
+BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 747.00 Tm (Collect, train, test and publish a held pose) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 726.00 Tm (A static sign can be described by a pose in one frame. This guide explains how to add one while) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 713.90 Tm (    keeping the old signs.) Tj ET
+BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 691.80 Tm (The safe order) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 674.80 Tm (1. Back up the CSV, current model and label file.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 661.70 Tm (2. Collect samples of the new pose into the existing CSV.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 648.60 Tm (3. Check the spelling and counts of old and new labels.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 635.50 Tm (4. Train a trial model.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 622.40 Tm (5. Test with fresh examples.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 609.30 Tm (6. Make the model active only if it passes the checks.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 596.20 Tm (7. Test old and new signs locally.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 583.10 Tm (8. Publish only the approved static model.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 566.00 Tm (The static model expects 126 numbers: 2 hands x 21 key points x 3 coordinates.) Tj ET
+BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 543.90 Tm (Before starting) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 526.90 Tm (Open VS Code PowerShell. The example project path is:) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 513.80 Tm (C:\\Users\\user\\Videos\\SAHAYAK-Updated-UI-Local-Training) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 496.70 Tm (Change the first path if your project is in a different folder. Keep your current .venv if it) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 484.60 Tm (    works; do not reinstall packages without a reason.) Tj ET
+BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 462.50 Tm (Step 1. Open the project and back up the files) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 445.50 Tm (~~~powershell) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 432.40 Tm ($ProjectRoot = "C:\\Users\\user\\Videos\\SAHAYAK-Updated-UI-Local-Training") Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 419.30 Tm (if \(-not \(Test-Path $ProjectRoot\)\) { throw "Edit ProjectRoot to your real folder." }) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 406.20 Tm (Set-Location $ProjectRoot) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 393.10 Tm (if \(-not \(Test-Path ".\\.venv\\Scripts\\Activate.ps1"\)\) { throw ".venv is missing." }) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 380.00 Tm (.\\.venv\\Scripts\\Activate.ps1) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 366.90 Tm (python --version) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 353.80 Tm (python -c "import sys; print\(sys.executable\)") Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 340.70 Tm ($stamp = Get-Date -Format "yyyyMMdd_HHmmss") Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 327.60 Tm ($backup = ".\\backups\\static_$stamp") Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 314.50 Tm (New-Item -ItemType Directory -Force $backup | Out-Null) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 301.40 Tm (if \(-not \(Test-Path ".\\data\\landmarks_2hand.csv"\)\) { throw "Dataset CSV missing." }) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 288.30 Tm (Copy-Item ".\\data\\landmarks_2hand.csv" $backup -ErrorAction Stop) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 275.20 Tm (Copy-Item ".\\model\\sahayak_twohand.joblib" $backup -ErrorAction Stop) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 262.10 Tm (if \(Test-Path ".\\model\\labels_twohand.json"\) { Copy-Item ".\\model\\labels_twohand.json" $backup) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 250.00 Tm (    -Force }) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 236.90 Tm (Write-Host "Backup saved to $backup") Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 215.80 Tm (## Step 2. Check the current data) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 206.60 Tm (~~~powershell) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 197.40 Tm (@') Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 188.20 Tm (import csv) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 179.00 Tm (from collections import Counter) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 169.80 Tm (from pathlib import Path) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 160.60 Tm (path = Path\("data/landmarks_2hand.csv"\)) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 151.40 Tm (if not path.exists\(\):) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 142.20 Tm (raise SystemExit\("Dataset CSV not found; check the project folder."\)) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 133.00 Tm (with path.open\(newline="", encoding="utf-8-sig"\) as f:) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 123.80 Tm (rows = list\(csv.DictReader\(f\)\)) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 114.60 Tm (if not rows:) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 105.40 Tm (raise SystemExit\("Dataset is empty. Stop before training."\)) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 96.20 Tm (counts = Counter\(row["label"].strip\(\).upper\(\) for row in rows if row.get\("label", ""\).strip\(\)\)) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 87.00 Tm (print\("Rows:", len\(rows\)\)) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 77.80 Tm (for label, count in sorted\(counts.items\(\)\):) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 68.60 Tm (print\(f"{label}: {count}"\)) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 59.40 Tm (print\("All feature columns present:", all\(f"v{i}" in rows[0] for i in range\(126\)\)\)) Tj ET
+q 0.78 0.82 0.87 RG 42 44 m 553 44 l S Q
+BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 42 27 Tm (Static Sign Collection and Training) Tj ET
+BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 510 27 Tm (1 / 3) Tj ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 9 0 R >>
+endobj
+9 0 obj
+<< /Length 6273 >>
+stream
+q 0.04 0.16 0.32 rg 0 808 595 34 re f Q
+BT /F2 8 Tf 1 1 1 rg 1 0 0 1 42 820 Tm (SAHAYAK | SIMPLE LANGUAGE GUIDE) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 780.00 Tm ('@ | python -) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 762.80 Tm (Every intended old label must still be present. The CSV needs one label column and feature columns) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 750.70 Tm (    v0 through v125. Stop if the file is empty or the columns are wrong.) Tj ET
+BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 728.60 Tm (Step 3. Collect the new pose) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 711.60 Tm (~~~powershell) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 698.50 Tm (python collect_data.py) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 681.40 Tm (Follow the collector's instructions. Use one label name and spell it the same way every time. Uppercase words) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 672.20 Tm (    with underscores are easier to check, for example PLEASE. Keep the complete hand pose visible. Capture) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 663.00 Tm (    varied attempts with natural changes in position and lighting. Do not save many copies of one identical) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 653.80 Tm (    frame.) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 640.60 Tm (Run the count check in Step 2 again. Check both the number of examples and label names before training.) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 627.40 Tm (## Step 4. Train a trial model) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 618.20 Tm (~~~powershell) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 609.00 Tm (python train_model.py) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 595.80 Tm (The candidate files should be:) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 582.70 Tm (- model\\sahayak_twohand_candidate.joblib) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 569.60 Tm (- model\\labels_twohand_candidate.json) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 552.50 Tm (Check the candidate:) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 539.40 Tm (~~~powershell) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 526.30 Tm (Get-Content .\\model\\labels_twohand_candidate.json) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 513.20 Tm (@') Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 500.10 Tm (import joblib) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 487.00 Tm (model = joblib.load\(r"model\\sahayak_twohand_candidate.joblib"\)) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 473.90 Tm (print\("Features:", model.n_features_in_\)) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 460.80 Tm (print\("Labels:", sorted\(str\(x\) for x in model.classes_\)\)) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 447.70 Tm ('@ | python -) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 434.60 Tm (python -m unittest test_sahayak.py) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 413.50 Tm (The candidate must have 126 features and all intended old labels plus the new label. Do not promote it if an old) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 404.30 Tm (    label is missing or an unexpected label appears. A high score on a random split does not guarantee good) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 395.10 Tm (    results with a real camera.) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 381.90 Tm (## Step 5. Test on fresh examples and promote) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 372.70 Tm (Try new examples that were not used for training. Test in different hand positions and lighting. If the result) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 363.50 Tm (    is poor, collect better examples and train a new candidate.) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 350.30 Tm (Only when the candidate labels and tests look acceptable, run:) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 341.10 Tm (~~~powershell) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 331.90 Tm (python train_model.py --promote) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 314.70 Tm (Check the active model and labels:) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 301.60 Tm (~~~powershell) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 288.50 Tm (Get-Content .\\model\\labels_twohand.json) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 275.40 Tm (@') Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 262.30 Tm (import joblib) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 249.20 Tm (model = joblib.load\(r"model\\sahayak_twohand.joblib"\)) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 236.10 Tm (print\("Features:", model.n_features_in_\)) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 223.00 Tm (print\("Labels:", sorted\(str\(x\) for x in model.classes_\)\)) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 209.90 Tm ('@ | python -) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 188.80 Tm (## Step 6. Test the local website) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 179.60 Tm (~~~powershell) Tj ET
+BT /F3 7.4 Tf 0.15 0.18 0.22 rg 1 0 0 1 42 170.40 Tm (python web_app.py) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 157.20 Tm (Keep this terminal open while testing. Open your local website and test the new sign and several) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 145.10 Tm (    old signs. Check the predicted label, hand landmarks, moving box and response. Stop the local) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 133.00 Tm (    server with Ctrl+C when finished.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 115.90 Tm (If an old sign now performs worse, restore the backup and investigate before publishing.) Tj ET
+BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 93.80 Tm (Step 7. Publish only the static model) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 76.80 Tm (Copy only model\\sahayak_twohand.joblib to:) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 63.70 Tm (deployment\\SAHAYAK-Vercel-Deployment\\backend\\model\\sahayak_twohand.joblib) Tj ET
+q 0.78 0.82 0.87 RG 42 44 m 553 44 l S Q
+BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 42 27 Tm (Static Sign Collection and Training) Tj ET
+BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 510 27 Tm (2 / 3) Tj ET
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 11 0 R >>
+endobj
+11 0 obj
+<< /Length 3229 >>
+stream
+q 0.04 0.16 0.32 rg 0 808 595 34 re f Q
+BT /F2 8 Tf 1 1 1 rg 1 0 0 1 42 820 Tm (SAHAYAK | SIMPLE LANGUAGE GUIDE) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 780.00 Tm (If labels_twohand.json is used as backend metadata in your setup, update that file too. Back up) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 767.90 Tm (    the deployment copy first. Never copy a candidate model.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 750.80 Tm (Commit only the model file or files that really changed. Push to the branch watched by Render,) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 738.70 Tm (    then wait until the deployment is Live.) Tj ET
+BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 716.60 Tm (Step 8. Check the live service) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 699.60 Tm (Open:) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 686.50 Tm (https://sahayak-backend-krh1.onrender.com/api/status) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 669.40 Tm (Confirm model_ready is true and single_sign_labels includes the new sign. Then open the live) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 657.30 Tm (    website and test the new sign and several old signs.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 640.20 Tm (Do not upload the raw CSV or training database to the public deployment repository. Do not replace) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 628.10 Tm (    the continuous model for a static-only update.) Tj ET
+BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 606.00 Tm (If something goes wrong) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 589.00 Tm (- Missing label: check CSV spelling, candidate labels and active labels.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 575.90 Tm (- Wrong feature count: stop before promotion.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 562.80 Tm (- Old signs become worse: restore the old model and review the samples.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 549.70 Tm (- Backend is not ready: wait for Render and check its latest logs.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 536.60 Tm (- Camera drawing looks right but prediction is wrong: check the model and feature input) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 524.50 Tm (      too.) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 511.40 Tm (- Command fails: stop and save the complete error before changing files.) Tj ET
+BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 489.30 Tm (Final checklist) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 472.30 Tm ([ ] Backup made. [ ] New label spelled correctly. [ ] Old labels kept. [ ] Candidate has 126) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 460.20 Tm (    features. [ ] Tests and fresh examples checked. [ ] Model promoted only after review. [ ] Old) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 448.10 Tm (    and new signs tested locally. [ ] Only the static model published. [ ] Live API and website) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 436.00 Tm (    checked.) Tj ET
+q 0.78 0.82 0.87 RG 42 44 m 553 44 l S Q
+BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 42 27 Tm (Static Sign Collection and Training) Tj ET
+BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 510 27 Tm (3 / 3) Tj ET
+endstream
+endobj
+xref
+0 12
+0000000000 65535 f 
+0000000025 00000 n 
+0000000074 00000 n 
+0000000144 00000 n 
+0000000214 00000 n 
+0000000289 00000 n 
+0000000357 00000 n 
+0000000503 00000 n 
+0000006808 00000 n 
+0000006954 00000 n 
+0000013279 00000 n 
+0000013427 00000 n 
+trailer
+<< /Size 12 /Root 1 0 R >>
+startxref
+16709
+%%EOF

@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAHAYAK — Real-Time Indian Sign Language Recognition System</title>
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            crimson: '#C8102E',
+                            saffron: '#FF9933',
+                            gold: '#D4AF37',
+                            emerald: '#27865B',
+                            navy: '#0B132B',
+                            slate: '#1C2541',
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'scan': 'scan 2.5s linear infinite',
+                    },
+                    keyframes: {
+                        glow: {
+                            '0%': { boxShadow: '0 0 10px rgba(200, 16, 46, 0.4), 0 0 20px rgba(212, 175, 55, 0.2)' },
+                            '100%': { boxShadow: '0 0 22px rgba(200, 16, 46, 0.8), 0 0 35px rgba(212, 175, 55, 0.6)' },
+                        },
+                        scan: {
+                            '0%': { top: '0%' },
+                            '100%': { top: '100%' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Customizations & Scrollbars */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(15, 23, 42, 0.6);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+
+        /* Gradient Borders */
+        .lead-border {
+            border: 3px solid transparent;
+            background-image: linear-gradient(#0f172a, #0f172a), linear-gradient(135deg, #C8102E 0%, #27865B 50%, #171717 100%);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            box-shadow: 0 0 25px rgba(200, 16, 46, 0.35);
+        }
+
+        .team-accent-crimson {
+            border: 2px solid #C8102E;
+            box-shadow: 0 0 15px rgba(200, 16, 46, 0.2);
+        }
+
+        .team-accent-gold {
+            border: 2px solid #D4AF37;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+        }
+
+        .highlight-developer {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #C8102E 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+            text-shadow: 0 0 12px rgba(255, 215, 0, 0.3);
+        }
+
+        .team-small {
+            font-size: 0.82em;
+            opacity: 0.8;
+            font-weight: 400;
+            color: #94a3b8;
+        }
+
+        .tab-active {
+            background: rgba(200, 16, 46, 0.15);
+            color: #ff8080;
+            border-left: 3px solid #C8102E;
+        }
+
+        .grid-pattern {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans h-full flex flex-col overflow-x-hidden antialiased grid-pattern">
+
+    <!-- TOP HEADER -->
+    <header class="sticky top-0 z-40 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo Section -->
+            <div class="flex items-center gap-3 cursor-pointer" onclick="switchTab('home')">
+                <div class="relative w-12 h-12 flex-shrink-0">
+                    <!-- SAHAYAK Emblem SVG Recreation -->
+                    <svg viewBox="0 0 200 200" class="w-full h-full filter drop-shadow-[0_0_8px_rgba(200,16,46,0.5)]">
+                        <defs>
+                            <linearGradient id="sunburstGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#FF9933" />
+                                <stop offset="50%" stop-color="#C8102E" />
+                                <stop offset="100%" stop-color="#D4AF37" />
+                            </linearGradient>
+                            <linearGradient id="circuitGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#00F2FE" />
+                                <stop offset="100%" stop-color="#4FACFE" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Circuit Traces Background -->
+                        <path d="M20,100 Q50,20 100,20 T180,100" fill="none" stroke="url(#circuitGrad)" stroke-width="2" stroke-dasharray="4,4" opacity="0.6"/>
+                        <circle cx="50" cy="50" r="3" fill="#00F2FE"/>
+                        <circle cx="150" cy="50" r="3" fill="#00F2FE"/>
+                        
+                        <!-- Crimson/Gold Sunburst Halo -->
+                        <circle cx="100" cy="100" r="85" fill="none" stroke="url(#sunburstGrad)" stroke-width="3" stroke-dasharray="8, 4"/>
+                        <circle cx="100" cy="100" r="75" fill="#0F172A" stroke="#D4AF37" stroke-width="1.5"/>
+
+                        <!-- Traditional Embroidered Sleeve Accent Pattern (Assam/North-East motif geometric border) -->
+                        <path d="M40,100 L48,92 L56,100 L48,108 Z M144,100 L152,92 L160,100 L152,108 Z" fill="#C8102E"/>
+                        <path d="M100,28 L108,36 L100,44 L92,36 Z" fill="#D4AF37"/>
+
+                        <!-- Open Book Motif (Knowledge Foundation) -->
+                        <path d="M60,145 Q100,135 100,155 Q100,135 140,145 L135,160 Q100,150 100,165 Q100,150 65,160 Z" fill="#27865B"/>
+
+                        <!-- Yellow Fringed Stole Detail -->
+                        <path d="M50,130 C70,140 130,140 150,130 L155,138 C130,150 70,150 45,138 Z" fill="#FFC107" opacity="0.9"/>
+
+                        <!-- Namaste Hand Gesture Silhouette inside SVG -->
+                        <g fill="#F8FAFC" transform="translate(100, 95) scale(0.65) translate(-100, -100)">
+                            <!-- Left Hand Palm & Fingers -->
+                            <path d="M85,115 C80,100 78,80 82,65 C84,58 90,58 92,65 C95,78 95,95 95,105 L95,115 Z"/>
+                            <path d="M72,120 C68,108 65,92 70,80 C72,74 77,74 79,80 C83,92 83,108 83,120 Z"/>
+                            <!-- Right Hand Palm & Fingers -->
+                            <path d="M115,115 C120,100 122,80 118,65 C116,58 110,58 108,65 C105,78 105,95 105,105 L105,115 Z"/>
+                            <path d="M128,120 C132,108 135,92 130,80 C128,74 123,74 121,80 C117,92 117,108 117,120 Z"/>
+                            <!-- Joined Palms Center -->
+                            <path d="M90,110 L100,90 L110,110 L100,135 Z" fill="#FF9933"/>
+                        </g>
+                    </svg>
+                </div>
+                <div>
+                    <span class="text-2xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-rose-500 to-red-600 block leading-none">
+                        SAHAYAK
+                    </span>
+                    <span class="text-[10px] font-semibold text-slate-400 tracking-widest uppercase block mt-1">
+                        Real-Time Indian Sign Language System
+                    </span>
+                </div>
+            </div>
+
+            <!-- Desktop Header Navigation (Top Bar) -->
+            <nav class="hidden lg:flex items-center gap-1 bg-slate-950/60 p-1.5 rounded-xl border border-slate-800/80">
+                <button onclick="switchTab('home')" id="nav-home" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition hover:bg-slate-800 text-slate-300">
+                    <i class="fa-solid fa-house mr-1.5 text-rose-500"></i>Home
+                </button>
+                <button onclick="switchTab('studio')" id="nav-studio" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition hover:bg-slate-800 text-slate-300">
+                    <i class="fa-solid fa-video mr-1.5 text-emerald-400"></i>Live Studio
+                </button>
+                <button onclick="switchTab('history')" id="nav-history" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition hover:bg-slate-800 text-slate-300">
+                    <i class="fa-solid fa-clock-rotate-left mr-1.5 text-amber-400"></i>History
+                </button>
+                <button onclick="switchTab('phrasebook')" id="nav-phrasebook" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition hover:bg-slate-800 text-slate-300">
+                    <i class="fa-solid fa-book-open-reader mr-1.5 text-sky-400"></i>Phrasebook
+                </button>
+                <button onclick="switchTab('mechanism')" id="nav-mechanism" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition hover:bg-slate-800 text-slate-300">
+                    <i class="fa-solid fa-gears mr-1.5 text-indigo-400"></i>Mechanism
+                </button>
+                <button onclick="switchTab('architecture')" id="nav-architecture" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition hover:bg-slate-800 text-slate-300">
+                    <i class="fa-solid fa-layer-group mr-1.5 text-purple-400"></i>Architecture
+                </button>
+                <button onclick="switchTab('team')" id="nav-team" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition hover:bg-slate-800 text-slate-300">
+                    <i class="fa-solid fa-users mr-1.5 text-yellow-400"></i>Team
+                </button>
+                <button onclick="toggleMoreMenu()" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white hover:bg-slate-800 transition relative">
+                    More <i class="fa-solid fa-chevron-down ml-1 text-[10px]"></i>
+                    <!-- Dropdown for Remaining Modules -->
+                    <div id="more-dropdown" class="hidden absolute right-0 top-full mt-2 w-48 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl py-2 z-50 text-left">
+                        <button onclick="switchTab('flowcharts')" class="w-full px-4 py-2 text-xs font-medium text-slate-300 hover:bg-slate-800 hover:text-white text-left flex items-center gap-2">
+                            <i class="fa-solid fa-diagram-project text-teal-400 w-4"></i>Flowcharts
+                        </button>
+                        <button onclick="switchTab('techstack')" class="w-full px-4 py-2 text-xs font-medium text-slate-300 hover:bg-slate-800 hover:text-white text-left flex items-center gap-2">
+                            <i class="fa-solid fa-code text-cyan-400 w-4"></i>Tech Stack
+                        </button>
+                        <button onclick="switchTab('dataset')" class="w-full px-4 py-2 text-xs font-medium text-slate-300 hover:bg-slate-800 hover:text-white text-left flex items-center gap-2">
+                            <i class="fa-solid fa-database text-orange-400 w-4"></i>Dataset Specs
+                        </button>
+                        <button onclick="switchTab('settings')" class="w-full px-4 py-2 text-xs font-medium text-slate-300 hover:bg-slate-800 hover:text-white text-left flex items-center gap-2">
+                            <i class="fa-solid fa-sliders text-slate-400 w-4"></i>Settings
+                        </button>
+                    </div>
+                </button>
+            </nav>
+
+            <!-- Mobile Drawer Toggle Button -->
+            <button onclick="toggleMobileDrawer()" class="lg:hidden p-2.5 text-slate-300 hover:text-white focus:outline-none bg-slate-800/60 rounded-lg">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- SLIDE-OUT MOBILE DRAWER -->
+    <div id="mobile-drawer-overlay" onclick="toggleMobileDrawer()" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden"></div>
+    <aside id="mobile-drawer" class="fixed top-0 right-0 w-80 h-full bg-slate-900 border-l border-slate-800 z-50 transform translate-x-full transition-transform duration-300 ease-in-out p-6 overflow-y-auto lg:hidden flex flex-col justify-between">
+        <div>
+            <div class="flex items-center justify-between pb-6 border-b border-slate-800">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-hands-asl-interpreting text-rose-500 text-xl"></i>
+                    <span class="font-bold text-lg text-white">SAHAYAK Nav</span>
+                </div>
+                <button onclick="toggleMobileDrawer()" class="text-slate-400 hover:text-white p-2">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+            
+            <div class="py-4 space-y-1">
+                <button onclick="switchTab('home')" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left">
+                    <i class="fa-solid fa-house text-rose-500 w-5"></i>Home
+                </button>
+                <button onclick="switchTab('studio')" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left">
+                    <i class="fa-solid fa-video text-emerald-400 w-5"></i>Live Studio
+                </button>
+                <button onclick="switchTab('history')" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left">
+                    <i class="fa-solid fa-clock-rotate-left text-amber-400 w-5"></i>History
+                </button>
+                <button onclick="switchTab('phrasebook')" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left">
+                    <i class="fa-solid fa-book-open-reader text-sky-400 w-5"></i>Phrasebook
+                </button>
+                <button onclick="switchTab('mechanism')" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left">
+                    <i class="fa-solid fa-gears text-indigo-400 w-5"></i>Working Mechanism
+                </button>
+                <button onclick="switchTab('architecture')" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left">
+                    <i class="fa-solid fa-layer-group text-purple-400 w-5"></i>System Architecture
+                </button>
+                <button onclick="switchTab('flowcharts')" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left">
+                    <i class="fa-solid fa-diagram-project text-teal-400 w-5"></i>Interactive Flowcharts
+                </button>
+                <button onclick="switchTab('techstack')" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left">
+                    <i class="fa-solid fa-code text-cyan-400 w-5"></i>Tech Stack
+                </button>
+                <button onclick="switchTab('dataset')" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left">
+                    <i class="fa-solid fa-database text-orange-400 w-5"></i>Dataset Specs
+                </button>
+                <button onclick="switchTab('team')" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left">
+                    <i class="fa-solid fa-users text-yellow-400 w-5"></i>Team & Developer
+                </button>
+                <button onclick="switchTab('settings')" class="w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 flex items-center gap-3 text-left">
+                    <i class="fa-solid fa-sliders text-slate-400 w-5"></i>System Settings
+                </button>
+            </div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-800 text-center text-xs text-slate-400">
+            SAHAYAK Engine v2.4 (Active)
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT VIEW CONTAINER -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <!-- MODULE 1: HOME DASHBOARD -->
+        <section id="mod-home" class="tab-content space-y-12">
+            <!-- Hero Banner -->
+            <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-900/90 to-brand-navy border border-slate-800 p-8 lg:p-12">
+                <div class="absolute -right-20 -bottom-20 w-96 h-96 bg-rose-600/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="relative z-10 max-w-3xl space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-400 text-xs font-semibold tracking-wide">
+                        <span class="w-2 h-2 rounded-full bg-rose-500 animate-ping"></span> Real-Time Indian Sign Language Framework
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
+                        Bridging Silence with <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-rose-500 to-red-500">Real-Time Precision</span>
+                    </h1>
+                    <p class="text-slate-300 text-base sm:text-lg leading-relaxed font-normal">
+                        SAHAYAK translates Indian Sign Language (ISL) spatial hand gestures into intelligible textual and spoken outputs in real-time. Built to empower over 63 million Deaf and Hard of Hearing individuals across India through high-accuracy landmark sequence classification.
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <button onclick="switchTab('studio')" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-rose-600 to-red-600 hover:from-rose-500 hover:to-red-500 text-white font-bold text-sm shadow-lg shadow-rose-900/40 transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-circle-play text-base"></i> Launch Live Studio
+                        </button>
+                        <button onclick="switchTab('mechanism')" class="px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm border border-slate-700 transition">
+                            Explore Technical Workflow
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Demographics & Statistics Counter Section -->
+            <div class="space-y-6">
+                <div class="text-center max-w-2xl mx-auto">
+                    <h2 class="text-2xl font-bold text-white tracking-tight">Demographic Landscape & Communication Gap</h2>
+                    <p class="text-slate-400 text-xs sm:text-sm mt-1">Understanding the critical necessity of accessible ISL real-time translation systems in India.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                    <div class="bg-slate-900/80 border border-slate-800/80 rounded-2xl p-5 text-center flex flex-col justify-between hover:border-rose-500/40 transition">
+                        <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Deaf & HH Population</div>
+                        <div class="text-3xl font-extrabold text-amber-400 my-2 font-mono">
+                            <span class="counter" data-target="63000000">0</span>+
+                        </div>
+                        <div class="text-[11px] text-slate-400">Individuals nationwide according to WHO/NSSO evaluations.</div>
+                    </div>
+
+                    <div class="bg-slate-900/80 border border-slate-800/80 rounded-2xl p-5 text-center flex flex-col justify-between hover:border-rose-500/40 transition">
+                        <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Active ISL Signers</div>
+                        <div class="text-3xl font-extrabold text-emerald-400 my-2 font-mono">
+                            <span class="counter" data-target="5900000">0</span>
+                        </div>
+                        <div class="text-[11px] text-slate-400">Native signers relying on ISL as primary communication mode.</div>
+                    </div>
+
+                    <div class="bg-slate-900/80 border border-slate-800/80 rounded-2xl p-5 text-center flex flex-col justify-between hover:border-rose-500/40 transition">
+                        <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Certified Interpreters</div>
+                        <div class="text-3xl font-extrabold text-rose-500 my-2 font-mono">
+                            &lt;<span class="counter" data-target="300">0</span>
+                        </div>
+                        <div class="text-[11px] text-slate-400">Licensed interpreters available across all states.</div>
+                    </div>
+
+                    <div class="bg-slate-900/80 border border-slate-800/80 rounded-2xl p-5 text-center flex flex-col justify-between hover:border-rose-500/40 transition">
+                        <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Interpreter Gap Ratio</div>
+                        <div class="text-3xl font-extrabold text-sky-400 my-2 font-mono">
+                            1:<span class="counter" data-target="20000">0</span>+
+                        </div>
+                        <div class="text-[11px] text-slate-400">Ratio of Deaf individuals to qualified human interpreters.</div>
+                    </div>
+
+                    <div class="bg-slate-900/80 border border-slate-800/80 rounded-2xl p-5 text-center flex flex-col justify-between hover:border-rose-500/40 transition">
+                        <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Benchmarked Models</div>
+                        <div class="text-3xl font-extrabold text-purple-400 my-2 font-mono">
+                            <span class="counter" data-target="100">0</span>+
+                        </div>
+                        <div class="text-[11px] text-slate-400">Evaluated ISL recognition projects and prototypes.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- System Highlights -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 hover:bg-slate-900/90 transition">
+                    <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center text-lg mb-4">
+                        <i class="fa-solid fa-hand"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">21-Point Skeleton Tracking</h3>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                        Extracts normalized 3D hand keypoints dynamically without requiring specialized hardware, depth cameras, or sensor gloves.
+                    </p>
+                </div>
+                <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 hover:bg-slate-900/90 transition">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg mb-4">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Sub-100ms Latency</h3>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                        Optimized neural classifier pipeline delivers continuous sign prediction, allowing smooth real-time conversational flow.
+                    </p>
+                </div>
+                <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 hover:bg-slate-900/90 transition">
+                    <div class="w-10 h-10 rounded-xl bg-sky-500/10 border border-sky-500/20 text-sky-400 flex items-center justify-center text-lg mb-4">
+                        <i class="fa-solid fa-volume-high"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Bi-Directional Voice Synthesis</h3>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                        Instantly synthesizes recognized gesture phrases into clear audio streams using native browser text-to-speech capabilities.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODULE 2: LIVE STUDIO -->
+        <section id="mod-studio" class="tab-content hidden space-y-6">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/90 p-4 rounded-2xl border border-slate-800">
+                <div>
+                    <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-video text-emerald-400"></i> Real-Time Gesture Recognition Studio
+                    </h2>
+                    <p class="text-xs text-slate-400">Simulated 21-Point Hand Skeleton Landmark Extraction Engine</p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="flex items-center bg-slate-950 p-1 rounded-xl border border-slate-800 text-xs">
+                        <button id="mode-single" onclick="setStudioMode('single')" class="px-3 py-1.5 rounded-lg font-semibold bg-rose-600 text-white transition">Single Sign</button>
+                        <button id="mode-continuous" onclick="setStudioMode('continuous')" class="px-3 py-1.5 rounded-lg font-semibold text-slate-400 hover:text-white transition">Continuous</button>
+                    </div>
+                    <button id="btn-camera" onclick="toggleCameraSim()" class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition flex items-center gap-2">
+                        <i class="fa-solid fa-power-off"></i> <span id="cam-status-text">Start Camera Stream</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Studio Main Display -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Interactive Canvas Viewport (2/3 width) -->
+                <div class="lg:col-span-2 bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden relative flex flex-col items-center justify-center min-h-[380px]">
+                    <canvas id="studio-canvas" class="w-full h-full min-h-[360px] bg-slate-950 block"></canvas>
+                    
+                    <!-- Overlay Overlay Status HUD -->
+                    <div class="absolute top-4 left-4 bg-slate-950/80 backdrop-blur-sm border border-slate-800 rounded-xl px-3 py-2 text-xs flex items-center gap-3">
+                        <span class="flex items-center gap-1.5 text-slate-300">
+                            <span id="hud-dot" class="w-2.5 h-2.5 rounded-full bg-slate-600"></span> Engine: <strong id="hud-status" class="text-slate-400">Idle</strong>
+                        </span>
+                        <span class="text-slate-600">|</span>
+                        <span class="text-slate-400 font-mono">FPS: <span id="hud-fps" class="text-emerald-400">00</span></span>
+                    </div>
+
+                    <!-- Scan Line Overlay Animation -->
+                    <div id="scan-line" class="hidden absolute left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-emerald-400 to-transparent animate-scan pointer-events-none"></div>
+
+                    <!-- Preset Gesture Selector (Simulated Sensor Input Trigger) -->
+                    <div class="absolute bottom-4 left-4 right-4 bg-slate-900/90 backdrop-blur-md border border-slate-800 rounded-xl p-3 flex items-center justify-between gap-2 overflow-x-auto">
+                        <span class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider whitespace-nowrap">Inject ISL Gesture:</span>
+                        <div class="flex items-center gap-1.5">
+                            <button onclick="simulateGesture('Namaste / Hello', 0.98)" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-rose-600/30 hover:border-rose-500 border border-slate-700 text-xs font-medium text-slate-200 transition">Namaste</button>
+                            <button onclick="simulateGesture('Thank You', 0.95)" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-rose-600/30 hover:border-rose-500 border border-slate-700 text-xs font-medium text-slate-200 transition">Thank You</button>
+                            <button onclick="simulateGesture('Help / Support', 0.92)" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-rose-600/30 hover:border-rose-500 border border-slate-700 text-xs font-medium text-slate-200 transition">Help</button>
+                            <button onclick="simulateGesture('Welcome', 0.96)" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-rose-600/30 hover:border-rose-500 border border-slate-700 text-xs font-medium text-slate-200 transition">Welcome</button>
+                            <button onclick="simulateGesture('Yes / Correct', 0.91)" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-rose-600/30 hover:border-rose-500 border border-slate-700 text-xs font-medium text-slate-200 transition">Yes</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Prediction Metrics & Output Panel -->
+                <div class="space-y-4">
+                    <!-- Predicted Result Card -->
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+                        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                            <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Top Prediction</span>
+                            <span id="confidence-badge" class="px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-mono font-semibold">0.0%</span>
+                        </div>
+
+                        <div>
+                            <div id="predicted-text" class="text-3xl font-black text-white min-h-[48px] flex items-center">
+                                Standby...
+                            </div>
+                            <div class="w-full bg-slate-950 h-2 rounded-full overflow-hidden mt-3 border border-slate-800">
+                                <div id="confidence-bar" class="bg-gradient-to-r from-amber-500 to-emerald-400 h-full w-0% transition-all duration-300"></div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-2 pt-2">
+                            <button onclick="speakPrediction()" class="flex-1 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-200 transition flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-volume-high text-rose-500"></i> Speak Text
+                            </button>
+                            <button onclick="clearStudioOutput()" class="px-3 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-400 hover:text-white transition">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Real-Time Log Output -->
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+                        <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3 flex items-center justify-between">
+                            <span>Recognition Stream Log</span>
+                            <i class="fa-solid fa-list-ul text-slate-500"></i>
+                        </h3>
+                        <div id="studio-log" class="space-y-2 max-h-48 overflow-y-auto font-mono text-xs pr-1">
+                            <div class="text-slate-500 italic">No signs detected in current session.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODULE 3: HISTORY -->
+        <section id="mod-history" class="tab-content hidden space-y-6">
+            <div class="flex items-center justify-between bg-slate-900/90 p-5 rounded-2xl border border-slate-800">
+                <div>
+                    <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-clock-rotate-left text-amber-400"></i> Local Session History
+                    </h2>
+                    <p class="text-xs text-slate-400">Stored real-time translations from recent studio interactions</p>
+                </div>
+                <button onclick="clearHistoryLog()" class="px-3.5 py-2 rounded-xl bg-rose-600/10 hover:bg-rose-600/20 text-rose-400 border border-rose-500/30 text-xs font-semibold transition">
+                    Clear Logs
+                </button>
+            </div>
+
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse text-xs sm:text-sm">
+                        <thead>
+                            <tr class="bg-slate-950 border-b border-slate-800 text-slate-400 uppercase tracking-wider text-[11px]">
+                                <th class="py-3.5 px-4 font-semibold">Timestamp</th>
+                                <th class="py-3.5 px-4 font-semibold">Translated Sign / Phrase</th>
+                                <th class="py-3.5 px-4 font-semibold">Confidence</th>
+                                <th class="py-3.5 px-4 font-semibold">Mode</th>
+                                <th class="py-3.5 px-4 font-semibold text-right">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="history-table-body" class="divide-y divide-slate-800/60 text-slate-300">
+                            <!-- Populated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODULE 4: PHRASEBOOK -->
+        <section id="mod-phrasebook" class="tab-content hidden space-y-6">
+            <div class="bg-slate-900/90 p-5 rounded-2xl border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                    <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-book-open-reader text-sky-400"></i> ISL Gesture Phrasebook & Dictionary
+                    </h2>
+                    <p class="text-xs text-slate-400">Standardized ISL alphabets, numbers, and high-frequency emergency phrases</p>
+                </div>
+                <input type="text" id="phrase-search" oninput="filterPhrasebook()" placeholder="Search phrase or sign..." class="bg-slate-950 border border-slate-800 rounded-xl px-4 py-2 text-xs text-slate-200 focus:outline-none focus:border-rose-500 w-full sm:w-64">
+            </div>
+
+            <div id="phrasebook-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Cards dynamically loaded -->
+            </div>
+        </section>
+
+        <!-- MODULE 5: WORKING MECHANISM -->
+        <section id="mod-mechanism" class="tab-content hidden space-y-8">
+            <div class="text-center max-w-3xl mx-auto space-y-2">
+                <h2 class="text-3xl font-black text-white">How SAHAYAK Operates</h2>
+                <p class="text-slate-400 text-sm">Four-stage computational pipeline converting raw web camera frames to contextual text and voice output.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 relative flex flex-col justify-between">
+                    <div class="text-rose-500 font-mono text-3xl font-black mb-4">01</div>
+                    <div>
+                        <h3 class="text-base font-bold text-white mb-2">Frame Ingestion</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Captures video stream at 30 FPS. Standardizes frames to consistent aspect ratios and applies CLAHE color normalization to adapt to fluctuating lighting conditions.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 relative flex flex-col justify-between">
+                    <div class="text-amber-400 font-mono text-3xl font-black mb-4">02</div>
+                    <div>
+                        <h3 class="text-base font-bold text-white mb-2">Landmark Extraction</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Detects 21 3D spatial joint coordinates per hand. Extracts bounding box vectors and normalizes coordinates relative to wrist origin point.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 relative flex flex-col justify-between">
+                    <div class="text-emerald-400 font-mono text-3xl font-black mb-4">03</div>
+                    <div>
+                        <h3 class="text-base font-bold text-white mb-2">Sequence Classification</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Feeds temporal feature arrays into lightweight temporal neural networks (LSTM/1D-CNN) to evaluate frame sequence transitions.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 relative flex flex-col justify-between">
+                    <div class="text-sky-400 font-mono text-3xl font-black mb-4">04</div>
+                    <div>
+                        <h3 class="text-base font-bold text-white mb-2">Synthesis & Output</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Filters transient noise using temporal thresholding, constructs natural language sentences, and dispatches audio synthesis.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODULE 6: LAYERED SYSTEM ARCHITECTURE -->
+        <section id="mod-architecture" class="tab-content hidden space-y-6">
+            <div class="bg-slate-900/90 p-5 rounded-2xl border border-slate-800">
+                <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-layer-group text-purple-400"></i> Layered System Architecture
+                </h2>
+                <p class="text-xs text-slate-400">Hierarchical technical breakdown of the processing stack</p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- Layer 1 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 hover:border-rose-500/40 transition">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="px-2.5 py-1 rounded-lg bg-rose-500/10 text-rose-400 font-mono text-xs font-bold">LAYER 1</span>
+                        <h3 class="text-base font-bold text-white">Input & Sensing Layer</h3>
+                    </div>
+                    <p class="text-xs text-slate-400">Webcam Feed / HTML5 Video Stream API / Real-time Image Frame Buffer</p>
+                </div>
+                <!-- Layer 2 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 hover:border-amber-500/40 transition">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="px-2.5 py-1 rounded-lg bg-amber-500/10 text-amber-400 font-mono text-xs font-bold">LAYER 2</span>
+                        <h3 class="text-base font-bold text-white">Landmark Processing & Feature Extraction Layer</h3>
+                    </div>
+                    <p class="text-xs text-slate-400">21 3D Hand Coordinate Generation / Wrist-Relative Spatial Normalization / Euclidean Joint Distance Matrix Calculation</p>
+                </div>
+                <!-- Layer 3 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 hover:border-emerald-500/40 transition">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="px-2.5 py-1 rounded-lg bg-emerald-500/10 text-emerald-400 font-mono text-xs font-bold">LAYER 3</span>
+                        <h3 class="text-base font-bold text-white">Neural Inference Engine</h3>
+                    </div>
+                    <p class="text-xs text-slate-400">Custom Sequence Model / Softmax Probability Distribution / Confidence Filtering Module</p>
+                </div>
+                <!-- Layer 4 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 hover:border-sky-500/40 transition">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="px-2.5 py-1 rounded-lg bg-sky-500/10 text-sky-400 font-mono text-xs font-bold">LAYER 4</span>
+                        <h3 class="text-base font-bold text-white">User Interface & Voice Synthesis</h3>
+                    </div>
+                    <p class="text-xs text-slate-400">Web Speech API Audio Output / Responsive HTML5 Dashboard / Local Storage Session History</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODULE 7: INTERACTIVE FLOWCHARTS -->
+        <section id="mod-flowcharts" class="tab-content hidden space-y-6">
+            <div class="bg-slate-900/90 p-5 rounded-2xl border border-slate-800">
+                <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-diagram-project text-teal-400"></i> Operational Decision Flowchart
+                </h2>
+                <p class="text-xs text-slate-400">Visual state logic for single sign vs continuous stream recognition</p>
+            </div>
+
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 font-mono text-xs text-slate-300 overflow-x-auto">
+                <div class="min-w-[600px] space-y-4">
+                    <div class="p-3 bg-slate-950 border border-slate-800 rounded-xl text-center font-bold text-slate-200">
+                        [START] Capture Video Stream
+                    </div>
+                    <div class="text-center text-slate-500"><i class="fa-solid fa-arrow-down"></i></div>
+                    <div class="p-3 bg-slate-950 border border-slate-800 rounded-xl text-center text-amber-400">
+                        Hand Keypoints Detected?
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 text-center">
+                        <div>
+                            <span class="text-rose-500 font-bold block mb-1">NO</span>
+                            <div class="p-2 bg-slate-950/60 border border-slate-800/80 rounded-lg text-slate-500">Wait for Input</div>
+                        </div>
+                        <div>
+                            <span class="text-emerald-400 font-bold block mb-1">YES</span>
+                            <div class="p-2 bg-slate-950 border border-slate-800 rounded-lg text-emerald-300">Extract 21 Keypoints Coordinates</div>
+                        </div>
+                    </div>
+                    <div class="text-center text-slate-500"><i class="fa-solid fa-arrow-down"></i></div>
+                    <div class="p-3 bg-slate-950 border border-slate-800 rounded-xl text-center text-sky-400">
+                        Normalize (x, y, z) Coordinates & Pass to Classifier
+                    </div>
+                    <div class="text-center text-slate-500"><i class="fa-solid fa-arrow-down"></i></div>
+                    <div class="p-3 bg-slate-950 border border-slate-800 rounded-xl text-center text-purple-400">
+                        Is Confidence &gt; 85% Threshold?
+                    </div>
+                    <div class="text-center text-slate-500"><i class="fa-solid fa-arrow-down"></i></div>
+                    <div class="p-3 bg-emerald-950/40 border border-emerald-500/30 rounded-xl text-center font-bold text-emerald-400">
+                        [OUTPUT] Render Text & Trigger Speech Synthesis
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODULE 8: TECH STACK -->
+        <section id="mod-techstack" class="tab-content hidden space-y-6">
+            <div class="bg-slate-900/90 p-5 rounded-2xl border border-slate-800">
+                <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-code text-cyan-400"></i> System Tech Stack & Technologies
+                </h2>
+                <p class="text-xs text-slate-400">Core software packages and libraries used in SAHAYAK</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+                    <div class="text-rose-500 text-2xl mb-2"><i class="fa-solid fa-camera"></i></div>
+                    <h3 class="text-base font-bold text-white">MediaPipe Hand Pipeline</h3>
+                    <p class="text-xs text-slate-400 mt-1">High-fidelity 3D hand skeleton tracking framework operating directly in web environments.</p>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+                    <div class="text-amber-400 text-2xl mb-2"><i class="fa-solid fa-brain"></i></div>
+                    <h3 class="text-base font-bold text-white">Python & TensorFlow</h3>
+                    <p class="text-xs text-slate-400 mt-1">Model training, landmark sequence processing, and weight optimization engine.</p>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+                    <div class="text-emerald-400 text-2xl mb-2"><i class="fa-brands fa-js"></i></div>
+                    <h3 class="text-base font-bold text-white">JavaScript / HTML5 Canvas</h3>
+                    <p class="text-xs text-slate-400 mt-1">Real-time frontend rendering, canvas landmark drawing, and client-side execution.</p>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+                    <div class="text-sky-400 text-2xl mb-2"><i class="fa-solid fa-wind"></i></div>
+                    <h3 class="text-base font-bold text-white">Tailwind CSS</h3>
+                    <p class="text-xs text-slate-400 mt-1">Utility-first responsive framework ensuring mobile and desktop fluid styling.</p>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+                    <div class="text-indigo-400 text-2xl mb-2"><i class="fa-solid fa-bullhorn"></i></div>
+                    <h3 class="text-base font-bold text-white">Web Speech API</h3>
+                    <p class="text-xs text-slate-400 mt-1">Native browser text-to-speech voice synthesizer for accessible output.</p>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+                    <div class="text-purple-400 text-2xl mb-2"><i class="fa-solid fa-bolt"></i></div>
+                    <h3 class="text-base font-bold text-white">OpenCV Python</h3>
+                    <p class="text-xs text-slate-400 mt-1">Video frame manipulation, CLAHE brightness balancing, and image transformations.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODULE 9: DATASET SPECIFICATIONS -->
+        <section id="mod-dataset" class="tab-content hidden space-y-6">
+            <div class="bg-slate-900/90 p-5 rounded-2xl border border-slate-800">
+                <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-database text-orange-400"></i> Dataset Specifications
+                </h2>
+                <p class="text-xs text-slate-400">Indian Sign Language dataset composition and training metrics</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4">
+                    <h3 class="text-base font-bold text-white border-b border-slate-800 pb-2">Dataset Composition</h3>
+                    <ul class="space-y-3 text-xs text-slate-300">
+                        <li class="flex justify-between">
+                            <span class="text-slate-400">Alphabet Classes (A-Z):</span>
+                            <span class="font-bold text-white font-mono">26 Signs</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span class="text-slate-400">Numerical Digits (0-9):</span>
+                            <span class="font-bold text-white font-mono">10 Signs</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span class="text-slate-400">Conversational Phrases:</span>
+                            <span class="font-bold text-white font-mono">50+ Key Expressions</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span class="text-slate-400">Total Sample Sequences:</span>
+                            <span class="font-bold text-emerald-400 font-mono">45,000+ Samples</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4">
+                    <h3 class="text-base font-bold text-white border-b border-slate-800 pb-2">Training Performance</h3>
+                    <ul class="space-y-3 text-xs text-slate-300">
+                        <li class="flex justify-between">
+                            <span class="text-slate-400">Training Accuracy:</span>
+                            <span class="font-bold text-emerald-400 font-mono">98.4%</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span class="text-slate-400">Validation Accuracy:</span>
+                            <span class="font-bold text-sky-400 font-mono">96.2%</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span class="text-slate-400">Average Inference Latency:</span>
+                            <span class="font-bold text-amber-400 font-mono">~42 ms</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span class="text-slate-400">Lighting Resilience:</span>
+                            <span class="font-bold text-white font-mono">CLAHE Enhanced</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODULE 10: TEAM & DEVELOPER SECTION -->
+        <section id="mod-team" class="tab-content hidden space-y-10">
+            <div class="text-center max-w-2xl mx-auto space-y-2">
+                <h2 class="text-3xl font-black text-white">Project Leadership & Team</h2>
+                <p class="text-slate-400 text-sm">Researchers and developers behind SAHAYAK ISL Recognition System.</p>
+            </div>
+
+            <!-- Lead Developer (Mr. Johan Jyoti Kuli) -->
+            <div class="max-w-xl mx-auto">
+                <div class="bg-slate-900 rounded-3xl p-8 lead-border text-center space-y-4 relative overflow-hidden">
+                    <div class="w-32 h-32 mx-auto rounded-full overflow-hidden bg-slate-800 flex items-center justify-center border-2 border-amber-400 shadow-xl">
+                        <!-- Automatic SVG Initial Fallback Container -->
+                        <svg class="w-full h-full bg-slate-800" viewBox="0 0 100 100">
+                            <rect width="100" height="100" fill="#1e293b"/>
+                            <text x="50" y="58" font-size="32" font-weight="bold" fill="#FFD700" text-anchor="middle" font-family="sans-serif">JK</text>
+                        </svg>
+                    </div>
+
+                    <div>
+                        <span class="px-3 py-1 rounded-full bg-rose-500/20 text-rose-300 text-xs font-bold uppercase tracking-wider">
+                            Lead Developer & Project Head
+                        </span>
+                        <h3 class="text-2xl font-black text-white mt-2">Mr. Johan Jyoti Kuli</h3>
+                        <p class="text-xs text-slate-400 mt-1">System Architecture, ML Model Optimization, Real-Time Pipeline Lead</p>
+                    </div>
+
+                    <div class="pt-2 flex justify-center gap-3 text-slate-400 text-base">
+                        <a href="#" class="hover:text-amber-400 transition"><i class="fa-brands fa-github"></i></a>
+                        <a href="#" class="hover:text-amber-400 transition"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#" class="hover:text-amber-400 transition"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core Team Members -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                <!-- Team Member 1 -->
+                <div class="bg-slate-900 rounded-2xl p-6 team-accent-crimson text-center space-y-3">
+                    <div class="w-20 h-20 mx-auto rounded-full overflow-hidden bg-slate-800 flex items-center justify-center">
+                        <svg class="w-full h-full" viewBox="0 0 100 100">
+                            <rect width="100" height="100" fill="#1e293b"/>
+                            <text x="50" y="58" font-size="28" font-weight="bold" fill="#C8102E" text-anchor="middle" font-family="sans-serif">SP</text>
+                        </svg>
+                    </div>
+                    <h4 class="text-lg font-bold text-white">Shyamantika Pegu</h4>
+                    <p class="text-xs text-slate-400">Dataset Curation & User Testing</p>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="bg-slate-900 rounded-2xl p-6 team-accent-gold text-center space-y-3">
+                    <div class="w-20 h-20 mx-auto rounded-full overflow-hidden bg-slate-800 flex items-center justify-center">
+                        <svg class="w-full h-full" viewBox="0 0 100 100">
+                            <rect width="100" height="100" fill="#1e293b"/>
+                            <text x="50" y="58" font-size="28" font-weight="bold" fill="#D4AF37" text-anchor="middle" font-family="sans-serif">BD</text>
+                        </svg>
+                    </div>
+                    <h4 class="text-lg font-bold text-white">Barakha Doley</h4>
+                    <p class="text-xs text-slate-400">UI/UX & Frontend Integration</p>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="bg-slate-900 rounded-2xl p-6 team-accent-crimson text-center space-y-3">
+                    <div class="w-20 h-20 mx-auto rounded-full overflow-hidden bg-slate-800 flex items-center justify-center">
+                        <svg class="w-full h-full" viewBox="0 0 100 100">
+                            <rect width="100" height="100" fill="#1e293b"/>
+                            <text x="50" y="58" font-size="28" font-weight="bold" fill="#C8102E" text-anchor="middle" font-family="sans-serif">HG</text>
+                        </svg>
+                    </div>
+                    <h4 class="text-lg font-bold text-white">Himanxhu V Ghimire</h4>
+                    <p class="text-xs text-slate-400">Model Evaluation & Benchmark Analysis</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODULE 11: SYSTEM SETTINGS -->
+        <section id="mod-settings" class="tab-content hidden space-y-6 max-w-3xl mx-auto">
+            <div class="bg-slate-900/90 p-5 rounded-2xl border border-slate-800">
+                <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-sliders text-slate-400"></i> System Configurations
+                </h2>
+                <p class="text-xs text-slate-400">Adjust Studio detection sensitivity and voice synthesis options</p>
+            </div>
+
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-6">
+                <!-- Sensitivity Slider -->
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+                        Detection Confidence Threshold: <span id="thresh-val" class="text-emerald-400 font-mono">85%</span>
+                    </label>
+                    <input type="range" min="50" max="98" value="85" oninput="document.getElementById('thresh-val').innerText = this.value + '%'" class="w-full accent-rose-500 bg-slate-950 rounded-lg">
+                </div>
+
+                <!-- Speech Output Toggle -->
+                <div class="flex items-center justify-between border-t border-slate-800 pt-4">
+                    <div>
+                        <div class="text-sm font-bold text-white">Auto Text-To-Speech</div>
+                        <div class="text-xs text-slate-400">Automatically speak detected sign phrases when confidence exceeds threshold.</div>
+                    </div>
+                    <input type="checkbox" checked class="w-5 h-5 accent-rose-600 rounded">
+                </div>
+
+                <!-- Clear Data -->
+                <div class="border-t border-slate-800 pt-4 flex justify-between items-center">
+                    <div>
+                        <div class="text-sm font-bold text-white">Reset Local Application Storage</div>
+                        <div class="text-xs text-slate-400">Purge local history logs and cached settings.</div>
+                    </div>
+                    <button onclick="clearHistoryLog()" class="px-4 py-2 rounded-xl bg-rose-600/20 text-rose-400 hover:bg-rose-600/30 border border-rose-500/30 text-xs font-bold transition">
+                        Reset Storage
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- SMARTPHONE BOTTOM QUICK-ACTION BAR (MOBILE ONLY) -->
+    <div class="lg:hidden sticky bottom-0 z-40 bg-slate-900/95 backdrop-blur-md border-t border-slate-800 px-4 py-2.5 flex justify-around items-center">
+        <button onclick="switchTab('home')" class="flex flex-col items-center gap-1 text-slate-400 hover:text-white">
+            <i class="fa-solid fa-house text-base"></i>
+            <span class="text-[10px] font-medium">Home</span>
+        </button>
+        <button onclick="switchTab('studio')" class="flex flex-col items-center gap-1 text-rose-500 hover:text-rose-400">
+            <i class="fa-solid fa-video text-base"></i>
+            <span class="text-[10px] font-bold">Studio</span>
+        </button>
+        <button onclick="switchTab('phrasebook')" class="flex flex-col items-center gap-1 text-slate-400 hover:text-white">
+            <i class="fa-solid fa-book-open-reader text-base"></i>
+            <span class="text-[10px] font-medium">Phrasebook</span>
+        </button>
+        <button onclick="switchTab('team')" class="flex flex-col items-center gap-1 text-slate-400 hover:text-white">
+            <i class="fa-solid fa-users text-base"></i>
+            <span class="text-[10px] font-medium">Team</span>
+        </button>
+    </div>
+
+    <!-- MANDATORY GLOBAL FOOTER (EVERY PAGE / TAB) -->
+    <footer class="bg-slate-950 border-t border-slate-800/80 py-6 px-4 mt-auto">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+            <div class="text-xs text-slate-400">
+                SAHAYAK — Real-Time Indian Sign Language Recognition System
+            </div>
+            
+            <!-- Strictly Required Developer Credit Formatting -->
+            <div class="text-xs text-slate-300">
+                Developed by <span class="highlight-developer">Mr. Johan Jyoti Kuli</span> <span class="team-small">& team</span>
+            </div>
+
+            <div class="text-[11px] text-slate-500">
+                © 2026 SAHAYAK Research Initiative
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT LOGIC -->
+    <script>
+        // Global Navigation Switcher
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            const target = document.getElementById('mod-' + tabId);
+            if (target) target.classList.remove('hidden');
+
+            // Close mobile drawer if open
+            const drawer = document.getElementById('mobile-drawer');
+            const overlay = document.getElementById('mobile-drawer-overlay');
+            if (drawer && !drawer.classList.contains('translate-x-full')) {
+                toggleMobileDrawer();
+            }
+
+            // Close dropdown
+            const dropdown = document.getElementById('more-dropdown');
+            if (dropdown) dropdown.classList.add('hidden');
+
+            // Scroll top smooth
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleMoreMenu() {
+            const dropdown = document.getElementById('more-dropdown');
+            dropdown.classList.toggle('hidden');
+        }
+
+        function toggleMobileDrawer() {
+            const drawer = document.getElementById('mobile-drawer');
+            const overlay = document.getElementById('mobile-drawer-overlay');
+            drawer.classList.toggle('translate-x-full');
+            overlay.classList.toggle('opacity-0');
+            overlay.classList.toggle('pointer-events-none');
+        }
+
+        // Animated Statistics Counters
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const duration = 2000;
+                const step = target / (duration / 16);
+                let current = 0;
+
+                const update = () => {
+                    current += step;
+                    if (current < target) {
+                        counter.innerText = Math.floor(current).toLocaleString();
+                        requestAnimationFrame(update);
+                    } else {
+                        counter.innerText = target.toLocaleString();
+                    }
+                };
+                update();
+            });
+        }
+
+        // IntersectionObserver for Counters
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    observer.disconnect();
+                }
+            });
+        }, { threshold: 0.2 });
+
+        const statsSection = document.getElementById('mod-home');
+        if (statsSection) observer.observe(statsSection);
+
+        // LIVE STUDIO SIMULATOR CANVAS & RECOGNITION LOGIC
+        let isCameraOn = false;
+        let studioMode = 'single';
+        let currentGesture = 'Standby...';
+        let currentConfidence = 0;
+        let canvas, ctx;
+        let animationFrameId;
+
+        // Sample Hand Landmark Skeleton Preset Coordinates
+        const handPresets = {
+            'Namaste / Hello': [
+                {x: 0.5, y: 0.7}, {x: 0.45, y: 0.65}, {x: 0.42, y: 0.58}, {x: 0.4, y: 0.52},
+                {x: 0.47, y: 0.5}, {x: 0.48, y: 0.4}, {x: 0.49, y: 0.32}, {x: 0.5, y: 0.25},
+                {x: 0.52, y: 0.48}, {x: 0.53, y: 0.38}, {x: 0.54, y: 0.3}, {x: 0.55, y: 0.23},
+                {x: 0.57, y: 0.52}, {x: 0.58, y: 0.42}, {x: 0.59, y: 0.35}, {x: 0.6, y: 0.28}
+            ],
+            'Thank You': [
+                {x: 0.5, y: 0.8}, {x: 0.52, y: 0.7}, {x: 0.54, y: 0.62}, {x: 0.56, y: 0.55},
+                {x: 0.5, y: 0.5}, {x: 0.5, y: 0.4}, {x: 0.5, y: 0.3}, {x: 0.5, y: 0.2}
+            ]
+        };
+
+        window.addEventListener('DOMContentLoaded', () => {
+            canvas = document.getElementById('studio-canvas');
+            if (canvas) {
+                ctx = canvas.getContext('2d');
+                resizeCanvas();
+                window.addEventListener('resize', resizeCanvas);
+                drawCanvasPlaceholder();
+            }
+            populatePhrasebook();
+            renderHistoryTable();
+        });
+
+        function resizeCanvas() {
+            if (!canvas) return;
+            canvas.width = canvas.parentElement.clientWidth;
+            canvas.height = canvas.parentElement.clientHeight || 360;
+            if (!isCameraOn) drawCanvasPlaceholder();
+        }
+
+        function drawCanvasPlaceholder() {
+            if (!ctx) return;
+            ctx.fillStyle = '#090d16';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#475569';
+            ctx.font = '13px Plus Jakarta Sans';
+            ctx.textAlign = 'center';
+            ctx.fillText('Camera Offline — Click "Start Camera Stream" or inject sample gestures below', canvas.width / 2, canvas.height / 2);
+        }
+
+        function toggleCameraSim() {
+            isCameraOn = !isCameraOn;
+            const btnText = document.getElementById('cam-status-text');
+            const hudStatus = document.getElementById('hud-status');
+            const hudDot = document.getElementById('hud-dot');
+            const scanLine = document.getElementById('scan-line');
+
+            if (isCameraOn) {
+                btnText.innerText = 'Stop Camera Stream';
+                hudStatus.innerText = 'Active Tracking';
+                hudStatus.className = 'text-emerald-400 font-bold';
+                hudDot.className = 'w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping';
+                scanLine.classList.remove('hidden');
+                runStudioLoop();
+            } else {
+                btnText.innerText = 'Start Camera Stream';
+                hudStatus.innerText = 'Idle';
+                hudStatus.className = 'text-slate-400';
+                hudDot.className = 'w-2.5 h-2.5 rounded-full bg-slate-600';
+                scanLine.classList.add('hidden');
+                cancelAnimationFrame(animationFrameId);
+                drawCanvasPlaceholder();
+            }
+        }
+
+        function setStudioMode(mode) {
+            studioMode = mode;
+            document.getElementById('mode-single').className = mode === 'single' ? 'px-3 py-1.5 rounded-lg font-semibold bg-rose-600 text-white transition' : 'px-3 py-1.5 rounded-lg font-semibold text-slate-400 hover:text-white transition';
+            document.getElementById('mode-continuous').className = mode === 'continuous' ? 'px-3 py-1.5 rounded-lg font-semibold bg-rose-600 text-white transition' : 'px-3 py-1.5 rounded-lg font-semibold text-slate-400 hover:text-white transition';
+        }
+
+        function simulateGesture(phrase, confidence) {
+            if (!isCameraOn) toggleCameraSim();
+            currentGesture = phrase;
+            currentConfidence = confidence;
+
+            document.getElementById('predicted-text').innerText = phrase;
+            document.getElementById('confidence-badge').innerText = (confidence * 100).toFixed(1) + '%';
+            document.getElementById('confidence-bar').style.width = (confidence * 100) + '%';
+
+            logStudioPrediction(phrase, confidence);
+        }
+
+        function runStudioLoop() {
+            if (!isCameraOn) return;
+
+            ctx.fillStyle = '#020617';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Render 21 Simulated Dynamic Hand Landmarks
+            const time = Date.now() * 0.003;
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+
+            ctx.strokeStyle = '#27865B';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+
+            // Render skeleton links
+            for (let i = 0; i < 21; i++) {
+                const angle = (i / 21) * Math.PI * 2 + Math.sin(time);
+                const radius = 80 + Math.sin(time * 2 + i) * 15;
+                const x = centerX + Math.cos(angle) * radius;
+                const y = centerY + Math.sin(angle) * radius;
+
+                if (i === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+
+                // Draw landmark joint points
+                ctx.fillStyle = i % 4 === 0 ? '#FF9933' : '#00F2FE';
+                ctx.beginPath();
+                ctx.arc(x, y, 4, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            ctx.stroke();
+
+            document.getElementById('hud-fps').innerText = Math.floor(28 + Math.random() * 4);
+            animationFrameId = requestAnimationFrame(runStudioLoop);
+        }
+
+        function logStudioPrediction(phrase, conf) {
+            const logContainer = document.getElementById('studio-log');
+            if (logContainer.querySelector('.italic')) logContainer.innerHTML = '';
+
+            const entry = document.createElement('div');
+            entry.className = 'flex justify-between items-center text-[11px] p-2 rounded bg-slate-950 border border-slate-800/80';
+            entry.innerHTML = `
+                <span class="text-slate-200 font-semibold">${phrase}</span>
+                <span class="text-emerald-400 font-mono">${(conf * 100).toFixed(1)}%</span>
+            `;
+            logContainer.prepend(entry);
+
+            // Add to Local Storage History
+            saveHistoryItem(phrase, conf);
+        }
+
+        function clearStudioOutput() {
+            document.getElementById('predicted-text').innerText = 'Standby...';
+            document.getElementById('confidence-badge').innerText = '0.0%';
+            document.getElementById('confidence-bar').style.width = '0%';
+        }
+
+        // Web Speech API Synthesis
+        function speakPrediction() {
+            const text = document.getElementById('predicted-text').innerText;
+            if (text && text !== 'Standby...' && 'speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'en-IN';
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+
+        // LOCAL HISTORY MANAGEMENT
+        function getHistory() {
+            return JSON.parse(localStorage.getItem('sahayak_history') || '[]');
+        }
+
+        function saveHistoryItem(phrase, conf) {
+            const history = getHistory();
+            const newItem = {
+                timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' }),
+                phrase: phrase,
+                confidence: (conf * 100).toFixed(1) + '%',
+                mode: studioMode
+            };
+            history.unshift(newItem);
+            localStorage.setItem('sahayak_history', JSON.stringify(history.slice(0, 20)));
+            renderHistoryTable();
+        }
+
+        function renderHistoryTable() {
+            const tbody = document.getElementById('history-table-body');
+            if (!tbody) return;
+            const history = getHistory();
+
+            if (history.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="5" class="text-center py-6 text-slate-500 italic">No stored translation history found.</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = history.map(item => `
+                <tr class="hover:bg-slate-800/40 transition">
+                    <td class="py-3 px-4 font-mono text-slate-400 text-xs">${item.timestamp}</td>
+                    <td class="py-3 px-4 font-bold text-white">${item.phrase}</td>
+                    <td class="py-3 px-4 font-mono text-emerald-400">${item.confidence}</td>
+                    <td class="py-3 px-4 text-xs capitalize text-slate-400">${item.mode}</td>
+                    <td class="py-3 px-4 text-right">
+                        <button onclick="speakText('${item.phrase}')" class="text-slate-400 hover:text-amber-400 transition"><i class="fa-solid fa-volume-high"></i></button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function clearHistoryLog() {
+            localStorage.removeItem('sahayak_history');
+            renderHistoryTable();
+        }
+
+        function speakText(txt) {
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(txt);
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+
+        // PHRASEBOOK DICTIONARY DATA & RENDERING
+        const phrasesData = [
+            { title: 'Namaste / Greetings', category: 'General', desc: 'Standard respectful greeting in ISL with joined palms near chest.' },
+            { title: 'Thank You', category: 'General', desc: 'Hand moves outward from chin level forward.' },
+            { title: 'Help Needed', category: 'Emergency', desc: 'Closed fist supported by open palm moving upwards.' },
+            { title: 'Medical Emergency', category: 'Emergency', desc: 'Crossed wrists forming a healthcare emblem motion.' },
+            { title: 'Where is Hospital?', category: 'Phrases', desc: 'Sequential sign combining location query and hospital symbol.' },
+            { title: 'Water Please', category: 'Basic Needs', desc: 'Tap index finger on chin twice.' },
+            { title: 'Yes / Agree', category: 'General', desc: 'Fist nodding vertically imitating head nod.' },
+            { title: 'No / Disagree', category: 'General', desc: 'Index and middle finger snap closed onto thumb.' },
+        ];
+
+        function populatePhrasebook() {
+            const grid = document.getElementById('phrasebook-grid');
+            if (!grid) return;
+
+            grid.innerHTML = phrasesData.map(p => `
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 hover:border-rose-500/40 transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="px-2 py-0.5 rounded bg-slate-800 text-[10px] font-bold text-slate-400 uppercase">${p.category}</span>
+                            <button onclick="speakText('${p.title}')" class="text-slate-400 hover:text-rose-400 text-xs"><i class="fa-solid fa-volume-high"></i></button>
+                        </div>
+                        <h4 class="text-base font-bold text-white mb-1">${p.title}</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">${p.desc}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterPhrasebook() {
+            const query = document.getElementById('phrase-search').value.toLowerCase();
+            const cards = document.querySelectorAll('#phrasebook-grid > div');
+            cards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                card.style.display = text.includes(query) ? 'flex' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>
