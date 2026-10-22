@@ -267,7 +267,7 @@ BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 129.00 Tm (    saved test result supp
 BT /F2 12 Tf 0.05 0.30 0.55 rg 1 0 0 1 42 106.90 Tm (Final lead-developer checklist) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 89.90 Tm ([ ] I can explain the camera-to-result workflow. [ ] I know the static and continuous models. [ ]) Tj ET
 BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 76.80 Tm (I can explain the feature counts. [ ] I can find the main frontend and backend files. [ ] I) Tj ET
-BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 63.70 Tm (can check API status. [ ] I back up files before changing models. [ ] I can explain limits) Tj ET
+BT /F1 9.1 Tf 0.12 0.16 0.22 rg 1 0 0 1 42 63.70 Tm (can check API status. [ ] I back up files before changing model. [ ] I can explain limits.) Tj ET
 q 0.78 0.82 0.87 RG 42 44 m 553 44 l S Q
 BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 42 27 Tm (SAHAYAK Master Guide Johan Jyoti Kuli) Tj ET
 BT /F1 8 Tf 0.35 0.39 0.44 rg 1 0 0 1 510 27 Tm (4 / 4) Tj ET
