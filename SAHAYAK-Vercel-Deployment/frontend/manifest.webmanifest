@@ -1,0 +1,27 @@
+{
+  "name": "SAHAYAK — Sign Language Recognition",
+  "short_name": "SAHAYAK",
+  "description": "Accessible sign language recognition and communication companion.",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#08111f",
+  "theme_color": "#08111f",
+  "categories": ["accessibility", "education", "utilities"],
+  "icons": [
+    {
+      "src": "/assets/pwa-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/pwa-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}
