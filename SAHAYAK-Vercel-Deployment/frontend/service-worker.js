@@ -1,5 +1,6 @@
 const CACHE = 'sahayak-pwa-shell-v1';
 const SHELL = [
+  '/pwa.js',
   '/',
   '/index.html',
   '/studio.html',
