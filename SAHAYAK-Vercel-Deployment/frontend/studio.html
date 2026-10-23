@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n<meta name="mobile-web-app-capable" content="yes">\n<meta name="apple-mobile-web-app-capable" content="yes">\n<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">\n<meta name="apple-mobile-web-app-title" content="SAHAYAK">\n<link rel="manifest" href="/manifest.webmanifest">\n<link rel="icon" href="/assets/pwa-icon.svg" type="image/svg+xml">\n<link rel="apple-touch-icon" href="/assets/pwa-icon.svg">
 <meta name="theme-color" content="#08111f">
 <title>SAHAYAK - A Real-Time Sign Language Recognition System for Differently-Abled Persons</title>
 <style>
@@ -905,5 +905,5 @@ initializeStudioScrollReveal();
 window.addEventListener('pagehide',stopCamera);loadCameras();checkStatus();refreshSequenceDb();if('serviceWorker'in navigator&&location.protocol.startsWith('http'))window.addEventListener('load',()=>navigator.serviceWorker.register('/service-worker.js').catch(()=>{}));
 </script>
     <script src="legang-ai.js" defer></script>
-</body>
+<script src="/pwa.js" defer></script>\n</body>
 </html>
