@@ -27,6 +27,8 @@
         '<div class="lg-chat-messages" data-lg-messages role="log" aria-live="polite" aria-relevant="additions text"></div>' +
         '<div class="lg-suggestions" data-lg-suggestions>' +
           '<button class="lg-chip" type="button" data-lg-ask="How do I use SAHAYAK?">How do I use SAHAYAK?</button>' +
+          '<button class="lg-chip" type="button" data-lg-ask="How do I install SAHAYAK on Android?">Install SAHAYAK</button>' +
+          '<button class="lg-chip" type="button" data-lg-ask="The SAHAYAK app icon is still old. How do I update it?">Update app icon</button>' +
           '<button class="lg-chip" type="button" data-lg-ask="Why was SAHAYAK built?">Why was SAHAYAK built?</button>' +
           '<button class="lg-chip" type="button" data-lg-ask="What signs are supported?">What signs are supported?</button>' +
           '<button class="lg-chip" type="button" data-lg-ask="What is the difference between static and continuous signs?">Static vs continuous</button>' +
@@ -384,6 +386,12 @@
         { label: "Email Johan", href: "mailto:jubinkuli72@gmail.com" },
         { label: "Call 9678613150", href: "tel:9678613150" }
       ] };
+    }
+    if (/install|add to home|home screen|download.*app|app.*phone|pwa/.test(q) && /sahayak|app|phone|install|home screen|download|pwa/.test(q)) {
+      return { text: "You can install SAHAYAK on Android from Chrome: (1) open the official SAHAYAK website using Chrome, not an in-app browser; (2) wait for the page to finish loading; (3) tap the browser menu (⋮) and choose “Install app” or “Add to Home screen”; (4) confirm Install/Add. If Chrome does not show the option, refresh the site, make sure you are online, and try again after the latest deployment is live. On some phones, an existing installation may keep its old icon, so remove the old SAHAYAK shortcut/app and install it again. On iPhone/iPad, open the site in Safari, tap Share, then “Add to Home Screen.” Installation availability can vary by browser. Installing the website does not make live recognition work offline; camera recognition still needs the deployed backend connection.", actions: [{ label: "Open SAHAYAK", href: "/" }, { label: "Open Live Studio", href: "./studio.html" }] };
+    }
+    if (/icon|logo|old logo|wrong logo/.test(q) && /sahayak|app|home screen|install|icon|logo/.test(q)) {
+      return { text: "If the installed SAHAYAK icon still looks old, first wait for the latest website deployment, then open SAHAYAK in Chrome and refresh. If it still does not change, remove the existing home-screen installation and install it again from Chrome’s menu. Android can keep a previously installed app icon even after the website manifest changes." };
     }
     if (/how.*use|use.*sahayak|start|camera|recogniz|recognise|live studio/.test(q) && !/what signs|labels|pose|frame/.test(q)) {
       return { text: "To try SAHAYAK: open Live Studio, choose static or continuous recognition, allow camera access only when the browser asks, and keep your hands visible inside the camera view. For a static sign, hold the pose steadily; for a continuous sign, perform the full movement. Read the result and confidence, and repeat if the system says it is uncertain. The camera belongs to the recognizer, not to this FAQ chat.", actions: [{ label: "Open Live Studio", href: "./studio.html" }] };
