@@ -1,4 +1,4 @@
-const CACHE = 'sahayak-pwa-shell-v2';
+const CACHE = 'sahayak-pwa-shell-v3';
 const SHELL = [
   '/pwa.js',
   '/',
