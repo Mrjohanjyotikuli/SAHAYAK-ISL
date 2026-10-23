@@ -34,7 +34,7 @@
   async function installApp() {
     const status = document.querySelector('[data-sahayak-install-status]');
     if (!installPrompt) {
-      if (status) status.textContent = 'On Android, open this site in Chrome, tap the three-dot menu, then choose Install app or Add to Home screen.';
+      if (status) { status.style.display = 'block'; status.textContent = 'On Android, open Chrome menu (⋮), then choose Install app or Add to Home screen.'; }
       return;
     }
     installPrompt.prompt();
