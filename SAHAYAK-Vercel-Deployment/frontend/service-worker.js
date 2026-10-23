@@ -1,4 +1,4 @@
-const CACHE = 'sahayak-pwa-shell-v1';
+const CACHE = 'sahayak-pwa-shell-v2';
 const SHELL = [
   '/pwa.js',
   '/',
@@ -8,6 +8,7 @@ const SHELL = [
   '/legang-ai.js',
   '/legang-ai.css',
   '/manifest.webmanifest',
+  '/assets/sahayak.png',
   '/assets/pwa-icon.svg'
 ];
 
