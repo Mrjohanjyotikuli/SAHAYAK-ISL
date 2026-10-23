@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="112" fill="#08111f"/>
+  <circle cx="256" cy="256" r="184" fill="none" stroke="#FF9933" stroke-width="16"/>
+  <path d="M153 302v-58c0-14 21-14 21 0v-66c0-14 22-14 22 0v49-70c0-15 22-15 22 0v66-49c0-15 22-15 22 0v58-34c0-15 22-15 22 0v75c0 53-28 91-68 91h-3c-32 0-53-17-66-45l-17-36c-7-15 12-27 22-14l23 33z" fill="#f4f7fb" transform="translate(8 -8) scale(1.04)"/>
+  <path d="M280 214c26-41 73-47 94-26 16 16 13 37-5 52l-27 22c-10 8-7 20 5 25l23 9c17 7 19 29 4 38-23 14-73 9-99-14" fill="none" stroke="#FF9933" stroke-linecap="round" stroke-linejoin="round" stroke-width="20"/>
+  <text x="256" y="430" font-family="Arial,sans-serif" font-size="42" font-weight="800" text-anchor="middle" fill="#f4f7fb">SAHAYAK</text>
+</svg>
